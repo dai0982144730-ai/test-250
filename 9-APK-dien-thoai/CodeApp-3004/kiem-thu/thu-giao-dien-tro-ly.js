@@ -17,6 +17,7 @@ const MOCK = `
     mainTrangThai: () => JSON.stringify({ dangNhap: mainDn, server: "http://192.168.1.10:3010", email: "dai@sci.vn", coMk3004: true }),
     mainDangNhap: (id, s, e, mk) => { log.push("mainDangNhap " + s + " " + e + " mk=" + (mk ? "co" : "trong")); mainDn = true; tra(id, 200, { loi: "" }); },
     mainThoat: () => { mainDn = false; log.push("mainThoat"); },
+    mainTuDangNhap: (id) => { log.push("mainTuDangNhap"); if (window.__tuDnHong) return tra(id, 400, { loi: "Mật khẩu SCI Công việc không dùng được cho Main" }); mainDn = true; tra(id, 200, { loi: "" }); },
     mainApi: (id, m, pDu, b) => {
       log.push("mainApi " + m + " " + pDu + " " + b);
       if (!mainDn) return tra(id, 401, "{}");
@@ -52,9 +53,12 @@ const MOCK = `
   const ck = [];
   const kq = (ten, ok, them) => ck.push((ok ? "ĐẠT  " : "HỎNG ") + ten + (them ? " — " + them : ""));
   kq("có 5 nút menu đáy, nút 5 là «Trợ lý»", (await p.$$eval("#duoi button", (x) => x.map((b) => b.textContent.trim()))).join(",") === "Việc của tôi,Phòng ban,Dự án,Phòng họp,Trợ lý");
+  await p.evaluate(() => { window.__tuDnHong = true; }); // lần đầu: cho tự đăng nhập hỏng để thử ô nhập tay dự phòng
   await p.click('#duoi button[data-t="chat"]');
   await p.waitForTimeout(200);
-  kq("mở Trợ lý khi chưa đăng nhập Main → hiện form đăng nhập", await p.isVisible("#cdn-b"));
+  kq("mở Trợ lý → app TỰ đăng nhập Main bằng tài khoản SCI Công việc (không hỏi)", (await p.evaluate(() => window.__log)).includes("mainTuDangNhap"));
+  kq("tự đăng nhập hỏng → mới hiện ô nhập tay, kèm lý do", (await p.isVisible("#cdn-b")) && (await p.textContent("#chat-than")).includes("Chưa tự vào được trợ lý Main"));
+  await p.evaluate(() => { window.__tuDnHong = false; });
   kq("địa chỉ Main gợi ý cổng 3010", (await p.inputValue("#cdn-s")) === "http://192.168.1.10:3010");
   kq("ô mật khẩu nói được để trống", (await p.getAttribute("#cdn-m", "placeholder")).includes("Để trống"));
   await p.screenshot({ path: RA + "/1-dang-nhap-main.png" });
@@ -116,21 +120,18 @@ const MOCK = `
   await p.screenshot({ path: RA + "/4b-doi-du-an.png" });
   await p.click("#chat-ds-nut"); await p.waitForTimeout(200);
   kq("«Phiên cũ» sau khi đổi gọi ?project=np", (await p.evaluate(() => window.__log)).some((l) => l.startsWith("mainApi GET /api/ai/chat/sessions?project=np")));
-  await p.click("[data-chat-thoat]"); await p.waitForTimeout(100);
-  kq("«Thoát tài khoản trợ lý Main» → về form đăng nhập, ẩn ô chọn dự án", (await p.isVisible("#cdn-b")) && !(await p.isVisible("#chat-da")));
-  await p.click("#cdn-b"); await p.waitForTimeout(300);
+  kq("nút ở «Phiên cũ» là «Đăng nhập lại trợ lý Main»", (await p.textContent("[data-chat-thoat]")).includes("Đăng nhập lại trợ lý Main"));
+  await p.click("[data-chat-thoat]"); await p.waitForTimeout(300);
+  kq("«Đăng nhập lại» → tự vào lại, không hiện ô nhập tay", !(await p.isVisible("#cdn-b")) && (await p.isVisible("#chat-da")));
   kq("đăng nhập lại → nhớ dự án lần trước theo email (Nậm Pông)", (await p.textContent("#chat-da")).includes("Thuỷ điện Nậm Pông"));
   await p.click("#chat-ds-nut"); await p.waitForTimeout(200);
-  await p.click("[data-chat-thoat]"); await p.waitForTimeout(100);
   await p.evaluate(() => { window.__loiDa = true; });
-  await p.click("#cdn-b"); await p.waitForTimeout(300);
+  await p.click("[data-chat-thoat]"); await p.waitForTimeout(300);
   kq("không tải được danh sách dự án → báo lỗi, ô gửi khoá", (await p.textContent("#chat-da")).includes("Chưa chọn được dự án") && (await p.textContent("#chat-than")).includes("Không tải được danh sách dự án") && (await p.isDisabled("#chat-o")));
   await p.screenshot({ path: RA + "/4c-loi-du-an.png" });
   await p.evaluate(() => { window.__loiDa = false; });
   await p.click('[data-da-mo="1"]'); await p.waitForTimeout(300);
   kq("bấm ô khi lỗi → tải lại được", (await p.textContent("#chat-da")).includes("Thuỷ điện Nậm Pông") && !(await p.isDisabled("#chat-o")));
-  await p.click("#chat-ds-nut"); await p.waitForTimeout(200);
-  await p.click("[data-chat-thoat]"); await p.waitForTimeout(100);
   await p.click("#chat-lui");
   // ô địa chỉ máy chủ 3004
   await p.evaluate(() => document.getElementById("man-dn").classList.add("mo"));

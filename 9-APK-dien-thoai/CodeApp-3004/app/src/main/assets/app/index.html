@@ -173,7 +173,8 @@
   .td-homnay { position: absolute; top: 30px; bottom: 0; width: 0; border-left: 2px dashed var(--do); opacity: .85; z-index: 1; pointer-events: none; }
   .td-thanh { position: absolute; top: 9px; height: 12px; border-radius: 3px; z-index: 2; } .td-cha { position: absolute; top: 10px; height: 6px; z-index: 2; }
   .td-moc { position: absolute; top: 9px; width: 12px; height: 12px; transform: rotate(45deg); z-index: 2; }
-  .td-tam { position: absolute; top: 12px; width: 10px; height: 10px; clip-path: polygon(0 0, 100% 0, 50% 100%); z-index: 2; }
+  .td-tam { position: absolute; top: 16px; height: 5px; z-index: 2; } /* tam giác chúc xuống sát hai đầu thanh nhóm — như web 3004 (Mr. Đại 01/11/2026) */
+  .td-tam.trai { clip-path: polygon(0 0, 100% 0, 0 100%); } .td-tam.phai { clip-path: polygon(0 0, 100% 0, 100% 100%); } .td-tam.xanh { background: #22c55e; }
   .td-thanh.cam, .td-cha.cam, .td-tam.cam, .td-moc.cam { background: var(--cam); } .td-thanh.den, .td-cha.den, .td-tam.den, .td-moc.den { background: #1A1A1A; }
   .td-hang.td-sel .td-t { background: var(--cam-nhat); } .td-hang.td-sel { background: var(--cam-nhat); }
   .td-vach { position: absolute; right: -10px; top: 0; bottom: 0; width: 20px; z-index: 7; touch-action: none; cursor: col-resize; } .td-vach::after { content: ""; position: absolute; left: 8px; top: 0; bottom: 0; width: 3px; border-radius: 2px; background: var(--cam); opacity: .35; }
@@ -316,6 +317,36 @@
   .ct-dn { padding: 18px 16px; } .ct-dn p { color: var(--phu); font-size: 13.5px; margin: 0 0 12px; } .ct-dn label { display: block; margin: 10px 0 4px; font-size: 13.5px; font-weight: 600; }
   .ct-dn input { width: 100%; box-sizing: border-box; padding: 11px 12px; border: 1px solid #D5D2CD; border-radius: 9px; font: inherit; font-size: 15px; background: #fff; }
   .ct-dn .nut-dn { margin-top: 16px; width: 100%; padding: 12px; border: 0; border-radius: 10px; background: var(--cam); color: #fff; font-weight: 700; font-size: 15px; } .ct-dn .nut-dn:disabled { opacity: .6; }
+  /* bảng tiến độ dự án CÓ Baseline (số của agent Tiến độ) — vẽ như web 3004 TomTatGanttTD.tsx, nền tối để nét trắng nhìn thấy (Mr. Đại 01/11/2026) */
+  #td-than.td-toi { background: #141414; color: #E7E5E4; }
+  .td-toi .td-hang { border-bottom-color: #262626; } .td-toi .td-t { background: #141414; border-right-color: #333; z-index: 4; } /* cột chữ nằm TRÊN thanh khi cuộn ngang */
+  .td-toi .td-t.c1, .td-toi .td-t.c2 { color: #F5F5F4; font-weight: 700; } .td-toi .td-t.c3, .td-toi .td-t.c4 { color: #D6D3D1; font-weight: 400; }
+  .td-toi .td-tg { color: #A8A29E; }
+  .td-toi .td-dau, .td-toi .td-dau .td-t { background: #1F1F1F; color: #D6D3D1; }
+  .td-toi .td-th { color: #A8A29E; border-left-color: #333; } .td-toi .td-gach { background: #242424; }
+  .td-toi .td-hang.td-sel, .td-toi .td-hang.td-sel .td-t { background: #2A2118; }
+  .td-toi .td-homnay { border-left: 2px solid #fbbf24; opacity: .9; }
+  .td-pct { flex: none; width: 46px; text-align: right; font-size: 12.5px; font-variant-numeric: tabular-nums; padding-right: 4px; }
+  .td-pct.xanh { color: #4ADE80; } .td-pct.vang { color: #FBBF24; } .td-pct.trang { color: #E7E5E4; }
+  .tdb-kh, .tdb-nhom { position: absolute; top: 11px; height: 8px; background: #22c55e; z-index: 2; } .tdb-kh { border-radius: 2px; }
+  .tdb-kh.gang, .tdb-moc.gang { box-shadow: 0 0 0 1px #ef4444; }
+  .tdb-th, .tdb-cho, .tdb-db { position: absolute; top: 13.5px; height: 3px; z-index: 3; }
+  .tdb-th { background: #fff; } .tdb-cho { background: #6b7280; } .tdb-th.tdb-nh, .tdb-cho.tdb-nh { opacity: .75; }
+  .tdb-db { background: repeating-linear-gradient(90deg, #fff 0 5px, transparent 5px 8px); opacity: .95; } .tdb-db.gang { background: repeating-linear-gradient(90deg, #ef4444 0 5px, transparent 5px 8px); }
+  .tdb-moc { position: absolute; top: 11px; width: 8px; height: 8px; transform: rotate(45deg); background: #22c55e; z-index: 3; box-sizing: border-box; }
+  .tdb-moc.dat { background: #fff; } .tdb-moc.db { background: none; border: 1.2px solid #fff; }
+  .tdb-cod { position: absolute; top: 30px; bottom: 0; width: 0; border-left: 1.5px solid #22c55e; opacity: .85; z-index: 1; pointer-events: none; } .tdb-cod.db { border-left: 1.5px dashed #fff; }
+  .td-chu { position: sticky; left: 0; display: flex; flex-wrap: wrap; gap: 4px 12px; padding: 8px 10px 14px; width: 100vw; box-sizing: border-box; font-size: 11.5px; color: #D6D3D1; background: #141414; }
+  .td-chu span { display: inline-flex; align-items: center; gap: 4px; } .td-chu .nguon { color: #A8A29E; flex-basis: 100%; }
+  .td-chu .cg { display: inline-block; width: 18px; height: 6px; } .td-chu .cg.kh { background: #22c55e; } .td-chu .cg.gang { background: #22c55e; box-shadow: 0 0 0 1px #ef4444; }
+  .td-chu .cg.th { height: 3px; background: #fff; } .td-chu .cg.cho { height: 3px; background: #6b7280; } .td-chu .cg.db { height: 3px; background: repeating-linear-gradient(90deg, #fff 0 5px, transparent 5px 8px); }
+  .td-chu .cg.hn { width: 2px; height: 10px; background: #fbbf24; } .td-chu .cg.cod { width: 0; height: 10px; border-left: 2px solid #22c55e; } .td-chu .cg.cod.db { border-left: 2px dashed #fff; }
+  #td-pop.toi { max-width: min(320px, calc(100% - 16px)); background: #1C1917; border-color: #44403C; color: #F5F5F4; box-shadow: 0 6px 18px rgba(0,0,0,.5); }
+  #td-pop.toi .hd { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; } #td-pop.toi .hd span:first-child { color: #A8A29E; white-space: nowrap; }
+  #td-pop.toi .hd span:last-child { text-align: right; font-variant-numeric: tabular-nums; } #td-pop.toi .gc { font-size: 11.5px; line-height: 1.35; margin-top: 2px; }
+  #td-pop.toi .ch { margin-top: 6px; padding-top: 6px; border-top: 1px solid #44403C; text-align: right; }
+  /* nhóm «Việc nằm trên đường găng» đứng đầu tab Dự án — Mr. Đại chốt 01/11/2026 (đỏ = găng, luật màu) */
+  .nhom2.nhom-gang { color: var(--do); } .nhom2 .gang { color: var(--do); font-weight: 800; margin-right: 2px; }
   /* ô chọn dự án ở đầu khung Trợ lý — Mr. Đại duyệt demo «demo-apk-tro-ly-chon-du-an.html» 01/11/2026 (kiểm độc lập AP-01) */
   .chon-da { flex: none; position: relative; padding: 8px 10px; background: var(--the); border-bottom: 1px solid var(--vien); }
   .chon-da .nhan { font-size: 12px; color: var(--phu); margin-bottom: 3px; }
@@ -398,7 +429,7 @@
     <form id="dn-f">
       <label for="dn-e">Email</label><input id="dn-e" type="email" autocomplete="username" required>
       <label for="dn-m">Mật khẩu</label><input id="dn-m" type="password" autocomplete="current-password" required>
-      <label for="dn-s">Địa chỉ máy chủ</label><input id="dn-s" type="url" spellcheck="false" autocapitalize="off" placeholder="http://192.168.1.10:3004">
+      <label for="dn-s">Địa chỉ máy chủ</label><input id="dn-s" type="url" spellcheck="false" autocapitalize="off" placeholder="Gõ địa chỉ, ví dụ http://192.168.1.10:3004">
       <button id="dn-b" type="submit">Đăng nhập</button>
       <div id="dn-loi"></div>
     </form>

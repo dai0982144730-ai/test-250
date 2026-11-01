@@ -204,11 +204,21 @@ class Cau(private val a: Activity, private val web: WebView) {
     // ---- Trợ lý AI của Main (cổng 3010) — chỉ bản 3004. Kết quả về qua window.__cb(id, mã, chuỗi); mã 401 = cần đăng nhập Main ----
     @JavascriptInterface
     fun mainTrangThai(): String = JSONObject()
-        .put("dangNhap", Cfg.cookieMain(a).isNotEmpty() && Cfg.serverMain(a).isNotEmpty())
-        .put("server", Cfg.serverMain(a).ifEmpty { TroLyMain.diaChiGoiY(a) })
+        // phiên «Main» lưu ở chính địa chỉ 3004 (bản 3004-0.1.0 cho gõ nhầm) coi như CHƯA đăng nhập → app tự đăng nhập lại đúng cổng Main
+        .put("dangNhap", Cfg.cookieMain(a).isNotEmpty() && Cfg.serverMain(a).isNotEmpty() && !TroLyMain.cungDiaChi(Cfg.serverMain(a), Cfg.server(a)))
+        .put("server", TroLyMain.diaChiNen(a))
         .put("email", Cfg.emailMain(a).ifEmpty { Cfg.email(a) })
         .put("coMk3004", Cfg.mk(a) != null)
         .toString()
+
+    /** Đăng nhập MỘT lần: dùng chính tài khoản + mật khẩu SCI Công việc để vào Main (Mr. Đại chốt 01/11/2026 — mỗi người một tài khoản cho mọi agent). */
+    @JavascriptInterface
+    fun mainTuDangNhap(id: Int) {
+        Thread {
+            val loi = TroLyMain.tuDangNhap(a)
+            tra(id, if (loi == null) 200 else 400, JSONObject().put("loi", loi ?: "").toString())
+        }.start()
+    }
 
     @JavascriptInterface
     fun mainDangNhap(id: Int, server: String, email: String, mk: String) {

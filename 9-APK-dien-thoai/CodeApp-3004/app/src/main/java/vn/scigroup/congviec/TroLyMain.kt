@@ -25,7 +25,8 @@ object TroLyMain {
      */
     fun diaChiGoiY(c: Context): String {
         val sv = Cfg.server(c).trim().trimEnd('/')
-        val m = Regex("^http://([^/:]+)(:\\d+)?$").find(sv) ?: return ""
+        // không phân biệt hoa thường: bàn phím điện thoại hay tự viết hoa chữ đầu («Http://…»)
+        val m = Regex("^http://([^/:]+)(:\\d+)?$", RegexOption.IGNORE_CASE).find(sv) ?: return ""
         val host = m.groupValues[1].lowercase()
         val noiBo = host == "localhost" || host.endsWith(".local") ||
             Regex("^(127\\.|10\\.|192\\.168\\.|172\\.(1[6-9]|2\\d|3[01])\\.)").containsMatchIn(host)
@@ -37,6 +38,26 @@ object TroLyMain {
     fun duongDuocGoi(method: String, path: String): Boolean =
         (method == "GET" || method == "POST") && !path.contains("..") && DUONG_DUOC_GOI.matches(path)
 
+    /** Địa chỉ Main nên dùng: đã lưu (nếu không phải chính địa chỉ 3004 gõ nhầm), không thì gợi ý cùng máy cổng 3010. */
+    fun diaChiNen(c: Context): String {
+        val luu = Cfg.serverMain(c)
+        return if (luu.isNotEmpty() && !cungDiaChi(luu, Cfg.server(c))) luu else diaChiGoiY(c)
+    }
+
+    /** Đăng nhập một lần: tài khoản + mật khẩu SCI Công việc đã nhớ → Main. null = được; còn lại là câu báo lỗi để hiện ô nhập tay. */
+    fun tuDangNhap(c: Context): String? {
+        val sv = diaChiNen(c)
+        if (sv.isEmpty()) return "Chưa biết địa chỉ Main (SCI Công việc không chạy trong mạng nội bộ) — nhập địa chỉ Main ở ô dưới"
+        if (Cfg.mk(c) == null) return "Chưa có mật khẩu SCI Công việc đã nhớ — nhập mật khẩu ở ô dưới"
+        return dangNhap(c, sv, Cfg.email(c), "")
+    }
+
+    /** Hai địa chỉ trỏ cùng một máy + cùng cổng (cổng mặc định http 80 / https 443). */
+    fun cungDiaChi(a: String, b: String): Boolean = try {
+        val x = URL(a.trim()); val y = URL(b.trim())
+        x.host.equals(y.host, true) && (if (x.port < 0) x.defaultPort else x.port) == (if (y.port < 0) y.defaultPort else y.port)
+    } catch (_: Exception) { false }
+
     private fun docLoi(txt: String, ma: Int): String {
         val j = try { JSONObject(txt) } catch (_: Exception) { null }
         return j?.optString("message").orEmpty().ifEmpty { j?.optString("loi").orEmpty() }.ifEmpty { "Main trả lỗi $ma" }
@@ -45,7 +66,10 @@ object TroLyMain {
     /** null = đăng nhập được; ngược lại là câu báo lỗi. mk rỗng = thử mật khẩu SCI Công việc đã nhớ (nhiều người dùng chung một mật khẩu). */
     fun dangNhap(c: Context, server: String, email: String, mkNhap: String): String? {
         val goc = server.trim().trimEnd('/')
-        if (!Regex("^https?://[^/\\s]+$").matches(goc)) return "Địa chỉ Main phải dạng http://… hoặc https://…"
+        if (!Regex("^https?://[^/\\s]+$", RegexOption.IGNORE_CASE).matches(goc)) return "Địa chỉ Main phải dạng http://… hoặc https://…"
+        // Gõ nhầm địa chỉ SCI Công việc 3004 vào ô Main: 3004 cũng có cửa đăng nhập nên sẽ «đăng nhập được» rồi hỏi nhầm máy (anh Đại gặp 01/11/2026)
+        if (cungDiaChi(goc, Cfg.server(c))) return "Đây là địa chỉ SCI Công việc 3004, không phải Main. Trợ lý Main chạy ở cổng khác, thường là 3010" +
+            diaChiGoiY(c).let { if (it.isEmpty()) "" else " — thử $it" }
         // Mật khẩu 3004 đã nhớ CHỈ gửi sang Main nằm cùng máy với 3004 — không gửi tới địa chỉ lạ người gõ nhầm
         val cungMay = try { URL(goc).host == URL(Cfg.server(c)).host } catch (_: Exception) { false }
         val mk = mkNhap.ifEmpty { if (cungMay) Cfg.mk(c) ?: "" else "" }
