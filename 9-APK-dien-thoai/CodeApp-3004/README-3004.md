@@ -7,7 +7,7 @@
 | Phần | App live (`CodeApp`) | App 3004 (`CodeApp-3004`) |
 |---|---|---|
 | Tên gói / tên app | `vn.scigroup.congviec` · «SCI Công việc» | `vn.scigroup.congviec3004` · «SCI Công việc 3004» → **cài song song**, không đè |
-| Phiên bản | 0.1.32 (bản 33) | 3004-0.1.0 (bản 1) |
+| Phiên bản | 0.1.33 (bản 34) | 3004-0.1.5 (bản 6) |
 | Địa chỉ máy chủ | mặc định `https://congviec.scigroup.vn` | để trống, gợi ý `http://192.168.1.10:3004` |
 | Cảnh báo `http://` | lỗi: hiện chữ «/^http:/» khi gõ | không cảnh báo IP nội bộ; gõ `localhost` → nhắc dùng IP Wi-Fi |
 | Menu đáy | 4 mục | 5 mục, thêm **Trợ lý** |
@@ -35,7 +35,7 @@
 | Biên dịch Kotlin cả 10 tệp (kotlinc 2.0.21 + thư viện Android 14, `R` giả) | 0 lỗi · bản gốc cũng 0 lỗi (đối chứng) |
 | `node --check app.js` | đạt |
 | Ghép lại `index.html` từ bản gốc trước khi sửa | khớp từng byte → ghép bản mới đáng tin |
-| Chạy giao diện trong Chromium, cầu nối Android giả theo đúng khuôn API Main | 25/25 bước đạt (đăng nhập Main, gửi câu, bảng, chip, ✅ Làm, phiên cũ, Back, thoát, ô địa chỉ, không chèn được `<script>`) |
+| Chạy giao diện trong Chromium, cầu nối Android giả theo đúng khuôn API Main | 25/25 bước đạt lúc đó (nay 44/44, xem cuối tệp) (đăng nhập Main, gửi câu, bảng, chip, ✅ Làm, phiên cũ, Back, thoát, ô địa chỉ, không chèn được `<script>`) |
 | Chưa kiểm | build APK thật, ký, máy Xiaomi, máy chủ 3004/Main thật |
 
 ## Sửa sau kiểm độc lập 01/11/2026 (`../kiem-tra-doc-lap/01-11-app-3004-tro-ly-main.KET-QUA.md`)
@@ -52,7 +52,21 @@
 
 - **Bỏ qua `uiActions` của Main** (mở tab, chuyển màn, đổi dự án trên giao diện web). Câu trả lời có thể viết «đã mở tab Gantt» nhưng app không mở gì — muốn xem thì mở web Main.
 - Chưa có: xuất tệp, kẹp tệp 📎, tìm web 🌐, chọn model, nút «Duyệt & tạo file».
-- Bài thử giao diện `kiem-thu/thu-giao-dien-tro-ly.js` sau khi sửa: **39/39 bước đạt** (máy chủ của anh, Chromium 1234, cầu nối giả). Kotlin chưa biên dịch lại sau lần sửa này.
+- Bài thử giao diện `kiem-thu/thu-giao-dien-tro-ly.js`: **44/44 bước đạt** (01/11/2026, sau lần sửa kiểm độc lập lần 2; Chromium 1234, cầu nối giả). Kotlin dựng bằng `gradle assembleRelease` trên máy anh.
+
+## Đăng nhập MỘT lần (Mr. Đại chốt 01/11/2026 — «mỗi người chỉ có 1 tài khoản vào mọi agent»)
+
+| | |
+|---|---|
+| Cách làm | Mở Trợ lý lần đầu → app tự đăng nhập Main bằng email + mật khẩu SCI Công việc đã nhớ (`mainTuDangNhap` → `TroLyMain.tuDangNhap`). Hỏng mới hiện ô nhập tay, kèm lý do |
+| Mật khẩu chỉ gửi khi | Main **cùng máy** (cùng tên máy, cùng IP sau phân giải, hoặc cả hai là máy này) **và cùng giao thức** với 3004 (`cungMayChu`, AQ-03) |
+| Chặn gõ nhầm | Ô Main trỏ đúng địa chỉ 3004 (kể cả `localhost`↔`127.0.0.1`, tên máy↔IP) → báo «Đây là địa chỉ SCI Công việc 3004…» (`cungDiaChi`, AQ-02) |
+| Thoát / đổi người | «Đăng nhập lại trợ lý Main» và Đăng xuất quên cả địa chỉ + email + mật khẩu Main (`Cfg.quenMain`); đăng nhập 3004 bằng email khác cũng quên phiên Main cũ (AQ-04) |
+| Cảnh báo | Ô Main gõ `http://` ra Internet → «⚠ … không mã hoá» |
+
+## Sửa sau kiểm độc lập lần 2
+
+Bảng chi tiết: `../kiem-tra-doc-lap/01-11-lan-2-app-3004-0.1.1-den-0.1.4.SOAT-LAI.md`.
 
 ## Việc của phiên trên máy chủ của anh
 

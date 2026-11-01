@@ -104,7 +104,7 @@ const html = `<!doctype html>
   .tron { flex: none; width: 24px; height: 24px; margin-right: 14px; border: 2px solid #57534E; border-radius: 50%; background: #fff; padding: 0; display: inline-block; } .chon-nguoi .tron { margin-right: 0; }
   .tron.dang { border-color: var(--cam); background: radial-gradient(circle, var(--cam) 0 45%, #fff 50%); }
   .chon-nut { display: flex; align-items: center; justify-content: space-between; width: 100%; padding: 11px 12px; border: 1px solid #D5D2CD; border-radius: 9px; background: #fff; font: inherit; text-align: left; color: var(--phu); } .chon-nut.co { color: var(--muc); font-weight: 600; } .chon-nut span { color: var(--phu); font-size: 18px; }
-  .phan-cong .chon-nut { margin: 6px 0; }
+  .phan-cong .chon-nut { margin: 6px 0; } .chon-nut:disabled { opacity: .5; font-weight: 400; }
   .phan-cong select { width: 100%; margin: 6px 0; padding: 10px 11px; border: 1px solid #D5D2CD; border-radius: 9px; background: #fff; font: inherit; }
   .dvcon { display: flex; justify-content: space-between; width: calc(100% - 20px); margin: 0 10px 6px; padding: 11px 12px; border: 1px solid var(--vien); border-radius: 12px; background: var(--the); text-align: left; }
   .dvcon .n { color: var(--phu); font-size: 13px; }

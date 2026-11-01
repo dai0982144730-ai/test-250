@@ -179,8 +179,11 @@ class Cau(private val a: Activity, private val web: WebView) {
     @JavascriptInterface
     fun dangNhap(id: Int, server: String, email: String, mk: String) {
         Thread {
+            val emailCu = Cfg.email(a)
             val loi = Api.dangNhap(a, server, email, mk)
             if (loi == null) {
+                // AQ-04: đổi sang tài khoản khác mà không Đăng xuất → bỏ phiên + mật khẩu trợ lý Main của người cũ
+                if (!emailCu.equals(email.trim(), ignoreCase = true)) Cfg.quenMain(a)
                 NhipService.bat(a)
                 Bao.datCuuHo(a)
                 Thread { Nhip.chay(a) }.start()

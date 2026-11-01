@@ -24,6 +24,7 @@ const MOCK = `
       const p = pDu.replace(/[?&]project=[^&]*/, "").replace(/\\?$/, ""); // so khớp đường không kèm ?project=
       if (p === "/api/projects") return window.__loiDa ? tra(id, 0, { loi: "Không kết nối được Main" }) : tra(id, 200, { projects: [{ id: "hv", name: "Điện gió Hướng Việt" }, { id: "np", name: "Thuỷ điện Nậm Pông" }, { id: "nt", name: "Điện mặt trời Ninh Thuận" }], current: "hv" });
       if (p === "/api/ai/chat/xac-nhan" && window.__matMang) return tra(id, 0, { loi: "Không kết nối được Main" });
+      if (p === "/api/ai/chat/xac-nhan" && window.__ma524) return tra(id, 524, { message: "Cổng hầm hết giờ chờ" });
       if (p === "/api/ai/chat/sessions") return tra(id, 200, { ok: true, sessions: [{ id: "abc123", title: "dự án hướng việt bị chậm", projectId: "default", createdBy: "dai@sci.vn", createdAt: "2026-11-01T16:00:00Z", updatedAt: "2026-11-01T16:39:00Z", messageCount: 4 }] });
       if (p.startsWith("/api/ai/chat/messages")) return tra(id, 200, { ok: true, choDuyet: [], session: { id: "abc123", title: "dự án hướng việt bị chậm", messages: [
         { id: "1", role: "user", content: "Hướng việt có bao nhiêu isue?", at: "2026-11-01T16:39:00Z" },
@@ -61,6 +62,10 @@ const MOCK = `
   await p.evaluate(() => { window.__tuDnHong = false; });
   kq("địa chỉ Main gợi ý cổng 3010", (await p.inputValue("#cdn-s")) === "http://192.168.1.10:3010");
   kq("ô mật khẩu nói được để trống", (await p.getAttribute("#cdn-m", "placeholder")).includes("Để trống"));
+  await p.fill("#cdn-s", "http://congviec.scigroup.vn:3010");
+  kq("ô Main gõ http:// ra Internet → cảnh báo không mã hoá (AQ-03)", (await p.textContent("#cdn-canh")).includes("không mã hoá"));
+  await p.fill("#cdn-s", "http://192.168.1.10:3010");
+  kq("ô Main IP nội bộ → không cảnh báo", (await p.textContent("#cdn-canh")) === "");
   await p.screenshot({ path: RA + "/1-dang-nhap-main.png" });
   await p.click("#cdn-b");
   await p.waitForTimeout(300);
@@ -93,6 +98,11 @@ const MOCK = `
   await p.waitForTimeout(300);
   kq("✅ Làm gặp mất mạng → GIỮ thẻ chờ duyệt + báo «chưa rõ lệnh đã chạy» (AP-02)", (await p.$$('[data-cho^="lam|"]')).length === 1 && (await p.textContent("#chat-than")).includes("Chưa rõ lệnh đã chạy hay chưa"));
   await p.evaluate(() => { window.__matMang = false; });
+  await p.evaluate(() => { window.__ma524 = true; });
+  await p.click('[data-cho^="lam|"]');
+  await p.waitForTimeout(300);
+  kq("✅ Làm gặp mã 524 (hầm cắt) → vẫn GIỮ thẻ + «chưa rõ» (AQ-01)", (await p.$$('[data-cho^="lam|"]')).length === 1 && (await p.textContent("#chat-than")).includes("Chưa rõ lệnh đã chạy hay chưa"));
+  await p.evaluate(() => { window.__ma524 = false; });
   await p.click('[data-cho^="lam|"]');
   await p.waitForTimeout(300);
   kq("bấm ✅ Làm → câu xác nhận hiện, nút chờ biến mất", (await p.textContent("#chat-than")).includes("Đã giao việc «Kiểm tra móng T12»") && (await p.$$("[data-cho]")).length === 0);

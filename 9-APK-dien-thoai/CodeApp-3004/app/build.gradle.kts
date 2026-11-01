@@ -19,8 +19,8 @@ android {
         applicationId = "vn.scigroup.congviec3004" // bản 3004: tên gói riêng → cài SONG SONG với app live (duyệt 01/11/2026, câu 3A)
         minSdk = 26
         targetSdk = 34
-        versionCode = 5
-        versionName = "3004-0.1.4" // gốc: CodeApp 0.1.32
+        versionCode = 6
+        versionName = "3004-0.1.5" // gốc: CodeApp 0.1.32
     }
     signingConfigs {
         create("sci") {

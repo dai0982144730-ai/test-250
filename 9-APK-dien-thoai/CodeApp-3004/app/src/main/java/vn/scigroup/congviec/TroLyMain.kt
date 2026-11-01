@@ -52,10 +52,18 @@ object TroLyMain {
         return dangNhap(c, sv, Cfg.email(c), "")
     }
 
-    /** Hai địa chỉ trỏ cùng một máy + cùng cổng (cổng mặc định http 80 / https 443). */
-    fun cungDiaChi(a: String, b: String): Boolean = try {
+    /** Hai tên máy chỉ cùng một máy: giống chữ, cả hai là máy này (localhost / 127.x / ::1), hoặc (phân giải=true, chỉ gọi ở luồng nền) cùng địa chỉ IP. */
+    private val NOI_TAI = Regex("^(localhost|127\\.\\d+\\.\\d+\\.\\d+|\\[?::1]?)$", RegexOption.IGNORE_CASE)
+    private fun cungMayChu(h1: String, h2: String, phanGiai: Boolean): Boolean {
+        if (h1.equals(h2, true)) return true
+        if (NOI_TAI.matches(h1) && NOI_TAI.matches(h2)) return true
+        if (!phanGiai) return false
+        return try { java.net.InetAddress.getAllByName(h1).map { it.hostAddress }.toSet().intersect(java.net.InetAddress.getAllByName(h2).map { it.hostAddress }.toSet()).isNotEmpty() } catch (_: Exception) { false }
+    }
+    /** Hai địa chỉ trỏ cùng một máy + cùng cổng (cổng mặc định http 80 / https 443). Kiểm độc lập AQ-02: không chỉ so chuỗi tên máy. */
+    fun cungDiaChi(a: String, b: String, phanGiai: Boolean = false): Boolean = try {
         val x = URL(a.trim()); val y = URL(b.trim())
-        x.host.equals(y.host, true) && (if (x.port < 0) x.defaultPort else x.port) == (if (y.port < 0) y.defaultPort else y.port)
+        (if (x.port < 0) x.defaultPort else x.port) == (if (y.port < 0) y.defaultPort else y.port) && cungMayChu(x.host, y.host, phanGiai)
     } catch (_: Exception) { false }
 
     private fun docLoi(txt: String, ma: Int): String {
@@ -68,10 +76,14 @@ object TroLyMain {
         val goc = server.trim().trimEnd('/')
         if (!Regex("^https?://[^/\\s]+$", RegexOption.IGNORE_CASE).matches(goc)) return "Địa chỉ Main phải dạng http://… hoặc https://…"
         // Gõ nhầm địa chỉ SCI Công việc 3004 vào ô Main: 3004 cũng có cửa đăng nhập nên sẽ «đăng nhập được» rồi hỏi nhầm máy (anh Đại gặp 01/11/2026)
-        if (cungDiaChi(goc, Cfg.server(c))) return "Đây là địa chỉ SCI Công việc 3004, không phải Main. Trợ lý Main chạy ở cổng khác, thường là 3010" +
+        if (cungDiaChi(goc, Cfg.server(c), phanGiai = true)) return "Đây là địa chỉ SCI Công việc 3004, không phải Main. Trợ lý Main chạy ở cổng khác, thường là 3010" +
             diaChiGoiY(c).let { if (it.isEmpty()) "" else " — thử $it" }
-        // Mật khẩu 3004 đã nhớ CHỈ gửi sang Main nằm cùng máy với 3004 — không gửi tới địa chỉ lạ người gõ nhầm
-        val cungMay = try { URL(goc).host == URL(Cfg.server(c)).host } catch (_: Exception) { false }
+        // Mật khẩu 3004 đã nhớ CHỈ gửi sang Main nằm cùng máy VÀ cùng giao thức với 3004 (kiểm độc lập AQ-03: 3004 https mà Main gõ http
+        // cùng tên miền thì mật khẩu đi không mã hoá) — không gửi tới địa chỉ lạ người gõ nhầm
+        val cungMay = try {
+            val m = URL(goc); val s = URL(Cfg.server(c))
+            m.protocol.equals(s.protocol, true) && cungMayChu(m.host, s.host, true)
+        } catch (_: Exception) { false }
         val mk = mkNhap.ifEmpty { if (cungMay) Cfg.mk(c) ?: "" else "" }
         if (email.isBlank()) return "Nhập email"
         if (mk.isEmpty()) return if (mkNhap.isEmpty() && !cungMay) "Main khác máy với SCI Công việc — nhập mật khẩu tài khoản Main" else "Nhập mật khẩu tài khoản Main"

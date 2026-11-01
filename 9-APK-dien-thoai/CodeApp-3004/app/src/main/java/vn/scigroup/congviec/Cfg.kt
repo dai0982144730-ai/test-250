@@ -67,7 +67,8 @@ object Cfg {
     /** Hết phiên Main: bỏ cookie, nhớ địa chỉ + email để đăng nhập lại nhanh */
     fun xoaPhienMain(c: Context) { p(c).edit().remove("main_cookie").apply() }
     /** Bấm «Thoát trợ lý Main» hoặc Đăng xuất app: quên cả mật khẩu Main */
-    fun quenMain(c: Context) { p(c).edit().remove("main_cookie").remove("main_mk").apply() }
+    // Kiểm độc lập AQ-02 (01/11/2026): quên cả ĐỊA CHỈ + email Main — nếu không, «Đăng nhập lại trợ lý Main» tự vào lại đúng địa chỉ sai đã lưu
+    fun quenMain(c: Context) { p(c).edit().remove("main_cookie").remove("main_mk").remove("main_server").remove("main_email").apply() }
 
     /** Hết phiên / đăng xuất: bỏ cookie nhưng nhớ địa chỉ máy chủ + email để đăng nhập lại cho nhanh (mật khẩu nhớ thì giữ, trừ khi bấm Đăng xuất) */
     fun xoaPhien(c: Context) {

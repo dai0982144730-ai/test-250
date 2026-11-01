@@ -855,6 +855,13 @@
       const gd = CACHE.soDoRaw && CACHE.soDoRaw.giao_duoc, trongDonViMinh = gd !== undefined && gd !== "tat_ca" && ((CACHE.me && CACHE.me.don_vi_ids) || []).includes(c.id);
       ra.push({ id: c.id, ten: u.ten, thut: c.thut || 0, radio: trongDonViMinh ? null : "don_vi:" + c.id, nguoi: ng });
     });
+    // AL-02: nhóm ẢO của máy chủ (mã bắt đầu «@», vd «@ho-tro-bld» = Hỗ trợ Ban lãnh đạo, quản trị chọn ở Cài đặt) không có trên cây → thành
+    // một nhóm riêng, không rơi vào «Khác»
+    ((CACHE.soDoRaw && CACHE.soDoRaw.giao_nguoi) || []).filter((g) => /^@/.test(String(g.don_vi_id || ""))).forEach((g) => {
+      const ngA = (g.nguoi || []).map((n) => ({ v: "nguoi:" + n.id, ten: n.ten })).filter((x) => !dung.has(x.v));
+      ngA.forEach((x) => dung.add(x.v));
+      if (ngA.length) ra.push({ id: g.don_vi_id, ten: g.ten, thut: 0, radio: null, nguoi: ngA });
+    });
     // «Khác» chỉ còn người không thuộc phòng nào trên cây; người ở ô chức danh Ban lãnh đạo đã có trong nhóm «Ban lãnh đạo» thì không lặp lại
     const oLd = new Set(nh.lanh_dao || []);
     const khac = d.nguoi.filter((n) => caNhan.has(n.id) && !dung.has("nguoi:" + n.id) && !(n.don_vi_ids || []).some((x) => oLd.has(x))).map((n) => ({ v: "nguoi:" + n.id, ten: n.ten }));
@@ -937,6 +944,33 @@
     }
     return "";
   }
+  // Kiểm độc lập lần 2 (01/11/2026) — AG-02: bỏ «ô đối ứng» của chủ trì hiện tại (chủ trì là người X → ô chức danh của X; chủ trì là ô chức
+  // danh L → người giữ L), nếu không chọn lại «chính mình» thì máy chủ coi là ĐỔI (ghi lịch sử «X → X», báo «chuyển cho bạn»).
+  function doiUngChuTri(ctCu) {
+    const ra = new Set([ctCu]);
+    const [loai, ...r] = String(ctCu || "").split(":"), id = r.join(":");
+    const ng = (CACHE.soDoRaw && CACHE.soDoRaw.nguoi) || [];
+    const ld = new Set((((CACHE.soDoRaw && CACHE.soDoRaw.lanh_dao) || []).map((l) => l.id)).concat((CACHE.noiNhan && CACHE.noiNhan.nhom && CACHE.noiNhan.nhom.lanh_dao) || []));
+    const oCua = (n) => (n.don_vi_ids && n.don_vi_ids.length ? n.don_vi_ids : [n.don_vi_id]);
+    if (loai === "nguoi") { const n = ng.find((x) => x.id === id); if (n) oCua(n).filter((u) => ld.has(u)).forEach((u) => ra.add("don_vi:" + u)); }
+    else if (loai === "don_vi" && ld.has(id)) ng.filter((x) => oCua(x).includes(id)).forEach((x) => ra.add("nguoi:" + x.id));
+    return ra;
+  }
+  // AG-03: chỉ đưa người máy chủ CHỊU NHẬN (web dùng /api/cong-viec/nhan-chuyen-tiep) — trước app liệt kê thêm 7 lãnh đạo kiêm nhiệm ở các
+  // phòng, chọn rồi bấm Lưu mới bị 403. Máy chủ không có cổng này (bản live) thì để null = không lọc (live lấy người từ giao_nguoi = đã theo quyền).
+  async function taiNhanCT() {
+    if (CACHE.nhanCT !== undefined) return;
+    const r = await api("GET", "/api/cong-viec/nhan-chuyen-tiep");
+    CACHE.nhanCT = r.ma === 200 && r.j && Array.isArray(r.j.nhom) ? new Set(r.j.nhom.flatMap((g) => (g.nguoi || []).map((n) => n.id))) : null;
+  }
+  /** Danh sách đổi chủ trì = «Giao cho» trừ ô đối ứng của chủ trì hiện tại, trừ người máy chủ không nhận */
+  function nhomChuTri(sv) {
+    const bo = doiUngChuTri(sv.ctCu), nhan = CACHE.nhanCT;
+    return nhomGiaoMoi().map((gr) => Object.assign({}, gr, {
+      radio: bo.has(gr.radio) ? null : gr.radio,
+      nguoi: gr.nguoi.filter((n) => !bo.has(n.v) && (!nhan || !/^nguoi:/.test(n.v) || nhan.has(n.v.slice(6)))),
+    })).filter((gr) => gr.radio || gr.nguoi.length);
+  }
   async function taiNoiNhan() {
     if (CACHE.noiNhan) return true;
     let r = await api("GET", "/api/phong/noi-nhan");
@@ -949,7 +983,7 @@
     if (kieu === "giao") CHON = { kieu, nhom: nhomGiaoMoi, mo: new Set(), q: "", sel: GV && GV.nhan, tieu: "Giao cho…" };
     else if (kieu === "ct") { // ✏ đổi chủ trì = giao việc lại → đúng danh sách + phạm vi «Giao cho» (chốt 10/10, Mr. Đại 01/11/2026)
       const sv = pv;
-      CHON = { kieu, nhom: () => nhomGiaoMoi().map((gr) => Object.assign({}, gr, { radio: gr.radio === sv.ctCu ? null : gr.radio, nguoi: gr.nguoi.filter((n) => n.v !== sv.ctCu) })).filter((gr) => gr.radio || gr.nguoi.length), mo: new Set(), q: "", sel: sv.ct !== sv.ctCu ? sv.ct : "", tieu: "Đổi chủ trì…" };
+      CHON = { kieu, nhom: () => nhomChuTri(sv), mo: new Set(), q: "", sel: sv.ct !== sv.ctCu ? sv.ct : "", tieu: "Đổi chủ trì…" };
     } else if (kieu === "sph" || kieu === "ph") { // ✏ thêm phối hợp (chip, gửi khi Lưu) · nút «+ Phối hợp» (thêm ngay)
       const daCo = pv;
       CHON = { kieu, nhom: () => nhomPhoiHop(daCo), mo: new Set(), q: "", sel: "", tieu: kieu === "sph" ? "Thêm phối hợp…" : "Phối hợp với…" };
@@ -1223,10 +1257,10 @@
       if (k === "tai-lai") { taiCT(tt.mo); return; }
       tt.thao = k === tt.thao ? "" : k; H.lyDo = ""; H.han = ""; H.pv = ""; H.sTen = undefined; H.sKq = undefined; H.sHan = ""; H.sBd = undefined; H.sCt = undefined; H.sCtTen = undefined; H.sPh = undefined; ve();
       if (tt.thao === "phoi-hop") moPhoiHop();
-      if (tt.thao === "sua-viec") { moPhoiHop(); taiNoiNhan(); } // ✏ nạp sẵn danh sách «Giao cho» (chủ trì) + nơi phối hợp
+      if (tt.thao === "sua-viec") { moPhoiHop(); if (coQuyenGiao()) Promise.all([taiNoiNhan(), soDoThoTaiDay(), taiNhanCT()]).then(() => tt.thao === "sua-viec" && ve()); } // ✏ nạp sẵn danh sách chủ trì (chỉ khi có quyền giao — AG-01) + nơi phối hợp
     }
     else if (t.dataset.boph !== undefined) { if (H.sPh) { H.sPh.splice(Number(t.dataset.boph), 1); ve(); } } // ✏ bỏ một chip phối hợp
-    else if (t.dataset.chonct) { const c_ = duocCT(tt.mo), v = c_ && c_.viec; if (v) taiNoiNhan().then((ok) => ok && moChon("ct", suaViecTrangThai(v))); } // ✏ đổi chủ trì
+    else if (t.dataset.chonct) { const c_ = duocCT(tt.mo), v = c_ && c_.viec; if (v) Promise.all([taiNoiNhan(), soDoThoTaiDay(), taiNhanCT()]).then(([ok]) => ok && moChon("ct", suaViecTrangThai(v))); } // ✏ đổi chủ trì
     else if (t.dataset.chonph) { // ✏ thêm phối hợp · nút «+ Phối hợp»
       const c_ = duocCT(tt.mo), v = c_ && c_.viec;
       if (v && CACHE.noiPh) {
@@ -1453,7 +1487,10 @@
       // Chủ trì + Phối hợp: CÙNG bảng chọn «Giao cho» (trượt lên, BLĐ chỉ ghi tên, nút tròn = cả đơn vị, bấm tên phòng = bung từng người,
       // chọn là đóng) — Mr. Đại 01/11/2026. Chủ trì lấy phạm vi «Giao cho» (đổi chủ trì = giao việc lại); phối hợp lấy danh sách phối hợp.
       const tenCt = sv.ct === sv.ctCu ? tenRut(sv.ctCuTen) + " (đang chủ trì)" : (H.sCtTen || sv.ct) + " (mới — bấm Lưu để đổi)";
-      const oCt = sv.ctCu ? nh + 'Chủ trì</span><button class="chon-nut co" data-chonct="1" style="flex-basis:100%">' + esc(tenCt) + "<span>›</span></button>" : "";
+      // AL-01 (kiểm độc lập 01/11/2026): bản live theo luật 17 chung — nút bị chặn thì MỜ, ghi rõ vì sao (bản 3004 thì ẩn hẳn)
+      const coGiao = coQuyenGiao(), rongCt = coGiao && CACHE.noiNhan && CACHE.nhanCT !== undefined && CACHE.soDoRaw && !nhomChuTri(sv).length;
+      const lyDoCt = !coGiao ? " — bạn không có quyền giao việc" : rongCt ? " — không có ai khác để chọn" : "";
+      const oCt = !sv.ctCu ? "" : nh + 'Chủ trì</span><button class="chon-nut co" data-chonct="1" style="flex-basis:100%"' + (lyDoCt ? " disabled" : "") + ">" + esc(tenCt) + lyDoCt + "<span>›</span></button>";
       const chips = sv.ph.map((x, i) => '<span class="tep-da-kep">' + esc(tenRut(x.ten)) + ' <button class="bo-tep" data-boph="' + i + '" aria-label="Bỏ phối hợp">✕</button></span>').join("");
       const oPh = nh + 'Phối hợp</span><div class="chon-tep" style="flex-basis:100%">' + chips + '<button class="chon-nut" data-chonph="sua" style="flex:1;min-width:140px">' + (CACHE.noiPh ? "＋ thêm phối hợp…" : "Đang tải danh sách…") + "<span>›</span></button></div>";
       return '<div class="form-nho">' + nh + 'Tên việc</span><input type="text" data-h="sTen" style="flex-basis:100%" value="' + esc(H.sTen !== undefined ? H.sTen : v.ten) + '">'
