@@ -847,12 +847,17 @@
       const u = dv.get(c.id);
       if (!u || trongCongTyNgoai(c.id)) return;
       const goc = ((CACHE.soDoRaw && CACHE.soDoRaw.giao_nguoi) || []).find((x) => x.don_vi_id === c.id); // ưu tiên ghép theo MÃ đơn vị, không theo tên
-      const ng = goc ? (goc.nguoi || []).map((n) => ({ v: "nguoi:" + n.id, ten: n.ten })) : d.nguoi.filter((n) => caNhan.has(n.id) && n.dv === u.ten).map((n) => ({ v: "nguoi:" + n.id, ten: n.ten }));
+      // ghép người vào phòng theo MÃ đơn vị (don_vi_ids) — ghép theo tên hỏng khi máy chủ ghi dv là TÊN NGẮN («BQLDA QT») còn u.ten là tên đầy đủ
+      // («BQLDA Quảng Trị»): bản 3004 44/59 người rơi vào nhóm «Khác» (Mr. Đại bắt 01/11/2026). Không có don_vi_ids thì so cả tên đầy đủ lẫn tên ngắn.
+      const thuoc = (n) => (Array.isArray(n.don_vi_ids) && n.don_vi_ids.length ? n.don_vi_ids.includes(c.id) : n.dv === u.ten || n.dv === u.ten_ngan);
+      const ng = goc ? (goc.nguoi || []).map((n) => ({ v: "nguoi:" + n.id, ten: n.ten })) : d.nguoi.filter((n) => caNhan.has(n.id) && thuoc(n)).map((n) => ({ v: "nguoi:" + n.id, ten: n.ten }));
       ng.forEach((x) => dung.add(x.v));
       const gd = CACHE.soDoRaw && CACHE.soDoRaw.giao_duoc, trongDonViMinh = gd !== undefined && gd !== "tat_ca" && ((CACHE.me && CACHE.me.don_vi_ids) || []).includes(c.id);
       ra.push({ id: c.id, ten: u.ten, thut: c.thut || 0, radio: trongDonViMinh ? null : "don_vi:" + c.id, nguoi: ng });
     });
-    const khac = d.nguoi.filter((n) => caNhan.has(n.id) && !dung.has("nguoi:" + n.id)).map((n) => ({ v: "nguoi:" + n.id, ten: n.ten }));
+    // «Khác» chỉ còn người không thuộc phòng nào trên cây; người ở ô chức danh Ban lãnh đạo đã có trong nhóm «Ban lãnh đạo» thì không lặp lại
+    const oLd = new Set(nh.lanh_dao || []);
+    const khac = d.nguoi.filter((n) => caNhan.has(n.id) && !dung.has("nguoi:" + n.id) && !(n.don_vi_ids || []).some((x) => oLd.has(x))).map((n) => ({ v: "nguoi:" + n.id, ten: n.ten }));
     if (khac.length) ra.push({ id: "khac", ten: "Khác", thut: 0, radio: null, nguoi: khac });
     return ra;
   }
@@ -906,9 +911,49 @@
     });
     $("chon-ds").innerHTML = h || '<div class="tong">Không tìm thấy.</div>';
   }
+  // Danh sách PHỐI HỢP vẽ theo CÙNG khuôn bảng chọn «Giao cho» (Mr. Đại 01/11/2026): BLĐ chỉ ghi tên (bỏ chức danh), nút tròn cạnh tên phòng
+  // = cả đơn vị (tập thể), bấm tên phòng = bung từng người (cá nhân). Nguồn: noi-phoi-hop (máy chủ mới) hoặc phoi_hop của sơ đồ (bản live).
+  // daCo: tập «loai:id» đã có (phối hợp đang có + chủ trì) — không hiện lại.
+  function nhomPhoiHop(daCo) {
+    const np = CACHE.noiPh;
+    if (!np) return [];
+    const ra = [];
+    (np.nhom || []).forEach((g, i) => {
+      const muc = (g.muc || []).filter((x) => !daCo.has(x.loai + ":" + x.id));
+      const laBld = /lãnh đạo/i.test(g.don_vi || "");
+      const ca = laBld ? null : muc.find((x) => x.loai === "don_vi" && /^Cả /.test(x.ten || ""));
+      const ng = muc.filter((x) => x !== ca).map((x) => ({ v: x.loai + ":" + x.id, ten: laBld ? tenRut(x.ten) : x.ten }));
+      if (!ca && !ng.length) return;
+      ra.push({ id: "ph" + i, ten: g.don_vi || "", thut: 0, radio: ca ? ca.loai + ":" + ca.id : null, nguoi: ng });
+    });
+    return ra;
+  }
+  /** Tên hiện của một lựa chọn trong một bộ nhóm: người = tên; cả đơn vị = «Cả <phòng>» */
+  function tenTrongNhom(nhom, v) {
+    for (const gr of nhom) {
+      if (gr.radio === v) return gr.id === "toi" && CACHE.me ? CACHE.me.ten || "Chính tôi" : "Cả " + gr.ten;
+      const n = gr.nguoi.find((x) => x.v === v);
+      if (n) return n.ten;
+    }
+    return "";
+  }
+  async function taiNoiNhan() {
+    if (CACHE.noiNhan) return true;
+    let r = await api("GET", "/api/phong/noi-nhan");
+    if (r.ma === 404) { const nn = noiNhanTuSoDo(await soDoThoTaiDay()); if (nn) r = { ma: 200, j: nn }; } // bản live cũ
+    if (r.ma === 200 && r.j) { CACHE.noiNhan = r.j; return true; }
+    toast(r.ma === 403 ? "Bạn không có quyền giao việc" : loiCau(r));
+    return false;
+  }
   function moChon(kieu, pv) {
     if (kieu === "giao") CHON = { kieu, nhom: nhomGiaoMoi, mo: new Set(), q: "", sel: GV && GV.nhan, tieu: "Giao cho…" };
-    else {
+    else if (kieu === "ct") { // ✏ đổi chủ trì = giao việc lại → đúng danh sách + phạm vi «Giao cho» (chốt 10/10, Mr. Đại 01/11/2026)
+      const sv = pv;
+      CHON = { kieu, nhom: () => nhomGiaoMoi().map((gr) => Object.assign({}, gr, { radio: gr.radio === sv.ctCu ? null : gr.radio, nguoi: gr.nguoi.filter((n) => n.v !== sv.ctCu) })).filter((gr) => gr.radio || gr.nguoi.length), mo: new Set(), q: "", sel: sv.ct !== sv.ctCu ? sv.ct : "", tieu: "Đổi chủ trì…" };
+    } else if (kieu === "sph" || kieu === "ph") { // ✏ thêm phối hợp (chip, gửi khi Lưu) · nút «+ Phối hợp» (thêm ngay)
+      const daCo = pv;
+      CHON = { kieu, nhom: () => nhomPhoiHop(daCo), mo: new Set(), q: "", sel: "", tieu: kieu === "sph" ? "Thêm phối hợp…" : "Phối hợp với…" };
+    } else {
       const nh = nhomChuyenTiep((((dongSoCai(tt.mo) || {}).ptCt || []).find((p) => p.id === pv) || {}).pid);
       CHON = { kieu, pv, nhom: () => nh, mo: new Set(nh.filter((x) => x.truong).map((x) => x.id)), q: "", sel: "", tieu: "Giao chuyển tiếp cho…" };
     }
@@ -921,8 +966,13 @@
   function chonXong(v) {
     const C = CHON;
     if (!C) return;
+    const ten = tenTrongNhom(C.nhom(), v);
     dongChon();
+    const loaiId = v.replace(":", "|"); // «don_vi:id» → «don_vi|id» (khuôn cũ của danh sách phối hợp)
     if (C.kieu === "giao") { GV.nhan = v; veGiao(); }
+    else if (C.kieu === "ct") { H.sCt = v; H.sCtTen = ten; ve(); } // gửi khi bấm «Lưu thay đổi»
+    else if (C.kieu === "sph") themPhoiHopForm(loaiId);
+    else if (C.kieu === "ph") themPhoiHop(loaiId);
     else phanCong(C.pv, v.replace(/^nguoi:/, ""));
   }
   async function soDoThoTaiDay() {
@@ -949,7 +999,7 @@
     const donVi = o.map((x) => ({ id: x.id, ten: x.ten, ten_ngan: x.ten_ngan, loai: x.loai, cha_id: x.cha }));
     (j.lanh_dao || []).forEach((l) => { if (!donVi.some((d) => d.id === l.id)) donVi.push({ id: l.id, ten: l.ten, ten_ngan: l.ten_ngan, loai: "chuc_danh" }); });
     const nguoi = [];
-    (j.giao_nguoi || []).forEach((g) => (g.nguoi || []).forEach((n) => nguoi.push({ id: n.id, ten: n.ten, dv: g.ten })));
+    (j.giao_nguoi || []).forEach((g) => (g.nguoi || []).forEach((n) => nguoi.push({ id: n.id, ten: n.ten, dv: g.ten, don_vi_ids: g.don_vi_id ? [g.don_vi_id] : [] })));
     return { nguoi, don_vi: donVi, nhom: { lanh_dao: (j.lanh_dao || []).filter((l) => !/^trợ lý/i.test(String(l.ten || "").trim()) && duoc(l.id)).map((l) => l.id), cay, ca_nhan: nguoi.map((n) => n.id) } };
   }
   function phoiHopTuSoDo(j) {
@@ -1171,11 +1221,21 @@
     else if (t.dataset.th) {
       const k = t.dataset.th;
       if (k === "tai-lai") { taiCT(tt.mo); return; }
-      tt.thao = k === tt.thao ? "" : k; H.lyDo = ""; H.han = ""; H.pv = ""; H.sTen = undefined; H.sKq = undefined; H.sHan = ""; H.sBd = undefined; H.sCt = undefined; H.sPh = undefined; ve();
+      tt.thao = k === tt.thao ? "" : k; H.lyDo = ""; H.han = ""; H.pv = ""; H.sTen = undefined; H.sKq = undefined; H.sHan = ""; H.sBd = undefined; H.sCt = undefined; H.sCtTen = undefined; H.sPh = undefined; ve();
       if (tt.thao === "phoi-hop") moPhoiHop();
-      if (tt.thao === "sua-viec") { moPhoiHop(); soDoThoTaiDay().then(() => tt.thao === "sua-viec" && ve()); } // ✏ cần danh sách chủ trì (giao_nguoi) + nơi phối hợp
+      if (tt.thao === "sua-viec") { moPhoiHop(); taiNoiNhan(); } // ✏ nạp sẵn danh sách «Giao cho» (chủ trì) + nơi phối hợp
     }
     else if (t.dataset.boph !== undefined) { if (H.sPh) { H.sPh.splice(Number(t.dataset.boph), 1); ve(); } } // ✏ bỏ một chip phối hợp
+    else if (t.dataset.chonct) { const c_ = duocCT(tt.mo), v = c_ && c_.viec; if (v) taiNoiNhan().then((ok) => ok && moChon("ct", suaViecTrangThai(v))); } // ✏ đổi chủ trì
+    else if (t.dataset.chonph) { // ✏ thêm phối hợp · nút «+ Phối hợp»
+      const c_ = duocCT(tt.mo), v = c_ && c_.viec;
+      if (v && CACHE.noiPh) {
+        const daCo = t.dataset.chonph === "sua"
+          ? (() => { const sv = suaViecTrangThai(v); return new Set(sv.ph.map((x) => x.loai + ":" + x.id).concat([sv.ct])); })()
+          : new Set((v.phan_viec || []).filter((p) => p.trang_thai === "dang_lam").map((p) => p.phu_trach_loai + ":" + p.phu_trach_id));
+        moChon(t.dataset.chonph === "sua" ? "sph" : "ph", daCo);
+      }
+    }
     else if (t.dataset.lam) { if (t.dataset.lam !== "ph" && t.dataset.lam !== "sct" && t.dataset.lam !== "sph") lamViec(t.dataset.lam); }
     else if (t.dataset.at) chenAt(t.dataset.at, t.dataset.atTen);
     else if (t.id === "bl-gui") guiBl();
@@ -1390,15 +1450,12 @@
     if (t === "sua-viec") {
       // ✏ Sửa việc — đúng form web live (SoDoPhong.tsx FormSuaViec, bản congviec.scigroup.vn): Tên · Kết quả · Bắt đầu · Hạn · Chủ trì · Phối hợp (Mr. Đại 01/11/2026)
       const sv = suaViecTrangThai(v), nh = '<span style="flex-basis:100%">';
-      // Chủ trì: dòng đầu = người/đơn vị đang chủ trì; dưới là ĐÚNG danh sách giao chuyển tiếp (giao_nguoi của sơ đồ), nhóm theo đơn vị — «sửa chủ trì chính là giao việc» (chốt 10/10)
-      const nhomG = (CACHE.soDoRaw && CACHE.soDoRaw.giao_nguoi) || [];
-      const ctOpt = nhomG.map((g) => { const ds = (g.nguoi || []).filter((n) => "nguoi:" + n.id !== sv.ctCu); return ds.length ? '<optgroup label="' + esc(g.ten) + '">' + ds.map((n) => '<option value="nguoi:' + esc(n.id) + '"' + (sv.ct === "nguoi:" + n.id ? " selected" : "") + ">" + esc(n.ten) + "</option>").join("") + "</optgroup>" : ""; }).join("");
-      const oCt = sv.ctCu ? nh + "Chủ trì</span><select data-lam=\"sct\" style=\"flex-basis:100%\"><option value=\"" + esc(sv.ctCu) + '"' + (sv.ct === sv.ctCu ? " selected" : "") + ">" + esc(sv.ctCuTen) + (sv.ct === sv.ctCu ? " (đang chủ trì)" : "") + "</option>" + (CACHE.soDoRaw ? ctOpt : '<option disabled>Đang tải danh sách…</option>') + "</select>" : "";
-      // Phối hợp: chip ✕ để bỏ + ô «＋ thêm phối hợp…» từ nơi phối hợp (noi-phoi-hop / sơ đồ), bỏ người đã có và chủ trì
-      const np = CACHE.noiPh, daCo = new Set(sv.ph.map((x) => x.loai + "|" + x.id).concat([sv.ct.replace(":", "|")]));
-      const phOpt = !np ? "" : (np.nhom || []).map((g) => { const m = (g.muc || []).filter((x) => !daCo.has(x.loai + "|" + x.id)); return m.length ? '<optgroup label="' + esc(g.don_vi) + '">' + m.map((x) => '<option value="' + esc(x.loai + "|" + x.id) + '">' + esc(x.ten) + "</option>").join("") + "</optgroup>" : ""; }).join("");
-      const chips = sv.ph.map((x, i) => '<span class="tep-da-kep">' + esc(x.ten) + ' <button class="bo-tep" data-boph="' + i + '" aria-label="Bỏ phối hợp">✕</button></span>').join("");
-      const oPh = nh + 'Phối hợp</span><div class="chon-tep" style="flex-basis:100%">' + chips + '<select data-lam="sph" style="flex:1;min-width:140px"><option value="" selected>' + (np ? "＋ thêm phối hợp…" : "Đang tải danh sách…") + "</option>" + phOpt + "</select></div>";
+      // Chủ trì + Phối hợp: CÙNG bảng chọn «Giao cho» (trượt lên, BLĐ chỉ ghi tên, nút tròn = cả đơn vị, bấm tên phòng = bung từng người,
+      // chọn là đóng) — Mr. Đại 01/11/2026. Chủ trì lấy phạm vi «Giao cho» (đổi chủ trì = giao việc lại); phối hợp lấy danh sách phối hợp.
+      const tenCt = sv.ct === sv.ctCu ? tenRut(sv.ctCuTen) + " (đang chủ trì)" : (H.sCtTen || sv.ct) + " (mới — bấm Lưu để đổi)";
+      const oCt = sv.ctCu ? nh + 'Chủ trì</span><button class="chon-nut co" data-chonct="1" style="flex-basis:100%">' + esc(tenCt) + "<span>›</span></button>" : "";
+      const chips = sv.ph.map((x, i) => '<span class="tep-da-kep">' + esc(tenRut(x.ten)) + ' <button class="bo-tep" data-boph="' + i + '" aria-label="Bỏ phối hợp">✕</button></span>').join("");
+      const oPh = nh + 'Phối hợp</span><div class="chon-tep" style="flex-basis:100%">' + chips + '<button class="chon-nut" data-chonph="sua" style="flex:1;min-width:140px">' + (CACHE.noiPh ? "＋ thêm phối hợp…" : "Đang tải danh sách…") + "<span>›</span></button></div>";
       return '<div class="form-nho">' + nh + 'Tên việc</span><input type="text" data-h="sTen" style="flex-basis:100%" value="' + esc(H.sTen !== undefined ? H.sTen : v.ten) + '">'
         + nh + 'Kết quả cần có</span><input type="text" data-h="sKq" style="flex-basis:100%" placeholder="Ví dụ: tờ trình gửi TGĐ" value="' + esc(H.sKq !== undefined ? H.sKq : (v.ket_qua_can_co || "")) + '">'
         + '<span>Bắt đầu</span><input type="date" class="chon-ngay" data-h="sBd" value="' + esc(H.sBd !== undefined ? H.sBd : (v.bat_dau || "").slice(0, 10)) + '">'
@@ -1408,10 +1465,8 @@
     if (t === "huy") return '<div class="form-nho"><input type="text" data-h="lyDo" placeholder="Lý do hủy việc (bắt buộc)" value="' + esc(H.lyDo) + '"><button class="nut chinh" data-lam="huy">Hủy việc</button></div>';
     if (t === "mo-lai") return '<div class="form-nho"><input type="text" data-h="lyDo" placeholder="Lý do mở lại (bắt buộc)" value="' + esc(H.lyDo) + '"><button class="nut chinh" data-lam="mo-lai">Mở lại</button></div>';
     if (t === "phoi-hop") {
-      const np = CACHE.noiPh;
-      const co = new Set((v.phan_viec || []).filter((p) => p.trang_thai === "dang_lam").map((p) => p.phu_trach_loai + "|" + p.phu_trach_id));
-      const opt = !np ? "" : (np.nhom || []).map((g) => { const m = (g.muc || []).filter((x) => !co.has(x.loai + "|" + x.id)); return m.length ? `<optgroup label="${esc(g.don_vi)}">${m.map((x) => `<option value="${esc(x.loai + "|" + x.id)}">${esc(x.ten)}</option>`).join("")}</optgroup>` : ""; }).join("");
-      return '<div class="form-nho"><span>Phối hợp</span><select data-lam="ph"><option value="" disabled selected>' + (np ? "Phối hợp với…" : "Đang tải danh sách…") + "</option>" + opt + '</select><span class="mo-nho" style="flex-basis:100%">chọn là thêm ngay (chỉ để biết, không hạn riêng)</span></div>';
+      // cùng bảng chọn «Giao cho» (Mr. Đại 01/11/2026); chọn là thêm ngay
+      return '<div class="form-nho"><button class="chon-nut" data-chonph="the" style="flex-basis:100%">' + (CACHE.noiPh ? "Phối hợp với…" : "Đang tải danh sách…") + '<span>›</span></button><span class="mo-nho" style="flex-basis:100%">chọn là thêm ngay (chỉ để biết, không hạn riêng)</span></div>';
     }
     return "";
   }
@@ -1493,7 +1548,7 @@
     return `<div class="viec ${qua ? "qua" : ""} ${dang ? "mo" : ""}" data-ma="${esc(v.ma)}"><button class="dau" data-mo="${esc(v.ma)}"><span class="mui">▸</span><span class="t">${v.gang ? '<span class="gang" title="Trên đường găng">!</span>' : ""}${esc(v.ten)}</span><span class="r ${qua ? "do" : v.tt === "sap" ? "sap" : v.tt === "xong" ? "xong" : ""}">${esc(v.ttChu || "")}</span></button>${dang ? thanViec(v) : ""}</div>`;
   }
   function moThe(ma) {
-    tt.thao = ""; H.lyDo = ""; H.han = ""; H.pv = ""; H.sTen = undefined; H.sKq = undefined; H.sHan = ""; H.sBd = undefined; H.sCt = undefined; H.sPh = undefined; TEP.xong = []; DANGTEP = "";
+    tt.thao = ""; H.lyDo = ""; H.han = ""; H.pv = ""; H.sTen = undefined; H.sKq = undefined; H.sHan = ""; H.sBd = undefined; H.sCt = undefined; H.sCtTen = undefined; H.sPh = undefined; TEP.xong = []; DANGTEP = "";
     tt.mo = tt.mo === ma ? null : ma;
     ve();
     if (tt.mo && !CACHE.sd && S.dangNhap) taiSoDo(); // cần cờ co_the_phoi_hop của hàng so-cai
@@ -1520,7 +1575,8 @@
       if (bd && hanMoi && bd > hanMoi) return toast("Ngày bắt đầu sau hạn");
       // Một lệnh sua_viec như web live: chu_tri chỉ gửi khi đổi; phoi_hop gửi toàn bộ danh sách đang chọn (máy chủ bỏ cái thiếu, thêm cái mới)
       let chuTri = null;
-      if (sv.ctCu && sv.ct && sv.ct !== sv.ctCu) { const id = sv.ct.split(":").slice(1).join(":"), ng = ((CACHE.soDoRaw && CACHE.soDoRaw.giao_nguoi) || []).flatMap((g) => g.nguoi || []).find((n) => n.id === id); chuTri = { loai: "nguoi", id, ten: ng ? ng.ten : id }; }
+      // chủ trì mới chọn ở bảng «Giao cho»: «nguoi:<email>» hoặc «don_vi:<mã>» (cả đơn vị — máy chủ nhận cả hai loại)
+      if (sv.ctCu && sv.ct && sv.ct !== sv.ctCu) { const loai = sv.ct.split(":")[0], id = sv.ct.split(":").slice(1).join(":"); chuTri = { loai: loai === "don_vi" ? "don_vi" : "nguoi", id, ten: (H.sCtTen || id).replace(/^Cả /, "") }; }
       body = { hanh_dong: "sua_viec", ten: ten, ket_qua_can_co: kq || null, ...(bd !== bdCu ? { bat_dau: bd || null } : {}), ...(H.sHan ? { ket_thuc: H.sHan } : {}), ...(chuTri ? { chu_tri: chuTri } : {}), phoi_hop: sv.ph.map((x) => ({ loai: x.loai, id: x.id, ten: x.ten })) }; ok = "Đã lưu thay đổi việc";
     }
     else if (k === "huy") { if (!H.lyDo.trim()) return toast("Phải ghi lý do hủy việc"); body = { hanh_dong: "dong_viec", ly_do: H.lyDo.trim() }; ok = "Đã hủy việc"; }
