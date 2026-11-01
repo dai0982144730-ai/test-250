@@ -58,7 +58,14 @@ object TroLyMain {
         if (h1.equals(h2, true)) return true
         if (NOI_TAI.matches(h1) && NOI_TAI.matches(h2)) return true
         if (!phanGiai) return false
-        return try { java.net.InetAddress.getAllByName(h1).map { it.hostAddress }.toSet().intersect(java.net.InetAddress.getAllByName(h2).map { it.hostAddress }.toSet()).isNotEmpty() } catch (_: Exception) { false }
+        // Kiểm lại AR-01: chỉ so IP RIÊNG / máy này. IP công cộng thì nhiều tên miền dùng chung một máy chủ (đo: congviec, tiendo,
+        // phaply.scigroup.vn cùng 103.90.224.140) → không coi là cùng máy, chỉ cùng máy khi hai tên giống chữ (đã xét ở trên)
+        val rieng = { a: java.net.InetAddress -> a.isSiteLocalAddress || a.isLoopbackAddress || a.isLinkLocalAddress }
+        return try {
+            val x = java.net.InetAddress.getAllByName(h1).filter(rieng).map { it.hostAddress }.toSet()
+            val y = java.net.InetAddress.getAllByName(h2).filter(rieng).map { it.hostAddress }.toSet()
+            x.intersect(y).isNotEmpty()
+        } catch (_: Exception) { false }
     }
     /** Hai địa chỉ trỏ cùng một máy + cùng cổng (cổng mặc định http 80 / https 443). Kiểm độc lập AQ-02: không chỉ so chuỗi tên máy. */
     fun cungDiaChi(a: String, b: String, phanGiai: Boolean = false): Boolean = try {

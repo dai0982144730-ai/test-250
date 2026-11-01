@@ -1075,6 +1075,7 @@
   async function taiNhanCT() {
     if (CACHE.nhanCT !== undefined) return;
     const r = await api("GET", "/api/cong-viec/nhan-chuyen-tiep");
+    if (r.ma === 0 || r.ma >= 500) return; // AR-03: lỗi mạng / máy chủ thì không nhớ, lần mở sau hỏi lại
     CACHE.nhanCT = r.ma === 200 && r.j && Array.isArray(r.j.nhom) ? new Set(r.j.nhom.flatMap((g) => (g.nguoi || []).map((n) => n.id))) : null;
   }
   /** Danh sách đổi chủ trì = «Giao cho» trừ ô đối ứng của chủ trì hiện tại, trừ người máy chủ không nhận */

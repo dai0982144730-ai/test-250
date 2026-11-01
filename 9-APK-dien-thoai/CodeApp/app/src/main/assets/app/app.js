@@ -961,6 +961,7 @@
   async function taiNhanCT() {
     if (CACHE.nhanCT !== undefined) return;
     const r = await api("GET", "/api/cong-viec/nhan-chuyen-tiep");
+    if (r.ma === 0 || r.ma >= 500) return; // AR-03: lỗi mạng / máy chủ thì không nhớ, lần mở sau hỏi lại
     CACHE.nhanCT = r.ma === 200 && r.j && Array.isArray(r.j.nhom) ? new Set(r.j.nhom.flatMap((g) => (g.nguoi || []).map((n) => n.id))) : null;
   }
   /** Danh sách đổi chủ trì = «Giao cho» trừ ô đối ứng của chủ trì hiện tại, trừ người máy chủ không nhận */
@@ -1257,7 +1258,7 @@
       if (k === "tai-lai") { taiCT(tt.mo); return; }
       tt.thao = k === tt.thao ? "" : k; H.lyDo = ""; H.han = ""; H.pv = ""; H.sTen = undefined; H.sKq = undefined; H.sHan = ""; H.sBd = undefined; H.sCt = undefined; H.sCtTen = undefined; H.sPh = undefined; ve();
       if (tt.thao === "phoi-hop") moPhoiHop();
-      if (tt.thao === "sua-viec") { moPhoiHop(); if (coQuyenGiao()) Promise.all([taiNoiNhan(), soDoThoTaiDay(), taiNhanCT()]).then(() => tt.thao === "sua-viec" && ve()); } // ✏ nạp sẵn danh sách chủ trì (chỉ khi có quyền giao — AG-01) + nơi phối hợp
+      if (tt.thao === "sua-viec") { moPhoiHop(); Promise.all([taiNoiNhan(), soDoThoTaiDay(), taiNhanCT()]).then(() => tt.thao === "sua-viec" && ve()); } // ✏ nạp sẵn danh sách chủ trì (live: cả người không quyền giao — nhận về chính mình, AR-02) + nơi phối hợp
     }
     else if (t.dataset.boph !== undefined) { if (H.sPh) { H.sPh.splice(Number(t.dataset.boph), 1); ve(); } } // ✏ bỏ một chip phối hợp
     else if (t.dataset.chonct) { const c_ = duocCT(tt.mo), v = c_ && c_.viec; if (v) Promise.all([taiNoiNhan(), soDoThoTaiDay(), taiNhanCT()]).then(([ok]) => ok && moChon("ct", suaViecTrangThai(v))); } // ✏ đổi chủ trì
@@ -1488,8 +1489,9 @@
       // chọn là đóng) — Mr. Đại 01/11/2026. Chủ trì lấy phạm vi «Giao cho» (đổi chủ trì = giao việc lại); phối hợp lấy danh sách phối hợp.
       const tenCt = sv.ct === sv.ctCu ? tenRut(sv.ctCuTen) + " (đang chủ trì)" : (H.sCtTen || sv.ct) + " (mới — bấm Lưu để đổi)";
       // AL-01 (kiểm độc lập 01/11/2026): bản live theo luật 17 chung — nút bị chặn thì MỜ, ghi rõ vì sao (bản 3004 thì ẩn hẳn)
-      const coGiao = coQuyenGiao(), rongCt = coGiao && CACHE.noiNhan && CACHE.nhanCT !== undefined && CACHE.soDoRaw && !nhomChuTri(sv).length;
-      const lyDoCt = !coGiao ? " — bạn không có quyền giao việc" : rongCt ? " — không có ai khác để chọn" : "";
+      const rongCt = CACHE.noiNhan && CACHE.nhanCT !== undefined && CACHE.soDoRaw && !nhomChuTri(sv).length;
+      // AR-02: không quyền giao vẫn có thể «nhận về chính mình» → chỉ mờ khi danh sách thật sự rỗng
+      const lyDoCt = rongCt ? " — không có ai khác để chọn" : "";
       const oCt = !sv.ctCu ? "" : nh + 'Chủ trì</span><button class="chon-nut co" data-chonct="1" style="flex-basis:100%"' + (lyDoCt ? " disabled" : "") + ">" + esc(tenCt) + lyDoCt + "<span>›</span></button>";
       const chips = sv.ph.map((x, i) => '<span class="tep-da-kep">' + esc(tenRut(x.ten)) + ' <button class="bo-tep" data-boph="' + i + '" aria-label="Bỏ phối hợp">✕</button></span>').join("");
       const oPh = nh + 'Phối hợp</span><div class="chon-tep" style="flex-basis:100%">' + chips + '<button class="chon-nut" data-chonph="sua" style="flex:1;min-width:140px">' + (CACHE.noiPh ? "＋ thêm phối hợp…" : "Đang tải danh sách…") + "<span>›</span></button></div>";

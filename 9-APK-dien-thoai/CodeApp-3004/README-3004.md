@@ -32,7 +32,7 @@
 
 | Kiểm | Kết quả |
 |---|---|
-| Biên dịch Kotlin cả 10 tệp (kotlinc 2.0.21 + thư viện Android 14, `R` giả) | 0 lỗi · bản gốc cũng 0 lỗi (đối chứng) |
+| Biên dịch Kotlin cả 10 tệp (kotlinc 2.0.21 + thư viện Android 14, `R` giả) | 0 lỗi lúc bản 0.1.0 · bản gốc cũng 0 lỗi (đối chứng). Từ 0.1.1 biên dịch bằng `gradle assembleRelease` trên máy anh |
 | `node --check app.js` | đạt |
 | Ghép lại `index.html` từ bản gốc trước khi sửa | khớp từng byte → ghép bản mới đáng tin |
 | Chạy giao diện trong Chromium, cầu nối Android giả theo đúng khuôn API Main | 25/25 bước đạt lúc đó (nay 44/44, xem cuối tệp) (đăng nhập Main, gửi câu, bảng, chip, ✅ Làm, phiên cũ, Back, thoát, ô địa chỉ, không chèn được `<script>`) |
