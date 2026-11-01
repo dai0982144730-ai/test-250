@@ -221,7 +221,7 @@ class Cau(private val a: Activity, private val web: WebView) {
     @JavascriptInterface
     fun mainApi(id: Int, method: String, path: String, body: String) {
         // chỉ cho các cửa trợ lý — vỏ không thành đường gọi tuỳ ý vào Main
-        if (!path.startsWith("/api/ai/chat")) { tra(id, 400, JSONObject().put("loi", "Đường không được phép").toString()); return }
+        if (!TroLyMain.duongDuocGoi(method, path)) { tra(id, 400, JSONObject().put("loi", "Đường không được phép").toString()); return }
         Thread {
             try {
                 val kq = TroLyMain.goi(a, method, path, if (body.isEmpty()) null else body)

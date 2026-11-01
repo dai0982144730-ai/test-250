@@ -17,9 +17,12 @@ const MOCK = `
     mainTrangThai: () => JSON.stringify({ dangNhap: mainDn, server: "http://192.168.1.10:3010", email: "dai@sci.vn", coMk3004: true }),
     mainDangNhap: (id, s, e, mk) => { log.push("mainDangNhap " + s + " " + e + " mk=" + (mk ? "co" : "trong")); mainDn = true; tra(id, 200, { loi: "" }); },
     mainThoat: () => { mainDn = false; log.push("mainThoat"); },
-    mainApi: (id, m, p, b) => {
-      log.push("mainApi " + m + " " + p + " " + b);
+    mainApi: (id, m, pDu, b) => {
+      log.push("mainApi " + m + " " + pDu + " " + b);
       if (!mainDn) return tra(id, 401, "{}");
+      const p = pDu.replace(/[?&]project=[^&]*/, "").replace(/\\?$/, ""); // so khớp đường không kèm ?project=
+      if (p === "/api/projects") return window.__loiDa ? tra(id, 0, { loi: "Không kết nối được Main" }) : tra(id, 200, { projects: [{ id: "hv", name: "Điện gió Hướng Việt" }, { id: "np", name: "Thuỷ điện Nậm Pông" }, { id: "nt", name: "Điện mặt trời Ninh Thuận" }], current: "hv" });
+      if (p === "/api/ai/chat/xac-nhan" && window.__matMang) return tra(id, 0, { loi: "Không kết nối được Main" });
       if (p === "/api/ai/chat/sessions") return tra(id, 200, { ok: true, sessions: [{ id: "abc123", title: "dự án hướng việt bị chậm", projectId: "default", createdBy: "dai@sci.vn", createdAt: "2026-11-01T16:00:00Z", updatedAt: "2026-11-01T16:39:00Z", messageCount: 4 }] });
       if (p.startsWith("/api/ai/chat/messages")) return tra(id, 200, { ok: true, choDuyet: [], session: { id: "abc123", title: "dự án hướng việt bị chậm", messages: [
         { id: "1", role: "user", content: "Hướng việt có bao nhiêu isue?", at: "2026-11-01T16:39:00Z" },
@@ -57,7 +60,14 @@ const MOCK = `
   await p.screenshot({ path: RA + "/1-dang-nhap-main.png" });
   await p.click("#cdn-b");
   await p.waitForTimeout(300);
-  kq("đăng nhập Main xong → hiện khung chat trống + ô nhập", (await p.isVisible("#chat-o")) && (await p.textContent("#chat-than")).includes("Hỏi trợ lý Main"));
+  kq("đăng nhập Main xong → ô chọn dự án hiện «Chọn dự án để hỏi», ô gửi khoá (mờ, không ẩn)", (await p.isVisible("#chat-da")) && (await p.textContent("#chat-da")).includes("Chọn dự án để hỏi") && (await p.isVisible("#chat-o")) && (await p.isDisabled("#chat-o")) && (await p.isDisabled("#chat-gui")));
+  kq("đã gọi GET /api/projects của Main", (await p.evaluate(() => window.__log)).some((l) => l.startsWith("mainApi GET /api/projects")));
+  await p.click('[data-da-mo="1"]');
+  kq("bấm ô → xổ danh sách 3 dự án", (await p.$$("#chat-da [data-da]")).length === 3);
+  await p.screenshot({ path: RA + "/1b-chon-du-an.png" });
+  await p.click('#chat-da [data-da="hv"]');
+  kq("bấm một dự án → áp dụng và đóng luôn (một cú bấm)", (await p.$$("#chat-da [data-da]")).length === 0 && (await p.textContent("#chat-da")).includes("Điện gió Hướng Việt") && !(await p.isDisabled("#chat-o")));
+  kq("khung trống ghi rõ đang hỏi dự án nào", (await p.textContent("#chat-than")).includes("Hỏi về Điện gió Hướng Việt"));
   await p.fill("#chat-o", "Dự án Hướng Việt chậm bao nhiêu ngày?");
   await p.press("#chat-o", "Enter");
   await p.waitForTimeout(1200);
@@ -71,7 +81,14 @@ const MOCK = `
   kq("chip «✓ Agent … trả lời»", than.includes("ct-chip") && than.includes("✓ Agent tiến độ"));
   kq("nút ✅ Làm / ❌ Bỏ hiện", (await p.$$('[data-cho^="lam|"]')).length === 1);
   kq("tên phiên lên thanh tiêu đề", (await p.textContent("#chat-ten")) === "Tiến độ Hướng Việt");
+  kq("câu hỏi gửi kèm ?project=hv (AP-01)", (await p.evaluate(() => window.__log)).some((l) => l.startsWith("mainApi POST /api/ai/chat?project=hv ")));
+  kq("đầu câu trả lời ghi tên dự án", than.includes("dự án Điện gió Hướng Việt"));
   await p.screenshot({ path: RA + "/3-tra-loi.png" });
+  await p.evaluate(() => { window.__matMang = true; });
+  await p.click('[data-cho^="lam|"]');
+  await p.waitForTimeout(300);
+  kq("✅ Làm gặp mất mạng → GIỮ thẻ chờ duyệt + báo «chưa rõ lệnh đã chạy» (AP-02)", (await p.$$('[data-cho^="lam|"]')).length === 1 && (await p.textContent("#chat-than")).includes("Chưa rõ lệnh đã chạy hay chưa"));
+  await p.evaluate(() => { window.__matMang = false; });
   await p.click('[data-cho^="lam|"]');
   await p.waitForTimeout(300);
   kq("bấm ✅ Làm → câu xác nhận hiện, nút chờ biến mất", (await p.textContent("#chat-than")).includes("Đã giao việc «Kiểm tra móng T12»") && (await p.$$("[data-cho]")).length === 0);
@@ -88,11 +105,32 @@ const MOCK = `
   await p.click('#duoi button[data-t="chat"]');
   await p.waitForTimeout(300);
   kq("mở lại Trợ lý → về đúng phiên đang dở", (await p.textContent("#chat-than")).includes("Hướng việt có bao nhiêu isue?"));
+  kq("«Phiên cũ» và tin cũ gọi kèm ?project=hv", (await p.evaluate(() => window.__log)).some((l) => l.startsWith("mainApi GET /api/ai/chat/sessions?project=hv")) && (await p.evaluate(() => window.__log)).some((l) => /messages\?id=abc123&project=hv/.test(l)));
   await p.click("#chat-moi");
-  kq("«+ Mới» → khung trống", (await p.textContent("#chat-than")).includes("Hỏi trợ lý Main"));
+  kq("«+ Mới» → khung trống", (await p.textContent("#chat-than")).includes("Hỏi về Điện gió Hướng Việt"));
+  await p.click('[data-da-mo="1"]');
+  kq("Back khi danh sách dự án đang xổ → chỉ đóng danh sách", (await p.evaluate(() => window.__quayLai())) === true && (await p.$$("#chat-da [data-da]")).length === 0 && (await p.isVisible("#man-chat")));
+  await p.click('[data-da-mo="1"]');
+  await p.click('#chat-da [data-da="np"]');
+  kq("đổi sang Nậm Pông → chat mới của dự án đó", (await p.textContent("#chat-than")).includes("Hỏi về Thuỷ điện Nậm Pông") && (await p.textContent("#chat-ten")) === "Trợ lý Main");
+  await p.screenshot({ path: RA + "/4b-doi-du-an.png" });
+  await p.click("#chat-ds-nut"); await p.waitForTimeout(200);
+  kq("«Phiên cũ» sau khi đổi gọi ?project=np", (await p.evaluate(() => window.__log)).some((l) => l.startsWith("mainApi GET /api/ai/chat/sessions?project=np")));
+  await p.click("[data-chat-thoat]"); await p.waitForTimeout(100);
+  kq("«Thoát tài khoản trợ lý Main» → về form đăng nhập, ẩn ô chọn dự án", (await p.isVisible("#cdn-b")) && !(await p.isVisible("#chat-da")));
+  await p.click("#cdn-b"); await p.waitForTimeout(300);
+  kq("đăng nhập lại → nhớ dự án lần trước theo email (Nậm Pông)", (await p.textContent("#chat-da")).includes("Thuỷ điện Nậm Pông"));
   await p.click("#chat-ds-nut"); await p.waitForTimeout(200);
   await p.click("[data-chat-thoat]"); await p.waitForTimeout(100);
-  kq("«Thoát tài khoản trợ lý Main» → về form đăng nhập", await p.isVisible("#cdn-b"));
+  await p.evaluate(() => { window.__loiDa = true; });
+  await p.click("#cdn-b"); await p.waitForTimeout(300);
+  kq("không tải được danh sách dự án → báo lỗi, ô gửi khoá", (await p.textContent("#chat-da")).includes("Chưa chọn được dự án") && (await p.textContent("#chat-than")).includes("Không tải được danh sách dự án") && (await p.isDisabled("#chat-o")));
+  await p.screenshot({ path: RA + "/4c-loi-du-an.png" });
+  await p.evaluate(() => { window.__loiDa = false; });
+  await p.click('[data-da-mo="1"]'); await p.waitForTimeout(300);
+  kq("bấm ô khi lỗi → tải lại được", (await p.textContent("#chat-da")).includes("Thuỷ điện Nậm Pông") && !(await p.isDisabled("#chat-o")));
+  await p.click("#chat-ds-nut"); await p.waitForTimeout(200);
+  await p.click("[data-chat-thoat]"); await p.waitForTimeout(100);
   await p.click("#chat-lui");
   // ô địa chỉ máy chủ 3004
   await p.evaluate(() => document.getElementById("man-dn").classList.add("mo"));

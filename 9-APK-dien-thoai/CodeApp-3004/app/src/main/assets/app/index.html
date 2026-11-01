@@ -316,6 +316,21 @@
   .ct-dn { padding: 18px 16px; } .ct-dn p { color: var(--phu); font-size: 13.5px; margin: 0 0 12px; } .ct-dn label { display: block; margin: 10px 0 4px; font-size: 13.5px; font-weight: 600; }
   .ct-dn input { width: 100%; box-sizing: border-box; padding: 11px 12px; border: 1px solid #D5D2CD; border-radius: 9px; font: inherit; font-size: 15px; background: #fff; }
   .ct-dn .nut-dn { margin-top: 16px; width: 100%; padding: 12px; border: 0; border-radius: 10px; background: var(--cam); color: #fff; font-weight: 700; font-size: 15px; } .ct-dn .nut-dn:disabled { opacity: .6; }
+  /* ô chọn dự án ở đầu khung Trợ lý — Mr. Đại duyệt demo «demo-apk-tro-ly-chon-du-an.html» 01/11/2026 (kiểm độc lập AP-01) */
+  .chon-da { flex: none; position: relative; padding: 8px 10px; background: var(--the); border-bottom: 1px solid var(--vien); }
+  .chon-da .nhan { font-size: 12px; color: var(--phu); margin-bottom: 3px; }
+  .chon-da .nut-da { display: flex; align-items: center; gap: 8px; width: 100%; padding: 9px 12px; border: 1px solid #D5D2CD; border-radius: 10px; background: #fff; text-align: left; font-size: 14.5px; font-weight: 600; }
+  .chon-da .nut-da .ten { flex: 1; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; } .chon-da .nut-da .ten.loi { color: var(--do); } .chon-da .nut-da .ten.trong { color: var(--phu); font-weight: 500; }
+  .chon-da .nut-da .mui { color: var(--phu); transition: transform .15s; } .chon-da.mo .nut-da { border-color: var(--cam); box-shadow: 0 0 0 2px var(--cam-nhat); } .chon-da.mo .mui { transform: rotate(180deg); }
+  .ds-da { position: absolute; left: 10px; right: 10px; top: calc(100% - 4px); z-index: 5; max-height: 60vh; overflow-y: auto; background: #fff; border: 1px solid #D5D2CD; border-radius: 12px; box-shadow: 0 10px 28px rgba(0,0,0,.25); }
+  .ds-da .tim-da { position: sticky; top: 0; display: block; width: 100%; box-sizing: border-box; padding: 10px 12px; border: 0; border-bottom: 1px solid var(--vien); font: inherit; font-size: 14.5px; background: #fff; }
+  .ds-da .tim-da:focus { outline: none; }
+  .ds-da button { display: flex; align-items: center; gap: 8px; width: 100%; text-align: left; padding: 11px 12px; border: 0; border-bottom: 1px solid var(--vien); background: none; font-size: 14.5px; }
+  .ds-da button:last-child { border-bottom: 0; } .ds-da button .dau-chon { flex: none; width: 16px; color: var(--cam-chu); font-weight: 800; }
+  .ds-da button.dang { background: var(--cam-nhat); font-weight: 700; } .ds-da button small { margin-left: auto; color: var(--phu); font-size: 11.5px; white-space: nowrap; }
+  .ds-da .trong-da { padding: 12px; color: var(--phu); font-size: 13.5px; }
+  #man-chat.co-ds-da #chat-than, #man-chat.co-ds-da #chat-viet { filter: brightness(.82); }
+  .ct-viet textarea:disabled { background: #F4F2EE; }
 </style>
 </head>
 <body>
@@ -370,6 +385,7 @@
   </div>
   <div class="tang" id="man-chat">
     <div class="tb-dau"><button class="lui" id="chat-lui" aria-label="Quay lại">‹</button><b id="chat-ten">Trợ lý Main</b><button class="doc-het" id="chat-ds-nut">Phiên cũ</button><button class="doc-het" id="chat-moi">+ Mới</button></div>
+    <div class="chon-da" id="chat-da" style="display:none"></div>
     <div id="chat-than"></div>
     <div class="ct-viet" id="chat-viet"><textarea id="chat-o" rows="1" placeholder="Nhắn cho trợ lý Main…" enterkeyhint="send"></textarea><button id="chat-gui" aria-label="Gửi">↑</button></div>
   </div>

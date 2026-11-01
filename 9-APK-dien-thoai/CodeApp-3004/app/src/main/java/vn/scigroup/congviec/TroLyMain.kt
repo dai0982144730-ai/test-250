@@ -18,12 +18,24 @@ object TroLyMain {
     private const val CHO_CHAT_MS = 300_000
     private const val CHO_THUONG_MS = 20_000
 
-    /** Mặc định: cùng máy với địa chỉ 3004, đổi cổng thành 3010 */
+    /**
+     * Mặc định: cùng máy với địa chỉ 3004, đổi cổng thành 3010 — CHỈ khi 3004 là máy trong mạng nội bộ
+     * (http + IP riêng / localhost / tên .local). Tên miền công khai (vd https://congviec.scigroup.vn) thì
+     * «:3010» không có thật → để trống cho người dùng tự nhập (kiểm độc lập AP-05, 01/11/2026).
+     */
     fun diaChiGoiY(c: Context): String {
         val sv = Cfg.server(c).trim().trimEnd('/')
-        val m = Regex("^(https?://[^/:]+)(:\\d+)?$").find(sv) ?: return ""
-        return m.groupValues[1] + ":3010"
+        val m = Regex("^http://([^/:]+)(:\\d+)?$").find(sv) ?: return ""
+        val host = m.groupValues[1].lowercase()
+        val noiBo = host == "localhost" || host.endsWith(".local") ||
+            Regex("^(127\\.|10\\.|192\\.168\\.|172\\.(1[6-9]|2\\d|3[01])\\.)").containsMatchIn(host)
+        return if (noiBo) "http://$host:3010" else ""
     }
+
+    /** Các cửa Main mà app được gọi: chat (+ phiên, tin, xác nhận) và danh sách dự án. Siết bằng mẫu đầy đủ, không startsWith (AP-04). */
+    private val DUONG_DUOC_GOI = Regex("^/api/(ai/chat(/(sessions|messages|xac-nhan))?|projects)(\\?[^/#\\\\]*)?$")
+    fun duongDuocGoi(method: String, path: String): Boolean =
+        (method == "GET" || method == "POST") && !path.contains("..") && DUONG_DUOC_GOI.matches(path)
 
     private fun docLoi(txt: String, ma: Int): String {
         val j = try { JSONObject(txt) } catch (_: Exception) { null }

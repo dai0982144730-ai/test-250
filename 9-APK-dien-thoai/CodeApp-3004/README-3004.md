@@ -38,6 +38,22 @@
 | Chạy giao diện trong Chromium, cầu nối Android giả theo đúng khuôn API Main | 25/25 bước đạt (đăng nhập Main, gửi câu, bảng, chip, ✅ Làm, phiên cũ, Back, thoát, ô địa chỉ, không chèn được `<script>`) |
 | Chưa kiểm | build APK thật, ký, máy Xiaomi, máy chủ 3004/Main thật |
 
+## Sửa sau kiểm độc lập 01/11/2026 (`../kiem-tra-doc-lap/01-11-app-3004-tro-ly-main.KET-QUA.md`)
+
+| Mã | Đã sửa |
+|---|---|
+| AP-01 | **Ô chọn dự án** ở đầu khung Trợ lý, đúng demo `../demo/demo-apk-tro-ly-chon-du-an.html` (Mr. Đại duyệt 01/11). Danh sách lấy từ `GET /api/projects` của Main (đã lọc quyền). Nhớ dự án theo email; chỉ một dự án thì chọn luôn; chưa chọn thì khoá ô gửi (hiện mờ). Mọi cuộc gọi `/api/ai/chat`, `/sessions`, `/messages` gửi kèm `?project=`. Đổi dự án = chat mới của dự án đó; phiên đang mở nhớ riêng từng dự án. ≥20 dự án có ô tìm |
+| AP-02 | ✅ Làm gặp mất mạng / quá giờ chờ: **giữ thẻ chờ duyệt**, báo «Chưa rõ lệnh đã chạy hay chưa… mở Phiên cũ để kiểm» |
+| AP-04 | `mainApi` chỉ cho GET/POST và đúng mẫu đường `^/api/(ai/chat(/(sessions\|messages\|xac-nhan))?\|projects)(\?…)?$`, chặn `..` (`TroLyMain.duongDuocGoi`) |
+| AP-05 | Địa chỉ Main chỉ tự gợi ý `:3010` khi 3004 là `http://` máy nội bộ (IP riêng, localhost, `.local`); tên miền công khai thì để trống cho người dùng nhập |
+| AP-07 | Ghi giới hạn dưới đây |
+
+## Giới hạn của bản này (chưa làm)
+
+- **Bỏ qua `uiActions` của Main** (mở tab, chuyển màn, đổi dự án trên giao diện web). Câu trả lời có thể viết «đã mở tab Gantt» nhưng app không mở gì — muốn xem thì mở web Main.
+- Chưa có: xuất tệp, kẹp tệp 📎, tìm web 🌐, chọn model, nút «Duyệt & tạo file».
+- Bài thử giao diện `kiem-thu/thu-giao-dien-tro-ly.js` sau khi sửa: **39/39 bước đạt** (máy chủ của anh, Chromium 1234, cầu nối giả). Kotlin chưa biên dịch lại sau lần sửa này.
+
 ## Việc của phiên trên máy chủ của anh
 
 1. Dựng như `CodeApp` (README chung), nhưng liên kết riêng: `mklink /J C:\dev\apk-src-3004 "<…>\9-APK-dien-thoai\CodeApp-3004"`, rồi `gradle --project-dir C:/dev/apk-src-3004 assembleRelease`. Cùng khoá ký `sci-congviec.jks`.

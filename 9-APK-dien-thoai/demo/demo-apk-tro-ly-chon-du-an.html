@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SCI Công việc 3004 — demo ô chọn dự án ở mục Trợ lý</title>
+<style>
+  /* DEMO — AP-01: ô chọn dự án ở đầu khung Trợ lý (Mr. Đại chốt phương án 1, 01/11/2026).
+     Token màu và kiểu chat lấy đúng từ CodeApp-3004/ghep-giao-dien.js (khối «bản 3004: mục Trợ lý»).
+     Luật 28: chỉ nút mới có viền/nền; chữ thuần để chữ trần. Luật 4 (bớt cú bấm): bấm một dự án là áp dụng và đóng ngay. */
+  :root { --nen: #FAF9F7; --the: #fff; --muc: #1a1a1a; --phu: #57534E; --vien: #E8E5E0; --cam: #EA580C; --cam-chu: #C2410C; --cam-nhat: #FFF1E6; --do: #DC2626; --xanh: #15803D; --top: #1A1A1A; }
+  * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+  html, body { margin: 0; background: #d9d6d1; font: 15px/1.4 "Segoe UI", Roboto, Arial, sans-serif; color: var(--muc); }
+  button, textarea { font: inherit; color: inherit; } button { cursor: pointer; }
+  #trang { display: flex; gap: 28px; justify-content: center; align-items: flex-start; padding: 24px 12px; flex-wrap: wrap; }
+  .cot { width: 390px; } .cot h2 { margin: 0 0 8px; font-size: 14px; color: #3f3a35; } .cot .ghi { margin-top: 10px; font-size: 12.5px; color: #3f3a35; line-height: 1.5; }
+  .may { position: relative; width: 390px; height: 760px; background: var(--nen); border-radius: 28px; overflow: hidden; box-shadow: 0 0 0 10px #111, 0 20px 50px rgba(0,0,0,.35); display: flex; flex-direction: column; }
+  @media (max-width: 520px) { #trang { padding: 8px 0; } .cot, .may { width: 100vw; } .may { border-radius: 0; box-shadow: none; height: 720px; } .cot h2, .cot .ghi { padding: 0 12px; } }
+
+  /* thanh đầu khung chat — như .tb-dau của app */
+  .tb-dau { flex: none; display: flex; align-items: center; gap: 4px; height: 52px; padding: 0 8px; background: var(--top); color: #F5F5F4; }
+  .tb-dau b { flex: 1; font: 700 17px "Times New Roman", serif; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .tb-dau .lui { border: 0; background: none; color: #fff; font-size: 28px; width: 36px; }
+  .tb-dau .doc-het { border: 0; background: none; color: #fff; padding: 0 8px; font-size: 14px; font-weight: 600; }
+
+  /* MỚI: thanh chọn dự án — nằm ngay dưới thanh đầu, luôn thấy */
+  .chon-da { flex: none; position: relative; padding: 8px 10px; background: var(--the); border-bottom: 1px solid var(--vien); }
+  .chon-da .nhan { font-size: 12px; color: var(--phu); margin-bottom: 3px; }
+  .chon-da .nut-da { display: flex; align-items: center; gap: 8px; width: 100%; padding: 9px 12px; border: 1px solid #D5D2CD; border-radius: 10px; background: #fff; text-align: left; font-size: 14.5px; font-weight: 600; }
+  .chon-da .nut-da .ten { flex: 1; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .chon-da .nut-da .mui { color: var(--phu); transition: transform .15s; } .chon-da.mo .nut-da { border-color: var(--cam); box-shadow: 0 0 0 2px var(--cam-nhat); } .chon-da.mo .mui { transform: rotate(180deg); }
+  .chon-da .nho { font-size: 11.5px; color: #A8A29E; margin-top: 3px; }
+  .ds-da { position: absolute; left: 10px; right: 10px; top: calc(100% - 4px); z-index: 5; max-height: 360px; overflow-y: auto; background: #fff; border: 1px solid #D5D2CD; border-radius: 12px; box-shadow: 0 10px 28px rgba(0,0,0,.25); }
+  .ds-da button { display: flex; align-items: center; gap: 8px; width: 100%; text-align: left; padding: 11px 12px; border: 0; border-bottom: 1px solid var(--vien); background: none; font-size: 14.5px; }
+  .ds-da button:last-child { border-bottom: 0; }
+  .ds-da button .dau-chon { width: 16px; color: var(--cam-chu); font-weight: 800; }
+  .ds-da button.dang { background: var(--cam-nhat); font-weight: 700; }
+  .ds-da button small { margin-left: auto; color: var(--phu); font-size: 11.5px; white-space: nowrap; }
+
+  /* thân chat — như app */
+  .than { flex: 1; overflow: hidden; padding: 10px 12px 16px; position: relative; }
+  .ct-tin { margin: 0 0 14px; } .ct-tin .ai { display: inline-grid; place-items: center; width: 22px; height: 22px; border-radius: 50%; background: var(--cam); color: #fff; font: 700 10px Arial, sans-serif; margin-right: 6px; vertical-align: middle; }
+  .ct-tin .dau-ai { font-size: 12.5px; color: var(--phu); margin-bottom: 4px; } .ct-tin .dau-ai b { color: var(--muc); }
+  .ct-nd { font-size: 14.5px; line-height: 1.5; } .ct-nd p { margin: 0 0 6px; }
+  .ct-tin.nguoi { display: flex; flex-direction: column; align-items: flex-end; } .ct-tin.nguoi .ct-nd { max-width: 86%; padding: 9px 12px; border-radius: 14px 14px 4px 14px; background: #1E293B; color: #F8FAFC; }
+  .ct-gio { font-size: 11.5px; color: #A8A29E; margin-top: 3px; }
+  .ct-trong { padding: 22px 10px; text-align: center; color: var(--phu); font-size: 14px; line-height: 1.5; } .ct-trong b { color: var(--muc); }
+  .ct-loi { margin: 8px 0; padding: 8px 10px; border-radius: 10px; background: #FEF2F2; color: var(--do); font-size: 13.5px; }
+  .ct-viet { flex: none; display: grid; grid-template-columns: 1fr auto; gap: 8px; padding: 8px 10px 12px; border-top: 1px solid var(--vien); background: var(--the); }
+  .ct-viet textarea { min-height: 44px; padding: 10px; border: 1px solid #D5D2CD; border-radius: 12px; resize: none; font-size: 15px; }
+  .ct-viet button { width: 48px; height: 48px; border: 0; border-radius: 50%; background: var(--cam); color: #fff; font-size: 20px; font-weight: 700; align-self: end; }
+  .ct-viet button:disabled { opacity: .45; }
+  .nen-mo { position: absolute; inset: 0; background: rgba(0,0,0,.18); }
+  .lop-doi { position: absolute; inset: 0; display: grid; place-items: center; background: rgba(250,249,247,.8); font-size: 14px; color: var(--phu); }
+</style>
+</head>
+<body>
+<div id="trang">
+
+  <!-- Màn 1: vừa mở Trợ lý, đã nhớ dự án lần trước -->
+  <div class="cot">
+    <h2>① Mở Trợ lý — đã nhớ dự án lần trước (nhớ theo email)</h2>
+    <div class="may">
+      <div class="tb-dau"><button class="lui">‹</button><b>Trợ lý Main</b><button class="doc-het">Phiên cũ</button><button class="doc-het">+ Mới</button></div>
+      <div class="chon-da">
+        <div class="nhan">Hỏi về dự án</div>
+        <button class="nut-da"><span class="ten">Điện gió Hướng Việt</span><span class="mui">▾</span></button>
+      </div>
+      <div class="than">
+        <div class="ct-tin nguoi"><div class="ct-nd">Tuần này dự án còn việc nào quá hạn?</div><div class="ct-gio">09:12</div></div>
+        <div class="ct-tin"><div class="dau-ai"><span class="ai">AI</span><b>Trợ lý Main</b> · dự án Điện gió Hướng Việt</div><div class="ct-nd"><p>Có 3 việc quá hạn so với Baseline: …</p></div></div>
+      </div>
+      <div class="ct-viet"><textarea rows="1" placeholder="Nhắn cho trợ lý Main…"></textarea><button>↑</button></div>
+    </div>
+    <div class="ghi">Dòng «Hỏi về dự án» luôn thấy, nên người dùng biết trợ lý đang trả lời theo dự án nào. Tên dự án cũng ghi ở đầu mỗi câu trả lời.</div>
+  </div>
+
+  <!-- Màn 2: bấm vào ô → danh sách xổ; bấm một dự án = áp dụng + đóng -->
+  <div class="cot">
+    <h2>② Bấm ô → danh sách dự án (bấm một dự án là xong)</h2>
+    <div class="may">
+      <div class="tb-dau"><button class="lui">‹</button><b>Trợ lý Main</b><button class="doc-het">Phiên cũ</button><button class="doc-het">+ Mới</button></div>
+      <div class="chon-da mo">
+        <div class="nhan">Hỏi về dự án</div>
+        <button class="nut-da"><span class="ten">Điện gió Hướng Việt</span><span class="mui">▾</span></button>
+        <div class="ds-da">
+          <button class="dang"><span class="dau-chon">✓</span>Điện gió Hướng Việt<small>đang chọn</small></button>
+          <button><span class="dau-chon"></span>Điện gió Quảng Trị 2</button>
+          <button><span class="dau-chon"></span>Thuỷ điện Nậm Pông</button>
+          <button><span class="dau-chon"></span>Điện mặt trời Ninh Thuận</button>
+          <button><span class="dau-chon"></span>Điện mặt trời Phú Yên</button>
+          <button><span class="dau-chon"></span>Thuỷ điện Sông Bung 6</button>
+          <button><span class="dau-chon"></span>… (16 dự án, cuộn xuống)</button>
+        </div>
+      </div>
+      <div class="than"><div class="nen-mo"></div>
+        <div class="ct-tin nguoi"><div class="ct-nd">Tuần này dự án còn việc nào quá hạn?</div></div>
+      </div>
+      <div class="ct-viet"><textarea rows="1" placeholder="Nhắn cho trợ lý Main…"></textarea><button disabled>↑</button></div>
+    </div>
+    <div class="ghi">Danh sách lấy từ <b>GET /api/projects</b> của Main, chỉ gồm dự án người này có quyền. Có từ 20 dự án trở lên thì thêm ô tìm ở đầu danh sách (nay 16 nên chưa cần).</div>
+  </div>
+
+  <!-- Màn 3: vừa chọn dự án khác → khung chat là của dự án đó -->
+  <div class="cot">
+    <h2>③ Vừa chọn «Thuỷ điện Nậm Pông» — chat mới của dự án đó</h2>
+    <div class="may">
+      <div class="tb-dau"><button class="lui">‹</button><b>Trợ lý Main</b><button class="doc-het">Phiên cũ</button><button class="doc-het">+ Mới</button></div>
+      <div class="chon-da">
+        <div class="nhan">Hỏi về dự án</div>
+        <button class="nut-da"><span class="ten">Thuỷ điện Nậm Pông</span><span class="mui">▾</span></button>
+      </div>
+      <div class="than">
+        <div class="ct-trong"><b>Hỏi về Thuỷ điện Nậm Pông</b><br>Mọi câu hỏi và nút ✅ Làm sẽ chạy trên dự án này.<br>«Phiên cũ» chỉ liệt kê phiên của dự án này.</div>
+      </div>
+      <div class="ct-viet"><textarea rows="1" placeholder="Nhắn cho trợ lý Main…"></textarea><button disabled>↑</button></div>
+    </div>
+    <div class="ghi">Đổi dự án = mở chat mới của dự án đó (phiên cũ không bị mất, nằm trong «Phiên cũ» của dự án cũ). Tránh để một cuộc chat trộn hai dự án.</div>
+  </div>
+
+  <!-- Màn 4: lỗi — người dùng không có quyền / không tải được danh sách -->
+  <div class="cot">
+    <h2>④ Không tải được danh sách dự án</h2>
+    <div class="may">
+      <div class="tb-dau"><button class="lui">‹</button><b>Trợ lý Main</b><button class="doc-het">Phiên cũ</button><button class="doc-het">+ Mới</button></div>
+      <div class="chon-da">
+        <div class="nhan">Hỏi về dự án</div>
+        <button class="nut-da"><span class="ten" style="color:var(--do)">Chưa chọn được dự án</span><span class="mui">▾</span></button>
+      </div>
+      <div class="than">
+        <div class="ct-loi">Không tải được danh sách dự án từ Main. Bấm ô trên để thử lại. Chưa chọn dự án thì chưa gửi câu hỏi được, để trợ lý không trả lời nhầm dự án.</div>
+      </div>
+      <div class="ct-viet"><textarea rows="1" placeholder="Chọn dự án trước…" disabled></textarea><button disabled>↑</button></div>
+    </div>
+    <div class="ghi">Khi lỗi mạng thì ô gửi bị khoá (hiện mờ, không ẩn — luật 17). Tài khoản chỉ có quyền một dự án thì ô chọn hiện tên dự án đó và không xổ.</div>
+  </div>
+
+</div>
+</body>
+</html>
