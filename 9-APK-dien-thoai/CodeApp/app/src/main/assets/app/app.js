@@ -63,7 +63,7 @@
   }
   const canhBaoHttp = () => {
     const v = $("dn-s").value.trim();
-    $("dn-loi").textContent = /^http:///i.test(v) && !/^http://(localhost|127.0.0.1)(:|/|$)/i.test(v) ? "⚠ Địa chỉ http:// gửi mật khẩu không mã hoá. Công ty dùng https://congviec.scigroup.vn" : "";
+    $("dn-loi").textContent = /^http:\/\//i.test(v) && !/^http:\/\/(localhost|127\.0\.0\.1)(:|\/|$)/i.test(v) ? "⚠ Địa chỉ http:// gửi mật khẩu không mã hoá. Công ty dùng https://congviec.scigroup.vn" : "";
   };
   $("dn-s").addEventListener("input", canhBaoHttp);
   $("dn-f").addEventListener("submit", (ev) => {
