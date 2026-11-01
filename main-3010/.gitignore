@@ -1,0 +1,45 @@
+
+# .env.local hiện chỉ có AUTH_SECRET (chuỗi ký session).
+# Danh mục biến đầy đủ xem .env.example (file đó CÓ trong git).
+# Mất nó thì mọi người phải đăng nhập lại — không mất dữ liệu.
+# Trước đây cả thư mục bị bỏ qua. Nếu giữ như vậy thì git có cũng vô nghĩa:
+# Vì vậy data/ ĐƯỢC đưa vào git. Chỉ loại ba thứ:
+# data/ là CƠ SỞ DỮ LIỆU của ứng dụng (JSON trên đĩa), tổng 1,3 MB,
+# sửa hỏng schedule.json vẫn mất trắng.
+# và là BẢN DUY NHẤT — không có nơi nào khác giữ tiến độ, người dùng, hồ sơ.
+# ── Google Drive: khóa OAuth + token — TUYỆT ĐỐI không vào git ──
+# ── Khóa và cấu hình máy ──
+# ── Sinh ra khi build / cài đặt, không bao giờ đưa vào git ──
+# ── data/ — ĐÃ ĐỔI 30/08/2026, đọc kỹ trước khi sửa lại ──
+*.log
+.env*.local
+.next/
+.vercel
+anh-chup/
+data/**/*.log
+data/bo-test-mot-tuan/
+data/drive-pkce.json
+data/drive.enc
+data/kiem-thu/
+data/mau-test/
+data/projects/_trash/
+data/settings.json
+next-env.d.ts
+node_modules/
+out/
+tsconfig.tsbuildinfo
+
+# Cau hinh keo ve tu Main — CHUA TOKEN THO, khong duoc vao git
+data/cau-hinh-keo-ve.json
+
+# J13 (23/09) — sổ + nhịp của script gác ngoài GAC-5-AGENT.ps1 (máy nào sổ nấy)
+data/gac-5-agent.jsonl
+data/gac-5-agent-nhip.json
+# 04/10 tối — dọn vết agent Base: kho danh bạ Base cũ + (Main) bản sao khoá Base.vn đã gỡ. KHÔNG đưa vào git.
+data/_da-go-04-10/
+
+# 12/10 — bộ kéo sơ đồ tổ chức từ agent Công việc: trạng thái, nhật ký, bản sao lưu trước khi ghi (máy nào sổ nấy)
+data/so-do-keo/
+
+# 26/10 — sổ câu gốc AI trước lưới «mã kèm tên» (có nội dung chat, email người hỏi) — kiểm độc lập AI-10
+data/nhat-ky/

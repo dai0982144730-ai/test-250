@@ -1,0 +1,26 @@
+CA ECONNREFUSED => ok=false ma=AGENT_KHONG_SAN_SANG :: Không nối được tới Agent Tiến độ ở http://127.0.0.1:3003/api/mcp/tiendo — agent đang tắt hoặc đang được khởi động lại (thường vài phút). Tắt lâu thì kiểm địa chỉ ở Danh bạ agent.
+CA 500 JSON ok:false LOI_NOI_BO => ok=false ma=LOI_NOI_BO :: hỏng
+CA 500 HTML => ok=false ma=AGENT_KHONG_SAN_SANG :: Cổng của Agent Tiến độ trả mã 500 kèm trang text/html, không phải câu trả lời MCP — kiểm cổng ở Danh bạ agent.
+CA 404 HTML => ok=false ma=AGENT_KHONG_SAN_SANG :: Cổng của Agent Tiến độ trả mã 404 kèm trang text/html, không phải câu trả lời MCP — bộ đệm dev của agent đó có thể đã hỏng (mọi đường dẫn trừ trang chủ đều 404), cần khởi động lại agent đó.
+CA 200 JSON rỗng {} => ok=false ma=LOI_NOI_BO :: Cổng của Agent Tiến độ trả khuôn lạ, không có trường ok.
+CA 401 JSON KHONG_CO_QUYEN => ok=false ma=KHONG_CO_QUYEN :: Không có quyền.
+CA 403 JSON KHOA_NOI_BO => ok=false ma=KHONG_CO_QUYEN :: Thiếu khoá.
+CA timeout => ok=false ma=HET_HAN_CHO :: Agent Tiến độ không trả lời trong 1 giây.
+BREAKER lượt1 :: Không nối được tới Agent Tiến độ ở http://127.0.0.1:3003/api/mcp/tiendo — agent đang tắt hoặc đang được khởi động lại (thường vài phút). Tắt lâu thì kiểm địa chỉ ở Danh bạ agent.
+BREAKER lượt4 (đã mở) :: Agent Tiến độ đang tắt hoặc đang được khởi động lại (đã hỏng 3 lần liên tiếp). Máy tự thử lại sau 20:29:13 — hỏi lại sau giờ đó.
+BREAKER trạng thái :: [{"ma":"tiendo","dangNgat":true,"moLaiLuc":"2026-10-26T13:29:13.130Z"}]
+BREAKER t+9:59 :: Agent Tiến độ đang tắt hoặc đang được khởi động lại (đã hỏng 3 lần liên tiếp). Máy tự thử lại sau 20:29:13 — hỏi lại sau giờ đó.
+BREAKER t+10:01 thăm dò (vẫn tắt) :: Không nối được tới Agent Tiến độ ở http://127.0.0.1:3003/api/mcp/tiendo — agent đang tắt hoặc đang được khởi động lại (thường vài phút). Tắt lâu thì kiểm địa chỉ ở Danh bạ agent.
+BREAKER sau thăm dò hỏng, lượt kế :: Agent Tiến độ đang tắt hoặc đang được khởi động lại (đã hỏng 3 lần liên tiếp). Máy tự thử lại sau 20:39:14 — hỏi lại sau giờ đó.
+BREAKER trạng thái :: [{"ma":"tiendo","dangNgat":true,"moLaiLuc":"2026-10-26T13:39:14.130Z"}]
+BREAKER sống lại => ok=true; trạng thái [{"ma":"tiendo","dangNgat":false,"moLaiLuc":null}]
+BREAKER do timeout :: Agent Tiến độ đang tắt hoặc đang được khởi động lại (đã hỏng 3 lần liên tiếp). Máy tự thử lại sau 20:29:13 — hỏi lại sau giờ đó.
+BREAKER do 404 :: Agent Tiến độ đang tắt hoặc đang được khởi động lại (đã hỏng 3 lần liên tiếp). Máy tự thử lại sau 20:29:14 — hỏi lại sau giờ đó.
+NHIEU tiendo :: Agent Tiến độ đang tắt hoặc đang được khởi động lại (đã hỏng 3 lần liên tiếp). Máy tự thử lại sau 20:29:14 — hỏi lại sau giờ đó.
+NHIEU phaply :: Agent Pháp lý đang tắt hoặc đang được khởi động lại (đã hỏng 3 lần liên tiếp). Máy tự thử lại sau 20:29:14 — hỏi lại sau giờ đó.
+NHIEU hopdong :: Agent Hợp đồng đang tắt hoặc đang được khởi động lại (đã hỏng 3 lần liên tiếp). Máy tự thử lại sau 20:29:14 — hỏi lại sau giờ đó.
+NHIEU congviec :: Chưa khai agent "congviec" trong Danh bạ agent (Cài đặt). Thêm một dòng rồi bật lên.
+NHIEU nghiemthu :: Agent Nghiệm thu đang tắt hoặc đang được khởi động lại (đã hỏng 3 lần liên tiếp). Máy tự thử lại sau 20:29:14 — hỏi lại sau giờ đó.
+NHIEU trạng thái :: [["tiendo",true],["phaply",true],["hopdong",true],["nghiemthu",true]]
+TD lượt1 :: Không nối được tới agent tiến độ tại http://127.0.0.1:3003. Đã bật chưa? Địa chỉ khai ở Cài đặt → Danh bạ agent.
+TD lượt4 :: Agent tiến độ đang tắt hoặc đang được khởi động lại (đã hỏng 3 lần liên tiếp). Máy tự thử lại sau 20:29:14 — hỏi lại sau giờ đó.

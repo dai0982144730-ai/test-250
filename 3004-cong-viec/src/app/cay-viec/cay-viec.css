@@ -1,0 +1,63 @@
+/* ============================================================
+   MÀN CÂY VIỆC & ĐƯỜNG GĂNG — GAM MÀU TƯƠI SÁNG (Mr. Đại chốt 03/10/2026): nền trắng / xám rất nhạt, chữ đậm, KHÔNG nền tối
+   kể cả khi tài khoản chọn giao diện 3D. Cách ít vỡ nhất: màn chép nguyên className Tailwind của agent Base, mọi token Tailwind
+   (bg, surface, text, border, accent…) là biến CSS (tailwind.config.ts) → đặt lại GIÁ TRỊ biến trong một lớp bọc. Nghĩa màu giữ
+   nguyên: đỏ = găng / chưa ai giao / nằm im, xanh lá = xong, vàng = chờ duyệt / nghi. Nhấn theo màu nhấn căn phòng (--p-cam).
+   Bố cục hai cột dùng khung .so-do / .san / .phai của các màn căn phòng (phong.css).
+   ============================================================ */
+.gd-phong .cay-viec-sang {
+  color-scheme: light;
+  --bg: #F5F3F0;
+  --bg2: #F5F3F0;
+  --surface: #FFFFFF;
+  --panel: #FFFFFF;
+  --text: #1A1A1A;
+  --text-secondary: #3D3A35;
+  --text-muted: #57534E; /* 09/10: thống nhất xám phụ 5 agent (GIAO-DIEN-CHUNG 3.5) */
+  --accent: var(--p-cam, #EA580C);
+  --accent-hover: #C2410C;
+  --accent-bg: var(--p-cam-nhat, #FFF1E6);
+  --border: #E2DED8;
+  --border-light: #EEEBE6;
+  --green: #15803D;
+  --green-bg: #F0FDF4;
+  --red: #DC2626;
+  --red-bg: #FEF2F2;
+  --yellow: #B45309;
+  --yellow-bg: #FFFBEB;
+  --blue: #2563EB;
+  --blue-bg: #EFF6FF;
+}
+/* Cột trái: nền sáng thay ảnh phòng tối, cuộn dọc cả cột */
+.gd-phong .cay-viec-sang .san {
+  display: block;
+  overflow: auto;
+  background: var(--bg);
+  box-shadow: inset 0 0 0 1px var(--border);
+  padding: 12px;
+  color: var(--text);
+}
+.gd-phong .cay-viec-sang .phai { color: var(--text); }
+/* Việc của tôi (Mr. Đại chốt 09/10/2026 — đảo chốt 08/10, cùng nguyên tắc 4 agent): NỀN TRANG THẪM #FAF9F7 (thay nền đen), hai khung
+   là THẺ NỘI DUNG SÁNG #FFFFFF viền #D5D2CD + bóng thẻ — y như màn Tổng quan agent Tiến độ ("Tiến độ nội bộ"). Thẻ đề xuất bên trái cùng
+   màu khung, chỉ viền mảnh. Mở một việc bên phải → CẢ khung phải (nút lọc, chỗ trống, các việc khác) thẫm #E9E6E1 như Sơ đồ; chỉ việc
+   đang mở sáng. Số đo chép Main components/tabs/viec/phai-viec.css (.trai-viec · .phai-viec). */
+.gd-phong:has(.cay-viec-sang.vct), .gd-phong .cay-viec-sang.vct { background: #FAF9F7; }
+.gd-phong .cay-viec-sang.vct .san.vct-trai,
+.gd-phong .cay-viec-sang.vct .phai { background: #fff; box-shadow: 0 0 0 1px #D5D2CD, 0 1px 3px rgba(0, 0, 0, .04), 0 1px 2px rgba(0, 0, 0, .03); border-radius: 14px; }
+.gd-phong .cay-viec-sang.vct .san.vct-trai { display: flex; flex-direction: column; overflow: hidden; }
+/* Mr. Đại 09/10 (lần 2, áp mọi agent): đề xuất là HÀNG như khu phải, không phải ô bao — gạch ngang chạy HẾT bề rộng khung
+   (lề âm bằng đệm khung); việc đang Sửa đánh dấu vạch nhấn trái. Số đo cùng Main phai-viec.css (.trai-viec). */
+.gd-phong .cay-viec-sang.vct .ds-nhap { margin: 6px -12px 0; border-top: 1px solid #D5D2CD; }
+.gd-phong .cay-viec-sang.vct .the-nhap { background: transparent; border-bottom: 1px solid #E8E5E0; padding: 8px 12px; }
+.gd-phong .cay-viec-sang.vct .the-nhap.dang-sua { box-shadow: inset 3px 0 0 #C2724F; }
+.gd-phong .cay-viec-sang.vct .the-nhap .o-trinh-bay { background: transparent; }
+/* dòng "Tên việc" cùng cỡ + màu tên việc bên phải (.muc-viec .t — 14px, chữ chính) */
+.gd-phong .cay-viec-sang.vct .ten-viec { font-size: 14px; line-height: 20px; color: #1a1a1a; }
+/* nút + ô chọn khung trái CÙNG KHUÔN nút khu phải (.pv-nut): cao 26px · chữ 12,5px · bo 7px */
+.gd-phong .cay-viec-sang.vct .vct-trai :is(button, select, input) { height: 26px; font-size: 12.5px; line-height: 18px; padding-top: 3px; padding-bottom: 3px; border-radius: 7px; }
+/* Khu phải dùng khuôn chung phai-viec.css (V6): khung .phai đã có viền + bo → bỏ viền lồng, lấp đầy chiều cao */
+.gd-phong .cay-viec-sang.vct .phai > .phai-viec { border: 0; border-radius: 0; box-shadow: none; min-height: 100%; }
+@media (max-width: 1023px) { .gd-phong .cay-viec-sang.vct .san.vct-trai { overflow: visible; } }
+/* (09/10: bỏ các luật khu phải cũ .vct-mo-ra — khu phải nay dùng khuôn chung phai-viec.css, tự thẫm khi mở việc) */
+.gd-phong .cay-viec-sang .cv-dau h1 { font: 600 18px "Times New Roman", "Noto Serif", serif; color: var(--p-tieu-de, var(--text)); margin: 0; }

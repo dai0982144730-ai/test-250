@@ -1,0 +1,623 @@
+﻿
+SCI công việc
+SCI công việc
+Đề bài Vòng đời Ba lớp dữ liệu Đơn vị Sơ đồ hoạt động Gửi, chuyển tiếp Thư mục Mẫu, kiểm tra Luôn mở, đè Nhiều người làm Sổ cái Lịch sử AI Cấu hình Phân quyền Công nghệ Kế hoạch Cần chốt
+Kế hoạch phiên bản 2 · 24/09/2026 · thay kế hoạch cũ
+Giao việc bằng tài liệu. Sổ cái biết việc nào đang chạy.
+SCI công việc nhận tài liệu Word theo mẫu, kiểm tra đủ điều kiện rồi mới cho gửi. Công việc trong tài liệu được ghi vào sổ cái cho đến khi mọi người thực hiện bấm Kết thúc . Mọi nội dung và thao tác được lưu mãi trong lịch sử . Có trợ lý AI với khung chat giống các agent của SCI, và agent khác đọc được sổ cái . Áp dụng cho 9 đơn vị theo bộ mẫu báo cáo tuần/tháng của SCI.
+Kế hoạch: QlyBaocao\Kehoach
+Code: QlyBaocao\CodeSCICongViec
+Khung chat lấy từ: SCI-AI-AGENT\4-agent-main
+Thay đổi lớn Từ chuyển văn bản sang giao việc Mỗi tài liệu mang công việc: ai làm, bắt đầu, kết thúc. Bỏ tính năng thu hồi.
+Dữ liệu Thư mục · Sổ cái · Lịch sử Ba lớp rõ ràng: cái đang có, việc đang chạy, và mọi thứ đã xảy ra.
+AI Khung chat giống agent tiến độ Lấy nguyên code. Có kỹ năng AI, quản trị tự thêm việc mới cho AI.
+Công nghệ Đồng bộ các agent SCI Next 14 · React 18 · Tailwind 3. PostgreSQL, Garage, Valkey có sẵn trên máy chủ.
+Đề bài mới và các điểm đã chốt
+Bố đưa 6 yêu cầu, con hiểu và đã chốt như sau
+Đề bài
+1 Ứng dụng tích hợp AI , có khung chat giống các agent trong SCI-AI-AGENT (như agent tiến độ), lấy luôn code sang cho đồng nhất.
+2 Không cần thu hồi. Tài liệu gửi đến phòng nào thì nằm trong thư mục của phòng đó . Ai cũng thấy cấu trúc thư mục của tất cả phòng ban .
+3 Trước khi gửi phải kiểm tra : công việc ai làm, khi nào bắt đầu, khi nào kết thúc, và đúng mẫu thì mới được gửi.
+4 Lịch sử lưu lại tất cả nội dung tài liệu, quá trình xử lý tài liệu và công việc trong tài liệu.
+5 Sổ cái ghi quá trình công việc. Việc kết thúc thì sổ cái xóa quy trình việc đó. Mỗi người thực hiện có nút Kết thúc . Sau này agent khác đọc sổ cái để lấy thông tin.
+6 Vẫn có người dùng thuộc phòng ban và phân quyền .
+Đã chốt với bố
+Câu hỏi Bố chốt
+Ai được xóa tài liệu? Theo phân quyền
+Mẫu là gì? 9 mẫu báo cáo Word có sẵn (Form 0 – Form 8)
+Việc nhiều người làm? Mỗi người kết thúc phần mình, việc tự xong khi đủ (mục "Nhiều người làm")
+AI làm gì? Kiểm tra mẫu, trích công việc, hỏi đáp sổ cái, tóm tắt; có chỗ thêm việc mới cho AI
+Công nghệ? Theo đúng bộ của các agent để lấy nguyên khung chat
+Thu hồi, hoàn tác? Bỏ
+Gửi, chuyển tiếp, gửi kèm, trả lại, gửi lại? Giữ từ yêu cầu ban đầu (mục "Gửi, chuyển tiếp")
+Người gửi ngoài 9 đơn vị? 3 trường hợp, xử lý theo cấu hình (mục "Đơn vị")
+Đơn vị? 9 đơn vị theo bộ mẫu báo cáo anh Đại gửi 23/09
+Việc không có ngày? Luôn mở, đến khi kết thúc
+Việc trùng nhau? Ngày sau đè ngày trước, cấp cao đè cấp thấp; thứ tự áp dụng là cấu hình trong cài đặt
+Vòng đời một công việc
+Từ file Word theo mẫu đến lúc việc rời sổ cái
+File không đạt thì bị chặn ngay, chỉ rõ thiếu chỗ nào. Gửi được thì tài liệu vào thư mục phòng nhận và công việc vào sổ cái. Mọi người bấm kết thúc thì việc rời sổ cái. Lịch sử ghi tất cả từ đầu đến cuối.
+Mẫu Word quản trị tải lên Form 0 – Form 8
+Soạn và tải lên điền đúng các ô việc · người · ngày
+Kiểm tra luật bắt buộc + AI đủ điều kiện mới gửi
+✘ chưa đạt: báo chỗ thiếu
+Gửi một hoặc nhiều phòng
+Thư mục phòng nhận ai cũng thấy cấu trúc xóa theo quyền
+SỔ CÁI chỉ giữ việc đang chạy tiến độ 0/3 → 3/3
+Agent khác đọc tiến độ, main, báo cáo…
+Mọi người bấm Kết thúc việc rời sổ cái
+LỊCH SỬ · ghi mọi phiên bản tài liệu và mọi thao tác, không ai sửa hay xóa được
+Ba lớp dữ liệu
+Thư mục, Sổ cái, Lịch sử: mỗi lớp một việc, không mâu thuẫn nhau
+Tách ba lớp thì hai yêu cầu "có quyền thì xóa được" và "lịch sử giữ tất cả" không còn đá nhau: xóa trong thư mục không làm mất gì trong lịch sử.
+Thư mục phòng ban
+Tài liệu đang có, để làm việc hằng ngày.
+Chứa File Word, file kèm theo, theo từng phòng Ai thấy Mọi người thấy cấu trúc của mọi phòng Xóa Được, theo phân quyền ; vào thùng rác trước Tồn tại Đến khi bị xóa
+Sổ cái công việc
+Chỉ những việc đang chạy, để theo dõi và cho agent đọc.
+Chứa Mỗi việc một dòng: ai làm, ngày, tiến độ, quá trình Ai thấy Theo phân quyền; agent đọc qua cổng MCP Xóa Tự xóa khi việc kết thúc , không ai xóa tay Tồn tại Từ lúc gửi đến lúc mọi người bấm Kết thúc
+Lịch sử
+Mọi thứ đã xảy ra, để tra cứu và làm bằng chứng.
+Chứa Mọi phiên bản file, mọi thao tác, toàn bộ quá trình công việc Ai thấy Theo phân quyền Xóa Không ai xóa được Tồn tại Vĩnh viễn
+Sơ đồ hoạt động · chu trình báo cáo tuần và giao việc
+Từ báo cáo tuần của BQLDA Quảng Trị đến việc "Chi trả GPMB Trụ T11" được đóng
+Đúng luồng trong bộ mẫu: đơn vị lập báo cáo (Form 7), gửi Phòng ĐT&PC, phòng tổng hợp (Form 1), Phó TGĐ lập Báo cáo hợp nhất (Form 0) trình TGĐ. TGĐ quyết định kiến nghị thì kiến nghị thành việc giao, vào sổ cái, đến khi mọi người bấm Kết thúc. Nội dung ví dụ lấy từ chính các mẫu.
+ĐƠN VỊ BÁO CÁO
+Ví dụ: BQLDA Quảng Trị
+PHÒNG CHỦ QUẢN
+Phòng Đầu tư và Pháp chế
+BAN TỔNG GIÁM ĐỐC
+Phó TGĐ phụ trách · TGĐ
+HỆ THỐNG SCI công việc
+Kiểm tra · Sổ cái · Lịch sử
+AGENT KHÁC
+Đọc sổ cái qua cổng MCP
+Bấm Gửi
+✘ Báo chỗ thiếu · khóa nút Gửi
+Gửi lại bản 2
+Vào thư mục P.ĐT&PC › Đến
+Gửi báo cáo phòng (Form 1)
+Giao phần việc
+Kết thúc phần việc
+Kết thúc phần việc
+1
+Lập báo cáo tuần 29
+Word theo mẫu Form 7 (BQLDA)
+Kiến nghị: đơn giá GPMB T11
+2
+Kiểm tra trước khi gửi
+✔ Đúng mẫu Form 7 · kỳ tuần 29
+✘ Người lập còn để "......"
+3
+Điền người lập, lưu Word
+Bản 2 · lịch sử vẫn giữ bản 1
+4
+✔ Đạt · đã gửi
+Người gửi đến: P.ĐT&PC
+Sổ cái: 3 việc trong báo cáo
+Agent tiến độ
+Cập nhật tiến độ
+ĐG Hướng Việt: 41,5%
+5
+P.ĐT&PC tổng hợp
+BQLDA QT · SCI PMC · SCI E&C
+→ báo cáo phòng Form 1
+6
+Phó TGĐ lập BC hợp nhất
+Form 0 · trình TGĐ, mục
+"Nội dung cần TGĐ quyết định"
+7
+TGĐ quyết định, giao việc
+Chi trả GPMB T11 · hạn 05/08
+BQLDA QT + P.ĐT&PC
+Sổ cái mở CV-0412
+8
+Thỏa thuận xong 3 hộ
+Kết thúc phần việc
+Sổ cái: 1/2 xong
+9
+Công văn UBND huyện
+Kết thúc phần việc
+10
+2/2 · Việc hoàn thành
+Tự xóa khỏi sổ cái
+Toàn bộ quá trình → lịch sử
+Agent main
+Báo cáo hợp nhất tuần sau
+tự ghi: việc GPMB T11 đã xong
+Gửi, giao việc
+Bị chặn, báo lỗi
+Kết thúc phần việc
+Agent đọc sổ cái
+Nội dung lấy từ mẫu báo cáo thật · mọi bước ghi vào Lịch sử
+BQLDA Quảng Trị lập báo cáo tuần 29 theo Form 7. Kiến nghị: nâng đơn giá GPMB Trụ T11 (3 hộ khiếu nại).
+Hệ thống kiểm tra : đúng mẫu, đúng kỳ, nhưng ô Người lập còn để "......" .
+Nút Gửi bị khóa. BQLDA điền người lập, tải lại bản 2. Lịch sử vẫn giữ bản 1.
+Đạt, gửi đi Phòng ĐT&PC (theo dòng "Gửi:" của mẫu). 3 việc trong báo cáo vào sổ cái. Agent tiến độ cập nhật Hướng Việt 41,5%.
+Phòng ĐT&PC tổng hợp báo cáo của BQLDA, SCI PMC, SCI E&C thành báo cáo phòng Form 1, gửi Phó TGĐ.
+Phó TGĐ phụ trách lập Báo cáo hợp nhất Form 0, đưa kiến nghị vào mục "Nội dung cần TGĐ quyết định".
+TGĐ quyết định và giao việc: chi trả GPMB T11, hạn 05/08, cho BQLDA và Phòng ĐT&PC. Sổ cái mở CV-0412.
+BQLDA thỏa thuận xong với 3 hộ, bấm Kết thúc phần việc : 1/2.
+Phòng ĐT&PC xong công văn gửi UBND huyện, bấm Kết thúc: 2/2.
+Việc hoàn thành , tự rời sổ cái, vào lịch sử. Báo cáo hợp nhất tuần sau tự ghi việc đã xong.
+Gửi · chuyển tiếp · gửi kèm · trả lại · gửi lại
+Nhận được tài liệu thì xử lý thế nào: 6 thao tác, làm được nhiều thao tác cùng lúc
+Ví dụ: SCI E&C gửi báo cáo tháng 7 (Form 6) cho Phòng ĐT&PC . Phòng ĐT&PC có thể trả lại để sửa, rồi chuyển tiếp nguyên văn, chuyển tiếp kèm tài liệu khác, gửi một tài liệu mới hoàn toàn, hoặc chỉ nhận và lưu. Mọi bước đều nằm trên cùng một cây hành trình .
+SCI E&C
+Báo cáo tháng 7 · Form 6
+gửi · sửa xong gửi lại bản 2
+gửi
+P.ĐT&PC nhận
+Thư mục P.ĐT&PC › Đến
+bấm Nhận: người gửi thấy
+"đã nhận lúc …"
+A
+Chuyển tiếp nguyên văn
+Gửi đúng tài liệu đó, không thêm gì → Ban TGĐ
+cùng hành trình · không phải kiểm tra lại
+B
+Chuyển tiếp + gửi kèm tài liệu khác
+Báo cáo gốc + YKien_PhapLy_ThuVon.docx → P.TCKT
+cùng hành trình · file kèm theo mẫu thì qua kiểm tra
+C
+Trả lại (yêu cầu gửi lại)
+Bắt buộc lý do: "thiếu số liệu thu vốn NK1"
+về lại SCI E&C · sửa xong gửi lại bản 2, cùng hành trình
+D
+Gửi tài liệu mới hoàn toàn
+Báo cáo phòng Form 1 → Phó TGĐ phụ trách
+hành trình mới · ghi "liên quan đến" báo cáo gốc
+E
+Nhận, lưu, hoàn thành
+Không gửi đi đâu nữa
+nhánh hành trình dừng tại đây
+trả lại → sửa → gửi lại bản 2
+Làm được nhiều cách cùng lúc
+Ví dụ sau khi nhận bản 2: A lên Ban TGĐ,
+B sang P.TCKT, D gửi Phó TGĐ.
+Gửi một lần được cho nhiều nơi; mỗi nơi một trạng thái riêng.
+Cây hành trình của báo cáo này
+Người gửi (SCI E&C) mở báo cáo là thấy: đã đi đâu, dừng ở đâu, bị trả lại vì sao, file nào được kèm thêm ở bước nào.
+E
+SCI E&C · gửi bản 1 Người gửi Báo cáo tháng 7 · Form 6
+ĐT
+P.ĐT&PC Trả lại "thiếu số liệu thu vốn NK1"
+E
+SCI E&C Gửi lại bản 2 đã bổ sung mục IV
+ĐT
+P.ĐT&PC Đã nhận xử lý 3 hướng
+TGĐ
+Ban TGĐ Chuyển tiếp nguyên văn
+TC
+P.TCKT Chuyển tiếp + kèm YKien_PhapLy_ThuVon.docx
+PT
+Phó TGĐ phụ trách Tài liệu mới Form 1 · liên quan báo cáo này
+Hộp xử lý tài liệu (bấm thử)
+DOC
+BaoCao_Thang7_SCI_ENC.docx từ SCI E&C
+Nhận
+Chuyển tiếp
+Chuyển tiếp + gửi kèm
+Trả lại
+Gửi tài liệu mới
+Hoàn thành
+04/08 08:10 SCI E&C gửi báo cáo tháng 7 cho P.ĐT&PC Kiểm tra đạt · 5 việc vào sổ cái
+Mỗi thao tác làm gì với thư mục, sổ cái, lịch sử
+Thao tác Thư mục Sổ cái Ghi chú
+Gửi (một hoặc nhiều nơi) Vào Đến của mỗi nơi nhận, Đi của người gửi Việc trong tài liệu vào sổ cái Phải qua kiểm tra; mỗi nơi nhận một trạng thái
+Nhận Không đổi Không đổi Người gửi thấy "đã nhận lúc …"
+Chuyển tiếp nguyên văn Vào Đến của nơi nhận mới Không đổi Cùng hành trình; không phải kiểm tra lại (cấu hình)
+Chuyển tiếp + gửi kèm Tài liệu gốc và file kèm cùng vào Đến của nơi nhận Việc trong file kèm vào sổ cái, theo quy tắc đè File kèm theo mẫu thì phải qua kiểm tra
+Trả lại Về Đến của người gửi, gắn nhãn "Bị trả lại" Việc trong tài liệu giữ nguyên, ghi "đang chờ sửa" Bắt buộc ghi lý do
+Gửi lại (sau khi sửa) Bản 2 thay bản 1 trong thư mục; bản 1 vào lịch sử Bản 2 đè bản 1 (cùng cấp, ngày sau) Qua kiểm tra lại; cùng hành trình
+Gửi tài liệu mới Như Gửi Như Gửi Hành trình mới; có thể gắn "liên quan đến" tài liệu gốc
+Hoàn thành Không đổi Không đổi Nhánh hành trình dừng tại đây
+Là cấu hình: ai được chuyển tiếp cho ai, chuyển tiếp có phải kiểm tra lại không, trả lại có tạm dừng việc trong sổ cái không. Không có thu hồi (bố đã bỏ).
+Đơn vị · theo 9 mẫu báo cáo anh Đại gửi 23/09/2026
+9 đơn vị và đường đi của báo cáo
+Chỉ dùng các đơn vị có trong bộ mẫu. Mỗi đơn vị có một mẫu báo cáo tuần/tháng riêng. Báo cáo đi lên theo tầng: đơn vị → phòng chủ quản → Phó TGĐ phụ trách tổng hợp → Tổng Giám đốc . Giao việc thì đi theo chiều ngược lại.
+TỔNG GIÁM ĐỐC SCI
+nhận Báo cáo hợp nhất · Form 0
+Phó TGĐ phụ trách
+tổng hợp, kiểm soát báo cáo các phòng
+Phòng Đầu tư và Pháp chế Form 1 · chủ quản 3 đơn vị dự án
+Phòng Hành chính Tổng hợp Form 3 · nhân sự, văn thư
+Phòng Kinh tế và Vận hành Form 2 · chủ quản nhà máy
+Phòng Tài chính Kế toán Form 4 · nguồn tiền, chi phí
+gửi P.ĐT&PC
+gửi P.KT&VH
+SCI PMC Form 5 · tư vấn thiết kế
+SCI E&C Form 6 · thi công EPC
+BQLDA Quảng Trị Form 7 · ĐG Hướng Việt
+NM thủy điện Nậm Xe Form 8 · sản lượng, thiết bị
+9 đơn vị, 9 mẫu báo cáo
+Đơn vị Mẫu Gửi đến
+Ban Tổng giám đốc (Phó TGĐ phụ trách lập) Form 0 · hợp nhất Tổng Giám đốc
+Phòng Đầu tư và Pháp chế Form 1 Phó TGĐ phụ trách
+Phòng Kinh tế và Vận hành Form 2 Phó TGĐ phụ trách
+Phòng Hành chính Tổng hợp Form 3 Phó TGĐ phụ trách
+Phòng Tài chính Kế toán Form 4 Phó TGĐ phụ trách
+SCI PMC Form 5 Phòng ĐT&PC
+SCI E&C Form 6 Phòng ĐT&PC
+BQLDA Quảng Trị Form 7 Phòng ĐT&PC
+Nhà máy thủy điện Nậm Xe Form 8 Phòng KT&VH
+Điều này đổi gì trong thiết kế
+Mỗi đơn vị một thư mục (4 phòng, Ban TGĐ, 4 đơn vị). Báo cáo gửi đến đâu thì vào thư mục Đến của nơi đó.
+Người gửi đến mặc định lấy theo mẫu: Form 5, 6, 7 tự điền Phòng ĐT&PC, Form 8 tự điền Phòng KT&VH, Form 1 đến 4 tự điền Phó TGĐ phụ trách.
+Hai tầng kiểm soát có sẵn trong mẫu: "Trưởng phòng / GĐ đơn vị" và "Phó TGĐ phụ trách". Đưa vào phân quyền: ai được kiểm soát báo cáo của ai.
+Kiến nghị thành công việc: mục "Vấn đề nổi bật và kiến nghị" được lãnh đạo quyết định thì biến thành việc giao, vào sổ cái.
+Cây tổ chức vẫn thêm được đơn vị mới sau này, không phải sửa code.
+Người gửi không thuộc đơn vị nào trong 9 đơn vị
+Mỗi tài liệu cần biết "ai gửi, thuộc cấp nào" để áp quy tắc đè và chọn nơi nhận. Người không thuộc đơn vị nào được xử lý theo 3 trường hợp, tất cả đều là cấu hình :
+Trong công ty, ngoài 9 đơn vị
+Ví dụ Chủ tịch HĐQT, thư ký, chuyên gia, trợ lý Ban TGĐ.
+Xử lý Gắn vào một đơn vị riêng (ví dụ "Văn phòng HĐQT") hoặc nhóm "Cá nhân" ; có thư mục cá nhân Đến, Đi Cấp Đặt trong cấu hình: theo đơn vị riêng, hoặc theo chức vụ (ví dụ Chủ tịch HĐQT cấp 0, cao hơn Ban TGĐ) Mẫu Dùng mẫu chung (tờ trình, công văn) hoặc gửi tự do không sinh việc: cấu hình Nơi nhận Tự chọn, vì không có đơn vị chủ quản
+Người mới, chưa gán đơn vị
+Tài khoản vừa tạo, quản trị chưa kịp xếp vào đâu.
+Xử lý Đăng nhập được, xem được theo quyền tối thiểu Gửi Cấu hình: chặn gửi đến khi được gán đơn vị (mặc định), hoặc cho gửi với cấp thấp nhất Nhắc Quản trị viên nhận thông báo "có người chưa được gán đơn vị"
+Người ngoài công ty
+Đối tác, nhà thầu, cơ quan nhà nước, chủ đầu tư khác.
+Xử lý Không có tài khoản: gửi giấy hoặc email, văn thư Phòng HCTH vào sổ văn bản đến, ghi rõ nơi gửi, rồi chuyển đơn vị xử lý Cấp Cấp "bên ngoài": không đè được việc của đơn vị trong công ty (cấu hình) Sau này Cổng tải lên cho khách: chỉ gửi vào, không thấy gì khác
+Trong lịch sử và cây hành trình luôn ghi đúng người gửi thật, kể cả khi văn thư nhập thay cho người ngoài.
+Thư mục phòng ban
+Ai cũng thấy cấu trúc thư mục của mọi đơn vị. Xóa được hay không là do quyền
+Mỗi đơn vị (Ban TGĐ, 4 phòng, 4 đơn vị) có một thư mục gồm: Đến (tài liệu phòng nhận), Đi (tài liệu phòng gửi), Dự án , và Thùng rác . Tài liệu gửi đến phòng nào thì tự nằm trong thư mục Đến của phòng đó. Xóa thì vào thùng rác, khôi phục được, và lịch sử vẫn ghi "ai xóa, lúc nào".
+Bấm thử: mở thư mục bất kỳ phòng nào, bấm biểu tượng thùng rác. Đang đăng nhập là Trần Văn Hùng (Phòng Kinh tế và Vận hành, nhân viên) : chỉ xóa được file mình tải lên. Dữ liệu minh họa
+Thư mục
+Tìm báo cáo của mọi đơn vị… Ctrl K
+Trần Văn Hùng · SCI · KT&VH TH
+Mẫu Word và kiểm tra trước khi gửi
+9 mẫu báo cáo có sẵn. Thiếu thông tin bắt buộc thì nút Gửi bị khóa
+Mẫu chính là 9 file Word anh Đại gửi (Form 0 đến Form 8). Con chuyển mỗi mẫu một lần sang dạng có ô nhập gắn mã (tính năng có sẵn trong Word), để hệ thống đọc chính xác từng ô: kỳ báo cáo, người lập, người kiểm soát, từng dòng công việc.
+Hiện trạng 9 mẫu (con đã đọc từng file)
+Phần trong mẫu Hiện có
+Kỳ báo cáo (tuần/tháng), Người lập, Ngày lập, Người kiểm soát Cả 9 mẫu
+Chữ ký: Người lập · Trưởng phòng / GĐ đơn vị · Phó TGĐ phụ trách Cả 9 mẫu
+Dòng "Gửi:" ghi nơi nhận Form 5, 6, 7, 8
+Bảng "Vấn đề nổi bật và kiến nghị" Cả 9 mẫu
+Bảng công việc có người phụ trách và hạn Chỉ Form 6 (Kế hoạch công việc tháng tới) và Form 0 (Nội dung cần TGĐ quyết định)
+Ô nhập gắn mã để máy đọc Chưa có, con sẽ thêm
+Đề xuất: thêm vào cả 9 mẫu một bảng chuẩn "Công việc" : Công việc · Người phụ trách · Bắt đầu · Kết thúc · Kết quả cần có. Bảng này là nguồn đưa việc vào sổ cái. Ngày để trống thì việc luôn mở .
+Hệ thống kiểm tra những gì
+Điều kiện Không đạt thì
+Đúng mẫu : nhận ra Form nào, đủ các mục, không xóa mất ô nhập Chặn gửi
+Kỳ báo cáo : đã chọn tuần hoặc tháng, có ngày Chặn gửi
+Người lập, người kiểm soát : đã điền, không còn "......" Chặn gửi
+Gửi đến : có nơi nhận (mặc định theo mẫu) Chặn gửi
+Công việc : có tên việc; người phụ trách trống thì gán cho đơn vị lập báo cáo Tự gán, báo cho người gửi
+Ngày : nếu có thì bắt đầu không sau kết thúc Chặn gửi
+Ngày trống Không chặn: việc luôn mở
+Việc trùng với việc đã có trong sổ cái Áp quy tắc đè (mục sau), báo cho người gửi
+Nội dung : mục trống, số liệu mâu thuẫn AI góp ý, không chặn
+Màn hình kiểm tra (bấm thử · báo cáo tuần 29 của BQLDA Quảng Trị, mẫu Form 7)
+DOC
+BaoCao_Tuan29_BQLDA_QuangTri.docx bản 1
+Công việc trong báo cáo Phụ trách Bắt đầu Kết thúc Vào sổ cái
+Tải lại bản đã sửa
+Gửi Phòng ĐT&PC
+Quy tắc công việc trong báo cáo
+Việc không có ngày thì luôn mở. Việc trùng thì bản đúng quy tắc đè bản cũ
+Cả hai quy tắc đều là cấu hình , quản trị viên đổi được trong cài đặt. Báo cáo tuần nào cũng nhắc lại nhiều việc cũ, và cùng một việc có thể xuất hiện ở báo cáo đơn vị, báo cáo phòng lẫn báo cáo hợp nhất. Hai quy tắc dưới đây giữ cho sổ cái mỗi việc chỉ có một dòng, luôn là thông tin đáng tin nhất.
+1 · Luôn mở
+Thi công móng trụ T5–T8 có ngày: 01/07 → 15/08
+có hạn · quá 15/08 chưa xong thì tô đỏ
+Chuyển mục đích đất rừng T14–T16 không có ngày
+LUÔN MỞ · không bao giờ quá hạn
+∞
+Đóng khi: người phụ trách bấm Kết thúc , hoặc báo cáo sau (được phép đè) ghi việc đã xong.
+2 · Đè khi trùng · ví dụ việc "GPMB Trụ T11 · ĐG Hướng Việt"
+Cấp 1 · Ban TGĐ Form 0 · báo cáo hợp nhất
+Cấp 2 · 4 phòng Form 1 – Form 4
+Cấp 3 · 4 đơn vị Form 5 – Form 8
+cấp cao hơn đè
+BQLDA · tuần 28 hạn 30/07
+ngày sau
+BQLDA · tuần 29 hạn 05/08
+cấp cao hơn
+P.ĐT&PC · tuần 29 hạn 10/08
+Sổ cái dùng: hạn 10/08 nguồn: P.ĐT&PC tuần 29 · đã đè 2 bản
+Nếu Form 0 có quyết định của TGĐ → đè tất cả
+Bản bị đè không mất: vẫn nằm trong lịch sử, mở ra so sánh được. Sổ cái ghi rõ "nguồn hiện hành" và "đã đè bao nhiêu bản".
+Thế nào là "trùng"
+Có mã việc : lần đầu vào sổ cái, việc được cấp mã (ví dụ CV-0412). Báo cáo sau ghi lại mã đó là chắc chắn trùng.
+Chưa có mã : AI so tên việc, dự án, hạng mục với các việc đang mở, gợi ý "có vẻ trùng CV-0412". Người gửi bấm xác nhận hoặc bỏ qua.
+Không bao giờ tự gộp mà không báo: người gửi luôn thấy danh sách việc sẽ bị đè trước khi bấm Gửi.
+Cài đặt quy tắc (quản trị viên chỉnh, không sửa code · bấm thử)
+Thứ tự ưu tiên khi việc trùng
+Cấp trước, cùng cấp thì so ngày Mặc định. Cấp cao đè cấp thấp kể cả khi cấp thấp gửi sau.
+Ngày trước, cùng ngày thì so cấp Báo cáo mới hơn thắng; cùng kỳ thì cấp cao thắng.
+Chỉ theo cấp Cùng cấp thì giữ bản đến trước.
+Chỉ theo ngày Bản mới nhất luôn thắng, không xét cấp.
+"Ngày sau" tính theo
+Kỳ báo cáo
+Ngày bấm gửi
+"Đã xong" luôn được ghi nhận Người phụ trách hoặc đơn vị thực hiện báo xong thì đóng, không xét cấp
+Việc không có ngày thì luôn mở Tắt: thiếu ngày sẽ bị chặn gửi
+Báo cho người gửi khi bản của họ không được dùng Kèm lý do: thua cấp hay thua ngày
+Áp dụng lại cho việc đang mở khi đổi cài đặt Tắt: chỉ áp dụng cho báo cáo gửi từ nay
+Cấp của từng đơn vị (1, 2, 3) đặt trong cây đơn vị. Mọi lần đổi cài đặt đều ghi vào nhật ký: ai đổi, lúc nào, từ gì sang gì.
+Công việc nhiều người làm
+Mỗi người (hoặc đơn vị) một phần việc, tự bấm kết thúc phần của mình
+Một công việc chia thành nhiều phần việc , mỗi phần một người phụ trách, có ngày riêng hoặc không có ngày (luôn mở). Công việc tự hoàn thành khi phần cuối cùng được bấm kết thúc. Ví dụ từ kiến nghị trong Form 8 của Nhà máy Nậm Xe.
+CV-0415 · Thay relay bảo vệ R21 máy phát TM2 · NM Nậm Xe
+Giao bởi Phòng Kinh tế và Vận hành, từ kiến nghị trong báo cáo tuần 29 của nhà máy (Form 8) · 21/07 → 31/07
+21/07 23/07 25/07 27/07 29/07 31/07
+Phòng KT&VH Phê duyệt mua relay R21
+✓
+Phòng Tài chính Kế toán Thanh toán nhà cung cấp
+✓
+Nhà máy Nậm Xe Lắp đặt, thí nghiệm relay
+✓
+1/3
+2/3
+3/3 · rời sổ cái
+Sổ cái tăng dần mỗi lần có người bấm Kết thúc
+Quy tắc
+Mỗi phần việc một người hoặc một đơn vị phụ trách , có ngày riêng, hoặc không có ngày thì phần đó luôn mở.
+Mỗi người chỉ bấm được Kết thúc phần của mình. Bấm xong ghi kết quả, đính kèm file nếu cần.
+Công việc tự hoàn thành khi phần cuối cùng kết thúc, rồi tự rời sổ cái.
+Người giao việc được thêm bớt người, gia hạn, đổi người phụ trách, hoặc đóng việc (bắt buộc ghi lý do). Mọi thay đổi vào lịch sử.
+Có hạn mà quá hạn chưa kết thúc: sổ cái tô đỏ, nhắc người đó và người giao việc. Việc luôn mở thì không bao giờ quá hạn.
+Phần việc giao cho cả một đơn vị
+Nhiều việc trong báo cáo giao cho cả đơn vị (ví dụ "BQLDA Quảng Trị"). Khi đó trưởng đơn vị hoặc người được phân công bấm Kết thúc thay đơn vị, lịch sử ghi rõ ai bấm.
+Công việc một người làm
+Là trường hợp đơn giản nhất: một phần việc. Người đó bấm Kết thúc thì việc hoàn thành ngay.
+Sổ cái công việc
+Chỉ ghi việc đang mở. Việc xong thì tự rời sổ cái
+Bấm thử: bấm Kết thúc trên từng đơn vị. Khi đủ, dòng đó tự rời sổ cái và chuyển xuống lịch sử bên dưới. Việc không có ngày hiện nhãn Luôn mở .
+Sổ cái
+Lọc theo đơn vị, dự án, người…
+3 việc đang mở
+Công việc · nguồn Phụ trách và phần việc Hạn Tiến độ
+Vừa chuyển vào lịch sử
+25/07 CV-0401 · Gia hạn hợp đồng bảo vệ VP và các nhà máy hoàn thành, rời sổ cái Từ kiến nghị Form 3 · 1 phần việc · Phòng Hành chính Tổng hợp
+Agent khác đọc sổ cái thế nào
+Sổ cái SCI công việc
+Cổng MCP socai.*
+API chỉ đọc có khóa riêng
+Agent tiến độ
+Agent main
+Agent báo cáo…
+Làm cổng MCP giống cách agent tiến độ đang làm ( src/lib/mcp/cong-tiendo.ts ). Công cụ dự kiến:
+socai.danh_sach_viec Việc đang mở, lọc theo đơn vị, dự án, người, luôn mở hay có hạn, cảnh báo
+socai.chi_tiet_viec Một việc: phần việc, người, ngày, nguồn hiện hành, các bản đã bị đè, quá trình
+socai.viec_cua_don_vi Việc đang mở của một đơn vị hoặc một người
+lichsu.tra_cuu_viec Việc đã xong (đã rời sổ cái)
+Một dòng sổ cái agent nhận được
+{
+"ma_viec" : "CV-2026-0412" ,
+"ten_viec" : "Chi trả GPMB Trụ T11" ,
+"du_an" : "ĐG Hướng Việt" ,
+"nguon_hien_hanh" : { "bao_cao" : "Form 0 · tuần 30" ,
+"don_vi" : "Ban Tổng giám đốc" , "cap" : 1 },
+"da_de" : [ "BQLDA Quảng Trị · Form 7 · tuần 28" ,
+"BQLDA Quảng Trị · Form 7 · tuần 29" ],
+"luon_mo" : false ,
+"bat_dau" : "2026-07-28" , "ket_thuc" : "2026-08-05" ,
+"phan_viec" : [
+{ "phu_trach" : "BQLDA Quảng Trị" ,
+"noi_dung" : "Thỏa thuận với 3 hộ" ,
+"trang_thai" : "da_ket_thuc" },
+{ "phu_trach" : "Phòng Đầu tư và Pháp chế" ,
+"noi_dung" : "Công văn gửi UBND huyện Hướng Hóa" ,
+"trang_thai" : "dang_lam" }
+],
+"tien_do" : "1/2" , "canh_bao" : "sap_den_han" ,
+"qua_trinh" : [
+{ "luc" : "2026-07-21 10:05" , "su_kien" : "vao_so_cai" ,
+"tu" : "Form 7 · BQLDA Quảng Trị" },
+{ "luc" : "2026-07-28 16:30" , "su_kien" : "bi_de" ,
+"tu" : "Form 0 · Ban Tổng giám đốc" }
+]
+}
+Tên trường cố định, có tài liệu mô tả kèm theo, để agent nào đọc cũng hiểu giống nhau.
+Lịch sử
+Lưu tất cả: nội dung, quá trình xử lý tài liệu, quá trình công việc, và các bản bị đè
+Lịch sử chỉ được ghi thêm, không ai sửa hay xóa được, kể cả quản trị viên. Mở bất kỳ báo cáo hay công việc nào cũng xem được dòng thời gian đầy đủ.
+Ghi những gì
+Nội dung báo cáo Mọi phiên bản file Word (bản 1, bản 2…), kể cả bản đã bị xóa khỏi thư mục. Mỗi bản có mã băm để chứng minh không bị sửa.
+Xử lý báo cáo Tải lên, kiểm tra (đạt hoặc lỗi gì), gửi, nhận, mở xem, tải về, xóa, khôi phục.
+Công việc Vào sổ cái từ báo cáo nào, bị đè bởi báo cáo nào , giao việc, gia hạn, đổi người, từng lần bấm Kết thúc, hoàn thành.
+Ai, lúc nào, từ đâu Người làm, thời gian, thiết bị cho từng dòng.
+Dòng thời gian của CV-0412
+14/07 BQLDA Quảng Trị báo cáo tuần 28 (Form 7): GPMB T11 chậm, hạn 30/07 Vào sổ cái lần đầu · cấp mã CV-0412
+21/07 09:40 BQLDA Quảng Trị tải báo cáo tuần 29, bị chặn Kiểm tra: ô Người lập còn "......"
+21/07 10:05 BQLDA Quảng Trị gửi bản 2 cho Phòng ĐT&PC Tuần 29 đè tuần 28: hạn 30/07 → 05/08
+22/07 Phó TGĐ phụ trách đưa vào Báo cáo hợp nhất tuần 30 (Form 0) Mục "Nội dung cần TGĐ quyết định"
+28/07 16:30 Tổng Giám đốc quyết định, giao việc 2 phần Form 0 cấp 1 đè bản của BQLDA · 0/2
+02/08 11:20 BQLDA Quảng Trị bấm Kết thúc phần "Thỏa thuận với 3 hộ" Ghi chú: đã ký biên bản với 3 hộ · 1/2
+04/08 15:00 Phòng ĐT&PC bấm Kết thúc phần "Công văn UBND huyện" 2/2 · công việc hoàn thành, rời sổ cái
+Tích hợp AI
+Khung chat giống hệt các agent SCI, và quản trị tự thêm việc mới cho AI
+Lấy nguyên khối khung chat của 4-agent-main / 2-agent-hop-dong (giống agent tiến độ): nút tròn nổi góc phải, Ctrl+K, neo trái/phải hoặc nổi tự do, chọn model, thanh ngữ cảnh, xuất câu trả lời ra file. Chỉ đổi tên agent và bộ công cụ, đúng quy tắc trong LOI-DUNG-CHUNG-v1.0 .
+Khung chat ChatWidget · ChatPanel
+chat-agent chọn kỹ năng, công cụ
+Kỹ năng AI có sẵn + bố thêm
+Thư mục
+Sổ cái
+Lịch sử
+Mẫu Word
+chỉ đọc đúng phần người hỏi có quyền
+Claude CLI hoặc API
+AI làm những việc gì
+/kiem-tra-mau Góp ý nội dung file Word trước khi gửi: mục trống, mâu thuẫn, sai chính tả tên người
+/trich-cong-viec Đọc file Word, tự điền sẵn bảng phần việc, người làm, ngày tháng để người gửi xác nhận
+/hoi-so-cai Trả lời "việc nào sắp trễ?", "Phòng ĐT&PC còn mấy việc mở?", "Hướng Việt đang vướng ở đâu?"
+/tom-tat Tóm tắt một báo cáo hoặc cả thư mục
+/tong-hop-bao-cao Gộp báo cáo các đơn vị thành báo cáo phòng (Form 1, 2) hoặc Báo cáo hợp nhất (Form 0), lấy việc từ sổ cái
+✦ Trợ lý SCI công việc ⇤ ⤢ ✕
+Việc nào của SCI E&C sắp trễ hạn?
+socai.danh_sach_viec · cong_ty=SCI E&C
+SCI E&C có 2 việc đáng chú ý:
+• CV-0409 Gia hạn GPXD Nậm Khiên 1: SCI E&C xong phần số liệu, còn Phòng ĐT&PC, hạn 20/08.
+• CV-0421 Rotor turbine Nậm Mô 1 về chậm: luôn mở , chưa có hạn.
+Anh muốn em nhắc Phòng ĐT&PC không?
+/tom-tat báo cáo tuần 29 của SCI E&C
+thumuc.doc · Form 6 · tuần 29
+Tuần 29 SCI E&C: Nậm Mô 1 đập chính 78%, Nậm Khiên 1 đập chính 68%. Hai rủi ro cao: rotor Nậm Mô 1 về chậm, BQLDA NK1 chậm thanh toán đợt 4 (12,5 tỷ)…
+Hỏi về tài liệu, sổ cái… gõ / để gọi kỹ năng
+🌐 ➤
+Sonnet 31% DOCX XLSX PDF MD
+Hình minh họa theo đúng bố cục khung chat của các agent. Màu lấy theo bảng màu chung của ứng dụng.
+Thêm việc mới cho AI: kỹ năng (skill)
+Dùng lại cơ chế "Skill AI của tôi" đang chạy ở các agent ( src/lib/skill/ky-nang.ts ). Mỗi việc của AI là một kỹ năng : một file .skill gồm SKILL.md (tên, mô tả khi nào dùng, hướng dẫn làm), kèm tài liệu tham khảo hoặc mẫu nếu cần.
+/kiem-tra-mau /trich-cong-viec /hoi-so-cai /tom-tat /tong-hop-bao-cao + Thêm kỹ năng
+Kỹ năng hệ thống : cài sẵn, không ai xóa được.
+Kho chung : quản trị thêm, cả công ty dùng.
+Kho riêng : mỗi người tự thêm cho mình.
+Thêm kỹ năng: tải file .skill hoặc viết hướng dẫn ngay trên web, dùng được ngay, không phải sửa code .
+Đã có sẵn chặn file độc hại (zip-bomb, zip-slip) từ bản chạy thật.
+Ví dụ kỹ năng bố có thể thêm sau:
+/bao-cao-tuan Viết báo cáo tuần từ sổ cái và lịch sử, xuất Word theo mẫu BC-02
+/nhac-viec Soạn tin nhắc người sắp trễ hạn
+/soan-phieu-giao-viec Từ một câu mô tả, soạn sẵn Phiếu giao việc đúng mẫu PGV-01
+/so-sanh-ban So sánh bản 1 và bản 2 của cùng tài liệu, chỉ chỗ thay đổi
+Nguyên tắc cấu hình
+Cái gì có thể thay đổi thì đưa vào cấu hình, không viết cứng trong code
+Quản trị viên đổi trên trang Cài đặt , có hiệu lực ngay, không phải sửa code hay cài lại. Code chỉ giữ phần "cách làm"; còn "làm theo quy định nào, danh sách nào, con số nào" đều nằm trong cấu hình.
+Đơn vị, người dùng cấu hình Thêm, bớt, đổi tên đơn vị; cấp của đơn vị (1, 2, 3); cấp theo chức vụ; người ngoài 9 đơn vị và người chưa gán đơn vị được gửi hay không.
+Gửi, chuyển tiếp cấu hình Ai được chuyển tiếp cho ai; chuyển tiếp có phải kiểm tra lại không; trả lại có tạm dừng việc trong sổ cái không.
+Vai trò, quyền cấu hình Tạo vai trò mới, bật tắt từng quyền, phạm vi của mình / đơn vị mình / cấp dưới / toàn bộ; quyền xóa mặc định.
+Luồng báo cáo cấu hình Đơn vị nào gửi báo cáo cho đơn vị nào, ai kiểm soát, ai tổng hợp. Đổi luồng không phải sửa code.
+Mẫu Word cấu hình Thêm mẫu mới (Form 9, 10…), ô nhập nào bắt buộc, nơi nhận mặc định, bảng nào sinh việc vào sổ cái.
+Luật kiểm tra cấu hình Bật tắt từng luật; luật nào chặn gửi, luật nào chỉ cảnh báo; áp dụng cho mẫu nào.
+Quy tắc đè, luôn mở cấu hình Thứ tự ưu tiên khi trùng, "ngày sau" tính theo kỳ hay ngày gửi, "đã xong" luôn ghi nhận, việc không ngày luôn mở.
+Kỳ báo cáo, hạn nộp cấu hình Tuần, tháng, quý; hạn nộp (ví dụ thứ Hai 10:00); nhắc nộp trước bao lâu; ngày nghỉ, ngày lễ khi tính hạn.
+Sổ cái, nhắc việc cấu hình Bao nhiêu ngày thì "sắp đến hạn"; nhắc lúc nào, qua kênh nào; dạng mã việc (CV-2026-0412).
+Thư mục cấu hình Thư mục con mặc định (Đến, Đi, Dự án…); thùng rác giữ bao lâu; đặt tên file theo quy ước.
+Thông báo, email cấu hình Hộp thư gửi, nội dung mẫu của từng loại thông báo, ai nhận thông báo gì.
+AI cấu hình Model mặc định, bật tắt AI góp ý, câu gợi ý, kỹ năng AI (file .skill): thêm việc mới cho AI mà không sửa code.
+Agent, giao diện, sao lưu cấu hình Khóa và công cụ cho từng agent; logo, tên, màu; giờ sao lưu và số ngày giữ.
+Cấu hình được lưu và quản lý thế nào
+Lưu trong CSDL , không nằm trong code. Code chỉ có giá trị mặc định để lần đầu chạy là dùng được ngay.
+Có phiên bản và nhật ký : ai đổi, lúc nào, từ gì sang gì; quay lại bản cũ bằng một nút.
+Kiểm tra trước khi lưu : không cho lưu cấu hình sai (ví dụ luồng báo cáo vòng tròn, đơn vị không có cấp).
+Xuất, nhập cấu hình ra file để chuyển từ máy thử nghiệm sang máy chạy thật, hoặc sang công ty khác.
+Phân quyền riêng cho từng nhóm cài đặt: ví dụ HCTH sửa người dùng, ĐT&PC sửa mẫu và luật kiểm tra.
+Giới hạn cần nói rõ
+Cấu hình thay được danh sách, con số, lựa chọn, bật tắt, mẫu, quy tắc có sẵn . Một kiểu việc hoàn toàn mới mà hệ thống chưa từng biết (ví dụ nối sang phần mềm kế toán) thì vẫn cần viết thêm code.
+Để việc viết thêm ít nhất, con thiết kế từ đầu theo kiểu "quy tắc là dữ liệu" : luật kiểm tra, quy tắc đè, luồng báo cáo đều là các dòng dữ liệu hệ thống đọc lúc chạy. Thêm luật mới cùng loại chỉ là thêm một dòng.
+Người dùng, phòng ban, phân quyền
+sci-identity vẫn giữ: viết một lần, dùng lại cho mọi web SCI
+Module riêng ở thư mục packages/sci-identity : cây đơn vị có cấp (Ban TGĐ › 4 phòng › 4 đơn vị, thêm được sau), người dùng thuộc đơn vị, kiêm nhiệm được, vai trò, phân quyền có phạm vi (của mình, đơn vị mình, đơn vị mình và cấp dưới , toàn bộ), trang quản trị dựng sẵn. Phân quyền quyết định ai được xóa , ai quản lý mẫu Word, ai thêm kỹ năng AI, ai cấp khóa cho agent đọc sổ cái.
+Trang quản trị mẫu: ở màn "Vai trò và quyền", bấm từng ô để đổi phạm vi. Dữ liệu minh họa
+Quản trị hệ thống
+Tìm người dùng, vai trò… Ctrl K
+Quản trị viên QT
+Quản trị
+Vai trò và quyền
+Người dùng
+Mẫu Word
+Khóa cho agent
+Công nghệ và máy chủ
+Đồng bộ với các agent SCI để lấy nguyên khung chat
+Máy chủ Vietnix đã đo ngày 24/09/2026: còn 4,6 GB RAM, 164 GB đĩa. PostgreSQL 17, Valkey, Garage đã chạy sẵn, SCI công việc dùng chung, mỗi web một CSDL và một kho file riêng.
+Nền (giống các agent)
+Next.js 14.2.5 App Router · như agent tiến độ
+React 18.3.1 Giao diện · như các agent
+Tailwind 3.4.7 Kiểu dáng; thêm bảng màu chung · như các agent
+TypeScript 5.5 Ngôn ngữ
+Node.js 22 LTS Có sẵn trên máy chủ
+AI (lấy nguyên từ agent)
+ChatWidget · ChatPanel Khung chat, nút tròn nổi, Ctrl+K
+ChonModel · XuatTraLoi Chọn model, xuất câu trả lời
+chat-agent · chat-tools Đổi bộ công cụ sang thư mục, sổ cái, lịch sử
+providers.ts Claude CLI (mặc định) hoặc API
+ky-nang.ts Kỹ năng AI, file .skill, kho chung và riêng
+Cổng MCP Cho agent khác đọc sổ cái · như cong-tiendo
+Dữ liệu và file Word
+PostgreSQL 17 Người dùng, thư mục, sổ cái, lịch sử · có sẵn
+Garage S3 Lưu mọi phiên bản file · có sẵn
+Valkey + BullMQ Việc nền: đọc Word, kiểm tra, nhắc hạn · có sẵn
+Đọc ô nhập Word JSZip + trình đọc XML: đọc đúng từng ô có mã
+mammoth · LibreOffice Xem trước Word ngay trên web
+sci-identity Đăng nhập, phòng ban, phân quyền
+Tên miền docflow.scigroup.vn Cần trỏ DNS
+Tiến trình pm2: scidocflow · cổng 3004 Kèm scidocflow-worker cho việc nền
+Không đụng các web đang chạy Pháp lý, AI tư vấn, hptai.vn, proxygiasoc; CSDL hptbim
+Sao lưu 04:30 hằng ngày CSDL + kho file; lịch sử không bao giờ bị cắt
+Thư mục code
+CodeSCICongViec/
+├── src/
+│ ├── components/ chat/ ← lấy nguyên từ agent
+│ ├── lib/ ai/ ← lấy nguyên, đổi bộ công cụ
+│ ├── lib/ skill/ ← kỹ năng AI
+│ ├── lib/ mcp/ cổng socai.* cho agent khác
+│ ├── lib/thu-muc/ thư mục phòng ban, thùng rác
+│ ├── lib/kiem-tra/ đọc Word, luật bắt buộc
+│ ├── lib/so-cai/ công việc, phần việc
+│ ├── lib/lich-su/ ghi thêm, không sửa xóa
+│ └── app/ các trang, API
+├── skills-he-thong/ 4 kỹ năng cài sẵn
+├── mau-word/ mẫu PGV-01, BC-02…
+├── packages/ sci-identity/ ← quản trị dùng lại
+└── deploy/
+Bỏ và giữ so với kế hoạch cũ
+Bỏ Thu hồi, hoàn tác 10 giây, hạn thu hồi
+Nguyên tắc Cái gì có thể đổi thì đưa vào cấu hình, không viết cứng
+Đổi Next 16 / React 19 → Next 14 / React 18 cho khớp khung chat
+Mới 9 đơn vị theo bộ mẫu báo cáo, việc luôn mở, quy tắc đè khi trùng, thư mục theo đơn vị, kiểm tra theo mẫu Word, công việc và phần việc, sổ cái, cổng cho agent, khung chat AI, kỹ năng AI
+Giữ Phòng ban, phân quyền, sci-identity, gửi nhiều nơi, lịch sử, giao diện đẹp theo màu SCI
+Chờ bố Ký duyệt tài liệu còn cần không (câu hỏi cuối trang)
+Thứ tự thực hiện
+Tám giai đoạn. Xong giai đoạn trước mới sang giai đoạn sau
+Chỉ ghi thứ tự và điều kiện "Xong khi", không ước lượng số ngày.
+0
+Chốt và chuẩn bị
+Bố trả lời câu hỏi cuối trang; gửi danh sách người dùng của 9 đơn vị
+Chuyển 9 mẫu báo cáo sang dạng có ô nhập gắn mã, thêm bảng Công việc chuẩn
+Tạo CSDL, kho file riêng trên máy chủ; kho GitHub; tên miền
+Xong khi Bố và anh Đại duyệt màn hình và 9 mẫu đã có ô nhập; 4 web đang chạy vẫn bình thường.
+1
+Khung ứng dụng, khung chat, sci-identity
+Dựng khung Next 14 từ agent main, lấy nguyên khung chat
+Khung cấu hình: bảng cấu hình trong CSDL, trang Cài đặt, phiên bản, nhật ký, xuất nhập
+Đăng nhập, phòng ban, vai trò, phân quyền, trang quản trị, nhập Excel
+Xong khi Đăng nhập được; khung chat trả lời được như ở agent tiến độ; nạp đủ 9 đơn vị và người dùng từ Excel; một web trống dùng được sci-identity theo README; đổi một cấu hình trên trang Cài đặt có hiệu lực ngay, không sửa code.
+2
+Thư mục phòng ban và lịch sử
+Cây thư mục theo đơn vị; tải lên, phiên bản, xem trước Word
+Xóa theo quyền, thùng rác, khôi phục
+Lịch sử ghi thêm, không sửa xóa được
+Xong khi Ai cũng thấy cấu trúc mọi phòng; người không có quyền không xóa được; file đã xóa vẫn xem được trong lịch sử.
+3
+Mẫu Word, kiểm tra, gửi
+Quản lý 9 mẫu; đọc ô nhập; luật bắt buộc; việc luôn mở; quy tắc đè khi trùng
+Gửi một hoặc nhiều nơi; tự vào thư mục Đến của nơi nhận
+Nhận, chuyển tiếp nguyên văn, chuyển tiếp kèm tài liệu khác, trả lại, gửi lại bản mới, gửi tài liệu mới, hoàn thành; cây hành trình
+Người gửi ngoài 9 đơn vị: đơn vị riêng hoặc nhóm Cá nhân, người chưa gán đơn vị, văn thư nhập thay người ngoài
+Xong khi Báo cáo còn "......" ở ô bắt buộc bị chặn và chỉ đúng ô; báo cáo sai mẫu bị chặn; việc không ngày vào sổ cái là luôn mở; việc trùng được đè đúng quy tắc, bản cũ còn trong lịch sử; báo cáo đạt vào đúng thư mục nơi nhận; chạy đủ 6 thao tác của mục "Gửi, chuyển tiếp" và cây hành trình hiện đúng như ví dụ SCI E&C.
+4
+Công việc, phần việc, sổ cái
+Tạo công việc từ bảng Công việc và từ quyết định của TGĐ trong Form 0; nhiều phần việc
+Nút Kết thúc phần việc; gia hạn, đổi người, đóng việc
+Sổ cái tự thêm, tự xóa; nhắc quá hạn
+Xong khi Chạy đúng 10 bước của sơ đồ hoạt động: báo cáo BQLDA → P.ĐT&PC → Form 0 → TGĐ giao việc → 2 đơn vị kết thúc → việc rời sổ cái, đủ quá trình trong lịch sử.
+5
+AI, kỹ năng, cổng cho agent
+Bộ công cụ chat: thư mục, sổ cái, lịch sử, mẫu
+4 kỹ năng hệ thống; thêm kỹ năng bằng file .skill
+Cổng MCP socai.* và API chỉ đọc
+Xong khi Hỏi "việc nào sắp trễ" trả đúng theo sổ cái; thêm một kỹ năng mới dùng được ngay; agent tiến độ đọc được sổ cái qua MCP.
+6
+Đưa lên máy chủ, thí điểm
+docflow.scigroup.vn, tự cập nhật, sao lưu
+Thí điểm một kỳ báo cáo tuần thật: 4 đơn vị → 2 phòng chủ quản → Báo cáo hợp nhất
+Xong khi Một kỳ báo cáo tuần chạy trọn trên SCI công việc, kiến nghị được TGĐ quyết định thành việc trong sổ cái; phục hồi thử từ bản sao lưu thành công; các web khác vẫn bình thường.
+7
+Mở rộng
+Ký duyệt (nếu bố cần), thêm đơn vị mới, thống kê, AI tự soạn báo cáo hợp nhất, thêm kỹ năng AI
+Xong khi Từng mục làm theo thứ tự bố ưu tiên sau thí điểm.
+Cần bố chốt
+Câu hỏi còn lại
+Mặc định của cài đặt quy tắc Thứ tự khi trùng là cấu hình. Con để mặc định "Cấp trước, cùng cấp so ngày", tính theo kỳ báo cáo, "đã xong" luôn ghi nhận. Bố muốn mặc định khác không?
+Quan trọng Bảng Công việc chuẩn Con thêm vào cả 9 mẫu bảng: Công việc · Người phụ trách · Bắt đầu · Kết thúc · Kết quả cần có, và ô nhập gắn mã. Bố và anh Đại đồng ý chứ?
+Quan trọng Mở xem tài liệu phòng khác Ai cũng thấy cấu trúc thư mục của 9 đơn vị. Còn mở xem nội dung báo cáo của đơn vị khác thì ai cũng được, hay theo quyền?
+Quan trọng Quyền xóa mặc định Con đề xuất: người tải lên, trưởng đơn vị của thư mục đó, và quản trị viên. Xóa vào thùng rác, nội dung vẫn giữ trong lịch sử. Bố đồng ý chứ?
+Ký duyệt Đề bài mới không nhắc ký duyệt. Còn cần ký như kế hoạch cũ không?
+Agent đọc sổ cái Agent nào sẽ đọc (tiến độ, main…)? Cần thêm trường thông tin nào ngoài mẫu JSON ở trên?
+Gia hạn, đổi người Con đề xuất chỉ người giao việc được gia hạn, đổi người, đóng việc. Bố đồng ý chứ?
+Tên miền, email Dùng docflow.scigroup.vn? Gửi nhắc việc qua email nào?
+SCI công việc · kế hoạch phiên bản 2 · 24/09/2026
+Thư mục: E:\CVCongty2026\QlyBaocao\Kehoach
+

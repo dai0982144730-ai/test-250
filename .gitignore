@@ -1,0 +1,11 @@
+node_modules/
+.next*/
+data/
+pgdata/
+build/
+.gradle/
+dist/
+.env*
+*.jks
+*.apk
+*.log

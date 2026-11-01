@@ -1,0 +1,47 @@
+{
+  "name": "sci-docflow",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev -p 3004",
+    "build": "next build",
+    "start": "next start -p 3004",
+    "lint": "next lint",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "e2e": "playwright test",
+    "e2e:ui": "playwright test --ui",
+    "e2e:bao-cao": "playwright show-report"
+  },
+  "dependencies": {
+    "@electric-sql/pglite": "^0.5.8",
+    "@types/pg": "^8.23.1",
+    "@xmldom/xmldom": "^0.8.15",
+    "adm-zip": "^0.6.0",
+    "docx": "^9.7.1",
+    "exceljs": "^4.4.0",
+    "jszip": "^3.10.2",
+    "lucide-react": "0.427.0",
+    "mammoth": "^1.12.2",
+    "next": "14.2.5",
+    "nodemailer": "^10.0.10",
+    "pg": "^8.23.0",
+    "pptxgenjs": "^4.0.1",
+    "react": "18.3.1",
+    "react-dom": "18.3.1",
+    "xlsx": "^0.18.5"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.63.0",
+    "@types/adm-zip": "^0.5.8",
+    "@types/node": "20.14.12",
+    "@types/nodemailer": "^8.0.2",
+    "@types/react": "18.3.3",
+    "@types/react-dom": "18.3.0",
+    "autoprefixer": "10.4.19",
+    "postcss": "8.4.40",
+    "tailwindcss": "3.4.7",
+    "typescript": "5.5.4",
+    "vitest": "^4.1.11"
+  }
+}

@@ -1,0 +1,76 @@
+/* ══ THANG CHỮ + MÀU CHỮ ĐỌC ĐƯỢC — GIAO-DIEN-CHUNG mục 3.5 (Mr. Đại duyệt 09/10/2026, kế hoạch 09 Phiên 1) ══
+   BẢN CHÉP từ agent Tiến độ (bản gốc) — chỉ khác: màu nhấn XANH của Main ở khối ③ (+ dòng 8,5px Main có dùng).
+   Gỡ tệp này (một dòng import trong layout.tsx) = giao diện về y như trước.
+   Cách làm: `:root .text-[11px]` nặng hơn lớp Tailwind `.text-[11px]` nên thắng mà không phải sửa ~1.100 chỗ className.
+   Không đổi: thanh trên (38px, E36), menu trái 176px, khung chat — trả về cỡ cũ ở khối thứ hai. */
+
+/* ① Thang cỡ: +2px (phương án B). Sàn câu chữ 12px; 9–9,5px chỉ còn ở nhãn trục biểu đồ → 11px. */
+:root .text-\[7\.5px\] { font-size: 10px; }
+:root .text-\[8px\] { font-size: 10px; }
+:root .text-\[8\.5px\] { font-size: 10.5px; }
+:root .text-\[9px\] { font-size: 11px; }
+:root .text-\[9\.5px\] { font-size: 11px; }
+:root .text-\[10px\] { font-size: 12px; }
+:root .text-\[10\.5px\] { font-size: 12.5px; }
+:root .text-\[11px\] { font-size: 13px; }
+:root .text-\[11\.5px\] { font-size: 13.5px; }
+:root .text-\[12px\] { font-size: 14px; }
+:root .text-\[12\.5px\] { font-size: 14.5px; }
+:root .text-\[13px\] { font-size: 15px; }
+:root .text-\[13\.5px\] { font-size: 15.5px; }
+:root .text-\[14px\] { font-size: 16px; }
+:root .text-\[15px\] { font-size: 16.5px; }
+:root .text-xs { font-size: 14px; line-height: 20px; }
+
+/* Bảng chung .tbl (globals.css) — cùng thang */
+:root .tbl { font-size: 14.5px; }
+:root .tbl th { font-size: 12.5px; }
+:root .tbl.bang-wbs input[type="date"] { font-size: 13px; }
+
+/* ② Giữ cỡ cũ ở khung: thanh trên · menu trái · khung chat */
+:root :is(header.nen-ghim, aside.h-screen, [data-khung-chat]) .text-\[7\.5px\] { font-size: 7.5px; }
+:root :is(header.nen-ghim, aside.h-screen, [data-khung-chat]) .text-\[8px\] { font-size: 8px; }
+:root :is(header.nen-ghim, aside.h-screen, [data-khung-chat]) .text-\[8\.5px\] { font-size: 8.5px; }
+:root :is(header.nen-ghim, aside.h-screen, [data-khung-chat]) .text-\[9px\] { font-size: 9px; }
+:root :is(header.nen-ghim, aside.h-screen, [data-khung-chat]) .text-\[9\.5px\] { font-size: 9.5px; }
+:root :is(header.nen-ghim, aside.h-screen, [data-khung-chat]) .text-\[10px\] { font-size: 10px; }
+:root :is(header.nen-ghim, aside.h-screen, [data-khung-chat]) .text-\[10\.5px\] { font-size: 10.5px; }
+:root :is(header.nen-ghim, aside.h-screen, [data-khung-chat]) .text-\[11px\] { font-size: 11px; }
+:root :is(header.nen-ghim, aside.h-screen, [data-khung-chat]) .text-\[11\.5px\] { font-size: 11.5px; }
+:root :is(header.nen-ghim, aside.h-screen, [data-khung-chat]) .text-\[12px\] { font-size: 12px; }
+:root :is(header.nen-ghim, aside.h-screen, [data-khung-chat]) .text-\[12\.5px\] { font-size: 12.5px; }
+:root :is(header.nen-ghim, aside.h-screen, [data-khung-chat]) .text-\[13px\] { font-size: 13px; }
+:root :is(header.nen-ghim, aside.h-screen, [data-khung-chat]) .text-\[13\.5px\] { font-size: 13.5px; }
+:root :is(header.nen-ghim, aside.h-screen, [data-khung-chat]) .text-\[14px\] { font-size: 14px; }
+:root :is(header.nen-ghim, aside.h-screen, [data-khung-chat]) .text-\[15px\] { font-size: 15px; }
+:root :is(header.nen-ghim, aside.h-screen, [data-khung-chat]) .text-xs { font-size: 12px; line-height: 16px; }
+
+/* ③ Màu CHỮ (bảng 3.2). Chỉ đổi khi màu là CHỮ — nền nút, viền, thanh biểu đồ giữ sắc cũ. */
+:root {
+  --text-muted: #9a9a9a;      /* tối: #777777 3,9:1 → 6,2:1 */
+  --accent-chu: #60a5fa;      /* tối: xanh chữ #3B82F6 4,4:1 → 6,8:1 */
+  --yellow-chu: var(--yellow);
+  --green-chu: var(--green);
+}
+:root[data-theme="light"] {
+  --text-muted: #57534e;
+  --accent-chu: #1d4ed8;      /* sáng: #2563EB 5,2:1 trên trắng nhưng 4,3:1 trên nền xanh nhạt (nút đang chọn) → #1D4ED8 */
+  --yellow-chu: #b45309;      /* sáng: #D97706 3,2 → 5,0 */
+  --green-chu: #047857;       /* sáng: #059669 3,8 → 5,5 */
+}
+/* khung tối giữa trang sáng (thanh trên, menu trái, chat): dùng bộ màu tối */
+:root[data-theme="light"] [data-khung-chat],
+html[data-giao-dien="3d"][data-theme="light"] header.nen-ghim,
+html[data-giao-dien="3d"][data-theme="light"] aside.h-screen.border-r {
+  --text-muted: #9a9a9a;
+  --accent-chu: #60a5fa;
+  --yellow-chu: #fbbf24;
+  --green-chu: #4ade80;
+}
+:root .text-accent { color: var(--accent-chu); }
+:root .text-yellow { color: var(--yellow-chu); }
+:root .text-green { color: var(--green-chu); }
+:root .hover\:text-accent:hover { color: var(--accent-chu); }
+
+/* ④ Nút đang khoá: mờ 70% (Q4) — chữ vẫn đọc được, vẫn nhận ra là khoá */
+:root button:disabled { opacity: 0.7; }

@@ -1,0 +1,189 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Demo Cảnh báo Main — 01/11/2026</title>
+<!--
+  DEMO bản 3 màn Cảnh báo của Main theo khuôn «Việc của tôi» (Mr. Đại 01/11/2026):
+    tầng 1 (ngoài cùng) = CHỦ ĐỀ (chip) · tầng 2 = ô xổ AGENT + ô xổ MỨC ĐỘ QUAN TRỌNG (gộp lọc + xếp).
+  Đọc SỐ THẬT từ /api/issue-main (cùng cổng màn /alerts đang dùng) — mở bằng trình duyệt đã đăng nhập Main.
+  Đề xuất: KE-HOACH/40-DE-XUAT-MAN-CANH-BAO-6-AGENT-01-11.md. Nút ghi (Soạn việc giao · Bỏ qua) chỉ là hình, không chạy.
+-->
+<style>
+  :root { --bg:#faf9f7; --bg2:#f5f3f0; --surface:#fff; --text:#1a1a1a; --muted:#57534e; --accent:#2563eb;
+          --accent-bg:rgba(37,99,235,.10); --border:#d5d2cd; --border-light:#e2ded8; --red:#dc2626; --yellow:#d97706; --cam:#c2724f; }
+  * { box-sizing:border-box; }
+  body { margin:0; background:var(--bg); color:var(--text); font:13px/1.5 system-ui,-apple-system,"Segoe UI",sans-serif; }
+  .khung { max-width:760px; margin:0 auto; padding:12px 16px 40px; }
+  .the-ngoai { background:var(--surface); border:1px solid var(--border); border-radius:10px; padding:12px; }
+  h1 { font-size:15px; margin:0 0 2px; }
+  .phu { color:var(--muted); font-size:12px; }
+  .chip-hang { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:6px; margin:10px 0 6px; }
+  .chip { border:1px solid var(--border); background:var(--surface); border-radius:8px; padding:5px 6px; font-size:12.5px; cursor:pointer; color:var(--text); }
+  .chip.chon { border-color:var(--accent); background:var(--accent-bg); color:var(--accent); font-weight:600; }
+  .chip:disabled { opacity:.45; cursor:default; }
+  .loc-hang { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:6px; margin-bottom:8px; }
+  select { width:100%; border:1px solid var(--border); background:var(--surface); border-radius:8px; padding:5px 6px; font-size:12.5px; color:var(--text); }
+  .dong-so { font-size:12.5px; margin:4px 0 10px; }
+  .dong-so b.do { color:var(--red); }
+  .the { border:1px solid var(--border-light); border-radius:8px; padding:8px 10px; margin-bottom:8px; background:var(--surface); }
+  .the .nhan { font-size:10.5px; font-weight:700; letter-spacing:.02em; text-transform:uppercase; color:var(--accent); }
+  .the .nhan .do { color:var(--red); }
+  .the .ten { font-weight:600; margin:2px 0; }
+  .the .ttin { font-size:12px; color:var(--muted); }
+  .the .ai { font-size:12px; color:var(--cam); margin-top:3px; }
+  .the .nut { display:flex; gap:6px; margin-top:6px; flex-wrap:wrap; align-items:center; }
+  .the .nut button { border:1px solid var(--border); background:var(--surface); border-radius:6px; padding:3px 10px; font-size:12px; cursor:pointer; color:var(--text); }
+  .the .nut button.chinh { border-color:var(--accent); color:var(--accent); }
+  .the .bung { margin-left:auto; color:var(--accent); background:none; border:none; cursor:pointer; font-size:12px; }
+  .the .chi-tiet { display:none; white-space:pre-wrap; font-size:12px; color:var(--text); background:var(--bg2); border-radius:6px; padding:8px; margin-top:6px; }
+  .the.mo .chi-tiet { display:block; }
+  .trang { display:flex; justify-content:space-between; align-items:center; font-size:12px; margin-top:6px; }
+  .trang button { border:1px solid var(--border); background:var(--surface); border-radius:6px; padding:3px 10px; cursor:pointer; }
+  .ghi-chu-demo { margin-top:14px; font-size:11.5px; color:var(--muted); border-top:1px dashed var(--border); padding-top:8px; }
+  .loi { color:var(--red); }
+  @media (max-width:480px) { .chip-hang { grid-template-columns:repeat(2,minmax(0,1fr)); } }
+</style>
+</head>
+<body>
+<div class="khung">
+  <div class="the-ngoai">
+    <h1>Cảnh báo</h1>
+    <div class="phu">Issue đang mở của cả 5 agent cho dự án đang chọn.</div>
+
+    <!-- Tầng 1 (ngoài cùng): CHỦ ĐỀ — chip, bấm phát đổi luôn -->
+    <div class="chip-hang" id="chip-chu-de"></div>
+
+    <!-- Tầng 2: hai ô xổ — Agent nào · Mức độ quan trọng (gộp lọc + xếp) -->
+    <div class="loc-hang">
+      <select id="loc-agent" title="Issue do agent nào sinh ra"></select>
+      <select id="loc-quan-trong" title="Lọc và xếp theo mức độ quan trọng — một ô"></select>
+    </div>
+
+    <div class="dong-so" id="dong-so">Đang lấy số…</div>
+    <div id="ds"></div>
+    <div class="trang" id="trang"></div>
+  </div>
+
+  <div class="ghi-chu-demo">
+    DEMO bản 3 — số thật lấy từ cổng màn /alerts lúc mở trang. Nút «Soạn việc giao», «Bỏ qua» chỉ là hình.
+    Chủ đề lấy theo lần AI phân loại cuối: <span id="lan-pl">—</span>.
+  </div>
+</div>
+
+<script>
+const TEN_AGENT = [["tiendo","Tiến độ"],["hopdong","Hợp đồng"],["congviec","Công việc"],["phaply","Pháp lý"],["nghiemthu","Nghiệm thu"]];
+const CHU_DE = { cod:"COD", "duong-gang":"Đường găng", "hop-dong":"Hợp đồng · phiếu giá", "thiet-ke":"Thiết kế", "mat-bang":"Mặt bằng",
+  "phap-ly":"Hồ sơ pháp lý", "nha-thau":"Nhà thầu & nhân lực", "thiet-bi":"Thiết bị & vật tư", khac:"Khác" };
+const soNgayQuaHan = (i) => { const m = /(?:quá hạn|lâu nhất|chờ|im lặng)\s+(\d+)\s*ngày/i.exec(i.tieuDe || ""); return m ? +m[1] : 0; };
+const trenGang = (i) => i.nhomChinh === "duong-gang" || (i.nhomPhu || []).includes("duong-gang") || /⛓/.test(i.tieuDe || "");
+// Ô «Mức độ quan trọng» — mỗi lựa chọn vừa LỌC vừa XẾP (Mr. Đại 01/11: hai ô cũ bản chất là một)
+const QUAN_TRONG = [
+  // Thứ tự Mr. Đại chốt 01/11 tối
+  ["nang",    "Tất cả — nặng nhất trước",   () => true],
+  ["do",      "Chỉ nghiêm trọng",            (i) => i.mucDo === "do"],
+  ["gang",    "Trên đường găng",             (i) => trenGang(i)],
+  ["qua-han", "Có quá hạn — lâu nhất trước", (i) => soNgayQuaHan(i) > 0],
+  ["can-xem", "AI chọn: cần anh xem",        (i) => !!i.lyDoChon],
+];
+const MOI_TRANG = 30;
+let tatCa = [], st = { chuDe: "", agent: "", qt: "nang", trang: 1 };
+
+const maAgent = (i) => {
+  const t = (i.tenAgentChu || "").toLowerCase();
+  if (t.includes("tiến độ")) return "tiendo"; if (t.includes("hợp đồng")) return "hopdong"; if (t.includes("công việc")) return "congviec";
+  if (t.includes("pháp lý")) return "phaply"; if (t.includes("nghiệm thu")) return "nghiemthu"; return i.agentChu;
+};
+// Nặng nhất: nghiêm trọng → trên găng → số ngày kéo lùi COD → số ngày quá hạn
+const nang = (i) => (i.mucDo === "do" ? 1e9 : 0) + (trenGang(i) ? 1e7 : 0) + (i.soNgayAnhHuong || 0) * 1e4 + soNgayQuaHan(i);
+const chuDeCua = (i) => (CHU_DE[i.nhomChinh] ? i.nhomChinh : "khac");
+// Chỉ NHÓM CHÍNH — mỗi issue đúng một chip, các chip cộng lại bằng «Tất cả» (không đếm trùng như tab cũ).
+// Issue có nhóm phụ «đường găng» vẫn tìm được qua ô Mức độ quan trọng → «Trên đường găng».
+const thuocChuDe = (i, k) => chuDeCua(i) === k;
+const esc = (s) => String(s ?? "").replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+const bo = (s) => String(s ?? "").replace(/^⛓\s*/, "");
+const qtCua = (ma) => QUAN_TRONG.find((q) => q[0] === ma);
+
+/** Lọc theo cả ba tầng, trừ tầng `boQua` (để đếm số cho chính tầng đó) */
+function loc(boQua) {
+  return tatCa.filter((i) =>
+    (boQua === "chuDe" || !st.chuDe || thuocChuDe(i, st.chuDe)) &&
+    (boQua === "agent" || !st.agent || maAgent(i) === st.agent) &&
+    (boQua === "qt" || qtCua(st.qt)[2](i)));
+}
+
+function veChuDe() {
+  const ds = loc("chuDe");
+  const o = document.getElementById("chip-chu-de");
+  o.innerHTML = [["", "Tất cả"], ...Object.entries(CHU_DE)].map(([k, t]) => {
+    const n = k ? ds.filter((i) => thuocChuDe(i, k)).length : ds.length;
+    return `<button class="chip ${st.chuDe === k ? "chon" : ""}" data-k="${k}" ${n === 0 && k ? "disabled" : ""}>${t} (${n})</button>`;
+  }).join("");
+  o.querySelectorAll("button").forEach((b) => (b.onclick = () => { st.chuDe = b.dataset.k; st.trang = 1; ve(); }));
+}
+
+function veO() {
+  const dsA = loc("agent");
+  document.getElementById("loc-agent").innerHTML =
+    [["", `Mọi agent (${dsA.length})`], ...TEN_AGENT.map(([m, t]) => [m, `Agent ${t} (${dsA.filter((i) => maAgent(i) === m).length})`])]
+      .map(([v, t]) => `<option value="${v}" ${st.agent === v ? "selected" : ""}>${t}</option>`).join("");
+  const dsQ = loc("qt");
+  document.getElementById("loc-quan-trong").innerHTML = QUAN_TRONG
+    .map(([v, t, f]) => `<option value="${v}" ${st.qt === v ? "selected" : ""}>${t} (${dsQ.filter(f).length})</option>`).join("");
+}
+
+function veThe(i) {
+  const a = TEN_AGENT.find(([m]) => m === maAgent(i));
+  const muc = i.mucDo === "do" ? '<span class="do">Nghiêm trọng</span>' : "Cần lưu ý";
+  const tt = [
+    i.soNgayAnhHuong ? `Kéo lùi COD ${i.soNgayAnhHuong} ngày so với Baseline` : "",
+    trenGang(i) ? "trên đường găng" : "",
+    i.wbs ? `WBS ${esc(i.wbs)}` : "",
+    i.doNguoiThem ? "người thêm" : i.doLlmSinh ? "🤖 AI phát hiện" : "",
+  ].filter(Boolean).join(" · ");
+  return `<div class="the">
+    <div class="nhan">${muc} · ${CHU_DE[chuDeCua(i)]} · Agent ${a ? a[1] : esc(i.tenAgentChu)}</div>
+    <div class="ten">${esc(bo(i.tieuDe))}</div>
+    ${tt ? `<div class="ttin">${tt}</div>` : ""}
+    ${i.lyDoChon ? `<div class="ai">🤖 Vì sao cần anh xem: ${esc(i.lyDoChon)}</div>` : ""}
+    <div class="nut">
+      <button class="chinh" title="Demo — chưa chạy">Soạn việc giao</button>
+      <button title="Demo — chưa chạy">Bỏ qua 30 ngày</button>
+      <button title="Demo — chưa chạy">Mở ở agent →</button>
+      <button class="bung">Chi tiết ▾</button>
+    </div>
+    <div class="chi-tiet">${esc(i.moTa)}\n\nNguồn: ${esc(i.nguonDuLieu)}</div>
+  </div>`;
+}
+
+function ve() {
+  veChuDe(); veO();
+  const ds = loc().slice().sort((x, y) => (st.qt === "qua-han" ? soNgayQuaHan(y) - soNgayQuaHan(x) || nang(y) - nang(x) : nang(y) - nang(x)));
+  document.getElementById("dong-so").innerHTML =
+    `<b>${ds.length}</b> issue · <b class="do">${ds.filter((i) => i.mucDo === "do").length} nghiêm trọng</b> · ${ds.filter(trenGang).length} trên đường găng`;
+  const soTrang = Math.max(1, Math.ceil(ds.length / MOI_TRANG));
+  st.trang = Math.min(st.trang, soTrang);
+  const o = document.getElementById("ds");
+  o.innerHTML = ds.slice((st.trang - 1) * MOI_TRANG, st.trang * MOI_TRANG).map(veThe).join("") || '<div class="phu">Không có issue nào khớp bộ lọc.</div>';
+  o.querySelectorAll(".bung").forEach((b) => (b.onclick = () => { const t = b.closest(".the"); t.classList.toggle("mo"); b.textContent = t.classList.contains("mo") ? "Thu gọn ▴" : "Chi tiết ▾"; }));
+  document.getElementById("trang").innerHTML = soTrang > 1
+    ? `<button id="truoc" ${st.trang === 1 ? "disabled" : ""}>← Trước</button><span>Trang ${st.trang}/${soTrang} · ${ds.length} issue</span><button id="sau" ${st.trang === soTrang ? "disabled" : ""}>Sau →</button>` : "";
+  const t = document.getElementById("truoc"), s = document.getElementById("sau");
+  if (t) t.onclick = () => { st.trang--; ve(); };
+  if (s) s.onclick = () => { st.trang++; ve(); };
+}
+
+document.getElementById("loc-agent").onchange = (e) => { st.agent = e.target.value; st.trang = 1; ve(); };
+document.getElementById("loc-quan-trong").onchange = (e) => { st.qt = e.target.value; st.trang = 1; ve(); };
+
+fetch("/api/issue-main", { cache: "no-store" }).then((r) => r.json()).then((j) => {
+  if (!j.ok) throw new Error(j.thong_diep || "cổng không trả số");
+  tatCa = (j.issue || []).filter((i) => !i.daDong);
+  const d = j.lanPhanLoaiCuoi ? new Date(j.lanPhanLoaiCuoi) : null;
+  document.getElementById("lan-pl").textContent = d ? d.toLocaleString("vi-VN", { timeZone: "Asia/Ho_Chi_Minh" }) : "chưa chạy";
+  ve();
+}).catch((e) => { document.getElementById("dong-so").innerHTML = `<span class="loi">Chưa lấy được số: ${esc(e.message)}. Mở trang này bằng trình duyệt đã đăng nhập Main.</span>`; });
+</script>
+</body>
+</html>

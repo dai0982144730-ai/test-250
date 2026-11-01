@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <!-- Main Agent — biểu tượng "AI trợ lý": ngôi sao lấp lánh 4 cánh -->
+  <path d="M16 2 Q19.2 13 30 16 Q19.2 19 16 30 Q12.8 19 2 16 Q12.8 13 16 2 Z" fill="#3b82f6"/>
+  <circle cx="25.5" cy="7" r="2.1" fill="#3b82f6"/>
+</svg>

@@ -1,0 +1,52 @@
+# ── Sinh ra khi build / cài đặt, không bao giờ đưa vào git ──
+node_modules/
+.next/
+out/
+*.log
+.vercel
+tsconfig.tsbuildinfo
+next-env.d.ts
+
+# ── Khóa và cấu hình máy ──
+# .env.local hiện chỉ có AUTH_SECRET (chuỗi ký session).
+# Mất nó thì mọi người phải đăng nhập lại — không mất dữ liệu.
+# Danh mục biến đầy đủ xem .env.example (file đó CÓ trong git).
+.env*.local
+
+# ── data/ — ĐÃ ĐỔI 30/08/2026, đọc kỹ trước khi sửa lại ──
+# data/ là CƠ SỞ DỮ LIỆU của ứng dụng (JSON trên đĩa), tổng 1,3 MB,
+# và là BẢN DUY NHẤT — không có nơi nào khác giữ tiến độ, người dùng, hồ sơ.
+# Trước đây cả thư mục bị bỏ qua. Nếu giữ như vậy thì git có cũng vô nghĩa:
+# sửa hỏng schedule.json vẫn mất trắng.
+# Vì vậy data/ ĐƯỢC đưa vào git. Chỉ loại ba thứ:
+data/settings.json
+data/**/*.log
+data/projects/_trash/
+
+# ── Google Drive: khóa OAuth + token — TUYỆT ĐỐI không vào git ──
+data/drive.enc
+data/drive-pkce.json
+data/mau-test/
+data/kiem-thu/
+data/bo-test-mot-tuan/
+
+data/pgdata/
+data/files/
+.env.local
+.next*/
+node_modules/
+data/email-thu/
+data/chat/
+# ── Sổ chạy của AI (Quản lý token AI 04/10): mỗi lượt một dòng, có mã người, lớn dần — như data/chat/, không vào git ──
+data/ai-*.jsonl
+data/ai-*.jsonl.tam
+data/ai-tai-khoan-het.json
+
+# ── Test e2e (Playwright): dữ liệu tạm, kết quả, báo cáo ──
+tests/e2e/.tam/
+test-results/
+playwright-report/
+# Báo cáo sinh theo ngày chạy (node scripts/tao-bao-cao-kich-ban.mjs)
+tests/e2e/du-lieu/
+# Tóm tắt tiến độ dự án (13/10/2026): bản nháp người dùng nạp bằng Excel — dữ liệu chạy, không vào git
+data/tom-tat-tien-do/

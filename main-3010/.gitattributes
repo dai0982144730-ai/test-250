@@ -1,0 +1,12 @@
+# Chuẩn hóa xuống dòng về LF trong kho, giữ CRLF ngoài thư mục làm việc của Windows.
+# Không có file này thì có lúc git báo "cả 208 file đều đổi" trong khi không ai sửa gì.
+* text=auto eol=lf
+
+# File nhị phân — không đụng vào
+*.xlsx binary
+*.docx binary
+*.pdf  binary
+*.png  binary
+*.jpg  binary
+*.jpeg binary
+*.mpp  binary

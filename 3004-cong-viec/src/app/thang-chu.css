@@ -1,0 +1,22 @@
+/* ══ THANG CHỮ 3004 — GIAO-DIEN-CHUNG mục 3.5 (Mr. Đại duyệt 09/10/2026, kế hoạch 09 Phiên 5) ══
+   Cùng bảng đổi cỡ +2px với Main · Tiến độ · Hợp đồng (thang-chu.css bản gốc Tiến độ), nhưng CHỈ áp trong khung có lớp
+   .thang-chu: Việc của tôi · Gửi báo cáo · Cài đặt. Sơ đồ / Dự án / Báo cáo tuần đã 14px — KHÔNG to thêm.
+   Gỡ lớp .thang-chu ở khung bọc (hoặc dòng import trong layout.tsx) = về như cũ. */
+.thang-chu .text-\[7\.5px\] { font-size: 10px; }
+.thang-chu .text-\[8px\] { font-size: 10px; }
+.thang-chu .text-\[8\.5px\] { font-size: 10.5px; }
+.thang-chu .text-\[9px\] { font-size: 11px; }
+.thang-chu .text-\[9\.5px\] { font-size: 11px; }
+.thang-chu .text-\[10px\] { font-size: 12px; }
+.thang-chu .text-\[10\.5px\] { font-size: 12.5px; }
+.thang-chu .text-\[11px\] { font-size: 13px; }
+.thang-chu .text-\[11\.5px\] { font-size: 13.5px; }
+.thang-chu .text-\[12px\] { font-size: 14px; }
+.thang-chu .text-\[12\.5px\] { font-size: 14.5px; }
+.thang-chu .text-\[13px\] { font-size: 15px; }
+.thang-chu .text-\[13\.5px\] { font-size: 15.5px; }
+.thang-chu .text-\[14px\] { font-size: 16px; }
+.thang-chu .text-\[15px\] { font-size: 16.5px; }
+.thang-chu .text-xs { font-size: 14px; line-height: 20px; }
+/* nút đang khoá mờ 70% (Q4) — chữ vẫn đọc được */
+.thang-chu button:disabled { opacity: 0.7; }

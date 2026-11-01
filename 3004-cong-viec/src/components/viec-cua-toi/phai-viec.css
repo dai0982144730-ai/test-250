@@ -1,0 +1,80 @@
+/* ══ BẢN CHÉP từ Main components/tabs/viec/phai-viec.css (09/10/2026 — kế hoạch 09 Phiên 5, mục V6) ══
+   Khu phải "Việc của tôi" 3004 cùng một khuôn với Main · Tiến độ · Hợp đồng (vốn chép từ khu phải Sơ đồ 3004).
+   Khác bản gốc duy nhất: 3004 không có giao diện tối và biến gốc :root là bộ TỐI, màn này phủ sáng bằng .cay-viec-sang
+   → mọi khối `:root[data-theme="light"]` đổi thành `:root .cay-viec-sang`; xám phụ + cam chữ ghi thẳng mã màu; bỏ khối KHUNG TRÁI. */
+/* ============================================================
+   KHU PHẢI "VIỆC CỦA TÔI" — Mr. Đại chốt 07/10/2026: ở giao diện sáng GIỐNG khu phải Sơ đồ tổ chức agent Công việc tới từng chi tiết
+   (màu nền, màu chữ, cỡ chữ, bố trí, dấu › và !, cách bấm); điểm khác DUY NHẤT: chữ cam của agent Công việc → xanh dương.
+   Số đo chép từ agent Công việc app/phong.css (.gd-phong .phai · .nhom-viec · .muc-viec · .dau-viec · .tt-*) — đo bằng trình duyệt 07/10.
+   Giao diện tối: cùng bố trí, màu suy từ token tối của app (luật 25 — color-mix, không viết tay rgba).
+   BẢN GỐC ở Main — chép nguyên sang Tiến độ · Hợp đồng (luật 7).
+   09/10 (kế hoạch 09, GIAO-DIEN-CHUNG 3.5): bỏ khác biệt với khu trái — phông theo app (V1), xám phụ ấm --text-muted (V2),
+   nhấn theo màu agent (V3, Q3 đảo chốt 07/10), vàng chữ #B45309, đầu nhóm 12px (sàn câu chữ).
+   ============================================================ */
+.phai-viec {
+  --pv-nen: var(--surface); --pv-vien: var(--border); --pv-muc: var(--text); --pv-phu: var(--text-muted);
+  --pv-mo: var(--text-muted);  /* 09/10: trộn 70% với nền chỉ còn 3,7:1 ở giao diện tối */ --pv-nen-nhom: color-mix(in srgb, var(--surface) 94%, var(--text));
+  --pv-vien-dong: color-mix(in srgb, var(--border) 60%, var(--surface)); --pv-nen-toi: var(--bg2);
+  --pv-nhan: var(--accent-chu, var(--accent)); --pv-nhan-nhat: color-mix(in srgb, var(--accent) 12%, var(--surface));
+  /* 09/10: tối dùng màu tối của app (đỏ/vàng/xanh đặt cứng theo nền trắng chỉ 3,5:1 trên nền tối); sáng đặt ở khối dưới */
+  --pv-do: var(--red); --pv-vang: var(--yellow); --pv-xanh-la: var(--green);
+  background: var(--pv-nen); border: 1px solid var(--pv-vien); border-radius: 14px; overflow: hidden;
+  color: var(--pv-muc); font-size: 14px; line-height: 1.5; font-family: inherit;  /* 09/10 V1: phông theo app, không ép Segoe UI */
+}
+:root .cay-viec-sang .phai-viec {
+  --pv-nen: #fff; --pv-vien: #E8E5E0; --pv-muc: #1a1a1a; --pv-phu: #57534E; --pv-mo: #6B7280; --pv-nen-nhom: #FCFBF9;
+  --pv-vien-dong: #F1EEE9; --pv-nen-toi: #E9E6E1;
+  --pv-do: #DC2626; --pv-vang: #B45309; --pv-xanh-la: #15803D;
+  /* 09/10 Q3 (đảo chốt 07/10 "cam → xanh dương"): nhấn theo màu CHỮ nhấn của agent — TĐ cam, HĐ xanh trời, Main xanh dương (GIAO-DIEN-CHUNG 3.5) */
+  --pv-nhan: #9A4F30; --pv-nhan-nhat: color-mix(in srgb, #C2724F 10%, #fff);  /* cam chữ chuẩn 3.5 (#C2724F chỉ 3,6:1 trên trắng) */
+}
+.phai-viec button { font: inherit; color: inherit; cursor: pointer; }
+
+/* Mr. Đại chốt 09/10/2026 (đảo chốt 08/10): khung là THẺ NỘI DUNG SÁNG trên NỀN TRANG THẪM — y như màn Tổng quan (ảnh "Tiến độ nội bộ"):
+   nền trang #FAF9F7 · khung #FFFFFF viền #D5D2CD + bóng thẻ. Mở một việc → CẢ khung phải (đầu khung, nút lọc, ô tìm, đầu nhóm, việc khác,
+   Việc làm xong, chỗ trống) thẫm lại --pv-nen-toi như Sơ đồ agent Công việc; CHỈ việc đang mở giữ sáng (--pv-sang). */
+:root .phai-viec { --pv-sang: var(--surface); --pv-nen: var(--pv-sang); }
+:root .cay-viec-sang .phai-viec { --pv-sang: #fff; border-color: #D5D2CD; box-shadow: 0 1px 3px rgba(0, 0, 0, .04), 0 1px 2px rgba(0, 0, 0, .03); }
+:root .phai-viec:has(.muc-viec.mo-ra) { --pv-nen: var(--pv-nen-toi); transition: background .2s; }
+:root .phai-viec .muc-viec.mo-ra { --pv-nen: var(--pv-sang); }
+
+/* Đầu khung: 3 nút + ô tìm — MỘT hàng, không xuống dòng */
+.phai-viec .pv-dau { display: flex; align-items: center; gap: 6px; flex-wrap: nowrap; padding: 9px 14px; border-bottom: 1px solid var(--pv-vien); background: var(--pv-nen); font-size: 13px; color: var(--pv-phu); }
+.phai-viec .pv-nut { flex: 0 0 auto; white-space: nowrap; border: 1px solid var(--pv-vien); border-radius: 7px; background: var(--pv-nen); color: var(--pv-muc); font-size: 12.5px; padding: 3px 9px; }
+.phai-viec .pv-nut:hover { border-color: var(--pv-nhan); color: var(--pv-nhan); }
+.phai-viec .pv-nut[aria-pressed=true] { border-color: var(--pv-nhan); background: var(--pv-nhan-nhat); color: var(--pv-nhan); font-weight: 600; }
+.phai-viec .pv-tim { flex: 1 1 auto; min-width: 90px; border: 1px solid var(--pv-vien); border-radius: 7px; background: var(--pv-nen); color: var(--pv-muc); font-size: 13px; padding: 3px 8px; }
+.phai-viec .pv-tim:focus { outline: none; border-color: var(--pv-nhan); }
+.phai-viec .pv-ghi { padding: 4px 14px; font-size: 12px; color: var(--pv-phu); border-bottom: 1px solid var(--pv-vien); }
+.phai-viec .pv-ds { flex: 1 1 auto; min-height: 0; overflow: auto; position: relative; }
+.phai-viec .trong { padding: 16px 14px; color: var(--pv-phu); }
+
+/* Đầu nhóm: "CỦA RIÊNG BAN LÃNH ĐẠO … 8" */
+/* Mr. Đại 09/10: đầu nhóm theo nền khung (--pv-nen) — mở một việc thì thẫm lại như mọi chỗ khác, giống Sơ đồ agent Công việc */
+.phai-viec .nhom-viec { padding: 6px 14px 3px; font-size: 12px; color: var(--pv-muc); font-weight: 700; text-transform: uppercase; letter-spacing: .04em; display: flex; justify-content: space-between; background: var(--pv-nen); border-top: 1px solid var(--pv-vien); }
+.phai-viec .nhom-viec > span:first-child { color: var(--pv-nhan); }
+
+/* Một dòng việc: › · ! · tên (tối đa 2 dòng) · tình trạng bên phải */
+.phai-viec .muc-viec { border-top: 1px solid var(--pv-vien-dong); }
+.phai-viec .muc-viec > .dau-viec { display: grid; grid-template-columns: 12px 1fr auto; gap: 0 9px; width: 100%; text-align: left; border: 0; background: transparent; padding: 8px 14px; align-items: start; }
+.phai-viec .muc-viec > .dau-viec:hover { background: var(--pv-nen-nhom); }
+.phai-viec .muc-viec .mui { color: var(--pv-mo); transition: transform .2s; line-height: 20px; }
+.phai-viec .muc-viec .t { display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+.phai-viec .muc-viec .r { font-size: 12.5px; white-space: nowrap; text-align: right; }
+.phai-viec .dau-moi { display: inline-block; color: var(--pv-do); font-weight: 800; font-size: 14px; margin-right: 6px; line-height: 1; }
+.phai-viec .tt-tre { color: var(--pv-do); font-weight: 500; }
+.phai-viec .tt-sap { color: var(--pv-vang); font-weight: 500; }
+.phai-viec .tt-con, .phai-viec .tt-thuong-xuyen { color: var(--pv-phu); }
+.phai-viec .tt-xong { color: var(--pv-xanh-la); font-weight: 600; }
+.phai-viec .muc-viec.da-xong .dau-viec .t { color: var(--pv-xanh-la); }
+
+/* Bấm một việc: việc khác + đầu nhóm tối nền, việc đang mở nổi lên — chi tiết là thẻ việc agent Công việc nhúng tại chỗ */
+.phai-viec:has(.muc-viec.mo-ra) .muc-viec:not(.mo-ra) { background: var(--pv-nen-toi); transition: background .2s; }
+.phai-viec:has(.muc-viec.mo-ra) .muc-viec:not(.mo-ra) > .dau-viec:hover { background: color-mix(in srgb, var(--pv-nen-toi) 70%, #fff); }
+.phai-viec .muc-viec.mo-ra { background: var(--pv-nen); box-shadow: 0 0 0 1px #D5D2CD, 0 4px 14px rgba(0,0,0,.10); position: relative; z-index: 1; }
+
+/* Khối "Việc làm xong: Tuần N−1 và N" cuối nhóm */
+.phai-viec .khoi-xong { border-top: 1px dashed var(--pv-vien); }
+.phai-viec .dong-khoi-xong { width: 100%; display: flex; align-items: center; gap: 6px; padding: 6px 14px; font-size: 12.5px; font-weight: 600; color: var(--pv-xanh-la); background: transparent; border: 0; text-align: left; }
+.phai-viec .dong-khoi-xong:hover { background: var(--pv-nen-nhom); }
+.phai-viec .dong-khoi-xong .so { margin-left: auto; color: var(--pv-phu); font-weight: 500; }

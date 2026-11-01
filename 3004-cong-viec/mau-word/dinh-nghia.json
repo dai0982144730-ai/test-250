@@ -1,0 +1,2663 @@
+[
+  {
+    "ma": "form-0",
+    "ten": "Báo cáo hợp nhất trình TGĐ (Form 0)",
+    "don_vi_lap": "ban-tgd",
+    "gui_den_mac_dinh": "ban-tgd",
+    "loai_ky": "tuan",
+    "tep": "form-0.docx",
+    "tep_goc": "goc/OK_Form0_BaoCaoHopNhat_Sua lan 2.docx",
+    "phien_ban": 9,
+    "dinh_nghia": {
+      "o_nhap": [
+        {
+          "tag": "mau_ma",
+          "nhan": "Mã mẫu (dấu nhận mẫu ẩn ở tiêu đề)",
+          "bat_buoc": true,
+          "kieu": "chu",
+          "luat": "dung_mau"
+        },
+        {
+          "tag": "gui_den",
+          "nhan": "Gửi",
+          "bat_buoc": false,
+          "kieu": "don_vi",
+          "luat": "gui_den"
+        },
+        {
+          "tag": "ky_bao_cao",
+          "nhan": "Kỳ báo cáo",
+          "bat_buoc": true,
+          "kieu": "chu",
+          "luat": "ky_bao_cao"
+        }
+      ],
+      "bang_cong_viec": [
+        {
+          "tag": "bang_quyet_dinh",
+          "nhan": "V. VIỆC CẦN LÃNH ĐẠO QUYẾT ĐỊNH TUẦN NÀY",
+          "la_quyet_dinh": true
+        },
+        {
+          "tag": "bang_cong_viec",
+          "nhan": "VI. KẾT QUẢ VÀ KẾ HOẠCH VIỆC TUẦN TỚI"
+        }
+      ],
+      "muc_bat_buoc": [
+        "CẢNH BÁO AN TOÀN, MÔI TRƯỜNG, CỘNG ĐỒNG, TUÂN THỦ",
+        "KPI ĐIỀU HÀNH CÁC NHÀ MÁY",
+        "CÔNG NỢ PHẢI THU (Chỉ báo tháng là có)",
+        "CẢNH BÁO ĐẦU TƯ – TƯ VẤN – THI CÔNG – VẬN HÀNH",
+        "VIỆC CẦN LÃNH ĐẠO QUYẾT ĐỊNH TUẦN NÀY",
+        "KẾT QUẢ VÀ KẾ HOẠCH VIỆC TUẦN TỚI"
+      ],
+      "bang": [
+        {
+          "tag": "bang_an_toan",
+          "nhan": "CẢNH BÁO AN TOÀN, MÔI TRƯỜNG, CỘNG ĐỒNG, TUÂN THỦ",
+          "so_lieu": true,
+          "cot": [
+            {
+              "tag": "chi_tieu",
+              "nhan": "Chỉ tiêu"
+            },
+            {
+              "tag": "tuan_nay",
+              "nhan": "Tuần này"
+            },
+            {
+              "tag": "luy_ke_nam",
+              "nhan": "Lũy kế năm"
+            },
+            {
+              "tag": "ghi_chu",
+              "nhan": "Ghi chú / Hành động ngay"
+            }
+          ]
+        },
+        {
+          "tag": "bang_kpi",
+          "nhan": "KPI ĐIỀU HÀNH CÁC NHÀ MÁY",
+          "so_lieu": true,
+          "cot": [
+            {
+              "tag": "nhom",
+              "nhan": "Nhóm"
+            },
+            {
+              "tag": "kpi",
+              "nhan": "KPI"
+            },
+            {
+              "tag": "dvt",
+              "nhan": "ĐVT"
+            },
+            {
+              "tag": "kh_thang",
+              "nhan": "KH tháng"
+            },
+            {
+              "tag": "tuan_nay",
+              "nhan": "Tuần này"
+            },
+            {
+              "tag": "luy_ke_thang",
+              "nhan": "Lũy kế tháng"
+            },
+            {
+              "tag": "mat_agc_tuan",
+              "nhan": "Sản lượng mất AGC (Tuần này)"
+            },
+            {
+              "tag": "mat_agc_thang",
+              "nhan": "Sản lượng mất AGC (Tháng)"
+            },
+            {
+              "tag": "luy_ke_nam",
+              "nhan": "Lũy kế năm"
+            },
+            {
+              "tag": "tinh_trang",
+              "nhan": "Tình trạng"
+            }
+          ]
+        },
+        {
+          "tag": "bang_cong_no",
+          "nhan": "CÔNG NỢ PHẢI THU (Chỉ báo tháng là có)",
+          "so_lieu": true,
+          "cot": [
+            {
+              "tag": "du_an",
+              "nhan": "Tên dự án"
+            },
+            {
+              "tag": "gia_tri_hd",
+              "nhan": "Giá trị hợp đồng"
+            },
+            {
+              "tag": "da_xuat_hd",
+              "nhan": "Giá trị đã xuất hóa đơn"
+            },
+            {
+              "tag": "con_lai",
+              "nhan": "Giá trị còn lại"
+            },
+            {
+              "tag": "do_dang",
+              "nhan": "Sản lượng dở dang"
+            },
+            {
+              "tag": "no_trong_han",
+              "nhan": "Công nợ phải thu — Trong hạn"
+            },
+            {
+              "tag": "no_qua_han",
+              "nhan": "Công nợ phải thu — Quá hạn"
+            }
+          ]
+        },
+        {
+          "tag": "bang_canh_bao",
+          "nhan": "CẢNH BÁO ĐẦU TƯ – TƯ VẤN – THI CÔNG – VẬN HÀNH",
+          "so_lieu": true,
+          "cot": [
+            {
+              "tag": "nhom",
+              "nhan": "Nhóm"
+            },
+            {
+              "tag": "ho_so",
+              "nhan": "Hồ sơ / Mốc pháp lý"
+            },
+            {
+              "tag": "loai",
+              "nhan": "Loại"
+            },
+            {
+              "tag": "tinh_trang",
+              "nhan": "Tình trạng hiện tại"
+            },
+            {
+              "tag": "vuong_mac",
+              "nhan": "Vướng mắc cần xử lý"
+            },
+            {
+              "tag": "anh_huong",
+              "nhan": "Ảnh hưởng nếu trễ (có định lượng)"
+            }
+          ]
+        },
+        {
+          "tag": "bang_quyet_dinh",
+          "nhan": "VIỆC CẦN LÃNH ĐẠO QUYẾT ĐỊNH TUẦN NÀY",
+          "cot": [
+            {
+              "tag": "uu_tien",
+              "nhan": "Ưu tiên"
+            },
+            {
+              "tag": "ten",
+              "nhan": "Nội dung cần Tổng Giám đốc quyết định"
+            },
+            {
+              "tag": "phu_trach",
+              "nhan": "Phụ trách (trình)"
+            },
+            {
+              "tag": "han_quyet_dinh",
+              "nhan": "Hạn quyết định"
+            },
+            {
+              "tag": "tai_lieu",
+              "nhan": "Tài liệu đã chuẩn bị"
+            }
+          ]
+        },
+        {
+          "tag": "bang_cong_viec",
+          "nhan": "KẾT QUẢ VÀ KẾ HOẠCH VIỆC TUẦN TỚI",
+          "cot": [
+            {
+              "tag": "ten",
+              "nhan": "Công việc"
+            },
+            {
+              "tag": "du_an",
+              "nhan": "Dự án"
+            },
+            {
+              "tag": "phu_trach",
+              "nhan": "Bộ phận phụ trách"
+            },
+            {
+              "tag": "bat_dau",
+              "nhan": "Bắt đầu"
+            },
+            {
+              "tag": "ket_thuc",
+              "nhan": "Kết thúc"
+            },
+            {
+              "tag": "ket_qua_can_co",
+              "nhan": "Kết quả cần có"
+            },
+            {
+              "tag": "tinh_trang",
+              "nhan": "Tình trạng"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "ma": "form-1",
+    "ten": "Báo cáo Phòng Đầu tư và Pháp chế (Form 1)",
+    "don_vi_lap": "p-dtpc",
+    "gui_den_mac_dinh": "ban-tgd",
+    "loai_ky": "tuan",
+    "tep": "form-1.docx",
+    "tep_goc": "goc/OK_Form1_PhongDauTuPhapChe_Sua lan 2.docx",
+    "phien_ban": 9,
+    "dinh_nghia": {
+      "o_nhap": [
+        {
+          "tag": "mau_ma",
+          "nhan": "Mã mẫu (dấu nhận mẫu ẩn ở tiêu đề)",
+          "bat_buoc": true,
+          "kieu": "chu",
+          "luat": "dung_mau"
+        },
+        {
+          "tag": "don_vi_lap",
+          "nhan": "Đơn vị lập",
+          "bat_buoc": false,
+          "kieu": "don_vi",
+          "luat": "dung_mau"
+        },
+        {
+          "tag": "gui_den",
+          "nhan": "Gửi",
+          "bat_buoc": false,
+          "kieu": "don_vi",
+          "luat": "gui_den"
+        },
+        {
+          "tag": "ky_bao_cao",
+          "nhan": "Kỳ báo cáo",
+          "bat_buoc": true,
+          "kieu": "chu",
+          "luat": "ky_bao_cao"
+        }
+      ],
+      "bang_cong_viec": [
+        {
+          "tag": "bang_cong_viec",
+          "nhan": "III. KẾT QUẢ VÀ KẾ HOẠCH VIỆC TUẦN TỚI"
+        }
+      ],
+      "muc_bat_buoc": [
+        "CẢNH BÁO  ĐẦU TƯ, TƯ VẤN, THI CÔNG",
+        "VẤN ĐỀ NỔI BẬT VÀ KIẾN NGHỊ LÃNH ĐẠO",
+        "KẾT QUẢ VÀ KẾ HOẠCH VIỆC TUẦN TỚI"
+      ],
+      "bang": [
+        {
+          "tag": "bang_canh_bao",
+          "nhan": "CẢNH BÁO  ĐẦU TƯ, TƯ VẤN, THI CÔNG",
+          "so_lieu": true,
+          "cot": [
+            {
+              "tag": "nhom",
+              "nhan": "Nhóm"
+            },
+            {
+              "tag": "ho_so",
+              "nhan": "Hồ sơ / Mốc pháp lý"
+            },
+            {
+              "tag": "loai",
+              "nhan": "Loại"
+            },
+            {
+              "tag": "tinh_trang",
+              "nhan": "Tình trạng hiện tại"
+            },
+            {
+              "tag": "vuong_mac",
+              "nhan": "Vướng mắc cần xử lý"
+            },
+            {
+              "tag": "anh_huong",
+              "nhan": "Ảnh hưởng nếu trễ (có định lượng)"
+            }
+          ]
+        },
+        {
+          "tag": "bang_kien_nghi",
+          "nhan": "VẤN ĐỀ NỔI BẬT VÀ KIẾN NGHỊ LÃNH ĐẠO",
+          "cot": [
+            {
+              "tag": "stt",
+              "nhan": "#"
+            },
+            {
+              "tag": "noi_dung",
+              "nhan": "Vấn đề"
+            },
+            {
+              "tag": "nguon",
+              "nhan": "Nguồn"
+            },
+            {
+              "tag": "muc_do",
+              "nhan": "Mức độ"
+            },
+            {
+              "tag": "kien_nghi",
+              "nhan": "Kiến nghị"
+            }
+          ]
+        },
+        {
+          "tag": "bang_cong_viec",
+          "nhan": "KẾT QUẢ VÀ KẾ HOẠCH VIỆC TUẦN TỚI",
+          "cot": [
+            {
+              "tag": "ten",
+              "nhan": "Công việc"
+            },
+            {
+              "tag": "du_an",
+              "nhan": "Dự án"
+            },
+            {
+              "tag": "bat_dau",
+              "nhan": "Bắt đầu"
+            },
+            {
+              "tag": "ket_thuc",
+              "nhan": "Kết thúc"
+            },
+            {
+              "tag": "ket_qua_can_co",
+              "nhan": "Kết quả cần có"
+            },
+            {
+              "tag": "tinh_trang",
+              "nhan": "Tình trạng"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "ma": "form-2",
+    "ten": "Báo cáo Phòng Kinh tế và Vận hành (Form 2)",
+    "don_vi_lap": "p-ktvh",
+    "gui_den_mac_dinh": "ban-tgd",
+    "loai_ky": "tuan",
+    "tep": "form-2.docx",
+    "tep_goc": "goc/OK_Form2_PhongKinhTeVanHanh_Sua lan 2.docx",
+    "phien_ban": 9,
+    "dinh_nghia": {
+      "o_nhap": [
+        {
+          "tag": "mau_ma",
+          "nhan": "Mã mẫu (dấu nhận mẫu ẩn ở tiêu đề)",
+          "bat_buoc": true,
+          "kieu": "chu",
+          "luat": "dung_mau"
+        },
+        {
+          "tag": "don_vi_lap",
+          "nhan": "Đơn vị lập",
+          "bat_buoc": false,
+          "kieu": "don_vi",
+          "luat": "dung_mau"
+        },
+        {
+          "tag": "gui_den",
+          "nhan": "Gửi",
+          "bat_buoc": false,
+          "kieu": "don_vi",
+          "luat": "gui_den"
+        },
+        {
+          "tag": "ky_bao_cao",
+          "nhan": "Kỳ báo cáo",
+          "bat_buoc": true,
+          "kieu": "chu",
+          "luat": "ky_bao_cao"
+        }
+      ],
+      "bang_cong_viec": [
+        {
+          "tag": "bang_cong_viec",
+          "nhan": "IV. KẾT QUẢ VÀ KẾ HOẠCH VIỆC TUẦN TỚI"
+        }
+      ],
+      "muc_bat_buoc": [
+        "CẢNH BÁO AN TOÀN, MÔI TRƯỜNG, CỘNG ĐỒNG, TUÂN THỦ",
+        "DOANH THU ĐIỆN CÁC NHÀ MÁY TRONG KỲ",
+        "VẤN ĐỀ NỔI BẬT VÀ KIẾN NGHỊ LÃNH ĐẠO",
+        "KẾT QUẢ VÀ KẾ HOẠCH VIỆC TUẦN TỚI"
+      ],
+      "bang": [
+        {
+          "tag": "bang_an_toan",
+          "nhan": "CẢNH BÁO AN TOÀN, MÔI TRƯỜNG, CỘNG ĐỒNG, TUÂN THỦ",
+          "so_lieu": true,
+          "cot": [
+            {
+              "tag": "chi_tieu",
+              "nhan": "Chỉ tiêu"
+            },
+            {
+              "tag": "tuan_nay",
+              "nhan": "Tuần này"
+            },
+            {
+              "tag": "luy_ke_nam",
+              "nhan": "Lũy kế năm"
+            },
+            {
+              "tag": "ghi_chu",
+              "nhan": "Ghi chú / Hành động ngay"
+            }
+          ]
+        },
+        {
+          "tag": "bang_kpi",
+          "nhan": "DOANH THU ĐIỆN CÁC NHÀ MÁY TRONG KỲ",
+          "so_lieu": true,
+          "cot": [
+            {
+              "tag": "nhom",
+              "nhan": "Nhóm"
+            },
+            {
+              "tag": "kpi",
+              "nhan": "KPI"
+            },
+            {
+              "tag": "dvt",
+              "nhan": "ĐVT"
+            },
+            {
+              "tag": "kh_thang",
+              "nhan": "KH tháng"
+            },
+            {
+              "tag": "tuan_nay",
+              "nhan": "Tuần này"
+            },
+            {
+              "tag": "luy_ke_thang",
+              "nhan": "Lũy kế tháng"
+            },
+            {
+              "tag": "mat_agc_tuan",
+              "nhan": "Sản lượng mất AGC (Tuần này)"
+            },
+            {
+              "tag": "mat_agc_thang",
+              "nhan": "Sản lượng mất AGC (Tháng)"
+            },
+            {
+              "tag": "luy_ke_nam",
+              "nhan": "Lũy kế năm"
+            },
+            {
+              "tag": "tinh_trang",
+              "nhan": "Tình trạng"
+            }
+          ]
+        },
+        {
+          "tag": "bang_kien_nghi",
+          "nhan": "VẤN ĐỀ NỔI BẬT VÀ KIẾN NGHỊ LÃNH ĐẠO",
+          "cot": [
+            {
+              "tag": "stt",
+              "nhan": "#"
+            },
+            {
+              "tag": "noi_dung",
+              "nhan": "Vấn đề"
+            },
+            {
+              "tag": "nguon",
+              "nhan": "Nguồn"
+            },
+            {
+              "tag": "muc_do",
+              "nhan": "Mức độ"
+            },
+            {
+              "tag": "kien_nghi",
+              "nhan": "Kiến nghị"
+            }
+          ]
+        },
+        {
+          "tag": "bang_cong_viec",
+          "nhan": "KẾT QUẢ VÀ KẾ HOẠCH VIỆC TUẦN TỚI",
+          "cot": [
+            {
+              "tag": "ten",
+              "nhan": "Công việc"
+            },
+            {
+              "tag": "du_an",
+              "nhan": "Dự án"
+            },
+            {
+              "tag": "bat_dau",
+              "nhan": "Bắt đầu"
+            },
+            {
+              "tag": "ket_thuc",
+              "nhan": "Kết thúc"
+            },
+            {
+              "tag": "ket_qua_can_co",
+              "nhan": "Kết quả cần có"
+            },
+            {
+              "tag": "tinh_trang",
+              "nhan": "Tình trạng"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "ma": "form-3",
+    "ten": "Báo cáo Phòng Hành chính Tổng hợp (Form 3)",
+    "don_vi_lap": "p-hcth",
+    "gui_den_mac_dinh": "ban-tgd",
+    "loai_ky": "tuan",
+    "tep": "form-3.docx",
+    "tep_goc": "goc/OK_Form3_PhongHanhChinh_Sua lan 2.docx",
+    "phien_ban": 9,
+    "dinh_nghia": {
+      "o_nhap": [
+        {
+          "tag": "mau_ma",
+          "nhan": "Mã mẫu (dấu nhận mẫu ẩn ở tiêu đề)",
+          "bat_buoc": true,
+          "kieu": "chu",
+          "luat": "dung_mau"
+        },
+        {
+          "tag": "don_vi_lap",
+          "nhan": "Đơn vị lập",
+          "bat_buoc": false,
+          "kieu": "don_vi",
+          "luat": "dung_mau"
+        },
+        {
+          "tag": "gui_den",
+          "nhan": "Gửi",
+          "bat_buoc": false,
+          "kieu": "don_vi",
+          "luat": "gui_den"
+        },
+        {
+          "tag": "ky_bao_cao",
+          "nhan": "Kỳ báo cáo",
+          "bat_buoc": true,
+          "kieu": "chu",
+          "luat": "ky_bao_cao"
+        }
+      ],
+      "bang_cong_viec": [
+        {
+          "tag": "bang_cong_viec",
+          "nhan": "III. KẾT QUẢ VÀ KẾ HOẠCH VIỆC TUẦN TỚI"
+        }
+      ],
+      "muc_bat_buoc": [
+        "NHÂN SỰ",
+        "VẤN ĐỀ NỔI BẬT VÀ KIẾN NGHỊ LÃNH ĐẠO",
+        "KẾT QUẢ VÀ KẾ HOẠCH VIỆC TUẦN TỚI"
+      ],
+      "bang": [
+        {
+          "tag": "bang_nhan_su",
+          "nhan": "NHÂN SỰ",
+          "so_lieu": true,
+          "cot": [
+            {
+              "tag": "chi_tieu",
+              "nhan": "Chỉ tiêu nhân sự"
+            },
+            {
+              "tag": "kh_nam",
+              "nhan": "KH năm"
+            },
+            {
+              "tag": "dau_ky",
+              "nhan": "Đầu tuần"
+            },
+            {
+              "tag": "cuoi_ky",
+              "nhan": "Cuối tuần"
+            },
+            {
+              "tag": "bien_dong",
+              "nhan": "Biến động"
+            },
+            {
+              "tag": "ghi_chu",
+              "nhan": "Ghi chú"
+            }
+          ]
+        },
+        {
+          "tag": "bang_kien_nghi",
+          "nhan": "VẤN ĐỀ NỔI BẬT VÀ KIẾN NGHỊ LÃNH ĐẠO",
+          "cot": [
+            {
+              "tag": "stt",
+              "nhan": "#"
+            },
+            {
+              "tag": "noi_dung",
+              "nhan": "Vấn đề"
+            },
+            {
+              "tag": "muc_do",
+              "nhan": "Mức độ"
+            },
+            {
+              "tag": "kien_nghi",
+              "nhan": "Kiến nghị"
+            }
+          ]
+        },
+        {
+          "tag": "bang_cong_viec",
+          "nhan": "KẾT QUẢ VÀ KẾ HOẠCH VIỆC TUẦN TỚI",
+          "cot": [
+            {
+              "tag": "ten",
+              "nhan": "Công việc"
+            },
+            {
+              "tag": "du_an",
+              "nhan": "Dự án"
+            },
+            {
+              "tag": "bat_dau",
+              "nhan": "Bắt đầu"
+            },
+            {
+              "tag": "ket_thuc",
+              "nhan": "Kết thúc"
+            },
+            {
+              "tag": "ket_qua_can_co",
+              "nhan": "Kết quả cần có"
+            },
+            {
+              "tag": "tinh_trang",
+              "nhan": "Tình trạng"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "ma": "form-4",
+    "ten": "Báo cáo Phòng Tài chính Kế toán (Form 4)",
+    "don_vi_lap": "p-tckt",
+    "gui_den_mac_dinh": "ban-tgd",
+    "loai_ky": "tuan",
+    "tep": "form-4.docx",
+    "tep_goc": "goc/OK_Form4_PhongTaiChinhKeToan_Sua lan 2.docx",
+    "phien_ban": 9,
+    "dinh_nghia": {
+      "o_nhap": [
+        {
+          "tag": "mau_ma",
+          "nhan": "Mã mẫu (dấu nhận mẫu ẩn ở tiêu đề)",
+          "bat_buoc": true,
+          "kieu": "chu",
+          "luat": "dung_mau"
+        },
+        {
+          "tag": "don_vi_lap",
+          "nhan": "Đơn vị lập",
+          "bat_buoc": false,
+          "kieu": "don_vi",
+          "luat": "dung_mau"
+        },
+        {
+          "tag": "gui_den",
+          "nhan": "Gửi",
+          "bat_buoc": false,
+          "kieu": "don_vi",
+          "luat": "gui_den"
+        },
+        {
+          "tag": "ky_bao_cao",
+          "nhan": "Kỳ báo cáo",
+          "bat_buoc": true,
+          "kieu": "chu",
+          "luat": "ky_bao_cao"
+        }
+      ],
+      "bang_cong_viec": [
+        {
+          "tag": "bang_cong_viec",
+          "nhan": "V. KẾT QUẢ VÀ KẾ HOẠCH VIỆC TUẦN TỚI"
+        }
+      ],
+      "muc_bat_buoc": [
+        "TÓM TẮT THÔNG TIN CHÍNH",
+        "BÁO CÁO NGUỒN TIỀN — ĐƠN VỊ: TRIỆU ĐỒNG",
+        "BÁO CÁO CHI PHÍ GIÁ THÀNH — ĐƠN VỊ: TRIỆU ĐỒNG",
+        "VẤN ĐỀ NỔI BẬT VÀ KIẾN NGHỊ LÃNH ĐẠO",
+        "KẾT QUẢ VÀ KẾ HOẠCH VIỆC TUẦN TỚI"
+      ],
+      "bang": [
+        {
+          "tag": "bang_nguon_tien",
+          "nhan": "BÁO CÁO NGUỒN TIỀN — ĐƠN VỊ: TRIỆU ĐỒNG",
+          "so_lieu": true,
+          "cot": [
+            {
+              "tag": "noi_dung",
+              "nhan": "Nội dung"
+            },
+            {
+              "tag": "sci",
+              "nhan": "SCI"
+            },
+            {
+              "tag": "sci_nang_luong",
+              "nhan": "SCI Năng Lượng"
+            },
+            {
+              "tag": "sci_tu_van",
+              "nhan": "SCI Tư Vấn"
+            },
+            {
+              "tag": "sci_quang_tri",
+              "nhan": "SCI Quảng Trị"
+            },
+            {
+              "tag": "sci_lai_chau",
+              "nhan": "SCI Lai Châu"
+            },
+            {
+              "tag": "sci_nghe_an",
+              "nhan": "SCI Nghệ An"
+            },
+            {
+              "tag": "huong_linh_7",
+              "nhan": "Hướng Linh 7"
+            },
+            {
+              "tag": "huong_linh_8",
+              "nhan": "Hướng Linh 8"
+            }
+          ]
+        },
+        {
+          "tag": "bang_chi_phi",
+          "nhan": "BÁO CÁO CHI PHÍ GIÁ THÀNH — ĐƠN VỊ: TRIỆU ĐỒNG",
+          "so_lieu": true,
+          "cot": [
+            {
+              "tag": "stt",
+              "nhan": "STT"
+            },
+            {
+              "tag": "khoan_muc",
+              "nhan": "Thành phần chi phí"
+            },
+            {
+              "tag": "thang",
+              "nhan": "Tháng (Tr.đ)"
+            },
+            {
+              "tag": "luy_ke",
+              "nhan": "Lũy kế (Tr.đ)"
+            },
+            {
+              "tag": "ke_hoach",
+              "nhan": "Kế hoạch năm (Tr.đ)"
+            },
+            {
+              "tag": "pt_ht",
+              "nhan": "% Hoàn thành"
+            }
+          ]
+        },
+        {
+          "tag": "bang_kien_nghi",
+          "nhan": "VẤN ĐỀ NỔI BẬT VÀ KIẾN NGHỊ LÃNH ĐẠO",
+          "cot": [
+            {
+              "tag": "stt",
+              "nhan": "#"
+            },
+            {
+              "tag": "noi_dung",
+              "nhan": "Vấn đề"
+            },
+            {
+              "tag": "muc_do",
+              "nhan": "Mức độ"
+            },
+            {
+              "tag": "kien_nghi",
+              "nhan": "Kiến nghị"
+            }
+          ]
+        },
+        {
+          "tag": "bang_cong_viec",
+          "nhan": "KẾT QUẢ VÀ KẾ HOẠCH VIỆC TUẦN TỚI",
+          "cot": [
+            {
+              "tag": "ten",
+              "nhan": "Công việc"
+            },
+            {
+              "tag": "du_an",
+              "nhan": "Dự án"
+            },
+            {
+              "tag": "bat_dau",
+              "nhan": "Bắt đầu"
+            },
+            {
+              "tag": "ket_thuc",
+              "nhan": "Kết thúc"
+            },
+            {
+              "tag": "ket_qua_can_co",
+              "nhan": "Kết quả cần có"
+            },
+            {
+              "tag": "tinh_trang",
+              "nhan": "Tình trạng"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "ma": "form-5",
+    "ten": "Báo cáo SCI PMC (Form 5)",
+    "don_vi_lap": "sci-pmc",
+    "gui_den_mac_dinh": "p-dtpc",
+    "loai_ky": "tuan",
+    "tep": "form-5.docx",
+    "tep_goc": "goc/OK_Form5_SCI_PMC_Sua lan 2.docx",
+    "phien_ban": 11,
+    "dinh_nghia": {
+      "o_nhap": [
+        {
+          "tag": "mau_ma",
+          "kieu": "chu",
+          "luat": "dung_mau",
+          "nhan": "Mã mẫu (dấu nhận mẫu ẩn ở tiêu đề)",
+          "bat_buoc": true
+        },
+        {
+          "tag": "don_vi_lap",
+          "kieu": "don_vi",
+          "luat": "dung_mau",
+          "nhan": "Đơn vị lập",
+          "bat_buoc": false
+        },
+        {
+          "tag": "gui_den",
+          "kieu": "don_vi",
+          "luat": "gui_den",
+          "nhan": "Gửi",
+          "bat_buoc": false
+        },
+        {
+          "tag": "ky_bao_cao",
+          "kieu": "chu",
+          "luat": "ky_bao_cao",
+          "nhan": "Kỳ báo cáo",
+          "bat_buoc": true
+        }
+      ],
+      "bang_cong_viec": [
+        {
+          "tag": "bang_tien_do_tk",
+          "nhan": "TIẾN ĐỘ CHI TIẾT CÔNG TÁC THIẾT KẾ"
+        },
+        {
+          "tag": "bang_cong_viec",
+          "nhan": "KẾT QUẢ VÀ KẾ HOẠCH VIỆC TUẦN TỚI"
+        }
+      ],
+      "muc_bat_buoc": [
+        "TIẾN ĐỘ CHI TIẾT CÔNG TÁC THIẾT KẾ",
+        "VẤN ĐỀ NỔI BẬT VÀ KIẾN NGHỊ LÃNH ĐẠO",
+        "KẾT QUẢ VÀ KẾ HOẠCH VIỆC TUẦN TỚI"
+      ],
+      "bang": [
+        {
+          "cot": [
+            {
+              "tag": "stt",
+              "nhan": "STT"
+            },
+            {
+              "tag": "du_an",
+              "nhan": "Dự án"
+            },
+            {
+              "tag": "hang_muc",
+              "nhan": "Hạng mục thiết kế"
+            },
+            {
+              "tag": "ngay_ke_hoach",
+              "nhan": "Ngày kế hoạch"
+            },
+            {
+              "tag": "pt_ht",
+              "nhan": "% HT"
+            },
+            {
+              "tag": "ghi_chu",
+              "nhan": "Ghi chú"
+            }
+          ],
+          "tag": "bang_tien_do_tk",
+          "nhan": "TIẾN ĐỘ CHI TIẾT CÔNG TÁC THIẾT KẾ",
+          "so_lieu": true
+        },
+        {
+          "cot": [
+            {
+              "tag": "stt",
+              "nhan": "STT"
+            },
+            {
+              "tag": "noi_dung",
+              "nhan": "Vấn đề / Rủi ro"
+            },
+            {
+              "tag": "muc_do",
+              "nhan": "Mức độ"
+            },
+            {
+              "tag": "kien_nghi",
+              "nhan": "Kiến nghị"
+            }
+          ],
+          "tag": "bang_kien_nghi",
+          "nhan": "VẤN ĐỀ NỔI BẬT VÀ KIẾN NGHỊ LÃNH ĐẠO"
+        },
+        {
+          "cot": [
+            {
+              "tag": "ten",
+              "nhan": "Công việc"
+            },
+            {
+              "tag": "du_an",
+              "nhan": "Dự án"
+            },
+            {
+              "tag": "bat_dau",
+              "nhan": "Bắt đầu"
+            },
+            {
+              "tag": "ket_thuc",
+              "nhan": "Kết thúc"
+            },
+            {
+              "tag": "ket_qua_can_co",
+              "nhan": "Kết quả cần có"
+            },
+            {
+              "tag": "tinh_trang",
+              "nhan": "Tình trạng"
+            }
+          ],
+          "tag": "bang_cong_viec",
+          "nhan": "KẾT QUẢ VÀ KẾ HOẠCH VIỆC TUẦN TỚI"
+        }
+      ],
+      "cau_truc": {
+        "chuong": [
+          {
+            "bang": [
+              {
+                "cot": [
+                  {
+                    "tag": "stt",
+                    "nghia": "bo_qua",
+                    "tieu_de": "STT"
+                  },
+                  {
+                    "tag": "du_an",
+                    "nghia": "du_an",
+                    "tieu_de": "Dự án"
+                  },
+                  {
+                    "tag": "hang_muc",
+                    "nghia": "ten",
+                    "tieu_de": "Hạng mục thiết kế"
+                  },
+                  {
+                    "tag": "ngay_ke_hoach",
+                    "nghia": "ket_thuc",
+                    "tieu_de": "Ngày kế hoạch"
+                  },
+                  {
+                    "tag": "pt_ht",
+                    "nghia": "tinh_trang",
+                    "tieu_de": "% HT"
+                  },
+                  {
+                    "tag": "ghi_chu",
+                    "nghia": "them",
+                    "tieu_de": "Ghi chú",
+                    "ten_them": "ghi_chu"
+                  }
+                ],
+                "tag": "bang_tien_do_tk",
+                "nghia": "dac_biet",
+                "tieu_de": "TIẾN ĐỘ CHI TIẾT CÔNG TÁC THIẾT KẾ"
+              }
+            ],
+            "nghia": "sinh_viec_bang",
+            "tieu_de": "TIẾN ĐỘ CHI TIẾT CÔNG TÁC THIẾT KẾ",
+            "bat_buoc": true
+          },
+          {
+            "bang": [
+              {
+                "cot": [
+                  {
+                    "tag": "stt",
+                    "nghia": "them",
+                    "tieu_de": "STT"
+                  },
+                  {
+                    "tag": "noi_dung",
+                    "nghia": "them",
+                    "tieu_de": "Vấn đề / Rủi ro"
+                  },
+                  {
+                    "tag": "muc_do",
+                    "nghia": "them",
+                    "tieu_de": "Mức độ"
+                  },
+                  {
+                    "tag": "kien_nghi",
+                    "nghia": "them",
+                    "tieu_de": "Kiến nghị"
+                  }
+                ],
+                "tag": "bang_kien_nghi",
+                "nghia": "so_lieu",
+                "tieu_de": "VẤN ĐỀ NỔI BẬT VÀ KIẾN NGHỊ LÃNH ĐẠO"
+              }
+            ],
+            "nghia": "thong_tin",
+            "tieu_de": "VẤN ĐỀ NỔI BẬT VÀ KIẾN NGHỊ LÃNH ĐẠO",
+            "bat_buoc": true
+          },
+          {
+            "bang": [
+              {
+                "cot": [
+                  {
+                    "tag": "ten",
+                    "nghia": "ten",
+                    "tieu_de": "Công việc"
+                  },
+                  {
+                    "tag": "du_an",
+                    "nghia": "du_an",
+                    "tieu_de": "Dự án"
+                  },
+                  {
+                    "tag": "bat_dau",
+                    "nghia": "bat_dau",
+                    "tieu_de": "Bắt đầu"
+                  },
+                  {
+                    "tag": "ket_thuc",
+                    "nghia": "ket_thuc",
+                    "tieu_de": "Kết thúc"
+                  },
+                  {
+                    "tag": "ket_qua_can_co",
+                    "nghia": "ket_qua_can_co",
+                    "tieu_de": "Kết quả cần có"
+                  },
+                  {
+                    "tag": "tinh_trang",
+                    "nghia": "tinh_trang",
+                    "tieu_de": "Tình trạng"
+                  }
+                ],
+                "tag": "bang_cong_viec",
+                "nghia": "sinh_viec",
+                "tieu_de": "KẾT QUẢ VÀ KẾ HOẠCH VIỆC TUẦN TỚI"
+              }
+            ],
+            "nghia": "sinh_viec_bang",
+            "tieu_de": "KẾT QUẢ VÀ KẾ HOẠCH VIỆC TUẦN TỚI",
+            "bat_buoc": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "ma": "form-6",
+    "ten": "Báo cáo tuần SCI E&C (Form 6)",
+    "don_vi_lap": "sci-enc",
+    "gui_den_mac_dinh": "p-dtpc",
+    "loai_ky": "tuan",
+    "tep": "form-6.docx",
+    "tep_goc": "goc/OK_Form6_SCI_ENC_Sua lan 2.docx",
+    "phien_ban": 12,
+    "dinh_nghia": {
+      "o_nhap": [
+        {
+          "tag": "mau_ma",
+          "kieu": "chu",
+          "luat": "dung_mau",
+          "nhan": "Mã mẫu (dấu nhận mẫu ẩn ở tiêu đề)",
+          "bat_buoc": true
+        },
+        {
+          "tag": "don_vi_lap",
+          "kieu": "don_vi",
+          "luat": "dung_mau",
+          "nhan": "Đơn vị lập",
+          "bat_buoc": false
+        },
+        {
+          "tag": "gui_den",
+          "kieu": "don_vi",
+          "luat": "gui_den",
+          "nhan": "Gửi",
+          "bat_buoc": false
+        },
+        {
+          "tag": "ky_bao_cao",
+          "kieu": "chu",
+          "luat": "ky_bao_cao",
+          "nhan": "Kỳ báo cáo",
+          "bat_buoc": true
+        }
+      ],
+      "bang_cong_viec": [
+        {
+          "tag": "bang_cong_viec",
+          "nhan": "KẾT QUẢ VÀ KẾ HOẠCH VIỆC TUẦN TỚI"
+        }
+      ],
+      "muc_bat_buoc": [
+        "TỔNG QUAN CÁC DỰ ÁN SCI ENC",
+        "VẤN ĐỀ NỔI BẬT VÀ KIẾN NGHỊ LÃNH ĐẠO",
+        "KẾT QUẢ VÀ KẾ HOẠCH VIỆC TUẦN TỚI"
+      ],
+      "bang": [
+        {
+          "cot": [
+            {
+              "tag": "stt",
+              "nhan": "STT"
+            },
+            {
+              "tag": "du_an",
+              "nhan": "Dự án"
+            },
+            {
+              "tag": "cong_suat",
+              "nhan": "Công suất"
+            },
+            {
+              "tag": "loai_hinh",
+              "nhan": "Loại hình"
+            },
+            {
+              "tag": "dia_diem",
+              "nhan": "Địa điểm"
+            },
+            {
+              "tag": "trang_thai",
+              "nhan": "Trạng thái tổng thể"
+            },
+            {
+              "tag": "tien_do",
+              "nhan": "Tiến độ"
+            }
+          ],
+          "tag": "bang_du_an",
+          "nhan": "TỔNG QUAN CÁC DỰ ÁN SCI ENC",
+          "so_lieu": true
+        },
+        {
+          "cot": [
+            {
+              "tag": "stt",
+              "nhan": "STT"
+            },
+            {
+              "tag": "noi_dung",
+              "nhan": "Vấn đề / Rủi ro"
+            },
+            {
+              "tag": "du_an",
+              "nhan": "Dự án"
+            },
+            {
+              "tag": "muc_do",
+              "nhan": "Mức độ"
+            },
+            {
+              "tag": "kien_nghi",
+              "nhan": "Kiến nghị"
+            }
+          ],
+          "tag": "bang_kien_nghi",
+          "nhan": "VẤN ĐỀ NỔI BẬT VÀ KIẾN NGHỊ LÃNH ĐẠO"
+        },
+        {
+          "cot": [
+            {
+              "tag": "ten",
+              "nhan": "Công việc"
+            },
+            {
+              "tag": "du_an",
+              "nhan": "Dự án"
+            },
+            {
+              "tag": "bat_dau",
+              "nhan": "Bắt đầu"
+            },
+            {
+              "tag": "ket_thuc",
+              "nhan": "Kết thúc"
+            },
+            {
+              "tag": "ket_qua_can_co",
+              "nhan": "Kết quả cần có"
+            },
+            {
+              "tag": "tinh_trang",
+              "nhan": "Tình trạng"
+            }
+          ],
+          "tag": "bang_cong_viec",
+          "nhan": "KẾT QUẢ VÀ KẾ HOẠCH VIỆC TUẦN TỚI"
+        }
+      ],
+      "cau_truc": {
+        "chuong": [
+          {
+            "bang": [
+              {
+                "cot": [
+                  {
+                    "tag": "stt",
+                    "nghia": "them",
+                    "tieu_de": "STT"
+                  },
+                  {
+                    "tag": "du_an",
+                    "nghia": "them",
+                    "tieu_de": "Dự án"
+                  },
+                  {
+                    "tag": "cong_suat",
+                    "nghia": "them",
+                    "tieu_de": "Công suất"
+                  },
+                  {
+                    "tag": "loai_hinh",
+                    "nghia": "them",
+                    "tieu_de": "Loại hình"
+                  },
+                  {
+                    "tag": "dia_diem",
+                    "nghia": "them",
+                    "tieu_de": "Địa điểm"
+                  },
+                  {
+                    "tag": "trang_thai",
+                    "nghia": "them",
+                    "tieu_de": "Trạng thái tổng thể"
+                  },
+                  {
+                    "tag": "tien_do",
+                    "nghia": "them",
+                    "tieu_de": "Tiến độ"
+                  }
+                ],
+                "tag": "bang_du_an",
+                "nghia": "so_lieu",
+                "tieu_de": "TỔNG QUAN CÁC DỰ ÁN SCI ENC"
+              }
+            ],
+            "nghia": "thong_tin",
+            "tieu_de": "TỔNG QUAN CÁC DỰ ÁN SCI ENC",
+            "bat_buoc": true
+          },
+          {
+            "bang": [
+              {
+                "cot": [
+                  {
+                    "tag": "stt",
+                    "nghia": "them",
+                    "tieu_de": "STT"
+                  },
+                  {
+                    "tag": "noi_dung",
+                    "nghia": "them",
+                    "tieu_de": "Vấn đề / Rủi ro"
+                  },
+                  {
+                    "tag": "du_an",
+                    "nghia": "them",
+                    "tieu_de": "Dự án"
+                  },
+                  {
+                    "tag": "muc_do",
+                    "nghia": "them",
+                    "tieu_de": "Mức độ"
+                  },
+                  {
+                    "tag": "kien_nghi",
+                    "nghia": "them",
+                    "tieu_de": "Kiến nghị"
+                  }
+                ],
+                "tag": "bang_kien_nghi",
+                "nghia": "so_lieu",
+                "tieu_de": "VẤN ĐỀ NỔI BẬT VÀ KIẾN NGHỊ LÃNH ĐẠO"
+              }
+            ],
+            "nghia": "thong_tin",
+            "tieu_de": "VẤN ĐỀ NỔI BẬT VÀ KIẾN NGHỊ LÃNH ĐẠO",
+            "bat_buoc": true
+          },
+          {
+            "bang": [
+              {
+                "cot": [
+                  {
+                    "tag": "ten",
+                    "nghia": "ten",
+                    "tieu_de": "Công việc"
+                  },
+                  {
+                    "tag": "du_an",
+                    "nghia": "du_an",
+                    "tieu_de": "Dự án"
+                  },
+                  {
+                    "tag": "bat_dau",
+                    "nghia": "bat_dau",
+                    "tieu_de": "Bắt đầu"
+                  },
+                  {
+                    "tag": "ket_thuc",
+                    "nghia": "ket_thuc",
+                    "tieu_de": "Kết thúc"
+                  },
+                  {
+                    "tag": "ket_qua_can_co",
+                    "nghia": "ket_qua_can_co",
+                    "tieu_de": "Kết quả cần có"
+                  },
+                  {
+                    "tag": "tinh_trang",
+                    "nghia": "tinh_trang",
+                    "tieu_de": "Tình trạng"
+                  }
+                ],
+                "tag": "bang_cong_viec",
+                "nghia": "sinh_viec",
+                "tieu_de": "KẾT QUẢ VÀ KẾ HOẠCH VIỆC TUẦN TỚI"
+              }
+            ],
+            "nghia": "sinh_viec_bang",
+            "ten_cu": [
+              "KẾT QUẢ VÀ KẾ HOẠCH VIỆC THÁNG TỚI"
+            ],
+            "tieu_de": "KẾT QUẢ VÀ KẾ HOẠCH VIỆC TUẦN TỚI",
+            "bat_buoc": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "ma": "form-7",
+    "ten": "Báo cáo BQLDA Quảng Trị (Form 7)",
+    "don_vi_lap": "bqlda-qt",
+    "gui_den_mac_dinh": "p-dtpc",
+    "loai_ky": "tuan",
+    "tep": "form-7.docx",
+    "tep_goc": "goc/OK_Form7_BQLDA_Sua lan 2.docx",
+    "phien_ban": 9,
+    "dinh_nghia": {
+      "o_nhap": [
+        {
+          "tag": "mau_ma",
+          "nhan": "Mã mẫu (dấu nhận mẫu ẩn ở tiêu đề)",
+          "bat_buoc": true,
+          "kieu": "chu",
+          "luat": "dung_mau"
+        },
+        {
+          "tag": "don_vi_lap",
+          "nhan": "Đơn vị lập",
+          "bat_buoc": false,
+          "kieu": "don_vi",
+          "luat": "dung_mau"
+        },
+        {
+          "tag": "gui_den",
+          "nhan": "Gửi",
+          "bat_buoc": false,
+          "kieu": "don_vi",
+          "luat": "gui_den"
+        },
+        {
+          "tag": "ky_bao_cao",
+          "nhan": "Kỳ báo cáo",
+          "bat_buoc": true,
+          "kieu": "chu",
+          "luat": "ky_bao_cao"
+        },
+        {
+          "tag": "du_an_ten",
+          "nhan": "Tên dự án",
+          "bat_buoc": false,
+          "kieu": "chu"
+        },
+        {
+          "tag": "du_an_chu_dau_tu",
+          "nhan": "Chủ đầu tư",
+          "bat_buoc": false,
+          "kieu": "chu"
+        },
+        {
+          "tag": "du_an_thoi_gian_thi_cong",
+          "nhan": "Thời gian thi công",
+          "bat_buoc": false,
+          "kieu": "chu"
+        },
+        {
+          "tag": "du_an_ngay_phat_dien",
+          "nhan": "Ngày phát điện KH",
+          "bat_buoc": false,
+          "kieu": "chu"
+        },
+        {
+          "tag": "du_an_tinh_trang",
+          "nhan": "Tình trạng tổng thể",
+          "bat_buoc": false,
+          "kieu": "chu"
+        },
+        {
+          "tag": "du_an_tien_do_luy_ke",
+          "nhan": "Tiến độ lũy kế (vs KH)",
+          "bat_buoc": false,
+          "kieu": "chu"
+        }
+      ],
+      "bang_cong_viec": [
+        {
+          "tag": "bang_cong_viec",
+          "nhan": "VI. KẾT QUẢ VÀ KẾ HOẠCH VIỆC TUẦN TỚI"
+        }
+      ],
+      "muc_bat_buoc": [
+        "THÔNG TIN CHUNG DỰ ÁN",
+        "TIẾN ĐỘ TỔNG THỂ",
+        "CHI TIẾT TIẾN ĐỘ TỪNG HẠNG MỤC",
+        "GPMB & QUAN HỆ ĐỊA PHƯƠNG",
+        "RỦI RO & KIẾN NGHỊ PHÒNG ĐT&PC",
+        "KẾT QUẢ VÀ KẾ HOẠCH VIỆC TUẦN TỚI"
+      ],
+      "bang": [
+        {
+          "tag": "bang_tien_do",
+          "nhan": "TIẾN ĐỘ TỔNG THỂ",
+          "so_lieu": true,
+          "cot": [
+            {
+              "tag": "hang_muc",
+              "nhan": "Hạng mục"
+            },
+            {
+              "tag": "kh_luy_ke",
+              "nhan": "KH lũy kế"
+            },
+            {
+              "tag": "th_luy_ke",
+              "nhan": "TH lũy kế"
+            },
+            {
+              "tag": "lech",
+              "nhan": "Lệch"
+            },
+            {
+              "tag": "ghi_chu",
+              "nhan": "Ghi chú"
+            }
+          ]
+        },
+        {
+          "tag": "bang_khoi_luong",
+          "nhan": "CHI TIẾT TIẾN ĐỘ TỪNG HẠNG MỤC",
+          "so_lieu": true,
+          "cot": [
+            {
+              "tag": "stt",
+              "nhan": "STT"
+            },
+            {
+              "tag": "cong_viec",
+              "nhan": "Công việc"
+            },
+            {
+              "tag": "don_vi",
+              "nhan": "Đơn vị"
+            },
+            {
+              "tag": "kl_thiet_ke",
+              "nhan": "KL thiết kế"
+            },
+            {
+              "tag": "kl_thuc_hien",
+              "nhan": "KL thực hiện (lũy kế tuần này)"
+            },
+            {
+              "tag": "kl_tuan_sau",
+              "nhan": "KH khối lượng tuần sau"
+            },
+            {
+              "tag": "pt_dat",
+              "nhan": "% đạt được"
+            },
+            {
+              "tag": "ghi_chu",
+              "nhan": "Ghi chú"
+            }
+          ]
+        },
+        {
+          "tag": "bang_gpmb",
+          "nhan": "GPMB & QUAN HỆ ĐỊA PHƯƠNG",
+          "so_lieu": true,
+          "cot": [
+            {
+              "tag": "khu_vuc",
+              "nhan": "Khu vực / Hộ dân"
+            },
+            {
+              "tag": "loai_dat",
+              "nhan": "Loại đất"
+            },
+            {
+              "tag": "dien_tich",
+              "nhan": "Diện tích (m²)"
+            },
+            {
+              "tag": "tinh_trang",
+              "nhan": "Tình trạng"
+            },
+            {
+              "tag": "vuong_mac",
+              "nhan": "Vướng mắc"
+            }
+          ]
+        },
+        {
+          "tag": "bang_kien_nghi",
+          "nhan": "RỦI RO & KIẾN NGHỊ PHÒNG ĐT&PC",
+          "cot": [
+            {
+              "tag": "stt",
+              "nhan": "STT"
+            },
+            {
+              "tag": "noi_dung",
+              "nhan": "Rủi ro / Vấn đề"
+            },
+            {
+              "tag": "muc_do",
+              "nhan": "Mức độ"
+            },
+            {
+              "tag": "anh_huong",
+              "nhan": "Ảnh hưởng"
+            },
+            {
+              "tag": "kien_nghi",
+              "nhan": "Kiến nghị"
+            }
+          ]
+        },
+        {
+          "tag": "bang_cong_viec",
+          "nhan": "KẾT QUẢ VÀ KẾ HOẠCH VIỆC TUẦN TỚI",
+          "cot": [
+            {
+              "tag": "ten",
+              "nhan": "Công việc"
+            },
+            {
+              "tag": "du_an",
+              "nhan": "Dự án"
+            },
+            {
+              "tag": "bat_dau",
+              "nhan": "Bắt đầu"
+            },
+            {
+              "tag": "ket_thuc",
+              "nhan": "Kết thúc"
+            },
+            {
+              "tag": "ket_qua_can_co",
+              "nhan": "Kết quả cần có"
+            },
+            {
+              "tag": "tinh_trang",
+              "nhan": "Tình trạng"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "ma": "form-8",
+    "ten": "Báo cáo Nhà máy thủy điện Nậm Xe (Form 8)",
+    "don_vi_lap": "nm-namxe",
+    "gui_den_mac_dinh": "p-ktvh",
+    "loai_ky": "tuan",
+    "tep": "form-8.docx",
+    "tep_goc": "goc/OK_Form8_NhaMayNamXe_Sua lan 2.docx",
+    "phien_ban": 9,
+    "dinh_nghia": {
+      "o_nhap": [
+        {
+          "tag": "mau_ma",
+          "nhan": "Mã mẫu (dấu nhận mẫu ẩn ở tiêu đề)",
+          "bat_buoc": true,
+          "kieu": "chu",
+          "luat": "dung_mau"
+        },
+        {
+          "tag": "don_vi_lap",
+          "nhan": "Đơn vị lập",
+          "bat_buoc": false,
+          "kieu": "don_vi",
+          "luat": "dung_mau"
+        },
+        {
+          "tag": "gui_den",
+          "nhan": "Gửi",
+          "bat_buoc": false,
+          "kieu": "don_vi",
+          "luat": "gui_den"
+        },
+        {
+          "tag": "ky_bao_cao",
+          "nhan": "Kỳ báo cáo",
+          "bat_buoc": true,
+          "kieu": "chu",
+          "luat": "ky_bao_cao"
+        }
+      ],
+      "bang_cong_viec": [
+        {
+          "tag": "bang_cong_viec",
+          "nhan": "IV. KẾT QUẢ VÀ KẾ HOẠCH VIỆC TUẦN TỚI"
+        }
+      ],
+      "muc_bat_buoc": [
+        "SẢN LƯỢNG & VẬN HÀNH",
+        "THIẾT BỊ & BẢO TRÌ — SỰ CỐ & BẤT THƯỜNG",
+        "VẤN ĐỀ NỔI BẬT & KIẾN NGHỊ PHÒNG KT&VH / LÃNH ĐẠO",
+        "KẾT QUẢ VÀ KẾ HOẠCH VIỆC TUẦN TỚI"
+      ],
+      "bang": [
+        {
+          "tag": "bang_san_luong",
+          "nhan": "SẢN LƯỢNG & VẬN HÀNH",
+          "so_lieu": true,
+          "cot": [
+            {
+              "tag": "chi_tieu",
+              "nhan": "Chỉ tiêu"
+            },
+            {
+              "tag": "tuan_th",
+              "nhan": "Tuần — T/H"
+            },
+            {
+              "tag": "tuan_kh",
+              "nhan": "Tuần — KH"
+            },
+            {
+              "tag": "tuan_pt_kh",
+              "nhan": "Tuần — % KH"
+            },
+            {
+              "tag": "thang_lk",
+              "nhan": "Tháng — Lũy kế"
+            },
+            {
+              "tag": "thang_kh",
+              "nhan": "Tháng — KH tháng"
+            },
+            {
+              "tag": "thang_pt_kh",
+              "nhan": "Tháng — % KH"
+            },
+            {
+              "tag": "nam_kh",
+              "nhan": "Cả năm — KH năm"
+            },
+            {
+              "tag": "nam_lk",
+              "nhan": "Cả năm — LK YTD"
+            }
+          ]
+        },
+        {
+          "tag": "bang_su_co",
+          "nhan": "THIẾT BỊ & BẢO TRÌ — SỰ CỐ & BẤT THƯỜNG",
+          "so_lieu": true,
+          "cot": [
+            {
+              "tag": "stt",
+              "nhan": "STT"
+            },
+            {
+              "tag": "ngay",
+              "nhan": "Ngày"
+            },
+            {
+              "tag": "thiet_bi",
+              "nhan": "Thiết bị"
+            },
+            {
+              "tag": "mo_ta",
+              "nhan": "Mô tả bất thường / sự cố"
+            },
+            {
+              "tag": "bien_phap",
+              "nhan": "Trạng thái & Biện pháp xử lý"
+            }
+          ]
+        },
+        {
+          "tag": "bang_kien_nghi",
+          "nhan": "VẤN ĐỀ NỔI BẬT & KIẾN NGHỊ PHÒNG KT&VH / LÃNH ĐẠO",
+          "cot": [
+            {
+              "tag": "stt",
+              "nhan": "STT"
+            },
+            {
+              "tag": "noi_dung",
+              "nhan": "Vấn đề / Rủi ro"
+            },
+            {
+              "tag": "muc_do",
+              "nhan": "Mức độ"
+            },
+            {
+              "tag": "kien_nghi",
+              "nhan": "Kiến nghị"
+            }
+          ]
+        },
+        {
+          "tag": "bang_cong_viec",
+          "nhan": "KẾT QUẢ VÀ KẾ HOẠCH VIỆC TUẦN TỚI",
+          "cot": [
+            {
+              "tag": "ten",
+              "nhan": "Công việc"
+            },
+            {
+              "tag": "du_an",
+              "nhan": "Dự án"
+            },
+            {
+              "tag": "bat_dau",
+              "nhan": "Bắt đầu"
+            },
+            {
+              "tag": "ket_thuc",
+              "nhan": "Kết thúc"
+            },
+            {
+              "tag": "ket_qua_can_co",
+              "nhan": "Kết quả cần có"
+            },
+            {
+              "tag": "tinh_trang",
+              "nhan": "Tình trạng"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "ma": "form-9",
+    "ten": "Báo cáo tuần Phòng Cơ điện (Form 9)",
+    "don_vi_lap": "p-cd",
+    "gui_den_mac_dinh": "ban-tgd",
+    "loai_ky": "tuan",
+    "tep": "form-9.docx",
+    "tep_goc": "goc/SCI-160_BaoCaoTuan_PhongCoDien.docx",
+    "phien_ban": 9,
+    "dinh_nghia": {
+      "o_nhap": [
+        {
+          "tag": "mau_ma",
+          "nhan": "Mã mẫu (dấu nhận mẫu ẩn ở tiêu đề)",
+          "bat_buoc": true,
+          "kieu": "chu",
+          "luat": "dung_mau"
+        },
+        {
+          "tag": "don_vi_lap",
+          "nhan": "Đơn vị lập",
+          "bat_buoc": false,
+          "kieu": "don_vi",
+          "luat": "dung_mau"
+        },
+        {
+          "tag": "gui_den",
+          "nhan": "Gửi",
+          "bat_buoc": false,
+          "kieu": "don_vi",
+          "luat": "gui_den"
+        },
+        {
+          "tag": "ky_bao_cao",
+          "nhan": "Kỳ báo cáo",
+          "bat_buoc": true,
+          "kieu": "chu",
+          "luat": "ky_bao_cao"
+        }
+      ],
+      "bang_cong_viec": [
+        {
+          "tag": "bang_cong_viec",
+          "nhan": "IV. KẾT QUẢ VÀ KẾ HOẠCH VIỆC TUẦN TỚI"
+        }
+      ],
+      "muc_bat_buoc": [
+        "CẢNH BÁO AN TOÀN ĐIỆN, SỰ CỐ THIẾT BỊ, KIỂM ĐỊNH",
+        "CẢNH BÁO KỸ THUẬT CƠ ĐIỆN THEO GIAI ĐOẠN DỰ ÁN",
+        "VẤN ĐỀ NỔI BẬT VÀ KIẾN NGHỊ LÃNH ĐẠO",
+        "KẾT QUẢ VÀ KẾ HOẠCH VIỆC TUẦN TỚI"
+      ],
+      "bang": [
+        {
+          "tag": "bang_an_toan",
+          "nhan": "CẢNH BÁO AN TOÀN ĐIỆN, SỰ CỐ THIẾT BỊ, KIỂM ĐỊNH",
+          "so_lieu": true,
+          "cot": [
+            {
+              "tag": "chi_tieu",
+              "nhan": "Chỉ tiêu"
+            },
+            {
+              "tag": "tuan_nay",
+              "nhan": "Tuần này"
+            },
+            {
+              "tag": "luy_ke_nam",
+              "nhan": "Lũy kế năm"
+            },
+            {
+              "tag": "hanh_dong",
+              "nhan": "Ghi chú / Hành động ngay"
+            }
+          ]
+        },
+        {
+          "tag": "bang_canh_bao",
+          "nhan": "CẢNH BÁO KỸ THUẬT CƠ ĐIỆN THEO GIAI ĐOẠN DỰ ÁN",
+          "so_lieu": true,
+          "cot": [
+            {
+              "tag": "nhom",
+              "nhan": "Nhóm"
+            },
+            {
+              "tag": "ho_so",
+              "nhan": "Hạng mục / Dự án"
+            },
+            {
+              "tag": "loai",
+              "nhan": "Loại"
+            },
+            {
+              "tag": "tinh_trang",
+              "nhan": "Tình trạng hiện tại"
+            },
+            {
+              "tag": "vuong_mac",
+              "nhan": "Vướng mắc cần xử lý"
+            },
+            {
+              "tag": "anh_huong",
+              "nhan": "Ảnh hưởng nếu trễ (có định lượng)"
+            }
+          ]
+        },
+        {
+          "tag": "bang_kien_nghi",
+          "nhan": "VẤN ĐỀ NỔI BẬT VÀ KIẾN NGHỊ LÃNH ĐẠO",
+          "cot": [
+            {
+              "tag": "stt",
+              "nhan": "STT"
+            },
+            {
+              "tag": "noi_dung",
+              "nhan": "Vấn đề"
+            },
+            {
+              "tag": "nguon",
+              "nhan": "Nguồn"
+            },
+            {
+              "tag": "muc_do",
+              "nhan": "Mức độ"
+            },
+            {
+              "tag": "kien_nghi",
+              "nhan": "Kiến nghị"
+            }
+          ]
+        },
+        {
+          "tag": "bang_cong_viec",
+          "nhan": "KẾT QUẢ VÀ KẾ HOẠCH VIỆC TUẦN TỚI",
+          "cot": [
+            {
+              "tag": "ten",
+              "nhan": "Công việc"
+            },
+            {
+              "tag": "du_an",
+              "nhan": "Dự án"
+            },
+            {
+              "tag": "bat_dau",
+              "nhan": "Bắt đầu"
+            },
+            {
+              "tag": "ket_thuc",
+              "nhan": "Kết thúc"
+            },
+            {
+              "tag": "ket_qua_can_co",
+              "nhan": "Kết quả cần có"
+            },
+            {
+              "tag": "tinh_trang",
+              "nhan": "Tình trạng"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "ma": "form-10",
+    "ten": "Báo cáo Ban điều hành tổng thầu thi công (Form 10)",
+    "don_vi_lap": null,
+    "gui_den_mac_dinh": null,
+    "loai_ky": "tuan",
+    "tep": "form-10.docx",
+    "tep_goc": "goc/Form10_BanDieuHanhTongThau.docx",
+    "phien_ban": 9,
+    "dinh_nghia": {
+      "o_nhap": [
+        {
+          "tag": "mau_ma",
+          "nhan": "Mã mẫu (dấu nhận mẫu ẩn ở tiêu đề)",
+          "bat_buoc": true,
+          "kieu": "chu",
+          "luat": "dung_mau"
+        },
+        {
+          "tag": "don_vi_lap",
+          "nhan": "Đơn vị lập",
+          "bat_buoc": false,
+          "kieu": "don_vi",
+          "luat": "dung_mau"
+        },
+        {
+          "tag": "gui_den",
+          "nhan": "Gửi",
+          "bat_buoc": false,
+          "kieu": "don_vi",
+          "luat": "gui_den"
+        },
+        {
+          "tag": "ky_bao_cao",
+          "nhan": "Kỳ báo cáo",
+          "bat_buoc": true,
+          "kieu": "chu",
+          "luat": "ky_bao_cao"
+        },
+        {
+          "tag": "du_an_ten",
+          "nhan": "Tên dự án",
+          "bat_buoc": false,
+          "kieu": "chu"
+        },
+        {
+          "tag": "du_an_chu_dau_tu",
+          "nhan": "Chủ đầu tư",
+          "bat_buoc": false,
+          "kieu": "chu"
+        },
+        {
+          "tag": "du_an_thoi_gian_thi_cong",
+          "nhan": "Thời gian thi công",
+          "bat_buoc": false,
+          "kieu": "chu"
+        },
+        {
+          "tag": "du_an_ngay_phat_dien",
+          "nhan": "Ngày phát điện KH",
+          "bat_buoc": false,
+          "kieu": "chu"
+        },
+        {
+          "tag": "du_an_tinh_trang",
+          "nhan": "Tình trạng tổng thể",
+          "bat_buoc": false,
+          "kieu": "chu"
+        },
+        {
+          "tag": "du_an_tien_do_luy_ke",
+          "nhan": "Tiến độ lũy kế (vs KH)",
+          "bat_buoc": false,
+          "kieu": "chu"
+        }
+      ],
+      "bang_cong_viec": [
+        {
+          "tag": "bang_cong_viec",
+          "nhan": "V. KẾT QUẢ VÀ KẾ HOẠCH VIỆC TUẦN TỚI"
+        }
+      ],
+      "muc_bat_buoc": [
+        "THÔNG TIN CHUNG DỰ ÁN",
+        "TIẾN ĐỘ TỔNG THỂ",
+        "CHI TIẾT TIẾN ĐỘ TỪNG HẠNG MỤC",
+        "RỦI RO & KIẾN NGHỊ BAN QUẢN LÝ DỰ ÁN",
+        "KẾT QUẢ VÀ KẾ HOẠCH VIỆC TUẦN TỚI"
+      ],
+      "bang": [
+        {
+          "tag": "bang_tien_do",
+          "nhan": "TIẾN ĐỘ TỔNG THỂ",
+          "so_lieu": true,
+          "cot": [
+            {
+              "tag": "hang_muc",
+              "nhan": "Hạng mục"
+            },
+            {
+              "tag": "kh_luy_ke",
+              "nhan": "KH lũy kế"
+            },
+            {
+              "tag": "th_luy_ke",
+              "nhan": "TH lũy kế"
+            },
+            {
+              "tag": "lech",
+              "nhan": "Lệch"
+            },
+            {
+              "tag": "ghi_chu",
+              "nhan": "Ghi chú"
+            }
+          ]
+        },
+        {
+          "tag": "bang_khoi_luong",
+          "nhan": "CHI TIẾT TIẾN ĐỘ TỪNG HẠNG MỤC",
+          "so_lieu": true,
+          "cot": [
+            {
+              "tag": "stt",
+              "nhan": "STT"
+            },
+            {
+              "tag": "cong_viec",
+              "nhan": "Công việc"
+            },
+            {
+              "tag": "don_vi",
+              "nhan": "Đơn vị"
+            },
+            {
+              "tag": "kl_thiet_ke",
+              "nhan": "KL thiết kế"
+            },
+            {
+              "tag": "kl_thuc_hien",
+              "nhan": "KL thực hiện (lũy kế tuần này)"
+            },
+            {
+              "tag": "kl_tuan_sau",
+              "nhan": "KH khối lượng tuần sau"
+            },
+            {
+              "tag": "pt_dat",
+              "nhan": "% đạt được"
+            },
+            {
+              "tag": "ghi_chu",
+              "nhan": "Ghi chú"
+            }
+          ]
+        },
+        {
+          "tag": "bang_kien_nghi",
+          "nhan": "RỦI RO & KIẾN NGHỊ BAN QUẢN LÝ DỰ ÁN",
+          "cot": [
+            {
+              "tag": "stt",
+              "nhan": "STT"
+            },
+            {
+              "tag": "noi_dung",
+              "nhan": "Rủi ro / Vấn đề"
+            },
+            {
+              "tag": "muc_do",
+              "nhan": "Mức độ"
+            },
+            {
+              "tag": "anh_huong",
+              "nhan": "Ảnh hưởng"
+            },
+            {
+              "tag": "kien_nghi",
+              "nhan": "Kiến nghị"
+            }
+          ]
+        },
+        {
+          "tag": "bang_cong_viec",
+          "nhan": "KẾT QUẢ VÀ KẾ HOẠCH VIỆC TUẦN TỚI",
+          "cot": [
+            {
+              "tag": "ten",
+              "nhan": "Công việc"
+            },
+            {
+              "tag": "du_an",
+              "nhan": "Dự án"
+            },
+            {
+              "tag": "bat_dau",
+              "nhan": "Bắt đầu"
+            },
+            {
+              "tag": "ket_thuc",
+              "nhan": "Kết thúc"
+            },
+            {
+              "tag": "ket_qua_can_co",
+              "nhan": "Kết quả cần có"
+            },
+            {
+              "tag": "tinh_trang",
+              "nhan": "Tình trạng"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "ma": "form-11",
+    "ten": "Báo cáo Ban điều hành dự án Loại khác (Form 11)",
+    "don_vi_lap": null,
+    "gui_den_mac_dinh": "sci-enc",
+    "loai_ky": "tuan",
+    "tep": "form-11.docx",
+    "tep_goc": "goc/Form10_BanDieuHanhTongThau.docx",
+    "phien_ban": 3,
+    "dinh_nghia": {
+      "o_nhap": [
+        {
+          "tag": "mau_ma",
+          "kieu": "chu",
+          "luat": "dung_mau",
+          "nhan": "Mã mẫu (dấu nhận mẫu ẩn ở tiêu đề)",
+          "bat_buoc": true
+        },
+        {
+          "tag": "don_vi_lap",
+          "kieu": "don_vi",
+          "luat": "dung_mau",
+          "nhan": "Đơn vị lập",
+          "bat_buoc": false
+        },
+        {
+          "tag": "gui_den",
+          "kieu": "don_vi",
+          "luat": "gui_den",
+          "nhan": "Gửi",
+          "bat_buoc": false
+        },
+        {
+          "tag": "ky_bao_cao",
+          "kieu": "chu",
+          "luat": "ky_bao_cao",
+          "nhan": "Kỳ báo cáo",
+          "bat_buoc": true
+        },
+        {
+          "tag": "du_an_ten",
+          "kieu": "chu",
+          "nhan": "Tên dự án",
+          "bat_buoc": false
+        },
+        {
+          "tag": "du_an_chu_dau_tu",
+          "kieu": "chu",
+          "nhan": "Chủ đầu tư",
+          "bat_buoc": false
+        },
+        {
+          "tag": "du_an_thoi_gian_thi_cong",
+          "kieu": "chu",
+          "nhan": "Thời gian thi công",
+          "bat_buoc": false
+        },
+        {
+          "tag": "du_an_ngay_phat_dien",
+          "kieu": "chu",
+          "nhan": "Ngày phát điện KH",
+          "bat_buoc": false
+        },
+        {
+          "tag": "du_an_tinh_trang",
+          "kieu": "chu",
+          "nhan": "Tình trạng tổng thể",
+          "bat_buoc": false
+        },
+        {
+          "tag": "du_an_tien_do_luy_ke",
+          "kieu": "chu",
+          "nhan": "Tiến độ lũy kế (vs KH)",
+          "bat_buoc": false
+        }
+      ],
+      "bang_cong_viec": [
+        {
+          "tag": "bang_cong_viec",
+          "nhan": "KẾT QUẢ VÀ KẾ HOẠCH VIỆC TUẦN TỚI"
+        }
+      ],
+      "muc_bat_buoc": [
+        "THÔNG TIN CHUNG DỰ ÁN",
+        "TIẾN ĐỘ TỔNG THỂ",
+        "CHI TIẾT TIẾN ĐỘ TỪNG HẠNG MỤC",
+        "RỦI RO & KIẾN NGHỊ SCI E&C",
+        "KẾT QUẢ VÀ KẾ HOẠCH VIỆC TUẦN TỚI"
+      ],
+      "bang": [
+        {
+          "cot": [
+            {
+              "tag": "hang_muc",
+              "nhan": "Hạng mục"
+            },
+            {
+              "tag": "kh_luy_ke",
+              "nhan": "KH lũy kế"
+            },
+            {
+              "tag": "th_luy_ke",
+              "nhan": "TH lũy kế"
+            },
+            {
+              "tag": "lech",
+              "nhan": "Lệch"
+            },
+            {
+              "tag": "ghi_chu",
+              "nhan": "Ghi chú"
+            }
+          ],
+          "tag": "bang_tien_do",
+          "nhan": "TIẾN ĐỘ TỔNG THỂ",
+          "so_lieu": true
+        },
+        {
+          "cot": [
+            {
+              "tag": "stt",
+              "nhan": "STT"
+            },
+            {
+              "tag": "cong_viec",
+              "nhan": "Công việc"
+            },
+            {
+              "tag": "don_vi",
+              "nhan": "Đơn vị"
+            },
+            {
+              "tag": "kl_thiet_ke",
+              "nhan": "KL thiết kế"
+            },
+            {
+              "tag": "kl_thuc_hien",
+              "nhan": "KL thực hiện (lũy kế tuần này)"
+            },
+            {
+              "tag": "kl_tuan_sau",
+              "nhan": "KH khối lượng tuần sau"
+            },
+            {
+              "tag": "pt_dat",
+              "nhan": "% đạt được"
+            },
+            {
+              "tag": "ghi_chu",
+              "nhan": "Ghi chú"
+            }
+          ],
+          "tag": "bang_khoi_luong",
+          "nhan": "CHI TIẾT TIẾN ĐỘ TỪNG HẠNG MỤC",
+          "so_lieu": true
+        },
+        {
+          "cot": [
+            {
+              "tag": "stt",
+              "nhan": "STT"
+            },
+            {
+              "tag": "noi_dung",
+              "nhan": "Rủi ro / Vấn đề"
+            },
+            {
+              "tag": "muc_do",
+              "nhan": "Mức độ"
+            },
+            {
+              "tag": "anh_huong",
+              "nhan": "Ảnh hưởng"
+            },
+            {
+              "tag": "kien_nghi",
+              "nhan": "Kiến nghị"
+            }
+          ],
+          "tag": "bang_kien_nghi",
+          "nhan": "RỦI RO & KIẾN NGHỊ SCI E&C"
+        },
+        {
+          "cot": [
+            {
+              "tag": "ten",
+              "nhan": "Công việc"
+            },
+            {
+              "tag": "du_an",
+              "nhan": "Dự án"
+            },
+            {
+              "tag": "bat_dau",
+              "nhan": "Bắt đầu"
+            },
+            {
+              "tag": "ket_thuc",
+              "nhan": "Kết thúc"
+            },
+            {
+              "tag": "ket_qua_can_co",
+              "nhan": "Kết quả cần có"
+            },
+            {
+              "tag": "tinh_trang",
+              "nhan": "Tình trạng"
+            }
+          ],
+          "tag": "bang_cong_viec",
+          "nhan": "KẾT QUẢ VÀ KẾ HOẠCH VIỆC TUẦN TỚI"
+        }
+      ],
+      "cau_truc": {
+        "chuong": [
+          {
+            "bang": [
+              {
+                "cot": [],
+                "tag": "",
+                "nghia": "so_lieu",
+                "tieu_de": ""
+              }
+            ],
+            "nghia": "thong_tin",
+            "tieu_de": "THÔNG TIN CHUNG DỰ ÁN",
+            "bat_buoc": true
+          },
+          {
+            "bang": [
+              {
+                "cot": [
+                  {
+                    "tag": "hang_muc",
+                    "nghia": "them",
+                    "tieu_de": "Hạng mục"
+                  },
+                  {
+                    "tag": "kh_luy_ke",
+                    "nghia": "them",
+                    "tieu_de": "KH lũy kế"
+                  },
+                  {
+                    "tag": "th_luy_ke",
+                    "nghia": "them",
+                    "tieu_de": "TH lũy kế"
+                  },
+                  {
+                    "tag": "lech",
+                    "nghia": "them",
+                    "tieu_de": "Lệch"
+                  },
+                  {
+                    "tag": "ghi_chu",
+                    "nghia": "them",
+                    "tieu_de": "Ghi chú"
+                  }
+                ],
+                "tag": "bang_tien_do",
+                "nghia": "so_lieu",
+                "tieu_de": "TIẾN ĐỘ TỔNG THỂ"
+              }
+            ],
+            "nghia": "thong_tin",
+            "tieu_de": "TIẾN ĐỘ TỔNG THỂ",
+            "bat_buoc": true
+          },
+          {
+            "bang": [
+              {
+                "cot": [
+                  {
+                    "tag": "stt",
+                    "nghia": "them",
+                    "tieu_de": "STT"
+                  },
+                  {
+                    "tag": "cong_viec",
+                    "nghia": "them",
+                    "tieu_de": "Công việc"
+                  },
+                  {
+                    "tag": "don_vi",
+                    "nghia": "them",
+                    "tieu_de": "Đơn vị"
+                  },
+                  {
+                    "tag": "kl_thiet_ke",
+                    "nghia": "them",
+                    "tieu_de": "KL thiết kế"
+                  },
+                  {
+                    "tag": "kl_thuc_hien",
+                    "nghia": "them",
+                    "tieu_de": "KL thực hiện (lũy kế tuần này)"
+                  },
+                  {
+                    "tag": "kl_tuan_sau",
+                    "nghia": "them",
+                    "tieu_de": "KH khối lượng tuần sau"
+                  },
+                  {
+                    "tag": "pt_dat",
+                    "nghia": "them",
+                    "tieu_de": "% đạt được"
+                  },
+                  {
+                    "tag": "ghi_chu",
+                    "nghia": "them",
+                    "tieu_de": "Ghi chú"
+                  }
+                ],
+                "tag": "bang_khoi_luong",
+                "nghia": "so_lieu",
+                "tieu_de": "CHI TIẾT TIẾN ĐỘ TỪNG HẠNG MỤC"
+              }
+            ],
+            "nghia": "thong_tin",
+            "tieu_de": "CHI TIẾT TIẾN ĐỘ TỪNG HẠNG MỤC",
+            "bat_buoc": true
+          },
+          {
+            "bang": [
+              {
+                "cot": [
+                  {
+                    "tag": "stt",
+                    "nghia": "them",
+                    "tieu_de": "STT"
+                  },
+                  {
+                    "tag": "noi_dung",
+                    "nghia": "them",
+                    "tieu_de": "Rủi ro / Vấn đề"
+                  },
+                  {
+                    "tag": "muc_do",
+                    "nghia": "them",
+                    "tieu_de": "Mức độ"
+                  },
+                  {
+                    "tag": "anh_huong",
+                    "nghia": "them",
+                    "tieu_de": "Ảnh hưởng"
+                  },
+                  {
+                    "tag": "kien_nghi",
+                    "nghia": "them",
+                    "tieu_de": "Kiến nghị"
+                  }
+                ],
+                "tag": "bang_kien_nghi",
+                "nghia": "so_lieu",
+                "tieu_de": "RỦI RO & KIẾN NGHỊ SCI E&C"
+              }
+            ],
+            "nghia": "thong_tin",
+            "tieu_de": "RỦI RO & KIẾN NGHỊ SCI E&C",
+            "bat_buoc": true
+          },
+          {
+            "bang": [
+              {
+                "cot": [
+                  {
+                    "tag": "ten",
+                    "nghia": "ten",
+                    "tieu_de": "Công việc"
+                  },
+                  {
+                    "tag": "du_an",
+                    "nghia": "du_an",
+                    "tieu_de": "Dự án"
+                  },
+                  {
+                    "tag": "bat_dau",
+                    "nghia": "bat_dau",
+                    "tieu_de": "Bắt đầu"
+                  },
+                  {
+                    "tag": "ket_thuc",
+                    "nghia": "ket_thuc",
+                    "tieu_de": "Kết thúc"
+                  },
+                  {
+                    "tag": "ket_qua_can_co",
+                    "nghia": "ket_qua_can_co",
+                    "tieu_de": "Kết quả cần có"
+                  },
+                  {
+                    "tag": "tinh_trang",
+                    "nghia": "tinh_trang",
+                    "tieu_de": "Tình trạng"
+                  }
+                ],
+                "tag": "bang_cong_viec",
+                "nghia": "sinh_viec",
+                "tieu_de": "KẾT QUẢ VÀ KẾ HOẠCH VIỆC TUẦN TỚI"
+              }
+            ],
+            "nghia": "sinh_viec_bang",
+            "tieu_de": "KẾT QUẢ VÀ KẾ HOẠCH VIỆC TUẦN TỚI",
+            "bat_buoc": true
+          }
+        ]
+      }
+    }
+  }
+]

@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <!-- Agent công việc — cây bút màu cam (Mr. Đại chốt 28/09/2026), cùng màu khối căn phòng (biến c3) -->
+  <g transform="rotate(45 16 16)">
+    <rect x="12" y="1.5" width="8" height="5" rx="1.5" fill="#9A3412"/>
+    <rect x="12" y="6.5" width="8" height="15" fill="#EA580C"/>
+    <rect x="15.2" y="7.5" width="1.6" height="13" fill="#FDBA74"/>
+    <path d="M12 21.5 L20 21.5 L16 30 Z" fill="#FED7AA"/>
+    <path d="M14.6 26.5 L17.4 26.5 L16 30 Z" fill="#7C2D12"/>
+  </g>
+</svg>

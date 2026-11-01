@@ -1,0 +1,28 @@
+/* Nút menu thanh trên — chép kiểu nút "Sơ đồ tổ chức" thanh trên agent Công việc (app/phong.css .menu a), Mr. Đại chốt 07/10/2026;
+   đang ở màn đó thì viền + chữ XANH DƯƠNG (bên kia cam). Nền tối: màu dưới đây. Nền sáng (◐ Sáng, cả 2D lẫn 3D — Mr. Đại 19/10/2026 cho thanh trên sáng): khối cuối tệp. */
+.nut-tren-cv { border: 1px solid #44403C; border-radius: 6px; padding: 2px 10px; color: #D6D3D1; background: transparent; white-space: nowrap; font-size: 13px; line-height: 20px; }
+.nut-tren-cv:hover { border-color: #78716C; color: #fff; }
+.nut-tren-cv[aria-current="page"] { border-color: #2563EB; color: #93C5FD; box-shadow: 0 0 0 1px #2563EB inset; }
+/* SÁNG — 19/10/2026: đo 2D sáng thấy chữ #D6D3D1 trên nền #FAF9F7 gần như không đọc được */
+:root[data-theme="light"] .nut-tren-cv { border-color: var(--border); color: var(--text); }
+:root[data-theme="light"] .nut-tren-cv:hover { border-color: #A8A29E; color: #000; }
+:root[data-theme="light"] .nut-tren-cv[aria-current="page"] { border-color: #2563EB; color: #1D4ED8; }
+/* Chuông nhúng từ agent Công việc 3004 vẽ cứng màu cho thanh tối (phong.css .chuong). Không dựng lại 3004 (luật gác 3004) —
+   lúc chuông đóng thì đảo màu khung nhúng: viền/biểu tượng sáng → tối, số đỏ giữ đỏ (hue-rotate 180°). Mở hộp tin thì thôi đảo. */
+:root[data-theme="light"] iframe[data-chuong-khung]:not([data-mo]) { filter: invert(1) hue-rotate(180deg); }
+/* NÚT «? Hướng dẫn» — Mr. Đại 20/10/2026: màn có hướng dẫn thì chữ + viền phát sáng CAM (thở 1,8 giây). Main có màu nhấn XANH nên
+   cam khai riêng ở biến --cam-hd (luật 25: bóng mờ suy từ biến bằng color-mix, không viết tay rgba). */
+:root { --cam-hd: #e0895f; }
+:root[data-theme="light"] { --cam-hd: #b4532a; }
+@keyframes hd-phat-sang {
+  0%, 100% { box-shadow: 0 0 0 0 color-mix(in srgb, var(--cam-hd) 0%, transparent); text-shadow: 0 0 0 transparent; }
+  50% { box-shadow: 0 0 12px 2px color-mix(in srgb, var(--cam-hd) 70%, transparent); text-shadow: 0 0 8px color-mix(in srgb, var(--cam-hd) 90%, transparent); }
+}
+html .nut-hd-sang { color: var(--cam-hd); border-color: var(--cam-hd); animation: hd-phat-sang 1.8s ease-in-out infinite; }
+html .nut-hd-sang:hover { background: color-mix(in srgb, var(--cam-hd) 14%, transparent); }
+/* giao diện 3D tô mọi nút tròn thanh trên thành xám (header.nen-ghim … .rounded-full) — nút này phải giữ cam */
+html header .nut-hd-sang.rounded-full { color: var(--cam-hd) !important; border-color: var(--cam-hd) !important; font-weight: 700; }
+@media (prefers-reduced-motion: reduce) { html .nut-hd-sang { animation: none; box-shadow: 0 0 8px 1px color-mix(in srgb, var(--cam-hd) 60%, transparent); } }
+/* chữ + khung việc của AI trong hộp Hướng dẫn */
+.hd-cam { color: var(--cam-hd); }
+.hd-khung-cam { border-color: var(--cam-hd); background: color-mix(in srgb, var(--cam-hd) 10%, transparent); }

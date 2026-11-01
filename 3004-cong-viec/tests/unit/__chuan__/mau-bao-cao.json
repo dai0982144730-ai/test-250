@@ -1,0 +1,3713 @@
+{
+ "File test tuần 40 - mẫu bản 8/TEST - Tháng 9 - SCI E&C (Form 6).docx": {
+  "mau_ma": "form-6",
+  "dat": true,
+  "tu_do": false,
+  "don_vi_lap": "sci-enc",
+  "gui_den": [
+   "p-dtpc"
+  ],
+  "ky": "thang-9-2026",
+  "viec": [
+   {
+    "ten": "Lắp đặt turbine tổ máy 1 Nậm Mô 1",
+    "bang": "bang_cong_viec",
+    "dong": 1,
+    "du_an": "Nậm Mô 1",
+    "bat_dau": "2026-09-25",
+    "ket_thuc": "2026-11-30",
+    "da_xong": false,
+    "phu_trach": [
+     "don_vi:sci-enc"
+    ],
+    "kq": "Tổ máy 1 lắp xong, sẵn sàng chạy thử",
+    "cot_khac": null
+   },
+   {
+    "ten": "Nghiệm thu móng trạm biến áp 110kV Nậm Mô 1",
+    "bang": "bang_cong_viec",
+    "dong": 2,
+    "du_an": "Nậm Mô 1",
+    "bat_dau": "2026-10-01",
+    "ket_thuc": "2026-10-12",
+    "da_xong": false,
+    "phu_trach": [
+     "don_vi:sci-enc"
+    ],
+    "kq": "Biên bản nghiệm thu móng TBA",
+    "cot_khac": null
+   }
+  ],
+  "loi": []
+ },
+ "File test tuần 40 - mẫu bản 8/TEST - Tuần 39 nộp muộn - P.CĐ (Form 9).docx": {
+  "mau_ma": "form-9",
+  "dat": true,
+  "tu_do": false,
+  "don_vi_lap": "p-cd",
+  "gui_den": [
+   "ban-tgd"
+  ],
+  "ky": "tuan-39-2026",
+  "viec": [
+   {
+    "ten": "Rà soát sổ vận hành trạm 110kV tháng 9",
+    "bang": "bang_cong_viec",
+    "dong": 1,
+    "du_an": "NM Nậm Xe",
+    "bat_dau": "2026-09-21",
+    "ket_thuc": "2026-09-30",
+    "da_xong": false,
+    "phu_trach": [
+     "don_vi:p-cd"
+    ],
+    "kq": "Biên bản rà soát",
+    "cot_khac": null
+   }
+  ],
+  "loi": []
+ },
+ "File test tuần 40 - mẫu bản 8/TEST - Tuần 40 - BQLDA QT (Form 7).docx": {
+  "mau_ma": "form-7",
+  "dat": true,
+  "tu_do": false,
+  "don_vi_lap": "bqlda-qt",
+  "gui_den": [
+   "p-dtpc"
+  ],
+  "ky": "tuan-40-2026",
+  "viec": [
+   {
+    "ten": "Họp dân chi trả đền bù mặt bằng móng turbine (7.2.3)",
+    "bang": "bang_cong_viec",
+    "dong": 1,
+    "du_an": "ĐG Hướng Việt",
+    "bat_dau": "2026-09-29",
+    "ket_thuc": "2026-10-02",
+    "da_xong": false,
+    "phu_trach": [
+     "don_vi:bqlda-qt"
+    ],
+    "kq": "Biên bản họp, danh sách hộ đồng ý",
+    "cot_khac": null
+   },
+   {
+    "ten": "GPMB Trụ T11",
+    "bang": "bang_cong_viec",
+    "dong": 2,
+    "du_an": "ĐG Hướng Việt",
+    "bat_dau": "2026-09-21",
+    "ket_thuc": "2026-10-15",
+    "da_xong": false,
+    "phu_trach": [
+     "don_vi:bqlda-qt"
+    ],
+    "kq": "Bàn giao mặt bằng trụ T11",
+    "cot_khac": null
+   },
+   {
+    "ten": "Thi công móng trụ T5–T8",
+    "bang": "bang_cong_viec",
+    "dong": 3,
+    "du_an": "ĐG Hướng Việt",
+    "bat_dau": "2026-09-05",
+    "ket_thuc": "2026-09-27",
+    "da_xong": true,
+    "phu_trach": [
+     "don_vi:bqlda-qt"
+    ],
+    "kq": "Đổ xong bê tông móng T5–T8",
+    "cot_khac": null
+   },
+   {
+    "ten": "Chuyển mục đích đất rừng T14–T16",
+    "bang": "bang_cong_viec",
+    "dong": 4,
+    "du_an": "ĐG Hướng Việt",
+    "bat_dau": "2026-09-25",
+    "ket_thuc": "2026-10-30",
+    "da_xong": false,
+    "phu_trach": [
+     "don_vi:bqlda-qt"
+    ],
+    "kq": "Quyết định chuyển mục đích sử dụng đất",
+    "cot_khac": null
+   }
+  ],
+  "loi": []
+ },
+ "File test tuần 40 - mẫu bản 8/TEST - Tuần 40 - Ban TGĐ (Form 0).docx": {
+  "mau_ma": "form-0",
+  "dat": true,
+  "tu_do": false,
+  "don_vi_lap": "ban-tgd",
+  "gui_den": [
+   "ban-tgd"
+  ],
+  "ky": "tuan-40-2026",
+  "viec": [
+   {
+    "ten": "Phê duyệt điều chỉnh tổng mức đầu tư Nậm Khiên 1 (+45 tỷ)",
+    "bang": "bang_quyet_dinh",
+    "dong": 1,
+    "du_an": null,
+    "bat_dau": "2026-09-28",
+    "ket_thuc": null,
+    "da_xong": false,
+    "phu_trach": [
+     "don_vi:p-dtpc"
+    ],
+    "kq": null,
+    "cot_khac": {
+     "uu_tien": "1",
+     "tai_lieu": "Tờ trình 12/2026/TTr-BQLNK1"
+    }
+   },
+   {
+    "ten": "Quyết định gia hạn hay dừng PDA cụm dự án Lào",
+    "bang": "bang_quyet_dinh",
+    "dong": 2,
+    "du_an": null,
+    "bat_dau": "2026-09-28",
+    "ket_thuc": null,
+    "da_xong": false,
+    "phu_trach": [
+     "don_vi:p-dtpc"
+    ],
+    "kq": null,
+    "cot_khac": {
+     "uu_tien": "2",
+     "tai_lieu": "Phân tích chi phí – lợi ích"
+    }
+   },
+   {
+    "ten": "Họp giao ban tháng 10 với các nhà máy",
+    "bang": "bang_cong_viec",
+    "dong": 1,
+    "du_an": "Công ty",
+    "bat_dau": "2026-10-05",
+    "ket_thuc": "2026-10-07",
+    "da_xong": false,
+    "phu_trach": [
+     "don_vi:ban-tgd"
+    ],
+    "kq": "Biên bản giao ban, danh sách việc tháng 10",
+    "cot_khac": null
+   },
+   {
+    "ten": "Rà soát kế hoạch vận hành mùa khô toàn công ty",
+    "bang": "bang_cong_viec",
+    "dong": 2,
+    "du_an": "Công ty",
+    "bat_dau": "2026-09-30",
+    "ket_thuc": "2026-10-10",
+    "da_xong": false,
+    "phu_trach": [
+     "don_vi:ban-tgd"
+    ],
+    "kq": "Kế hoạch vận hành mùa khô được TGĐ duyệt",
+    "cot_khac": null
+   }
+  ],
+  "loi": [
+   "canh_bao|ten_viec|\"Họp giao ban tháng 10 với các nhà máy\": chưa có người phụ trách, tự gán cho Ban Tổng giám đốc",
+   "canh_bao|ten_viec|\"Rà soát kế hoạch vận hành mùa khô toàn công ty\": chưa có người phụ trách, tự gán cho Ban Tổng giám đốc"
+  ]
+ },
+ "File test tuần 40 - mẫu bản 8/TEST - Tuần 40 - BĐH Hướng Việt (Form 10).docx": {
+  "mau_ma": "form-10",
+  "dat": false,
+  "tu_do": false,
+  "don_vi_lap": "bdh-huongviet",
+  "gui_den": [
+   "bqlda-qt"
+  ],
+  "ky": "tuan-40-2026",
+  "viec": [
+   {
+    "ten": "Đổ bê tông móng trụ T9",
+    "bang": "bang_cong_viec",
+    "dong": 1,
+    "du_an": "ĐG Hướng Việt",
+    "bat_dau": "2026-09-30",
+    "ket_thuc": "2026-10-06",
+    "da_xong": false,
+    "phu_trach": [
+     "don_vi:bdh-huongviet"
+    ],
+    "kq": "Móng T9 đổ xong, lấy mẫu thí nghiệm",
+    "cot_khac": null
+   },
+   {
+    "ten": "Lắp dựng cốt thép móng trụ T10",
+    "bang": "bang_cong_viec",
+    "dong": 2,
+    "du_an": "ĐG Hướng Việt",
+    "bat_dau": "2026-09-28",
+    "ket_thuc": null,
+    "da_xong": false,
+    "phu_trach": [
+     "don_vi:bdh-huongviet"
+    ],
+    "kq": "Cốt thép T10 nghiệm thu",
+    "cot_khac": null
+   }
+  ],
+  "loi": [
+   "chan|dung_mau|Báo cáo này là của Ban điều hành tổng thầu dự án Hướng Việt (đọc từ dòng \"BAN ĐIỀU HÀNH HƯỚNG VIỆT\") — bạn không thuộc Ban điều hành tổng thầu dự án Hướng Việt. Nhờ người của đơn vị đó nộp, hoặc quản trị gán kiêm nhiệm cho bạn",
+   "goi_y|ngay_hop_le|\"Lắp dựng cốt thép móng trụ T10\": kết thúc 3 ngày sau khi xong dòng 1 \"Đổ bê tông móng trụ T9\""
+  ]
+ },
+ "File test tuần 40 - mẫu bản 8/TEST - Tuần 40 - NM Hướng Linh 7 (Form 8).docx": {
+  "mau_ma": "form-8",
+  "dat": false,
+  "tu_do": false,
+  "don_vi_lap": "nm-huonglinh7",
+  "gui_den": [
+   "p-ktvh"
+  ],
+  "ky": "tuan-40-2026",
+  "viec": [
+   {
+    "ten": "Bảo dưỡng định kỳ 6 tháng tuabin HL7-03",
+    "bang": "bang_cong_viec",
+    "dong": 1,
+    "du_an": "NM Hướng Linh 7",
+    "bat_dau": "2026-10-01",
+    "ket_thuc": "2026-10-10",
+    "da_xong": false,
+    "phu_trach": [
+     "don_vi:nm-huonglinh7"
+    ],
+    "kq": "Biên bản bảo dưỡng tuabin HL7-03",
+    "cot_khac": null
+   }
+  ],
+  "loi": [
+   "chan|dung_mau|Báo cáo này là của Nhà máy điện gió Hướng Linh 7 (đọc từ dòng \"NHÀ MÁY ĐIỆN GIÓ HƯỚNG LINH 7\") — bạn không thuộc Nhà máy điện gió Hướng Linh 7. Nhờ người của đơn vị đó nộp, hoặc quản trị gán kiêm nhiệm cho bạn"
+  ]
+ },
+ "File test tuần 40 - mẫu bản 8/TEST - Tuần 40 - NM Hướng Linh 8 (Form 8).docx": {
+  "mau_ma": "form-8",
+  "dat": false,
+  "tu_do": false,
+  "don_vi_lap": "nm-huonglinh8",
+  "gui_den": [
+   "p-ktvh"
+  ],
+  "ky": "tuan-40-2026",
+  "viec": [
+   {
+    "ten": "Thay cảm biến gió tuabin HL8-05",
+    "bang": "bang_cong_viec",
+    "dong": 1,
+    "du_an": "NM Hướng Linh 8",
+    "bat_dau": "2026-09-30",
+    "ket_thuc": "2026-10-07",
+    "da_xong": false,
+    "phu_trach": [
+     "don_vi:nm-huonglinh8"
+    ],
+    "kq": "Cảm biến mới đo đúng, tuabin chạy lại",
+    "cot_khac": null
+   }
+  ],
+  "loi": [
+   "chan|dung_mau|Báo cáo này là của Nhà máy điện gió Hướng Linh 8 (đọc từ dòng \"NHÀ MÁY ĐIỆN GIÓ HƯỚNG LINH 8\") — bạn không thuộc Nhà máy điện gió Hướng Linh 8. Nhờ người của đơn vị đó nộp, hoặc quản trị gán kiêm nhiệm cho bạn"
+  ]
+ },
+ "File test tuần 40 - mẫu bản 8/TEST - Tuần 40 - NM Nậm Xe (Form 8).docx": {
+  "mau_ma": "form-8",
+  "dat": true,
+  "tu_do": false,
+  "don_vi_lap": "nm-namxe",
+  "gui_den": [
+   "p-ktvh"
+  ],
+  "ky": "tuan-40-2026",
+  "viec": [
+   {
+    "ten": "Thay relay bảo vệ R21 máy phát TM2",
+    "bang": "bang_cong_viec",
+    "dong": 1,
+    "du_an": "NM Nậm Xe",
+    "bat_dau": "2026-09-22",
+    "ket_thuc": "2026-10-08",
+    "da_xong": false,
+    "phu_trach": [
+     "don_vi:nm-namxe"
+    ],
+    "kq": "Relay mới vận hành, thử nghiệm đạt",
+    "cot_khac": null
+   },
+   {
+    "ten": "Nạo vét cửa nhận nước",
+    "bang": "bang_cong_viec",
+    "dong": 2,
+    "du_an": "NM Nậm Xe",
+    "bat_dau": "2026-09-28",
+    "ket_thuc": "2026-10-15",
+    "da_xong": false,
+    "phu_trach": [
+     "don_vi:nm-namxe"
+    ],
+    "kq": "Cửa nhận nước thông, lưu lượng đạt thiết kế",
+    "cot_khac": null
+   },
+   {
+    "ten": "Hệ thống điều tốc TM1 & TM2: ghi nhật ký vận hành",
+    "bang": "bang_cong_viec",
+    "dong": 3,
+    "du_an": "NM Nậm Xe",
+    "bat_dau": "2026-07-21",
+    "ket_thuc": "2026-10-31",
+    "da_xong": false,
+    "phu_trach": [
+     "don_vi:nm-namxe"
+    ],
+    "kq": "Nhật ký vận hành đầy đủ",
+    "cot_khac": null
+   }
+  ],
+  "loi": []
+ },
+ "File test tuần 40 - mẫu bản 8/TEST - Tuần 40 - P.CĐ (Form 9).docx": {
+  "mau_ma": "form-9",
+  "dat": true,
+  "tu_do": false,
+  "don_vi_lap": "p-cd",
+  "gui_den": [
+   "ban-tgd"
+  ],
+  "ky": "tuan-40-2026",
+  "viec": [
+   {
+    "ten": "Kiểm định định kỳ máy biến áp chính NM Nậm Xe",
+    "bang": "bang_cong_viec",
+    "dong": 1,
+    "du_an": "NM Nậm Xe",
+    "bat_dau": "2026-10-01",
+    "ket_thuc": "2026-10-15",
+    "da_xong": false,
+    "phu_trach": [
+     "don_vi:p-cd"
+    ],
+    "kq": "Biên bản kiểm định đạt",
+    "cot_khac": null
+   },
+   {
+    "ten": "Rà soát hồ sơ kỹ thuật tủ điều khiển Hướng Việt",
+    "bang": "bang_cong_viec",
+    "dong": 2,
+    "du_an": "ĐG Hướng Việt",
+    "bat_dau": "2026-09-29",
+    "ket_thuc": "2026-10-09",
+    "da_xong": false,
+    "phu_trach": [
+     "don_vi:p-cd"
+    ],
+    "kq": "Danh sách sai khác so với thiết kế",
+    "cot_khac": null
+   }
+  ],
+  "loi": []
+ },
+ "File test tuần 40 - mẫu bản 8/TEST - Tuần 40 - P.HCTH (Form 3).docx": {
+  "mau_ma": "form-3",
+  "dat": true,
+  "tu_do": false,
+  "don_vi_lap": "p-hcth",
+  "gui_den": [
+   "ban-tgd"
+  ],
+  "ky": "tuan-40-2026",
+  "viec": [
+   {
+    "ten": "Gia hạn hợp đồng bảo vệ văn phòng Hà Nội",
+    "bang": "bang_cong_viec",
+    "dong": 1,
+    "du_an": "Công ty",
+    "bat_dau": "2026-09-29",
+    "ket_thuc": "2026-10-15",
+    "da_xong": false,
+    "phu_trach": [
+     "don_vi:p-hcth"
+    ],
+    "kq": "Hợp đồng bảo vệ mới được ký",
+    "cot_khac": null
+   }
+  ],
+  "loi": []
+ },
+ "File test tuần 40 - mẫu bản 8/TEST - Tuần 40 - P.KT&VH (Form 2).docx": {
+  "mau_ma": "form-2",
+  "dat": true,
+  "tu_do": false,
+  "don_vi_lap": "p-ktvh",
+  "gui_den": [
+   "ban-tgd"
+  ],
+  "ky": "tuan-40-2026",
+  "viec": [
+   {
+    "ten": "Theo dõi tiến độ đập chính Nậm Mô 1",
+    "bang": "bang_cong_viec",
+    "dong": 1,
+    "du_an": "Nậm Mô 1",
+    "bat_dau": "2026-09-21",
+    "ket_thuc": "2026-10-31",
+    "da_xong": false,
+    "phu_trach": [
+     "don_vi:p-ktvh"
+    ],
+    "kq": "Báo cáo tiến độ đập chính hằng tuần",
+    "cot_khac": null
+   },
+   {
+    "ten": "Kế hoạch vận hành mùa khô",
+    "bang": "bang_cong_viec",
+    "dong": 2,
+    "du_an": "NM Nậm Xe",
+    "bat_dau": "2026-09-21",
+    "ket_thuc": "2026-10-31",
+    "da_xong": false,
+    "phu_trach": [
+     "don_vi:p-ktvh"
+    ],
+    "kq": "Kế hoạch vận hành mùa khô NM Nậm Xe được duyệt",
+    "cot_khac": null
+   },
+   {
+    "ten": "Inverter Tuabin HL-07 (Hướng Linh 7) báo lỗi quá nhiệt 2 lần trong 1 tuần",
+    "bang": "bang_cong_viec",
+    "dong": 3,
+    "du_an": "Công ty",
+    "bat_dau": "2026-09-25",
+    "ket_thuc": "2026-10-02",
+    "da_xong": true,
+    "phu_trach": [
+     "don_vi:p-ktvh"
+    ],
+    "kq": "Tìm được nguyên nhân, inverter chạy ổn định",
+    "cot_khac": null
+   },
+   {
+    "ten": "Tập huấn vận hành mùa khô cho ca trực các nhà máy",
+    "bang": "bang_cong_viec",
+    "dong": 4,
+    "du_an": "Công ty",
+    "bat_dau": "2026-09-28",
+    "ket_thuc": null,
+    "da_xong": false,
+    "phu_trach": [
+     "don_vi:p-ktvh"
+    ],
+    "kq": "100% ca trực được tập huấn",
+    "cot_khac": null
+   }
+  ],
+  "loi": [
+   "goi_y|ngay_hop_le|\"Tập huấn vận hành mùa khô cho ca trực các nhà máy\": kết thúc 5 ngày sau khi xong dòng 2 \"Kế hoạch vận hành mùa khô\""
+  ]
+ },
+ "File test tuần 40 - mẫu bản 8/TEST - Tuần 40 - P.TCKT (Form 4).docx": {
+  "mau_ma": "form-4",
+  "dat": true,
+  "tu_do": false,
+  "don_vi_lap": "p-tckt",
+  "gui_den": [
+   "ban-tgd"
+  ],
+  "ky": "tuan-40-2026",
+  "viec": [
+   {
+    "ten": "Đàm phán lãi suất vay BIDV quý IV",
+    "bang": "bang_cong_viec",
+    "dong": 1,
+    "du_an": "Công ty",
+    "bat_dau": "2026-09-30",
+    "ket_thuc": "2026-10-10",
+    "da_xong": false,
+    "phu_trach": [
+     "don_vi:p-tckt"
+    ],
+    "kq": "Biên bản thống nhất lãi suất ≤ 7,8%",
+    "cot_khac": null
+   },
+   {
+    "ten": "Thanh toán 3 hóa đơn quá hạn nhà thầu phụ",
+    "bang": "bang_cong_viec",
+    "dong": 2,
+    "du_an": "Công ty",
+    "bat_dau": "2026-09-29",
+    "ket_thuc": "2026-10-03",
+    "da_xong": true,
+    "phu_trach": [
+     "don_vi:p-tckt"
+    ],
+    "kq": "Ủy nhiệm chi đã chuyển",
+    "cot_khac": null
+   }
+  ],
+  "loi": []
+ },
+ "File test tuần 40 - mẫu bản 8/TEST - Tuần 40 - P.ĐT&PC (Form 1).docx": {
+  "mau_ma": "form-1",
+  "dat": true,
+  "tu_do": false,
+  "don_vi_lap": "p-dtpc",
+  "gui_den": [
+   "ban-tgd"
+  ],
+  "ky": "tuan-40-2026",
+  "viec": [
+   {
+    "ten": "Trình TGĐ phê duyệt điều chỉnh TMĐT Nậm Khiên 1",
+    "bang": "bang_cong_viec",
+    "dong": 1,
+    "du_an": "TĐ Nậm Khiên 1",
+    "bat_dau": "2026-09-29",
+    "ket_thuc": "2026-10-06",
+    "da_xong": false,
+    "phu_trach": [
+     "don_vi:p-dtpc"
+    ],
+    "kq": "Quyết định phê duyệt TMĐT điều chỉnh",
+    "cot_khac": null
+   },
+   {
+    "ten": "Chuẩn bị hồ sơ gia hạn giấy phép XD Nậm Khiên 1",
+    "bang": "bang_cong_viec",
+    "dong": 2,
+    "du_an": "TĐ Nậm Khiên 1",
+    "bat_dau": "2026-10-01",
+    "ket_thuc": "2026-10-20",
+    "da_xong": false,
+    "phu_trach": [
+     "don_vi:p-dtpc"
+    ],
+    "kq": "Hồ sơ gia hạn nộp Sở XD Lào",
+    "cot_khac": null
+   }
+  ],
+  "loi": []
+ },
+ "File test tuần 40 - mẫu bản 8/TEST - Tuần 40 - SCI PMC (Form 5).docx": {
+  "mau_ma": "form-5",
+  "dat": true,
+  "tu_do": false,
+  "don_vi_lap": "sci-pmc",
+  "gui_den": [
+   "p-dtpc"
+  ],
+  "ky": "tuan-40-2026",
+  "viec": [
+   {
+    "ten": "Rà soát bản vẽ thi công móng trụ T9–T12",
+    "bang": "bang_cong_viec",
+    "dong": 1,
+    "du_an": "ĐG Hướng Việt",
+    "bat_dau": "2026-09-29",
+    "ket_thuc": "2026-10-09",
+    "da_xong": false,
+    "phu_trach": [
+     "don_vi:sci-pmc"
+    ],
+    "kq": "Biên bản rà soát bản vẽ",
+    "cot_khac": null
+   },
+   {
+    "ten": "Thiết kế Cơ sở (TKCS) — hồ sơ chính nộp BộCT thẩm định",
+    "bang": "bang_tien_do_tk",
+    "dong": 1,
+    "du_an": "ĐG Hướng Việt",
+    "bat_dau": "2026-09-28",
+    "ket_thuc": "2026-09-02",
+    "da_xong": true,
+    "phu_trach": [
+     "don_vi:sci-pmc"
+    ],
+    "kq": null,
+    "cot_khac": {
+     "tien_do": "100%",
+     "ghi_chu": "BộCT đã phê duyệt 25/09/2026"
+    }
+   },
+   {
+    "ten": "Thiết kế bản vẽ thi công móng trụ T9–T12",
+    "bang": "bang_tien_do_tk",
+    "dong": 2,
+    "du_an": "ĐG Hướng Việt",
+    "bat_dau": "2026-09-28",
+    "ket_thuc": "2026-10-15",
+    "da_xong": false,
+    "phu_trach": [
+     "don_vi:sci-pmc"
+    ],
+    "kq": null,
+    "cot_khac": {
+     "tien_do": "60%",
+     "ghi_chu": "Đang hoàn thiện bản vẽ cốt thép"
+    }
+   },
+   {
+    "ten": "Phương án đấu nối 110kV (bổ sung theo y/c Cục ĐTĐL)",
+    "bang": "bang_tien_do_tk",
+    "dong": 3,
+    "du_an": "ĐG Hướng Phùng 1",
+    "bat_dau": "2026-09-28",
+    "ket_thuc": "2026-10-20",
+    "da_xong": false,
+    "phu_trach": [
+     "don_vi:sci-pmc"
+    ],
+    "kq": null,
+    "cot_khac": {
+     "tien_do": "40%",
+     "ghi_chu": "Chờ số liệu lưới của EVN"
+    }
+   }
+  ],
+  "loi": []
+ },
+ "File test tuần 40 - mẫu bản 8/TEST GÕ TAY - Tuần 40 - BQLDA QT (Form 7).docx": {
+  "mau_ma": "form-7",
+  "dat": true,
+  "tu_do": false,
+  "don_vi_lap": "bqlda-qt",
+  "gui_den": [
+   "p-dtpc"
+  ],
+  "ky": "tuan-40-2026",
+  "viec": [
+   {
+    "ten": "Họp dân chi trả đền bù mặt bằng móng turbine (7.2.3)",
+    "bang": "bang_cong_viec",
+    "dong": 1,
+    "du_an": "ĐG Hướng Việt",
+    "bat_dau": "2026-09-29",
+    "ket_thuc": "2026-10-02",
+    "da_xong": false,
+    "phu_trach": [
+     "don_vi:bqlda-qt"
+    ],
+    "kq": "Biên bản họp, danh sách hộ đồng ý",
+    "cot_khac": null
+   },
+   {
+    "ten": "GPMB Trụ T11",
+    "bang": "bang_cong_viec",
+    "dong": 2,
+    "du_an": "ĐG Hướng Việt",
+    "bat_dau": "2026-09-21",
+    "ket_thuc": "2026-10-15",
+    "da_xong": false,
+    "phu_trach": [
+     "don_vi:bqlda-qt"
+    ],
+    "kq": "Bàn giao mặt bằng trụ T11",
+    "cot_khac": null
+   },
+   {
+    "ten": "Thi công móng trụ T5–T8",
+    "bang": "bang_cong_viec",
+    "dong": 3,
+    "du_an": "ĐG Hướng Việt",
+    "bat_dau": "2026-09-05",
+    "ket_thuc": "2026-09-27",
+    "da_xong": true,
+    "phu_trach": [
+     "don_vi:bqlda-qt"
+    ],
+    "kq": "Đổ xong bê tông móng T5–T8",
+    "cot_khac": null
+   },
+   {
+    "ten": "Chuyển mục đích đất rừng T14–T16",
+    "bang": "bang_cong_viec",
+    "dong": 4,
+    "du_an": "ĐG Hướng Việt",
+    "bat_dau": "2026-09-25",
+    "ket_thuc": "2026-10-30",
+    "da_xong": false,
+    "phu_trach": [
+     "don_vi:bqlda-qt"
+    ],
+    "kq": "Quyết định chuyển mục đích sử dụng đất",
+    "cot_khac": null
+   },
+   {
+    "ten": "Nghiệm thu móng trụ T5–T8",
+    "bang": "bang_cong_viec",
+    "dong": 5,
+    "du_an": "ĐG Hướng Việt",
+    "bat_dau": "2026-09-28",
+    "ket_thuc": null,
+    "da_xong": false,
+    "phu_trach": [
+     "don_vi:bqlda-qt"
+    ],
+    "kq": "Biên bản nghiệm thu móng T5–T8",
+    "cot_khac": null
+   }
+  ],
+  "loi": [
+   "goi_y|ngay_hop_le|\"Nghiệm thu móng trụ T5–T8\": kết thúc 3 ngày sau khi xong dòng 3 \"Thi công móng trụ T5–T8\"",
+   "goi_y|noi_dung_ai|Mục \"III. CHI TIẾT TIẾN ĐỘ TỪNG HẠNG MỤC\": còn chỗ \"......\" chưa điền số liệu"
+  ]
+ },
+ "File test tuần 40 - mẫu bản 8/TEST GÕ TAY - Tuần 40 - NM Nậm Xe (Form 8).docx": {
+  "mau_ma": "form-8",
+  "dat": true,
+  "tu_do": false,
+  "don_vi_lap": "nm-namxe",
+  "gui_den": [
+   "p-ktvh"
+  ],
+  "ky": "tuan-40-2026",
+  "viec": [
+   {
+    "ten": "Thay relay bảo vệ R21 máy phát TM2",
+    "bang": "bang_cong_viec",
+    "dong": 1,
+    "du_an": "NM Nậm Xe",
+    "bat_dau": "2026-09-22",
+    "ket_thuc": "2026-10-08",
+    "da_xong": false,
+    "phu_trach": [
+     "don_vi:nm-namxe"
+    ],
+    "kq": "Relay mới vận hành, thử nghiệm đạt",
+    "cot_khac": null
+   },
+   {
+    "ten": "Nạo vét cửa nhận nước",
+    "bang": "bang_cong_viec",
+    "dong": 2,
+    "du_an": "NM Nậm Xe",
+    "bat_dau": "2026-09-28",
+    "ket_thuc": "2026-10-15",
+    "da_xong": false,
+    "phu_trach": [
+     "don_vi:nm-namxe"
+    ],
+    "kq": "Cửa nhận nước thông, lưu lượng đạt thiết kế",
+    "cot_khac": null
+   },
+   {
+    "ten": "Hệ thống điều tốc TM1 & TM2: ghi nhật ký vận hành",
+    "bang": "bang_cong_viec",
+    "dong": 3,
+    "du_an": "NM Nậm Xe",
+    "bat_dau": "2026-07-21",
+    "ket_thuc": "2026-10-31",
+    "da_xong": false,
+    "phu_trach": [
+     "don_vi:nm-namxe"
+    ],
+    "kq": "Nhật ký vận hành đầy đủ",
+    "cot_khac": null
+   },
+   {
+    "ten": "Kiểm tra van xả đáy trước mùa khô",
+    "bang": "bang_cong_viec",
+    "dong": 4,
+    "du_an": "NM Nậm Xe",
+    "bat_dau": "2026-10-05",
+    "ket_thuc": "2026-10-12",
+    "da_xong": false,
+    "phu_trach": [
+     "don_vi:nm-namxe"
+    ],
+    "kq": "Biên bản kiểm tra van xả đáy",
+    "cot_khac": null
+   }
+  ],
+  "loi": [
+   "goi_y|noi_dung_ai|Mục \"I. SẢN LƯỢNG & VẬN HÀNH\": còn chỗ \"......\" chưa điền số liệu"
+  ]
+ },
+ "File test tuần 40 - mẫu bản 8/TEST GÕ TAY - Tuần 40 - P.KT&VH (Form 2).docx": {
+  "mau_ma": "form-2",
+  "dat": true,
+  "tu_do": false,
+  "don_vi_lap": "p-ktvh",
+  "gui_den": [
+   "ban-tgd"
+  ],
+  "ky": "tuan-40-2026",
+  "viec": [
+   {
+    "ten": "Theo dõi tiến độ đập chính Nậm Mô 1",
+    "bang": "bang_cong_viec",
+    "dong": 1,
+    "du_an": "Nậm Mô 1",
+    "bat_dau": "2026-09-21",
+    "ket_thuc": "2026-10-31",
+    "da_xong": false,
+    "phu_trach": [
+     "don_vi:p-ktvh"
+    ],
+    "kq": "Báo cáo tiến độ đập chính hằng tuần",
+    "cot_khac": null
+   },
+   {
+    "ten": "Kế hoạch vận hành mùa khô",
+    "bang": "bang_cong_viec",
+    "dong": 2,
+    "du_an": "NM Nậm Xe",
+    "bat_dau": "2026-09-21",
+    "ket_thuc": "2026-10-31",
+    "da_xong": false,
+    "phu_trach": [
+     "don_vi:p-ktvh"
+    ],
+    "kq": "Kế hoạch vận hành mùa khô NM Nậm Xe được duyệt",
+    "cot_khac": null
+   },
+   {
+    "ten": "Inverter Tuabin HL-07 (Hướng Linh 7) báo lỗi quá nhiệt 2 lần trong 1 tuần",
+    "bang": "bang_cong_viec",
+    "dong": 3,
+    "du_an": "Công ty",
+    "bat_dau": "2026-09-25",
+    "ket_thuc": "2026-10-02",
+    "da_xong": true,
+    "phu_trach": [
+     "don_vi:p-ktvh"
+    ],
+    "kq": "Tìm được nguyên nhân, inverter chạy ổn định",
+    "cot_khac": null
+   },
+   {
+    "ten": "Tập huấn vận hành mùa khô cho ca trực các nhà máy",
+    "bang": "bang_cong_viec",
+    "dong": 4,
+    "du_an": "Công ty",
+    "bat_dau": "2026-09-28",
+    "ket_thuc": null,
+    "da_xong": false,
+    "phu_trach": [
+     "don_vi:p-ktvh"
+    ],
+    "kq": "100% ca trực được tập huấn",
+    "cot_khac": null
+   },
+   {
+    "ten": "Rà soát định mức chi phí O&M quý IV",
+    "bang": "bang_cong_viec",
+    "dong": 5,
+    "du_an": "Công ty",
+    "bat_dau": "2026-10-01",
+    "ket_thuc": "2026-10-20",
+    "da_xong": false,
+    "phu_trach": [
+     "don_vi:p-ktvh"
+    ],
+    "kq": "Bảng định mức O&M quý IV trình TGĐ",
+    "cot_khac": null
+   }
+  ],
+  "loi": [
+   "goi_y|ngay_hop_le|\"Tập huấn vận hành mùa khô cho ca trực các nhà máy\": kết thúc 5 ngày sau khi xong dòng 2 \"Kế hoạch vận hành mùa khô\""
+  ]
+ },
+ "File test tuần 40 - mẫu bản 8/TEST LỖI 03 - P.CĐ không tích tuần tháng.docx": {
+  "mau_ma": "form-9",
+  "dat": true,
+  "tu_do": false,
+  "don_vi_lap": "p-cd",
+  "gui_den": [
+   "ban-tgd"
+  ],
+  "ky": "tuan-40-2026",
+  "viec": [
+   {
+    "ten": "Kiểm định định kỳ máy biến áp chính NM Nậm Xe",
+    "bang": "bang_cong_viec",
+    "dong": 1,
+    "du_an": "NM Nậm Xe",
+    "bat_dau": "2026-10-01",
+    "ket_thuc": "2026-10-15",
+    "da_xong": false,
+    "phu_trach": [
+     "don_vi:p-cd"
+    ],
+    "kq": "Biên bản kiểm định đạt",
+    "cot_khac": null
+   }
+  ],
+  "loi": []
+ },
+ "File test tuần 40 - mẫu bản 8/TEST LỖI 04 - P.CĐ tích tuần thiếu số tuần.docx": {
+  "mau_ma": "form-9",
+  "dat": false,
+  "tu_do": false,
+  "don_vi_lap": "p-cd",
+  "gui_den": [
+   "ban-tgd"
+  ],
+  "ky": "tuan-undefined-undefined",
+  "viec": [
+   {
+    "ten": "Kiểm định định kỳ máy biến áp chính NM Nậm Xe",
+    "bang": "bang_cong_viec",
+    "dong": 1,
+    "du_an": "NM Nậm Xe",
+    "bat_dau": "2026-10-01",
+    "ket_thuc": "2026-10-15",
+    "da_xong": false,
+    "phu_trach": [
+     "don_vi:p-cd"
+    ],
+    "kq": "Biên bản kiểm định đạt",
+    "cot_khac": null
+   }
+  ],
+  "loi": [
+   "chan|ky_bao_cao|Chưa ghi số tuần/năm của kỳ báo cáo (vd 29/2026)"
+  ]
+ },
+ "File test tuần 40 - mẫu bản 8/TEST LỖI 06 - P.CĐ việc thiếu ngày kết thúc.docx": {
+  "mau_ma": "form-9",
+  "dat": true,
+  "tu_do": false,
+  "don_vi_lap": "p-cd",
+  "gui_den": [
+   "ban-tgd"
+  ],
+  "ky": "tuan-40-2026",
+  "viec": [
+   {
+    "ten": "Kiểm định định kỳ máy biến áp chính NM Nậm Xe",
+    "bang": "bang_cong_viec",
+    "dong": 1,
+    "du_an": "NM Nậm Xe",
+    "bat_dau": "2026-10-01",
+    "ket_thuc": "2026-10-15",
+    "da_xong": false,
+    "phu_trach": [
+     "don_vi:p-cd"
+    ],
+    "kq": "Biên bản kiểm định đạt",
+    "cot_khac": null
+   },
+   {
+    "ten": "Lập kế hoạch thí nghiệm định kỳ 2027",
+    "bang": "bang_cong_viec",
+    "dong": 2,
+    "du_an": "Công ty",
+    "bat_dau": "2026-10-01",
+    "ket_thuc": null,
+    "da_xong": false,
+    "phu_trach": [
+     "don_vi:p-cd"
+    ],
+    "kq": "Kế hoạch thí nghiệm được duyệt",
+    "cot_khac": null
+   }
+  ],
+  "loi": [
+   "canh_bao|ngay_trong|\"Lập kế hoạch thí nghiệm định kỳ 2027\": không có ngày kết thúc — vào sổ cái là việc TREO (luôn mở, cảnh báo cho đến khi có hạn). Ghi ngày cụ thể hoặc \"N ngày sau khi xong <việc>\""
+  ]
+ },
+ "File test tuần 40 - mẫu bản 8/TEST LỖI 08 - P.CĐ sau khi xong việc không có.docx": {
+  "mau_ma": "form-9",
+  "dat": true,
+  "tu_do": false,
+  "don_vi_lap": "p-cd",
+  "gui_den": [
+   "ban-tgd"
+  ],
+  "ky": "tuan-40-2026",
+  "viec": [
+   {
+    "ten": "Kiểm định định kỳ máy biến áp chính NM Nậm Xe",
+    "bang": "bang_cong_viec",
+    "dong": 1,
+    "du_an": "NM Nậm Xe",
+    "bat_dau": "2026-10-01",
+    "ket_thuc": "2026-10-15",
+    "da_xong": false,
+    "phu_trach": [
+     "don_vi:p-cd"
+    ],
+    "kq": "Biên bản kiểm định đạt",
+    "cot_khac": null
+   },
+   {
+    "ten": "Nghiệm thu hệ thống PCCC trạm bơm",
+    "bang": "bang_cong_viec",
+    "dong": 2,
+    "du_an": "NM Nậm Xe",
+    "bat_dau": "2026-09-28",
+    "ket_thuc": null,
+    "da_xong": false,
+    "phu_trach": [
+     "don_vi:p-cd"
+    ],
+    "kq": "Biên bản nghiệm thu PCCC",
+    "cot_khac": null
+   }
+  ],
+  "loi": [
+   "canh_bao|ngay_hop_le|\"Nghiệm thu hệ thống PCCC trạm bơm\": không tìm thấy việc mốc \"Lắp đặt hệ thống PCCC trạm bơm\" — ghi mã việc (vd CV-2026-0012) hoặc tên đúng như một dòng trong báo cáo / sổ cái. Chưa tìm được thì hạn chưa tự tính."
+  ]
+ },
+ "File test tuần 40 - mẫu bản 8/TEST LỖI 09 - P.CĐ ngày viết sai.docx": {
+  "mau_ma": "form-9",
+  "dat": false,
+  "tu_do": false,
+  "don_vi_lap": "p-cd",
+  "gui_den": [
+   "ban-tgd"
+  ],
+  "ky": "tuan-40-2026",
+  "viec": [
+   {
+    "ten": "Kiểm định định kỳ máy biến áp chính NM Nậm Xe",
+    "bang": "bang_cong_viec",
+    "dong": 1,
+    "du_an": "NM Nậm Xe",
+    "bat_dau": "2026-10-01",
+    "ket_thuc": "2026-10-15",
+    "da_xong": false,
+    "phu_trach": [
+     "don_vi:p-cd"
+    ],
+    "kq": "Biên bản kiểm định đạt",
+    "cot_khac": null
+   },
+   {
+    "ten": "Thay aptomat tủ tự dùng",
+    "bang": "bang_cong_viec",
+    "dong": 2,
+    "du_an": "NM Nậm Xe",
+    "bat_dau": "2026-10-01",
+    "ket_thuc": null,
+    "da_xong": false,
+    "phu_trach": [
+     "don_vi:p-cd"
+    ],
+    "kq": "Aptomat mới vận hành",
+    "cot_khac": null
+   },
+   {
+    "ten": "Vệ sinh tủ điện phân phối",
+    "bang": "bang_cong_viec",
+    "dong": 3,
+    "du_an": "NM Nậm Xe",
+    "bat_dau": "2026-10-01",
+    "ket_thuc": null,
+    "da_xong": false,
+    "phu_trach": [
+     "don_vi:p-cd"
+    ],
+    "kq": "Tủ sạch, không phát nhiệt",
+    "cot_khac": null
+   }
+  ],
+  "loi": [
+   "chan|ngay_hop_le|\"Thay aptomat tủ tự dùng\", kết thúc: \"31/02/2026\" không phải ngày có thật (hoặc ghi \"sau khi xong <mã/tên việc>\")",
+   "chan|ngay_hop_le|\"Vệ sinh tủ điện phân phối\", kết thúc: \"tuần sau\" không đúng dạng ngày dd/mm/yyyy (hoặc ghi \"sau khi xong <mã/tên việc>\")"
+  ]
+ },
+ "File test tuần 40 - mẫu bản 8/TEST LỖI 1 - P.CĐ quên đổi kỳ (để tuần 39).docx": {
+  "mau_ma": "form-9",
+  "dat": true,
+  "tu_do": false,
+  "don_vi_lap": "p-cd",
+  "gui_den": [
+   "ban-tgd"
+  ],
+  "ky": "tuan-39-2026",
+  "viec": [
+   {
+    "ten": "Kiểm định định kỳ máy biến áp chính NM Nậm Xe",
+    "bang": "bang_cong_viec",
+    "dong": 1,
+    "du_an": "NM Nậm Xe",
+    "bat_dau": "2026-10-01",
+    "ket_thuc": "2026-10-15",
+    "da_xong": false,
+    "phu_trach": [
+     "don_vi:p-cd"
+    ],
+    "kq": "Biên bản kiểm định đạt",
+    "cot_khac": null
+   },
+   {
+    "ten": "Rà soát hồ sơ kỹ thuật tủ điều khiển Hướng Việt",
+    "bang": "bang_cong_viec",
+    "dong": 2,
+    "du_an": "ĐG Hướng Việt",
+    "bat_dau": "2026-09-29",
+    "ket_thuc": "2026-10-09",
+    "da_xong": false,
+    "phu_trach": [
+     "don_vi:p-cd"
+    ],
+    "kq": "Danh sách sai khác so với thiết kế",
+    "cot_khac": null
+   }
+  ],
+  "loi": []
+ },
+ "File test tuần 40 - mẫu bản 8/TEST LỖI 10 - Nậm Xe bỏ trống tên đơn vị.docx": {
+  "mau_ma": "form-8",
+  "dat": false,
+  "tu_do": false,
+  "don_vi_lap": "p-dtpc",
+  "gui_den": [
+   "p-ktvh"
+  ],
+  "ky": "tuan-40-2026",
+  "viec": [
+   {
+    "ten": "Nạo vét cửa nhận nước",
+    "bang": "bang_cong_viec",
+    "dong": 1,
+    "du_an": "NM Nậm Xe",
+    "bat_dau": "2026-09-28",
+    "ket_thuc": "2026-10-15",
+    "da_xong": false,
+    "phu_trach": [
+     "don_vi:p-dtpc"
+    ],
+    "kq": "Cửa nhận nước thông, lưu lượng đạt thiết kế",
+    "cot_khac": null
+   }
+  ],
+  "loi": [
+   "chan|dung_mau|Chưa nhận ra đơn vị nộp báo cáo: dòng dưới tiêu đề \"BÁO CÁO …\" đang trống — ghi đúng tên đơn vị (vd \"NM Hướng Linh 7\"). Báo cáo Nhà máy thủy điện Nậm Xe (Form 8) dùng chung cho nhiều đơn vị nên máy cần tên này để biết báo cáo của ai"
+  ]
+ },
+ "File test tuần 40 - mẫu bản 8/TEST LỖI 11 - Nậm Xe ghi tên đơn vị khác (HL7).docx": {
+  "mau_ma": "form-8",
+  "dat": false,
+  "tu_do": false,
+  "don_vi_lap": "nm-huonglinh7",
+  "gui_den": [
+   "p-ktvh"
+  ],
+  "ky": "tuan-40-2026",
+  "viec": [
+   {
+    "ten": "Nạo vét cửa nhận nước",
+    "bang": "bang_cong_viec",
+    "dong": 1,
+    "du_an": "NM Nậm Xe",
+    "bat_dau": "2026-09-28",
+    "ket_thuc": "2026-10-15",
+    "da_xong": false,
+    "phu_trach": [
+     "don_vi:nm-huonglinh7"
+    ],
+    "kq": "Cửa nhận nước thông, lưu lượng đạt thiết kế",
+    "cot_khac": null
+   }
+  ],
+  "loi": [
+   "chan|dung_mau|Báo cáo này là của Nhà máy điện gió Hướng Linh 7 (đọc từ dòng \"NHÀ MÁY ĐIỆN GIÓ HƯỚNG LINH 7\") — bạn không thuộc Nhà máy điện gió Hướng Linh 7. Nhờ người của đơn vị đó nộp, hoặc quản trị gán kiêm nhiệm cho bạn"
+  ]
+ },
+ "File test tuần 40 - mẫu bản 8/TEST LỖI 12 - P.CĐ đổi chữ tiêu đề chương việc.docx": {
+  "mau_ma": "form-9",
+  "dat": false,
+  "tu_do": false,
+  "don_vi_lap": "p-cd",
+  "gui_den": [
+   "ban-tgd"
+  ],
+  "ky": "tuan-40-2026",
+  "viec": [
+   {
+    "ten": "Kiểm định định kỳ máy biến áp chính NM Nậm Xe",
+    "bang": "bang_cong_viec",
+    "dong": 1,
+    "du_an": "NM Nậm Xe",
+    "bat_dau": "2026-10-01",
+    "ket_thuc": "2026-10-15",
+    "da_xong": false,
+    "phu_trach": [
+     "don_vi:p-cd"
+    ],
+    "kq": "Biên bản kiểm định đạt",
+    "cot_khac": null
+   }
+  ],
+  "loi": [
+   "chan|dung_mau|Thiếu mục \"KẾT QUẢ VÀ KẾ HOẠCH VIỆC TUẦN TỚI\" của mẫu Báo cáo tuần Phòng Cơ điện (Form 9)"
+  ]
+ },
+ "File test tuần 40 - mẫu bản 8/TEST LỖI 13 - P.CĐ xoá mất bảng việc.docx": {
+  "mau_ma": "form-9",
+  "dat": false,
+  "tu_do": false,
+  "don_vi_lap": "p-cd",
+  "gui_den": [
+   "ban-tgd"
+  ],
+  "ky": "tuan-40-2026",
+  "viec": [],
+  "loi": [
+   "chan|bang_viec_trong|Bảng \"IV. KẾT QUẢ VÀ KẾ HOẠCH VIỆC TUẦN TỚI\" chưa có việc nào — báo cáo phải ghi việc đã làm trong kỳ (kèm tình hình) và kế hoạch kỳ tới. Ghi ít nhất một việc có tên rồi tải lại"
+  ]
+ },
+ "File test tuần 40 - mẫu bản 8/TEST LỖI 15 - Word tự do không theo mẫu.docx": {
+  "mau_ma": "form-2",
+  "dat": false,
+  "tu_do": false,
+  "don_vi_lap": "p-ktvh",
+  "gui_den": [
+   "ban-tgd"
+  ],
+  "ky": "tuan-29-2026",
+  "viec": [],
+  "loi": [
+   "goi_y|dung_mau|File Word gốc (chưa có ô nhập): hệ thống tự nhận là Báo cáo Phòng Kinh tế và Vận hành (Form 2) và tự gắn ô nhập. Lần sau dùng mẫu Excel ở màn «Mẫu báo cáo» (từ 22/10/2026 nộp mới chỉ nhận .xlsx).",
+   "chan|bang_viec_trong|Bảng \"IV. KẾT QUẢ VÀ KẾ HOẠCH VIỆC TUẦN TỚI\" chưa có việc nào — báo cáo phải ghi việc đã làm trong kỳ (kèm tình hình) và kế hoạch kỳ tới. Ghi ít nhất một việc có tên rồi tải lại"
+  ]
+ },
+ "File test tuần 40 - mẫu bản 8/TEST LỖI 17 - P.CĐ file mẫu cũ.docx": {
+  "mau_ma": "form-9",
+  "dat": false,
+  "tu_do": false,
+  "don_vi_lap": "p-cd",
+  "gui_den": [
+   "ban-tgd"
+  ],
+  "ky": "tuan-40-2026",
+  "viec": [
+   {
+    "ten": "Chứng kiến FAT tổ máy H1 Nậm Khiên 1",
+    "bang": "bang_cong_viec",
+    "dong": 1,
+    "du_an": "Nậm Khiên 1",
+    "bat_dau": "2026-10-06",
+    "ket_thuc": "2026-10-10",
+    "da_xong": false,
+    "phu_trach": [
+     "don_vi:p-cd"
+    ],
+    "kq": "Biên bản FAT ký, đạt yêu cầu",
+    "cot_khac": null
+   },
+   {
+    "ten": "Kiểm định MBA T1 Ca Nan 2",
+    "bang": "bang_cong_viec",
+    "dong": 2,
+    "du_an": "TĐ Ca Nan 2",
+    "bat_dau": "2026-10-08",
+    "ket_thuc": "2026-10-15",
+    "da_xong": false,
+    "phu_trach": [
+     "don_vi:p-cd"
+    ],
+    "kq": "Giấy chứng nhận kiểm định còn hạn",
+    "cot_khac": null
+   },
+   {
+    "ten": "Kiểm định cầu trục gian máy Nậm Lụm 1",
+    "bang": "bang_cong_viec",
+    "dong": 3,
+    "du_an": "TĐ Nậm Lụm 1",
+    "bat_dau": "2026-10-08",
+    "ket_thuc": null,
+    "da_xong": false,
+    "phu_trach": [
+     "don_vi:p-cd"
+    ],
+    "kq": "Giấy chứng nhận kiểm định cầu trục",
+    "cot_khac": null
+   },
+   {
+    "ten": "Thay dầu cách điện MBA T2 Nậm Xe",
+    "bang": "bang_cong_viec",
+    "dong": 4,
+    "du_an": "NM Nậm Xe",
+    "bat_dau": "2026-10-20",
+    "ket_thuc": "2026-10-10",
+    "da_xong": false,
+    "phu_trach": [
+     "don_vi:p-cd"
+    ],
+    "kq": "Dầu mới đạt thí nghiệm",
+    "cot_khac": null
+   },
+   {
+    "ten": "Hiệu chỉnh rơle bảo vệ so lệch HL7",
+    "bang": "bang_cong_viec",
+    "dong": 5,
+    "du_an": "ĐG Hướng Linh 7",
+    "bat_dau": "2026-09-15",
+    "ket_thuc": "2026-09-25",
+    "da_xong": false,
+    "phu_trach": [
+     "don_vi:p-cd"
+    ],
+    "kq": "Biên bản hiệu chỉnh rơle",
+    "cot_khac": null
+   },
+   {
+    "ten": "Sửa bơm dầu tổ máy 2 Nậm Lụm 1",
+    "bang": "bang_cong_viec",
+    "dong": 6,
+    "du_an": "TĐ Nậm Lụm 1",
+    "bat_dau": "2026-10-01",
+    "ket_thuc": null,
+    "da_xong": false,
+    "phu_trach": [
+     "don_vi:p-cd"
+    ],
+    "kq": "Bơm dầu chạy ổn định",
+    "cot_khac": null
+   }
+  ],
+  "loi": [
+   "canh_bao|ngay_trong|\"Kiểm định cầu trục gian máy Nậm Lụm 1\": không có ngày kết thúc — vào sổ cái là việc TREO (luôn mở, cảnh báo cho đến khi có hạn). Ghi ngày cụ thể hoặc \"N ngày sau khi xong <việc>\"",
+   "chan|ngay_hop_le|\"Thay dầu cách điện MBA T2 Nậm Xe\": bắt đầu 20/10/2026 sau kết thúc 10/10/2026",
+   "chan|ngay_hop_le|\"Sửa bơm dầu tổ máy 2 Nậm Lụm 1\", kết thúc: \"31/09/2026\" không phải ngày có thật (hoặc ghi \"sau khi xong <mã/tên việc>\")",
+   "chan|ten_viec|IV. KẾT QUẢ VÀ KẾ HOẠCH VIỆC TUẦN TỚI, dòng 7: có người làm / ngày / kết quả nhưng chưa có tên công việc — ghi tên việc rồi tải lại",
+   "goi_y|chung-viec-ket-thuc-tu-ngay-nop|Dòng 5 bảng \"KẾT QUẢ VÀ KẾ HOẠCH VIỆC TUẦN TỚI\": cột \"Kết thúc\" (25/09/2026) phải sau hoặc bằng ngày nộp báo cáo (28/09/2026)",
+   "canh_bao|chung-kien-nghi-co-noi-dung|Dòng 2 bảng \"VẤN ĐỀ NỔI BẬT VÀ KIẾN NGHỊ LÃNH ĐẠO\": cột \"Kiến nghị\" chưa điền",
+   "canh_bao|chung-canh-bao-tinh-trang|Dòng 2 bảng \"CẢNH BÁO KỸ THUẬT CƠ ĐIỆN THEO GIAI ĐOẠN DỰ ÁN\": cột \"Tình trạng hiện tại\" chưa điền",
+   "canh_bao|chung-an-toan-khong-am|Dòng 2 bảng \"CẢNH BÁO AN TOÀN ĐIỆN, SỰ CỐ THIẾT BỊ, KIỂM ĐỊNH\": cột \"Tuần này\" = -1, phải từ 0 trở lên"
+  ]
+ },
+ "File test tuần 40 - mẫu bản 8/TEST LỖI 18 - P.CĐ tên người phụ trách lạ.docx": {
+  "mau_ma": "form-9",
+  "dat": true,
+  "tu_do": false,
+  "don_vi_lap": "p-cd",
+  "gui_den": [
+   "ban-tgd"
+  ],
+  "ky": "tuan-40-2026",
+  "viec": [
+   {
+    "ten": "Kiểm định định kỳ máy biến áp chính NM Nậm Xe",
+    "bang": "bang_cong_viec",
+    "dong": 1,
+    "du_an": "NM Nậm Xe",
+    "bat_dau": "2026-10-01",
+    "ket_thuc": "2026-10-15",
+    "da_xong": false,
+    "phu_trach": [
+     "don_vi:p-cd"
+    ],
+    "kq": "Biên bản kiểm định đạt",
+    "cot_khac": null
+   },
+   {
+    "ten": "Đo điện trở tiếp địa trạm 110kV",
+    "bang": "bang_cong_viec",
+    "dong": 2,
+    "du_an": "NM Nậm Xe",
+    "bat_dau": "2026-10-02",
+    "ket_thuc": "2026-10-09",
+    "da_xong": false,
+    "phu_trach": [
+     "don_vi:p-cd"
+    ],
+    "kq": "Biên bản đo tiếp địa",
+    "cot_khac": null
+   }
+  ],
+  "loi": []
+ },
+ "File test tuần 40 - mẫu bản 8/TEST LỖI 2 - P.CĐ ghi nhầm tuần 41.docx": {
+  "mau_ma": "form-9",
+  "dat": true,
+  "tu_do": false,
+  "don_vi_lap": "p-cd",
+  "gui_den": [
+   "ban-tgd"
+  ],
+  "ky": "tuan-41-2026",
+  "viec": [
+   {
+    "ten": "Kiểm định định kỳ máy biến áp chính NM Nậm Xe",
+    "bang": "bang_cong_viec",
+    "dong": 1,
+    "du_an": "NM Nậm Xe",
+    "bat_dau": "2026-10-01",
+    "ket_thuc": "2026-10-15",
+    "da_xong": false,
+    "phu_trach": [
+     "don_vi:p-cd"
+    ],
+    "kq": "Biên bản kiểm định đạt",
+    "cot_khac": null
+   },
+   {
+    "ten": "Rà soát hồ sơ kỹ thuật tủ điều khiển Hướng Việt",
+    "bang": "bang_cong_viec",
+    "dong": 2,
+    "du_an": "ĐG Hướng Việt",
+    "bat_dau": "2026-09-29",
+    "ket_thuc": "2026-10-09",
+    "da_xong": false,
+    "phu_trach": [
+     "don_vi:p-cd"
+    ],
+    "kq": "Danh sách sai khác so với thiết kế",
+    "cot_khac": null
+   }
+  ],
+  "loi": []
+ },
+ "File test tuần 40 - mẫu bản 8/TEST LỖI 3 - P.CĐ việc thiếu tên.docx": {
+  "mau_ma": "form-9",
+  "dat": false,
+  "tu_do": false,
+  "don_vi_lap": "p-cd",
+  "gui_den": [
+   "ban-tgd"
+  ],
+  "ky": "tuan-40-2026",
+  "viec": [
+   {
+    "ten": "Kiểm định định kỳ máy biến áp chính NM Nậm Xe",
+    "bang": "bang_cong_viec",
+    "dong": 1,
+    "du_an": "NM Nậm Xe",
+    "bat_dau": "2026-10-01",
+    "ket_thuc": "2026-10-15",
+    "da_xong": false,
+    "phu_trach": [
+     "don_vi:p-cd"
+    ],
+    "kq": "Biên bản kiểm định đạt",
+    "cot_khac": null
+   },
+   {
+    "ten": "Rà soát hồ sơ kỹ thuật tủ điều khiển Hướng Việt",
+    "bang": "bang_cong_viec",
+    "dong": 2,
+    "du_an": "ĐG Hướng Việt",
+    "bat_dau": "2026-09-29",
+    "ket_thuc": "2026-10-09",
+    "da_xong": false,
+    "phu_trach": [
+     "don_vi:p-cd"
+    ],
+    "kq": "Danh sách sai khác so với thiết kế",
+    "cot_khac": null
+   }
+  ],
+  "loi": [
+   "chan|ten_viec|IV. KẾT QUẢ VÀ KẾ HOẠCH VIỆC TUẦN TỚI, dòng 3: có người làm / ngày / kết quả nhưng chưa có tên công việc — ghi tên việc rồi tải lại"
+  ]
+ },
+ "File test tuần 40 - mẫu bản 8/TEST LỖI 4 - P.CĐ hạn đã qua chưa xong.docx": {
+  "mau_ma": "form-9",
+  "dat": true,
+  "tu_do": false,
+  "don_vi_lap": "p-cd",
+  "gui_den": [
+   "ban-tgd"
+  ],
+  "ky": "tuan-40-2026",
+  "viec": [
+   {
+    "ten": "Kiểm định định kỳ máy biến áp chính NM Nậm Xe",
+    "bang": "bang_cong_viec",
+    "dong": 1,
+    "du_an": "NM Nậm Xe",
+    "bat_dau": "2026-10-01",
+    "ket_thuc": "2026-10-15",
+    "da_xong": false,
+    "phu_trach": [
+     "don_vi:p-cd"
+    ],
+    "kq": "Biên bản kiểm định đạt",
+    "cot_khac": null
+   },
+   {
+    "ten": "Rà soát hồ sơ kỹ thuật tủ điều khiển Hướng Việt",
+    "bang": "bang_cong_viec",
+    "dong": 2,
+    "du_an": "ĐG Hướng Việt",
+    "bat_dau": "2026-09-29",
+    "ket_thuc": "2026-10-09",
+    "da_xong": false,
+    "phu_trach": [
+     "don_vi:p-cd"
+    ],
+    "kq": "Danh sách sai khác so với thiết kế",
+    "cot_khac": null
+   },
+   {
+    "ten": "Thay dầu máy biến áp tự dùng",
+    "bang": "bang_cong_viec",
+    "dong": 3,
+    "du_an": "NM Nậm Xe",
+    "bat_dau": "2026-09-15",
+    "ket_thuc": "2026-09-25",
+    "da_xong": false,
+    "phu_trach": [
+     "don_vi:p-cd"
+    ],
+    "kq": "Dầu mới đạt chỉ tiêu",
+    "cot_khac": null
+   }
+  ],
+  "loi": [
+   "goi_y|chung-viec-ket-thuc-tu-ngay-nop|Dòng 3 bảng \"KẾT QUẢ VÀ KẾ HOẠCH VIỆC TUẦN TỚI\": cột \"Kết thúc\" (25/09/2026) phải sau hoặc bằng ngày nộp báo cáo (28/09/2026)"
+  ]
+ },
+ "File test tuần 40 - mẫu bản 8/TEST NGƯỜI - Nậm Xe do người ngoài nộp.docx": {
+  "mau_ma": "form-8",
+  "dat": true,
+  "tu_do": false,
+  "don_vi_lap": "nm-namxe",
+  "gui_den": [
+   "p-ktvh"
+  ],
+  "ky": "tuan-40-2026",
+  "viec": [
+   {
+    "ten": "Nạo vét cửa nhận nước",
+    "bang": "bang_cong_viec",
+    "dong": 1,
+    "du_an": "NM Nậm Xe",
+    "bat_dau": "2026-09-28",
+    "ket_thuc": "2026-10-15",
+    "da_xong": false,
+    "phu_trach": [
+     "don_vi:nm-namxe"
+    ],
+    "kq": "Cửa nhận nước thông, lưu lượng đạt thiết kế",
+    "cot_khac": null
+   }
+  ],
+  "loi": []
+ },
+ "tuan39/BaoCao_HopNhat_Tuan39.docx": {
+  "mau_ma": "form-0",
+  "dat": true,
+  "tu_do": false,
+  "don_vi_lap": "ban-tgd",
+  "gui_den": [
+   "ban-tgd"
+  ],
+  "ky": "tuan-39-2026",
+  "viec": [
+   {
+    "ten": "Chi trả GPMB Trụ T11",
+    "bang": "bang_quyet_dinh",
+    "dong": 1,
+    "du_an": null,
+    "bat_dau": "2026-09-21",
+    "ket_thuc": null,
+    "da_xong": false,
+    "phu_trach": [
+     "don_vi:bqlda-qt",
+     "don_vi:p-dtpc"
+    ],
+    "kq": null,
+    "cot_khac": {
+     "uu_tien": "1",
+     "tai_lieu": "✅ Tờ trình BQLDA QT, biên bản làm việc với 3 hộ"
+    }
+   },
+   {
+    "ten": "Theo dõi tiến độ đập chính Nậm Mô 1",
+    "bang": "bang_cong_viec",
+    "dong": 1,
+    "du_an": "Nậm Mô 1",
+    "bat_dau": "2026-09-23",
+    "ket_thuc": "2026-11-02",
+    "da_xong": false,
+    "phu_trach": [
+     "don_vi:p-ktvh"
+    ],
+    "kq": "Đập chính đạt 90%",
+    "cot_khac": null
+   }
+  ],
+  "loi": []
+ },
+ "tuan39/BaoCao_Thang8_SCI_ENC.docx": {
+  "mau_ma": "form-6",
+  "dat": true,
+  "tu_do": false,
+  "don_vi_lap": "sci-enc",
+  "gui_den": [
+   "p-dtpc"
+  ],
+  "ky": "thang-8-2026",
+  "viec": [
+   {
+    "ten": "Đập chính Nậm Mô 1 đạt 90%",
+    "bang": "bang_cong_viec",
+    "dong": 1,
+    "du_an": null,
+    "bat_dau": "2026-08-01",
+    "ket_thuc": "2026-11-02",
+    "da_xong": false,
+    "phu_trach": [
+     "don_vi:sci-enc"
+    ],
+    "kq": "Đập chính đạt 90%",
+    "cot_khac": null
+   },
+   {
+    "ten": "Thu vốn đợt 5 Nậm Khiên 1",
+    "bang": "bang_cong_viec",
+    "dong": 2,
+    "du_an": null,
+    "bat_dau": "2026-08-01",
+    "ket_thuc": "2026-10-17",
+    "da_xong": false,
+    "phu_trach": [
+     "don_vi:sci-enc",
+     "don_vi:p-tckt"
+    ],
+    "kq": "Thu vốn đợt 5",
+    "cot_khac": null
+   },
+   {
+    "ten": "Lắp đặt turbine tổ máy 1 Nậm Mô 1",
+    "bang": "bang_cong_viec",
+    "dong": 3,
+    "du_an": null,
+    "bat_dau": "2026-08-01",
+    "ket_thuc": "2026-12-02",
+    "da_xong": false,
+    "phu_trach": [
+     "don_vi:sci-enc"
+    ],
+    "kq": "Turbine tổ máy 1 lắp xong",
+    "cot_khac": null
+   }
+  ],
+  "loi": []
+ },
+ "tuan39/BaoCao_Thang8_SCI_ENC_ban2.docx": {
+  "mau_ma": "form-6",
+  "dat": true,
+  "tu_do": false,
+  "don_vi_lap": "sci-enc",
+  "gui_den": [
+   "p-dtpc"
+  ],
+  "ky": "thang-8-2026",
+  "viec": [
+   {
+    "ten": "Đập chính Nậm Mô 1 đạt 90%",
+    "bang": "bang_cong_viec",
+    "dong": 1,
+    "du_an": null,
+    "bat_dau": "2026-08-01",
+    "ket_thuc": "2026-11-02",
+    "da_xong": false,
+    "phu_trach": [
+     "don_vi:sci-enc"
+    ],
+    "kq": "Đập chính đạt 90%",
+    "cot_khac": null
+   },
+   {
+    "ten": "Thu vốn đợt 5 Nậm Khiên 1",
+    "bang": "bang_cong_viec",
+    "dong": 2,
+    "du_an": null,
+    "bat_dau": "2026-08-01",
+    "ket_thuc": "2026-10-17",
+    "da_xong": false,
+    "phu_trach": [
+     "don_vi:sci-enc",
+     "don_vi:p-tckt"
+    ],
+    "kq": "Thu đủ 9,8 tỷ đồng (đã có biên bản nghiệm thu đợt 5)",
+    "cot_khac": null
+   },
+   {
+    "ten": "Lắp đặt turbine tổ máy 1 Nậm Mô 1",
+    "bang": "bang_cong_viec",
+    "dong": 3,
+    "du_an": null,
+    "bat_dau": "2026-08-01",
+    "ket_thuc": "2026-12-02",
+    "da_xong": false,
+    "phu_trach": [
+     "don_vi:sci-enc"
+    ],
+    "kq": "Turbine tổ máy 1 lắp xong",
+    "cot_khac": null
+   }
+  ],
+  "loi": []
+ },
+ "tuan39/BaoCao_Tuan39_BQLDA_QuangTri.docx": {
+  "mau_ma": "form-7",
+  "dat": true,
+  "tu_do": false,
+  "don_vi_lap": "bqlda-qt",
+  "gui_den": [
+   "p-dtpc"
+  ],
+  "ky": "tuan-39-2026",
+  "viec": [
+   {
+    "ten": "GPMB Trụ T11",
+    "bang": "bang_cong_viec",
+    "dong": 1,
+    "du_an": "ĐG Hướng Việt",
+    "bat_dau": "2026-09-23",
+    "ket_thuc": "2026-10-12",
+    "da_xong": false,
+    "phu_trach": [
+     "don_vi:bqlda-qt"
+    ],
+    "kq": "Thỏa thuận xong với 3 hộ còn lại",
+    "cot_khac": null
+   },
+   {
+    "ten": "Chuyển mục đích đất rừng T14–T16",
+    "bang": "bang_cong_viec",
+    "dong": 2,
+    "du_an": "ĐG Hướng Việt",
+    "bat_dau": "2026-09-21",
+    "ket_thuc": null,
+    "da_xong": false,
+    "phu_trach": [
+     "don_vi:bqlda-qt"
+    ],
+    "kq": "Có văn bản Sở NN&PTNT chuyển mục đích",
+    "cot_khac": null
+   },
+   {
+    "ten": "Thi công móng trụ T5–T8",
+    "bang": "bang_cong_viec",
+    "dong": 3,
+    "du_an": "ĐG Hướng Việt",
+    "bat_dau": "2026-09-07",
+    "ket_thuc": "2026-09-29",
+    "da_xong": false,
+    "phu_trach": [
+     "don_vi:bqlda-qt",
+     "don_vi:sci-enc"
+    ],
+    "kq": "Hoàn thành móng 4 trụ",
+    "cot_khac": null
+   }
+  ],
+  "loi": [
+   "canh_bao|ngay_trong|\"Chuyển mục đích đất rừng T14–T16\": không có ngày kết thúc — vào sổ cái là việc TREO (luôn mở, cảnh báo cho đến khi có hạn). Ghi ngày cụ thể hoặc \"N ngày sau khi xong <việc>\""
+  ]
+ },
+ "tuan39/BaoCao_Tuan39_BQLDA_QuangTri_thieu-nguoi-lap.docx": {
+  "mau_ma": "form-7",
+  "dat": true,
+  "tu_do": false,
+  "don_vi_lap": "bqlda-qt",
+  "gui_den": [
+   "p-dtpc"
+  ],
+  "ky": "tuan-39-2026",
+  "viec": [
+   {
+    "ten": "GPMB Trụ T11",
+    "bang": "bang_cong_viec",
+    "dong": 1,
+    "du_an": "ĐG Hướng Việt",
+    "bat_dau": "2026-09-23",
+    "ket_thuc": "2026-10-12",
+    "da_xong": false,
+    "phu_trach": [
+     "don_vi:bqlda-qt"
+    ],
+    "kq": "Thỏa thuận xong với 3 hộ còn lại",
+    "cot_khac": null
+   },
+   {
+    "ten": "Chuyển mục đích đất rừng T14–T16",
+    "bang": "bang_cong_viec",
+    "dong": 2,
+    "du_an": "ĐG Hướng Việt",
+    "bat_dau": "2026-09-21",
+    "ket_thuc": null,
+    "da_xong": false,
+    "phu_trach": [
+     "don_vi:bqlda-qt"
+    ],
+    "kq": "Có văn bản Sở NN&PTNT chuyển mục đích",
+    "cot_khac": null
+   },
+   {
+    "ten": "Thi công móng trụ T5–T8",
+    "bang": "bang_cong_viec",
+    "dong": 3,
+    "du_an": "ĐG Hướng Việt",
+    "bat_dau": "2026-09-07",
+    "ket_thuc": "2026-09-29",
+    "da_xong": false,
+    "phu_trach": [
+     "don_vi:bqlda-qt",
+     "don_vi:sci-enc"
+    ],
+    "kq": "Hoàn thành móng 4 trụ",
+    "cot_khac": null
+   }
+  ],
+  "loi": [
+   "canh_bao|ngay_trong|\"Chuyển mục đích đất rừng T14–T16\": không có ngày kết thúc — vào sổ cái là việc TREO (luôn mở, cảnh báo cho đến khi có hạn). Ghi ngày cụ thể hoặc \"N ngày sau khi xong <việc>\""
+  ]
+ },
+ "tuan39/BaoCao_Tuan39_NM_NamXe.docx": {
+  "mau_ma": "form-8",
+  "dat": true,
+  "tu_do": false,
+  "don_vi_lap": "nm-namxe",
+  "gui_den": [
+   "p-ktvh"
+  ],
+  "ky": "tuan-39-2026",
+  "viec": [
+   {
+    "ten": "Thay relay bảo vệ R21 máy phát TM2",
+    "bang": "bang_cong_viec",
+    "dong": 1,
+    "du_an": "NM Nậm Xe",
+    "bat_dau": "2026-09-24",
+    "ket_thuc": "2026-10-07",
+    "da_xong": false,
+    "phu_trach": [
+     "don_vi:nm-namxe"
+    ],
+    "kq": "Relay mới vận hành, thí nghiệm đạt",
+    "cot_khac": null
+   },
+   {
+    "ten": "Nạo vét cửa nhận nước",
+    "bang": "bang_cong_viec",
+    "dong": 2,
+    "du_an": "NM Nậm Xe",
+    "bat_dau": "2026-09-30",
+    "ket_thuc": "2026-10-17",
+    "da_xong": false,
+    "phu_trach": [
+     "don_vi:nm-namxe"
+    ],
+    "kq": "Cửa nhận nước thông thoáng",
+    "cot_khac": null
+   }
+  ],
+  "loi": []
+ },
+ "tuan39/BaoCao_Tuan39_PDTPC.docx": {
+  "mau_ma": "form-1",
+  "dat": true,
+  "tu_do": false,
+  "don_vi_lap": "p-dtpc",
+  "gui_den": [
+   "ban-tgd"
+  ],
+  "ky": "tuan-39-2026",
+  "viec": [
+   {
+    "ten": "GPMB Trụ T11",
+    "bang": "bang_cong_viec",
+    "dong": 1,
+    "du_an": "ĐG Hướng Việt",
+    "bat_dau": "2026-09-23",
+    "ket_thuc": "2026-10-17",
+    "da_xong": false,
+    "phu_trach": [
+     "don_vi:bqlda-qt",
+     "don_vi:p-dtpc"
+    ],
+    "kq": "Chi trả xong cho 3 hộ",
+    "cot_khac": null
+   },
+   {
+    "ten": "Gia hạn GPXD Nậm Khiên 1",
+    "bang": "bang_cong_viec",
+    "dong": 2,
+    "du_an": "Nậm Khiên 1",
+    "bat_dau": "2026-09-23",
+    "ket_thuc": "2026-10-22",
+    "da_xong": false,
+    "phu_trach": [
+     "don_vi:p-dtpc"
+    ],
+    "kq": "Có giấy phép gia hạn",
+    "cot_khac": null
+   }
+  ],
+  "loi": []
+ },
+ "tuan39/BaoCao_Tuan39_PHCTH.docx": {
+  "mau_ma": "form-3",
+  "dat": true,
+  "tu_do": false,
+  "don_vi_lap": "p-hcth",
+  "gui_den": [
+   "ban-tgd"
+  ],
+  "ky": "tuan-39-2026",
+  "viec": [
+   {
+    "ten": "Tổ chức hội nghị tổng kết quý",
+    "bang": "bang_cong_viec",
+    "dong": 1,
+    "du_an": "Công ty",
+    "bat_dau": "2026-09-23",
+    "ket_thuc": "2026-10-02",
+    "da_xong": false,
+    "phu_trach": [
+     "don_vi:p-hcth"
+    ],
+    "kq": "Hội nghị diễn ra, có biên bản",
+    "cot_khac": null
+   },
+   {
+    "ten": "Mua sắm thiết bị văn phòng quý tới",
+    "bang": "bang_cong_viec",
+    "dong": 2,
+    "du_an": "Công ty",
+    "bat_dau": "2026-09-21",
+    "ket_thuc": null,
+    "da_xong": false,
+    "phu_trach": [
+     "don_vi:p-hcth"
+    ],
+    "kq": "Thiết bị bàn giao đủ",
+    "cot_khac": null
+   }
+  ],
+  "loi": [
+   "canh_bao|ngay_trong|\"Mua sắm thiết bị văn phòng quý tới\": không có ngày kết thúc — vào sổ cái là việc TREO (luôn mở, cảnh báo cho đến khi có hạn). Ghi ngày cụ thể hoặc \"N ngày sau khi xong <việc>\""
+  ]
+ },
+ "tuan39/BaoCao_Tuan39_PKTVH.docx": {
+  "mau_ma": "form-2",
+  "dat": true,
+  "tu_do": false,
+  "don_vi_lap": "p-ktvh",
+  "gui_den": [
+   "ban-tgd"
+  ],
+  "ky": "tuan-39-2026",
+  "viec": [
+   {
+    "ten": "Thay relay bảo vệ R21 máy phát TM2",
+    "bang": "bang_cong_viec",
+    "dong": 1,
+    "du_an": "NM Nậm Xe",
+    "bat_dau": "2026-09-24",
+    "ket_thuc": "2026-10-10",
+    "da_xong": false,
+    "phu_trach": [
+     "don_vi:nm-namxe",
+     "don_vi:p-ktvh"
+    ],
+    "kq": "Relay mới vận hành, có biên bản thí nghiệm",
+    "cot_khac": null
+   },
+   {
+    "ten": "Kế hoạch vận hành mùa khô",
+    "bang": "bang_cong_viec",
+    "dong": 2,
+    "du_an": "NM Nậm Xe",
+    "bat_dau": "2026-09-23",
+    "ket_thuc": "2026-11-02",
+    "da_xong": false,
+    "phu_trach": [
+     "don_vi:p-ktvh"
+    ],
+    "kq": "Kế hoạch được TGĐ duyệt",
+    "cot_khac": null
+   }
+  ],
+  "loi": []
+ },
+ "tuan39/BaoCao_Tuan39_PTCKT.docx": {
+  "mau_ma": "form-4",
+  "dat": true,
+  "tu_do": false,
+  "don_vi_lap": "p-tckt",
+  "gui_den": [
+   "ban-tgd"
+  ],
+  "ky": "tuan-39-2026",
+  "viec": [
+   {
+    "ten": "Thu vốn đợt 5 Nậm Khiên 1",
+    "bang": "bang_cong_viec",
+    "dong": 1,
+    "du_an": "Nậm Khiên 1",
+    "bat_dau": "2026-09-23",
+    "ket_thuc": "2026-10-14",
+    "da_xong": false,
+    "phu_trach": [
+     "don_vi:p-tckt",
+     "don_vi:sci-enc"
+    ],
+    "kq": "Thu đủ 9,8 tỷ đồng",
+    "cot_khac": null
+   },
+   {
+    "ten": "Quyết toán thuế quý",
+    "bang": "bang_cong_viec",
+    "dong": 2,
+    "du_an": "Công ty",
+    "bat_dau": "2026-10-03",
+    "ket_thuc": "2026-10-22",
+    "da_xong": false,
+    "phu_trach": [
+     "don_vi:p-tckt"
+    ],
+    "kq": "Tờ khai quyết toán nộp đúng hạn",
+    "cot_khac": null
+   }
+  ],
+  "loi": []
+ },
+ "tuan39/BaoCao_Tuan39_SCI_PMC.docx": {
+  "mau_ma": "form-5",
+  "dat": false,
+  "tu_do": false,
+  "don_vi_lap": "sci-pmc",
+  "gui_den": [
+   "p-dtpc"
+  ],
+  "ky": "tuan-39-2026",
+  "viec": [
+   {
+    "ten": "Giám sát thi công Nậm Mô 1 tháng tới",
+    "bang": "bang_cong_viec",
+    "dong": 1,
+    "du_an": "Nậm Mô 1",
+    "bat_dau": "2026-10-03",
+    "ket_thuc": "2026-11-02",
+    "da_xong": false,
+    "phu_trach": [
+     "don_vi:sci-pmc"
+    ],
+    "kq": "Báo cáo giám sát tháng",
+    "cot_khac": null
+   },
+   {
+    "ten": "Nghiệm thu đập chính Nậm Khiên 1 giai đoạn 2",
+    "bang": "bang_cong_viec",
+    "dong": 2,
+    "du_an": "Nậm Khiên 1",
+    "bat_dau": "2026-09-12",
+    "ket_thuc": "2026-09-22",
+    "da_xong": false,
+    "phu_trach": [
+     "don_vi:sci-pmc"
+    ],
+    "kq": "Biên bản nghiệm thu giai đoạn 2",
+    "cot_khac": null
+   },
+   {
+    "ten": "Thiết kế Cơ sở (TKCS) — hồ sơ chính nộp BộCT thẩm định",
+    "bang": "bang_tien_do_tk",
+    "dong": 1,
+    "du_an": "ĐG Hướng Việt",
+    "bat_dau": "2026-09-21",
+    "ket_thuc": "2026-09-02",
+    "da_xong": false,
+    "phu_trach": [
+     "don_vi:sci-pmc"
+    ],
+    "kq": null,
+    "cot_khac": {
+     "tien_do": "90%",
+     "ghi_chu": "BộCT đang thẩm định — dự kiến phê duyệt T9/2026"
+    }
+   },
+   {
+    "ten": "Phương án đấu nối 110kV (bổ sung theo y/c Cục ĐTĐL)",
+    "bang": "bang_tien_do_tk",
+    "dong": 2,
+    "du_an": "ĐG Hướng Việt",
+    "bat_dau": "2026-09-21",
+    "ket_thuc": "2026-08-05",
+    "da_xong": false,
+    "phu_trach": [
+     "don_vi:sci-pmc"
+    ],
+    "kq": null,
+    "cot_khac": {
+     "tien_do": "70%",
+     "ghi_chu": "Đang hoàn thiện — gửi BộCT trước 05/08/2026"
+    }
+   },
+   {
+    "ten": "Cập nhật bản vẽ tổng mặt bằng (vị trí turbin T12–T15)",
+    "bang": "bang_tien_do_tk",
+    "dong": 3,
+    "du_an": "ĐG Hướng Việt",
+    "bat_dau": "2026-09-21",
+    "ket_thuc": "2026-07-30",
+    "da_xong": false,
+    "phu_trach": [
+     "don_vi:sci-pmc"
+    ],
+    "kq": null,
+    "cot_khac": {
+     "tien_do": "85%",
+     "ghi_chu": "Dự thảo gửi BQLDA QT 22/07 — chờ BQLDA xác nhận"
+    }
+   },
+   {
+    "ten": "Khảo sát địa hình, địa chất",
+    "bang": "bang_tien_do_tk",
+    "dong": 4,
+    "du_an": "ĐG Tân Thành",
+    "bat_dau": "2026-09-21",
+    "ket_thuc": "2026-06-17",
+    "da_xong": true,
+    "phu_trach": [
+     "don_vi:sci-pmc"
+    ],
+    "kq": null,
+    "cot_khac": {
+     "tien_do": "100%",
+     "ghi_chu": "Báo cáo KS đã bàn giao cho CĐT 10/06/2026"
+    }
+   },
+   {
+    "ten": "Báo cáo FS — phần nguồn tài nguyên (gió & thủy văn)",
+    "bang": "bang_tien_do_tk",
+    "dong": 5,
+    "du_an": "ĐG Tân Thành",
+    "bat_dau": "2026-09-21",
+    "ket_thuc": "2026-08-20",
+    "da_xong": false,
+    "phu_trach": [
+     "don_vi:sci-pmc"
+    ],
+    "kq": null,
+    "cot_khac": {
+     "tien_do": "60%",
+     "ghi_chu": "Đang xử lý số liệu — thiếu quan trắc gió T6 (bổ sung T8)"
+    }
+   },
+   {
+    "ten": "Báo cáo FS — phần kinh tế kỹ thuật & tài chính",
+    "bang": "bang_tien_do_tk",
+    "dong": 6,
+    "du_an": "ĐG Tân Thành",
+    "bat_dau": "2026-09-21",
+    "ket_thuc": "2026-08-28",
+    "da_xong": false,
+    "phu_trach": [
+     "don_vi:sci-pmc"
+    ],
+    "kq": null,
+    "cot_khac": {
+     "tien_do": "40%",
+     "ghi_chu": "Chờ kết quả tài nguyên để tính phương án tài chính"
+    }
+   },
+   {
+    "ten": "Báo cáo Nghiên cứu khả thi (FS) — tổng hợp & trình ký",
+    "bang": "bang_tien_do_tk",
+    "dong": 7,
+    "du_an": "ĐG Tân Thành",
+    "bat_dau": "2026-09-21",
+    "ket_thuc": "2026-08-30",
+    "da_xong": false,
+    "phu_trach": [
+     "don_vi:sci-pmc"
+    ],
+    "kq": null,
+    "cot_khac": {
+     "tien_do": "65%",
+     "ghi_chu": "Dự kiến HT 30/08 — nộp Sở ĐT&ĐK tỉnh QT T9/2026"
+    }
+   },
+   {
+    "ten": "Tiền MB + lập Thuyết minh Bản vẽ (TMB) — nộp tỉnh Quảng Trị",
+    "bang": "bang_tien_do_tk",
+    "dong": 8,
+    "du_an": "ĐG Ba Tầng",
+    "bat_dau": "2026-09-21",
+    "ket_thuc": "2026-05-17",
+    "da_xong": true,
+    "phu_trach": [
+     "don_vi:sci-pmc"
+    ],
+    "kq": null,
+    "cot_khac": {
+     "tien_do": "100%",
+     "ghi_chu": "TMB đã nộp UBND tỉnh QT T5/2026 — chờ phản hồi (đã 2 tháng)"
+    }
+   },
+   {
+    "ten": "Theo dõi xét duyệt chủ trương đầu tư — UBND tỉnh QT",
+    "bang": "bang_tien_do_tk",
+    "dong": 9,
+    "du_an": "ĐG Ba Tầng",
+    "bat_dau": "2026-09-21",
+    "ket_thuc": null,
+    "da_xong": false,
+    "phu_trach": [
+     "don_vi:sci-pmc"
+    ],
+    "kq": null,
+    "cot_khac": {
+     "tien_do": "0%",
+     "ghi_chu": "Chưa có phản hồi — kiến nghị TGĐ có công văn nhắc nhở"
+    }
+   },
+   {
+    "ten": "Khảo sát địa hình & đo đạc tọa độ thực địa",
+    "bang": "bang_tien_do_tk",
+    "dong": 10,
+    "du_an": "TĐ Nam Khiên 1",
+    "bat_dau": "2026-09-21",
+    "ket_thuc": "2026-09-17",
+    "da_xong": false,
+    "phu_trach": [
+     "don_vi:sci-pmc"
+    ],
+    "kq": null,
+    "cot_khac": {
+     "tien_do": "50%",
+     "ghi_chu": "Đội KS thực địa đang đo vẽ — dự kiến xong T9/2026"
+    }
+   },
+   {
+    "ten": "Khảo sát thủy văn, đo lưu lượng thực tế",
+    "bang": "bang_tien_do_tk",
+    "dong": 11,
+    "du_an": "TĐ Nam Khiên 1",
+    "bat_dau": "2026-09-21",
+    "ket_thuc": "2026-09-17",
+    "da_xong": false,
+    "phu_trach": [
+     "don_vi:sci-pmc"
+    ],
+    "kq": null,
+    "cot_khac": {
+     "tien_do": "30%",
+     "ghi_chu": "Mùa lũ ảnh hưởng đo đạc — đã điều chỉnh tiến độ sang T9"
+    }
+   },
+   {
+    "ten": "Khảo sát địa hình & đo đạc tọa độ thực địa",
+    "bang": "bang_tien_do_tk",
+    "dong": 12,
+    "du_an": "TĐ Nam Khiên 2",
+    "bat_dau": "2026-09-21",
+    "ket_thuc": "2026-09-17",
+    "da_xong": false,
+    "phu_trach": [
+     "don_vi:sci-pmc"
+    ],
+    "kq": null,
+    "cot_khac": {
+     "tien_do": "40%",
+     "ghi_chu": "Địa hình phức tạp — chậm hơn kế hoạch ~1 tuần"
+    }
+   },
+   {
+    "ten": "Khảo sát thủy văn, đo lưu lượng thực tế",
+    "bang": "bang_tien_do_tk",
+    "dong": 13,
+    "du_an": "TĐ Nam Khiên 2",
+    "bat_dau": "2026-09-21",
+    "ket_thuc": "2026-09-17",
+    "da_xong": false,
+    "phu_trach": [
+     "don_vi:sci-pmc"
+    ],
+    "kq": null,
+    "cot_khac": {
+     "tien_do": "25%",
+     "ghi_chu": "Triển khai song song NK1 — ưu tiên nguồn lực NK1 trước"
+    }
+   },
+   {
+    "ten": "Đề xuất sơ bộ vị trí công trình đầu mối & hướng tuyến",
+    "bang": "bang_tien_do_tk",
+    "dong": 14,
+    "du_an": "TĐ Nam Khiên 3",
+    "bat_dau": "2026-09-21",
+    "ket_thuc": null,
+    "da_xong": false,
+    "phu_trach": [
+     "don_vi:sci-pmc"
+    ],
+    "kq": null,
+    "cot_khac": {
+     "tien_do": "10%",
+     "ghi_chu": "Chờ văn bản chủ trương từ Bộ Năng lượng & Mỏ Lào"
+    }
+   },
+   {
+    "ten": "Xin chủ trương chính thức phía Lào (qua kênh Ban GĐ SCI Corp)",
+    "bang": "bang_tien_do_tk",
+    "dong": 15,
+    "du_an": "TĐ Nam Khiên 3",
+    "bat_dau": "2026-09-21",
+    "ket_thuc": "2026-08-31",
+    "da_xong": false,
+    "phu_trach": [
+     "don_vi:sci-pmc"
+    ],
+    "kq": null,
+    "cot_khac": {
+     "tien_do": "5%",
+     "ghi_chu": "Chưa có văn bản — đề nghị Ban GĐ làm việc với Bộ NL Lào T8/2026"
+    }
+   }
+  ],
+  "loi": [
+   "chan|ngay_hop_le|\"Thiết kế Cơ sở (TKCS) — hồ sơ chính nộp BộCT thẩm định\": hạn 02/09/2026 đã qua trước ngày nộp báo cáo 21/09/2026 — ghi ngày mới vào cột \"Ngày kế hoạch\", hoặc ghi \"% HT\" 100% nếu hạng mục đã xong",
+   "chan|ngay_hop_le|\"Phương án đấu nối 110kV (bổ sung theo y/c Cục ĐTĐL)\": hạn 05/08/2026 đã qua trước ngày nộp báo cáo 21/09/2026 — ghi ngày mới vào cột \"Ngày kế hoạch\", hoặc ghi \"% HT\" 100% nếu hạng mục đã xong",
+   "chan|ngay_hop_le|\"Cập nhật bản vẽ tổng mặt bằng (vị trí turbin T12–T15)\": hạn 30/07/2026 đã qua trước ngày nộp báo cáo 21/09/2026 — ghi ngày mới vào cột \"Ngày kế hoạch\", hoặc ghi \"% HT\" 100% nếu hạng mục đã xong",
+   "chan|ngay_hop_le|\"Báo cáo FS — phần nguồn tài nguyên (gió & thủy văn)\": hạn 20/08/2026 đã qua trước ngày nộp báo cáo 21/09/2026 — ghi ngày mới vào cột \"Ngày kế hoạch\", hoặc ghi \"% HT\" 100% nếu hạng mục đã xong",
+   "chan|ngay_hop_le|\"Báo cáo FS — phần kinh tế kỹ thuật & tài chính\": hạn 28/08/2026 đã qua trước ngày nộp báo cáo 21/09/2026 — ghi ngày mới vào cột \"Ngày kế hoạch\", hoặc ghi \"% HT\" 100% nếu hạng mục đã xong",
+   "chan|ngay_hop_le|\"Báo cáo Nghiên cứu khả thi (FS) — tổng hợp & trình ký\": hạn 30/08/2026 đã qua trước ngày nộp báo cáo 21/09/2026 — ghi ngày mới vào cột \"Ngày kế hoạch\", hoặc ghi \"% HT\" 100% nếu hạng mục đã xong",
+   "canh_bao|ngay_trong|\"Theo dõi xét duyệt chủ trương đầu tư — UBND tỉnh QT\": không có ngày kết thúc — vào sổ cái là việc TREO (luôn mở, cảnh báo cho đến khi có hạn). Ghi ngày cụ thể hoặc \"N ngày sau khi xong <việc>\"",
+   "chan|ngay_hop_le|\"Khảo sát địa hình & đo đạc tọa độ thực địa\": hạn 17/09/2026 đã qua trước ngày nộp báo cáo 21/09/2026 — ghi ngày mới vào cột \"Ngày kế hoạch\", hoặc ghi \"% HT\" 100% nếu hạng mục đã xong",
+   "chan|ngay_hop_le|\"Khảo sát thủy văn, đo lưu lượng thực tế\": hạn 17/09/2026 đã qua trước ngày nộp báo cáo 21/09/2026 — ghi ngày mới vào cột \"Ngày kế hoạch\", hoặc ghi \"% HT\" 100% nếu hạng mục đã xong",
+   "chan|ngay_hop_le|\"Khảo sát địa hình & đo đạc tọa độ thực địa\": hạn 17/09/2026 đã qua trước ngày nộp báo cáo 21/09/2026 — ghi ngày mới vào cột \"Ngày kế hoạch\", hoặc ghi \"% HT\" 100% nếu hạng mục đã xong",
+   "chan|ngay_hop_le|\"Khảo sát thủy văn, đo lưu lượng thực tế\": hạn 17/09/2026 đã qua trước ngày nộp báo cáo 21/09/2026 — ghi ngày mới vào cột \"Ngày kế hoạch\", hoặc ghi \"% HT\" 100% nếu hạng mục đã xong",
+   "canh_bao|ngay_trong|\"Đề xuất sơ bộ vị trí công trình đầu mối & hướng tuyến\": không có ngày kết thúc — vào sổ cái là việc TREO (luôn mở, cảnh báo cho đến khi có hạn). Ghi ngày cụ thể hoặc \"N ngày sau khi xong <việc>\"",
+   "chan|ngay_hop_le|\"Xin chủ trương chính thức phía Lào (qua kênh Ban GĐ SCI Corp)\": hạn 31/08/2026 đã qua trước ngày nộp báo cáo 21/09/2026 — ghi ngày mới vào cột \"Ngày kế hoạch\", hoặc ghi \"% HT\" 100% nếu hạng mục đã xong"
+  ]
+ },
+ "goc/Form10_BanDieuHanhTongThau.docx": {
+  "mau_ma": "form-10",
+  "dat": false,
+  "tu_do": false,
+  "don_vi_lap": "p-dtpc",
+  "gui_den": [
+   "ban-tgd"
+  ],
+  "ky": "tuan-29-2026",
+  "viec": [],
+  "loi": [
+   "goi_y|dung_mau|File Word gốc (chưa có ô nhập): hệ thống tự nhận là Báo cáo Ban điều hành tổng thầu thi công (Form 10) và tự gắn ô nhập. Lần sau dùng mẫu Excel ở màn «Mẫu báo cáo» (từ 22/10/2026 nộp mới chỉ nhận .xlsx).",
+   "chan|dung_mau|Chưa nhận ra đơn vị nộp báo cáo: dòng dưới tiêu đề \"BÁO CÁO …\" đang ghi \"BAN ĐIỀU HÀNH DỰ ÁN …….\" — ghi đúng tên đơn vị (vd \"NM Hướng Linh 7\"). Báo cáo Ban điều hành tổng thầu thi công (Form 10) dùng chung cho nhiều đơn vị nên máy cần tên này để biết báo cáo của ai",
+   "chan|bang_viec_trong|Bảng \"V. KẾT QUẢ VÀ KẾ HOẠCH VIỆC TUẦN TỚI\" chưa có việc nào — báo cáo phải ghi việc đã làm trong kỳ (kèm tình hình) và kế hoạch kỳ tới. Ghi ít nhất một việc có tên rồi tải lại"
+  ]
+ },
+ "goc/OK_Form0_BaoCaoHopNhat_Sua lan 2.docx": {
+  "mau_ma": "form-0",
+  "dat": false,
+  "tu_do": false,
+  "don_vi_lap": "ban-tgd",
+  "gui_den": [
+   "ban-tgd"
+  ],
+  "ky": "tuan-30-2026",
+  "viec": [
+   {
+    "ten": "Phê duyệt Điều chỉnh Tổng mức đầu tư Dự án Nậm Khiên 1",
+    "bang": "bang_quyet_dinh",
+    "dong": 1,
+    "du_an": null,
+    "bat_dau": "2026-07-20",
+    "ket_thuc": null,
+    "da_xong": false,
+    "phu_trach": [
+     "don_vi:p-dtpc"
+    ],
+    "kq": null,
+    "cot_khac": {
+     "uu_tien": "1",
+     "tai_lieu": "✅ Tờ trình 12/2026/TTr-BQLNK1 (đính kèm)\n✅ Bảng so sánh TMĐT ban đầu vs điều chỉnh"
+    }
+   },
+   {
+    "ten": "Quyết định PDA cụm dự án Lào: gia hạn hoặc dừng chi phí",
+    "bang": "bang_quyet_dinh",
+    "dong": 2,
+    "du_an": null,
+    "bat_dau": "2026-07-20",
+    "ket_thuc": null,
+    "da_xong": false,
+    "phu_trach": [
+     "don_vi:p-dtpc"
+    ],
+    "kq": null,
+    "cot_khac": {
+     "uu_tien": "2",
+     "tai_lieu": "✅ Phân tích chi phí-lợi ích gia hạn vs thoái vốn"
+    }
+   },
+   {
+    "ten": "Ký Công văn gửi UBND huyện Hướng Hóa đôn đốc GPMB Hướng Việt",
+    "bang": "bang_quyet_dinh",
+    "dong": 3,
+    "du_an": null,
+    "bat_dau": "2026-07-20",
+    "ket_thuc": null,
+    "da_xong": false,
+    "phu_trach": [
+     "don_vi:bqlda-qt",
+     "don_vi:p-dtpc"
+    ],
+    "kq": null,
+    "cot_khac": {
+     "uu_tien": "3",
+     "tai_lieu": "✅ Dự thảo CV đã soạn — TGĐ ký và đóng dấu"
+    }
+   },
+   {
+    "ten": "Chủ trương xử lý thiếu vốn lưu động 12,3 tỷ đồng",
+    "bang": "bang_quyet_dinh",
+    "dong": 4,
+    "du_an": null,
+    "bat_dau": "2026-07-20",
+    "ket_thuc": null,
+    "da_xong": false,
+    "phu_trach": [
+     "don_vi:p-tckt"
+    ],
+    "kq": null,
+    "cot_khac": {
+     "uu_tien": "5",
+     "tai_lieu": "✅ Phương án vay nội bộ / điều chuyển 50 tỷ (P. TC&KT trình)"
+    }
+   },
+   {
+    "ten": "Phê duyệt danh sách khen thưởng Sơ kết 6 tháng đầu năm 2026",
+    "bang": "bang_quyet_dinh",
+    "dong": 5,
+    "du_an": null,
+    "bat_dau": "2026-07-20",
+    "ket_thuc": null,
+    "da_xong": false,
+    "phu_trach": [
+     "don_vi:p-hcth"
+    ],
+    "kq": null,
+    "cot_khac": {
+     "uu_tien": "6",
+     "tai_lieu": "→ P. HCTH trình danh sách trước 22/07 để TGĐ ký"
+    }
+   }
+  ],
+  "loi": [
+   "goi_y|dung_mau|File Word gốc (chưa có ô nhập): hệ thống tự nhận là Báo cáo hợp nhất trình TGĐ (Form 0) và tự gắn ô nhập. Lần sau dùng mẫu Excel ở màn «Mẫu báo cáo» (từ 22/10/2026 nộp mới chỉ nhận .xlsx).",
+   "canh_bao|ten_viec|\"Phê duyệt Điều chỉnh Tổng mức đầu tư Dự án Nậm Khiên 1\": không nhận ra người/đơn vị phụ trách \"BQLDA Nậm Khiên 1\"",
+   "chan|bang_viec_trong|Bảng \"VI. KẾT QUẢ VÀ KẾ HOẠCH VIỆC TUẦN TỚI\" chưa có việc nào — báo cáo phải ghi việc đã làm trong kỳ (kèm tình hình) và kế hoạch kỳ tới. Ghi ít nhất một việc có tên rồi tải lại"
+  ]
+ },
+ "goc/OK_Form1_PhongDauTuPhapChe_Sua lan 2.docx": {
+  "mau_ma": "form-1",
+  "dat": false,
+  "tu_do": false,
+  "don_vi_lap": "p-dtpc",
+  "gui_den": [
+   "ban-tgd"
+  ],
+  "ky": "tuan-29-2026",
+  "viec": [],
+  "loi": [
+   "goi_y|dung_mau|File Word gốc (chưa có ô nhập): hệ thống tự nhận là Báo cáo Phòng Đầu tư và Pháp chế (Form 1) và tự gắn ô nhập. Lần sau dùng mẫu Excel ở màn «Mẫu báo cáo» (từ 22/10/2026 nộp mới chỉ nhận .xlsx).",
+   "chan|bang_viec_trong|Bảng \"III. KẾT QUẢ VÀ KẾ HOẠCH VIỆC TUẦN TỚI\" chưa có việc nào — báo cáo phải ghi việc đã làm trong kỳ (kèm tình hình) và kế hoạch kỳ tới. Ghi ít nhất một việc có tên rồi tải lại"
+  ]
+ },
+ "goc/OK_Form2_PhongKinhTeVanHanh_Sua lan 2.docx": {
+  "mau_ma": "form-2",
+  "dat": false,
+  "tu_do": false,
+  "don_vi_lap": "p-ktvh",
+  "gui_den": [
+   "ban-tgd"
+  ],
+  "ky": "tuan-29-2026",
+  "viec": [],
+  "loi": [
+   "goi_y|dung_mau|File Word gốc (chưa có ô nhập): hệ thống tự nhận là Báo cáo Phòng Kinh tế và Vận hành (Form 2) và tự gắn ô nhập. Lần sau dùng mẫu Excel ở màn «Mẫu báo cáo» (từ 22/10/2026 nộp mới chỉ nhận .xlsx).",
+   "chan|bang_viec_trong|Bảng \"IV. KẾT QUẢ VÀ KẾ HOẠCH VIỆC TUẦN TỚI\" chưa có việc nào — báo cáo phải ghi việc đã làm trong kỳ (kèm tình hình) và kế hoạch kỳ tới. Ghi ít nhất một việc có tên rồi tải lại"
+  ]
+ },
+ "goc/OK_Form3_PhongHanhChinh_Sua lan 2.docx": {
+  "mau_ma": "form-3",
+  "dat": false,
+  "tu_do": false,
+  "don_vi_lap": "p-hcth",
+  "gui_den": [
+   "ban-tgd"
+  ],
+  "ky": "tuan-29-2026",
+  "viec": [],
+  "loi": [
+   "goi_y|dung_mau|File Word gốc (chưa có ô nhập): hệ thống tự nhận là Báo cáo Phòng Hành chính Tổng hợp (Form 3) và tự gắn ô nhập. Lần sau dùng mẫu Excel ở màn «Mẫu báo cáo» (từ 22/10/2026 nộp mới chỉ nhận .xlsx).",
+   "chan|bang_viec_trong|Bảng \"III. KẾT QUẢ VÀ KẾ HOẠCH VIỆC TUẦN TỚI\" chưa có việc nào — báo cáo phải ghi việc đã làm trong kỳ (kèm tình hình) và kế hoạch kỳ tới. Ghi ít nhất một việc có tên rồi tải lại"
+  ]
+ },
+ "goc/OK_Form4_PhongTaiChinhKeToan_Sua lan 2.docx": {
+  "mau_ma": "form-4",
+  "dat": false,
+  "tu_do": false,
+  "don_vi_lap": "p-tckt",
+  "gui_den": [
+   "ban-tgd"
+  ],
+  "ky": "tuan-29-2026",
+  "viec": [],
+  "loi": [
+   "goi_y|dung_mau|File Word gốc (chưa có ô nhập): hệ thống tự nhận là Báo cáo Phòng Tài chính Kế toán (Form 4) và tự gắn ô nhập. Lần sau dùng mẫu Excel ở màn «Mẫu báo cáo» (từ 22/10/2026 nộp mới chỉ nhận .xlsx).",
+   "chan|bang_viec_trong|Bảng \"V. KẾT QUẢ VÀ KẾ HOẠCH VIỆC TUẦN TỚI\" chưa có việc nào — báo cáo phải ghi việc đã làm trong kỳ (kèm tình hình) và kế hoạch kỳ tới. Ghi ít nhất một việc có tên rồi tải lại"
+  ]
+ },
+ "goc/OK_Form5_SCI_PMC_Sua lan 2.docx": {
+  "mau_ma": "form-5",
+  "dat": false,
+  "tu_do": false,
+  "don_vi_lap": "sci-pmc",
+  "gui_den": [
+   "p-dtpc"
+  ],
+  "ky": "tuan-29-2026",
+  "viec": [
+   {
+    "ten": "Thiết kế Cơ sở (TKCS) — hồ sơ chính nộp BộCT thẩm định",
+    "bang": "bang_tien_do_tk",
+    "dong": 1,
+    "du_an": "ĐG Hướng Việt",
+    "bat_dau": "2026-07-13",
+    "ket_thuc": "2026-09-02",
+    "da_xong": false,
+    "phu_trach": [
+     "don_vi:sci-pmc"
+    ],
+    "kq": null,
+    "cot_khac": {
+     "tien_do": "90%",
+     "ghi_chu": "BộCT đang thẩm định — dự kiến phê duyệt T9/2026"
+    }
+   },
+   {
+    "ten": "Phương án đấu nối 110kV (bổ sung theo y/c Cục ĐTĐL)",
+    "bang": "bang_tien_do_tk",
+    "dong": 2,
+    "du_an": "ĐG Hướng Việt",
+    "bat_dau": "2026-07-13",
+    "ket_thuc": "2026-08-05",
+    "da_xong": false,
+    "phu_trach": [
+     "don_vi:sci-pmc"
+    ],
+    "kq": null,
+    "cot_khac": {
+     "tien_do": "70%",
+     "ghi_chu": "Đang hoàn thiện — gửi BộCT trước 05/08/2026"
+    }
+   },
+   {
+    "ten": "Cập nhật bản vẽ tổng mặt bằng (vị trí turbin T12–T15)",
+    "bang": "bang_tien_do_tk",
+    "dong": 3,
+    "du_an": "ĐG Hướng Việt",
+    "bat_dau": "2026-07-13",
+    "ket_thuc": "2026-07-30",
+    "da_xong": false,
+    "phu_trach": [
+     "don_vi:sci-pmc"
+    ],
+    "kq": null,
+    "cot_khac": {
+     "tien_do": "85%",
+     "ghi_chu": "Dự thảo gửi BQLDA QT 22/07 — chờ BQLDA xác nhận"
+    }
+   },
+   {
+    "ten": "Khảo sát địa hình, địa chất",
+    "bang": "bang_tien_do_tk",
+    "dong": 4,
+    "du_an": "ĐG Tân Thành",
+    "bat_dau": "2026-07-13",
+    "ket_thuc": "2026-06-17",
+    "da_xong": true,
+    "phu_trach": [
+     "don_vi:sci-pmc"
+    ],
+    "kq": null,
+    "cot_khac": {
+     "tien_do": "100%",
+     "ghi_chu": "Báo cáo KS đã bàn giao cho CĐT 10/06/2026"
+    }
+   },
+   {
+    "ten": "Báo cáo FS — phần nguồn tài nguyên (gió & thủy văn)",
+    "bang": "bang_tien_do_tk",
+    "dong": 5,
+    "du_an": "ĐG Tân Thành",
+    "bat_dau": "2026-07-13",
+    "ket_thuc": "2026-08-20",
+    "da_xong": false,
+    "phu_trach": [
+     "don_vi:sci-pmc"
+    ],
+    "kq": null,
+    "cot_khac": {
+     "tien_do": "60%",
+     "ghi_chu": "Đang xử lý số liệu — thiếu quan trắc gió T6 (bổ sung T8)"
+    }
+   },
+   {
+    "ten": "Báo cáo FS — phần kinh tế kỹ thuật & tài chính",
+    "bang": "bang_tien_do_tk",
+    "dong": 6,
+    "du_an": "ĐG Tân Thành",
+    "bat_dau": "2026-07-13",
+    "ket_thuc": "2026-08-28",
+    "da_xong": false,
+    "phu_trach": [
+     "don_vi:sci-pmc"
+    ],
+    "kq": null,
+    "cot_khac": {
+     "tien_do": "40%",
+     "ghi_chu": "Chờ kết quả tài nguyên để tính phương án tài chính"
+    }
+   },
+   {
+    "ten": "Báo cáo Nghiên cứu khả thi (FS) — tổng hợp & trình ký",
+    "bang": "bang_tien_do_tk",
+    "dong": 7,
+    "du_an": "ĐG Tân Thành",
+    "bat_dau": "2026-07-13",
+    "ket_thuc": "2026-08-30",
+    "da_xong": false,
+    "phu_trach": [
+     "don_vi:sci-pmc"
+    ],
+    "kq": null,
+    "cot_khac": {
+     "tien_do": "65%",
+     "ghi_chu": "Dự kiến HT 30/08 — nộp Sở ĐT&ĐK tỉnh QT T9/2026"
+    }
+   },
+   {
+    "ten": "Tiền MB + lập Thuyết minh Bản vẽ (TMB) — nộp tỉnh Quảng Trị",
+    "bang": "bang_tien_do_tk",
+    "dong": 8,
+    "du_an": "ĐG Ba Tầng",
+    "bat_dau": "2026-07-13",
+    "ket_thuc": "2026-05-17",
+    "da_xong": true,
+    "phu_trach": [
+     "don_vi:sci-pmc"
+    ],
+    "kq": null,
+    "cot_khac": {
+     "tien_do": "100%",
+     "ghi_chu": "TMB đã nộp UBND tỉnh QT T5/2026 — chờ phản hồi (đã 2 tháng)"
+    }
+   },
+   {
+    "ten": "Theo dõi xét duyệt chủ trương đầu tư — UBND tỉnh QT",
+    "bang": "bang_tien_do_tk",
+    "dong": 9,
+    "du_an": "ĐG Ba Tầng",
+    "bat_dau": "2026-07-13",
+    "ket_thuc": null,
+    "da_xong": false,
+    "phu_trach": [
+     "don_vi:sci-pmc"
+    ],
+    "kq": null,
+    "cot_khac": {
+     "tien_do": "0%",
+     "ghi_chu": "Chưa có phản hồi — kiến nghị TGĐ có công văn nhắc nhở"
+    }
+   },
+   {
+    "ten": "Khảo sát địa hình & đo đạc tọa độ thực địa",
+    "bang": "bang_tien_do_tk",
+    "dong": 10,
+    "du_an": "TĐ Nam Khiên 1",
+    "bat_dau": "2026-07-13",
+    "ket_thuc": "2026-09-17",
+    "da_xong": false,
+    "phu_trach": [
+     "don_vi:sci-pmc"
+    ],
+    "kq": null,
+    "cot_khac": {
+     "tien_do": "50%",
+     "ghi_chu": "Đội KS thực địa đang đo vẽ — dự kiến xong T9/2026"
+    }
+   },
+   {
+    "ten": "Khảo sát thủy văn, đo lưu lượng thực tế",
+    "bang": "bang_tien_do_tk",
+    "dong": 11,
+    "du_an": "TĐ Nam Khiên 1",
+    "bat_dau": "2026-07-13",
+    "ket_thuc": "2026-09-17",
+    "da_xong": false,
+    "phu_trach": [
+     "don_vi:sci-pmc"
+    ],
+    "kq": null,
+    "cot_khac": {
+     "tien_do": "30%",
+     "ghi_chu": "Mùa lũ ảnh hưởng đo đạc — đã điều chỉnh tiến độ sang T9"
+    }
+   },
+   {
+    "ten": "Khảo sát địa hình & đo đạc tọa độ thực địa",
+    "bang": "bang_tien_do_tk",
+    "dong": 12,
+    "du_an": "TĐ Nam Khiên 2",
+    "bat_dau": "2026-07-13",
+    "ket_thuc": "2026-09-17",
+    "da_xong": false,
+    "phu_trach": [
+     "don_vi:sci-pmc"
+    ],
+    "kq": null,
+    "cot_khac": {
+     "tien_do": "40%",
+     "ghi_chu": "Địa hình phức tạp — chậm hơn kế hoạch ~1 tuần"
+    }
+   },
+   {
+    "ten": "Khảo sát thủy văn, đo lưu lượng thực tế",
+    "bang": "bang_tien_do_tk",
+    "dong": 13,
+    "du_an": "TĐ Nam Khiên 2",
+    "bat_dau": "2026-07-13",
+    "ket_thuc": "2026-09-17",
+    "da_xong": false,
+    "phu_trach": [
+     "don_vi:sci-pmc"
+    ],
+    "kq": null,
+    "cot_khac": {
+     "tien_do": "25%",
+     "ghi_chu": "Triển khai song song NK1 — ưu tiên nguồn lực NK1 trước"
+    }
+   },
+   {
+    "ten": "Đề xuất sơ bộ vị trí công trình đầu mối & hướng tuyến",
+    "bang": "bang_tien_do_tk",
+    "dong": 14,
+    "du_an": "TĐ Nam Khiên 3",
+    "bat_dau": "2026-07-13",
+    "ket_thuc": null,
+    "da_xong": false,
+    "phu_trach": [
+     "don_vi:sci-pmc"
+    ],
+    "kq": null,
+    "cot_khac": {
+     "tien_do": "10%",
+     "ghi_chu": "Chờ văn bản chủ trương từ Bộ Năng lượng & Mỏ Lào"
+    }
+   },
+   {
+    "ten": "Xin chủ trương chính thức phía Lào (qua kênh Ban GĐ SCI Corp)",
+    "bang": "bang_tien_do_tk",
+    "dong": 15,
+    "du_an": "TĐ Nam Khiên 3",
+    "bat_dau": "2026-07-13",
+    "ket_thuc": "2026-08-31",
+    "da_xong": false,
+    "phu_trach": [
+     "don_vi:sci-pmc"
+    ],
+    "kq": null,
+    "cot_khac": {
+     "tien_do": "5%",
+     "ghi_chu": "Chưa có văn bản — đề nghị Ban GĐ làm việc với Bộ NL Lào T8/2026"
+    }
+   }
+  ],
+  "loi": [
+   "goi_y|dung_mau|File Word gốc (chưa có ô nhập): hệ thống tự nhận là Báo cáo SCI PMC (Form 5) và tự gắn ô nhập. Lần sau dùng mẫu Excel ở màn «Mẫu báo cáo» (từ 22/10/2026 nộp mới chỉ nhận .xlsx).",
+   "canh_bao|ngay_trong|\"Theo dõi xét duyệt chủ trương đầu tư — UBND tỉnh QT\": không có ngày kết thúc — vào sổ cái là việc TREO (luôn mở, cảnh báo cho đến khi có hạn). Ghi ngày cụ thể hoặc \"N ngày sau khi xong <việc>\"",
+   "canh_bao|ngay_trong|\"Đề xuất sơ bộ vị trí công trình đầu mối & hướng tuyến\": không có ngày kết thúc — vào sổ cái là việc TREO (luôn mở, cảnh báo cho đến khi có hạn). Ghi ngày cụ thể hoặc \"N ngày sau khi xong <việc>\"",
+   "chan|bang_viec_trong|Bảng \"KẾT QUẢ VÀ KẾ HOẠCH VIỆC TUẦN TỚI\" chưa có việc nào — báo cáo phải ghi việc đã làm trong kỳ (kèm tình hình) và kế hoạch kỳ tới. Ghi ít nhất một việc có tên rồi tải lại"
+  ]
+ },
+ "goc/OK_Form6_SCI_ENC_Sua lan 2.docx": {
+  "mau_ma": "form-6",
+  "dat": false,
+  "tu_do": false,
+  "don_vi_lap": "sci-enc",
+  "gui_den": [
+   "p-dtpc"
+  ],
+  "ky": "tuan-29-2026",
+  "viec": [],
+  "loi": [
+   "goi_y|dung_mau|File Word gốc (chưa có ô nhập): hệ thống tự nhận là Báo cáo tuần SCI E&C (Form 6) và tự gắn ô nhập. Lần sau dùng mẫu Excel ở màn «Mẫu báo cáo» (từ 22/10/2026 nộp mới chỉ nhận .xlsx).",
+   "chan|bang_viec_trong|Bảng \"KẾT QUẢ VÀ KẾ HOẠCH VIỆC TUẦN TỚI\" chưa có việc nào — báo cáo phải ghi việc đã làm trong kỳ (kèm tình hình) và kế hoạch kỳ tới. Ghi ít nhất một việc có tên rồi tải lại"
+  ]
+ },
+ "goc/OK_Form7_BQLDA_Sua lan 2.docx": {
+  "mau_ma": "form-7",
+  "dat": false,
+  "tu_do": false,
+  "don_vi_lap": "bqlda-qt",
+  "gui_den": [
+   "p-dtpc"
+  ],
+  "ky": "tuan-29-2026",
+  "viec": [],
+  "loi": [
+   "goi_y|dung_mau|File Word gốc (chưa có ô nhập): hệ thống tự nhận là Báo cáo BQLDA Quảng Trị (Form 7) và tự gắn ô nhập. Lần sau dùng mẫu Excel ở màn «Mẫu báo cáo» (từ 22/10/2026 nộp mới chỉ nhận .xlsx).",
+   "chan|bang_viec_trong|Bảng \"VI. KẾT QUẢ VÀ KẾ HOẠCH VIỆC TUẦN TỚI\" chưa có việc nào — báo cáo phải ghi việc đã làm trong kỳ (kèm tình hình) và kế hoạch kỳ tới. Ghi ít nhất một việc có tên rồi tải lại"
+  ]
+ },
+ "goc/OK_Form8_NhaMayNamXe_Sua lan 2.docx": {
+  "mau_ma": "form-8",
+  "dat": false,
+  "tu_do": false,
+  "don_vi_lap": "nm-namxe",
+  "gui_den": [
+   "p-ktvh"
+  ],
+  "ky": "tuan-29-2026",
+  "viec": [],
+  "loi": [
+   "goi_y|dung_mau|File Word gốc (chưa có ô nhập): hệ thống tự nhận là Báo cáo Nhà máy thủy điện Nậm Xe (Form 8) và tự gắn ô nhập. Lần sau dùng mẫu Excel ở màn «Mẫu báo cáo» (từ 22/10/2026 nộp mới chỉ nhận .xlsx).",
+   "chan|bang_viec_trong|Bảng \"IV. KẾT QUẢ VÀ KẾ HOẠCH VIỆC TUẦN TỚI\" chưa có việc nào — báo cáo phải ghi việc đã làm trong kỳ (kèm tình hình) và kế hoạch kỳ tới. Ghi ít nhất một việc có tên rồi tải lại"
+  ]
+ },
+ "goc/SCI-160_BaoCaoTuan_PhongCoDien.docx": {
+  "mau_ma": "form-9",
+  "dat": false,
+  "tu_do": false,
+  "don_vi_lap": "p-cd",
+  "gui_den": [
+   "ban-tgd"
+  ],
+  "ky": "tuan-39-2026",
+  "viec": [],
+  "loi": [
+   "goi_y|dung_mau|File Word gốc (chưa có ô nhập): hệ thống tự nhận là Báo cáo tuần Phòng Cơ điện (Form 9) và tự gắn ô nhập. Lần sau dùng mẫu Excel ở màn «Mẫu báo cáo» (từ 22/10/2026 nộp mới chỉ nhận .xlsx).",
+   "chan|bang_viec_trong|Bảng \"IV. KẾT QUẢ VÀ KẾ HOẠCH VIỆC TUẦN TỚI\" chưa có việc nào — báo cáo phải ghi việc đã làm trong kỳ (kèm tình hình) và kế hoạch kỳ tới. Ghi ít nhất một việc có tên rồi tải lại"
+  ]
+ },
+ "trang/form-0.docx": {
+  "mau_ma": "form-0",
+  "dat": false,
+  "tu_do": false,
+  "don_vi_lap": "ban-tgd",
+  "gui_den": [
+   "ban-tgd"
+  ],
+  "ky": "tuan-undefined-undefined",
+  "viec": [],
+  "loi": [
+   "chan|ky_bao_cao|Chưa ghi số tuần/năm của kỳ báo cáo (vd 29/2026)",
+   "chan|bang_viec_trong|Bảng \"VI. KẾT QUẢ VÀ KẾ HOẠCH VIỆC TUẦN TỚI\" chưa có việc nào — báo cáo phải ghi việc đã làm trong kỳ (kèm tình hình) và kế hoạch kỳ tới. Ghi ít nhất một việc có tên rồi tải lại"
+  ]
+ },
+ "trang/form-1.docx": {
+  "mau_ma": "form-1",
+  "dat": false,
+  "tu_do": false,
+  "don_vi_lap": "p-dtpc",
+  "gui_den": [
+   "ban-tgd"
+  ],
+  "ky": "tuan-undefined-undefined",
+  "viec": [],
+  "loi": [
+   "chan|ky_bao_cao|Chưa ghi số tuần/năm của kỳ báo cáo (vd 29/2026)",
+   "chan|bang_viec_trong|Bảng \"III. KẾT QUẢ VÀ KẾ HOẠCH VIỆC TUẦN TỚI\" chưa có việc nào — báo cáo phải ghi việc đã làm trong kỳ (kèm tình hình) và kế hoạch kỳ tới. Ghi ít nhất một việc có tên rồi tải lại"
+  ]
+ },
+ "trang/form-10.docx": {
+  "mau_ma": "form-10",
+  "dat": false,
+  "tu_do": false,
+  "don_vi_lap": "p-dtpc",
+  "gui_den": [
+   "ban-tgd"
+  ],
+  "ky": "tuan-undefined-undefined",
+  "viec": [],
+  "loi": [
+   "chan|dung_mau|Chưa nhận ra đơn vị nộp báo cáo: dòng dưới tiêu đề \"BÁO CÁO …\" đang ghi \"BAN ĐIỀU HÀNH ......\" — ghi đúng tên đơn vị (vd \"NM Hướng Linh 7\"). Báo cáo Ban điều hành tổng thầu thi công (Form 10) dùng chung cho nhiều đơn vị nên máy cần tên này để biết báo cáo của ai",
+   "chan|ky_bao_cao|Chưa ghi số tuần/năm của kỳ báo cáo (vd 29/2026)",
+   "chan|bang_viec_trong|Bảng \"V. KẾT QUẢ VÀ KẾ HOẠCH VIỆC TUẦN TỚI\" chưa có việc nào — báo cáo phải ghi việc đã làm trong kỳ (kèm tình hình) và kế hoạch kỳ tới. Ghi ít nhất một việc có tên rồi tải lại",
+   "goi_y|noi_dung_ai|Mục \"III. CHI TIẾT TIẾN ĐỘ TỪNG HẠNG MỤC\": còn chỗ \"......\" chưa điền số liệu"
+  ]
+ },
+ "trang/form-11.docx": {
+  "mau_ma": "form-11",
+  "dat": false,
+  "tu_do": false,
+  "don_vi_lap": "p-dtpc",
+  "gui_den": [
+   "sci-enc"
+  ],
+  "ky": "tuan-undefined-undefined",
+  "viec": [],
+  "loi": [
+   "chan|dung_mau|Chưa nhận ra đơn vị nộp báo cáo: dòng dưới tiêu đề \"BÁO CÁO …\" đang ghi \"BAN ĐIỀU HÀNH ......\" — ghi đúng tên đơn vị (vd \"NM Hướng Linh 7\"). Báo cáo Ban điều hành dự án Loại khác (Form 11) dùng chung cho nhiều đơn vị nên máy cần tên này để biết báo cáo của ai",
+   "chan|ky_bao_cao|Chưa ghi số tuần/năm của kỳ báo cáo (vd 29/2026)",
+   "chan|bang_viec_trong|Bảng \"KẾT QUẢ VÀ KẾ HOẠCH VIỆC TUẦN TỚI\" chưa có việc nào — báo cáo phải ghi việc đã làm trong kỳ (kèm tình hình) và kế hoạch kỳ tới. Ghi ít nhất một việc có tên rồi tải lại",
+   "goi_y|noi_dung_ai|Mục \"III. CHI TIẾT TIẾN ĐỘ TỪNG HẠNG MỤC\": còn chỗ \"......\" chưa điền số liệu"
+  ]
+ },
+ "trang/form-2.docx": {
+  "mau_ma": "form-2",
+  "dat": false,
+  "tu_do": false,
+  "don_vi_lap": "p-ktvh",
+  "gui_den": [
+   "ban-tgd"
+  ],
+  "ky": "tuan-undefined-undefined",
+  "viec": [],
+  "loi": [
+   "chan|ky_bao_cao|Chưa ghi số tuần/năm của kỳ báo cáo (vd 29/2026)",
+   "chan|bang_viec_trong|Bảng \"IV. KẾT QUẢ VÀ KẾ HOẠCH VIỆC TUẦN TỚI\" chưa có việc nào — báo cáo phải ghi việc đã làm trong kỳ (kèm tình hình) và kế hoạch kỳ tới. Ghi ít nhất một việc có tên rồi tải lại"
+  ]
+ },
+ "trang/form-3.docx": {
+  "mau_ma": "form-3",
+  "dat": false,
+  "tu_do": false,
+  "don_vi_lap": "p-hcth",
+  "gui_den": [
+   "ban-tgd"
+  ],
+  "ky": "tuan-undefined-undefined",
+  "viec": [],
+  "loi": [
+   "chan|ky_bao_cao|Chưa ghi số tuần/năm của kỳ báo cáo (vd 29/2026)",
+   "chan|bang_viec_trong|Bảng \"III. KẾT QUẢ VÀ KẾ HOẠCH VIỆC TUẦN TỚI\" chưa có việc nào — báo cáo phải ghi việc đã làm trong kỳ (kèm tình hình) và kế hoạch kỳ tới. Ghi ít nhất một việc có tên rồi tải lại",
+   "goi_y|noi_dung_ai|Mục \"I. NHÂN SỰ\": còn chỗ \"......\" chưa điền số liệu",
+   "canh_bao|f3-nhan-su-cuoi-ky|Dòng 1 bảng \"NHÂN SỰ\": cột \"Cuối tuần\" chưa điền",
+   "canh_bao|f3-nhan-su-cuoi-ky|Dòng 2 bảng \"NHÂN SỰ\": cột \"Cuối tuần\" chưa điền",
+   "canh_bao|f3-nhan-su-cuoi-ky|Dòng 3 bảng \"NHÂN SỰ\": cột \"Cuối tuần\" chưa điền",
+   "canh_bao|f3-nhan-su-cuoi-ky|Dòng 4 bảng \"NHÂN SỰ\": cột \"Cuối tuần\" chưa điền"
+  ]
+ },
+ "trang/form-4.docx": {
+  "mau_ma": "form-4",
+  "dat": false,
+  "tu_do": false,
+  "don_vi_lap": "p-tckt",
+  "gui_den": [
+   "ban-tgd"
+  ],
+  "ky": "tuan-undefined-undefined",
+  "viec": [],
+  "loi": [
+   "chan|ky_bao_cao|Chưa ghi số tuần/năm của kỳ báo cáo (vd 29/2026)",
+   "chan|bang_viec_trong|Bảng \"V. KẾT QUẢ VÀ KẾ HOẠCH VIỆC TUẦN TỚI\" chưa có việc nào — báo cáo phải ghi việc đã làm trong kỳ (kèm tình hình) và kế hoạch kỳ tới. Ghi ít nhất một việc có tên rồi tải lại",
+   "goi_y|noi_dung_ai|Mục \"I. TÓM TẮT THÔNG TIN CHÍNH\": còn chỗ \"......\" chưa điền số liệu",
+   "goi_y|noi_dung_ai|Mục \"III. BÁO CÁO CHI PHÍ GIÁ THÀNH — ĐƠN VỊ: TRIỆU ĐỒNG\": còn chỗ \"......\" chưa điền số liệu"
+  ]
+ },
+ "trang/form-5.docx": {
+  "mau_ma": "form-5",
+  "dat": false,
+  "tu_do": false,
+  "don_vi_lap": "sci-pmc",
+  "gui_den": [
+   "p-dtpc"
+  ],
+  "ky": "tuan-undefined-undefined",
+  "viec": [],
+  "loi": [
+   "chan|ky_bao_cao|Chưa ghi số tuần/năm của kỳ báo cáo (vd 29/2026)",
+   "chan|bang_viec_trong|Bảng \"KẾT QUẢ VÀ KẾ HOẠCH VIỆC TUẦN TỚI\" chưa có việc nào — báo cáo phải ghi việc đã làm trong kỳ (kèm tình hình) và kế hoạch kỳ tới. Ghi ít nhất một việc có tên rồi tải lại",
+   "canh_bao|f5-tien-do-tk-co-dong|Bảng \"TIẾN ĐỘ CHI TIẾT CÔNG TÁC THIẾT KẾ\" chưa có dòng nào có nội dung, cần ít nhất 1 dòng"
+  ]
+ },
+ "trang/form-6.docx": {
+  "mau_ma": "form-6",
+  "dat": false,
+  "tu_do": false,
+  "don_vi_lap": "sci-enc",
+  "gui_den": [
+   "p-dtpc"
+  ],
+  "ky": "tuan-undefined-undefined",
+  "viec": [],
+  "loi": [
+   "chan|ky_bao_cao|Chưa ghi số tuần/năm của kỳ báo cáo (vd 29/2026)",
+   "chan|bang_viec_trong|Bảng \"KẾT QUẢ VÀ KẾ HOẠCH VIỆC TUẦN TỚI\" chưa có việc nào — báo cáo phải ghi việc đã làm trong kỳ (kèm tình hình) và kế hoạch kỳ tới. Ghi ít nhất một việc có tên rồi tải lại"
+  ]
+ },
+ "trang/form-7.docx": {
+  "mau_ma": "form-7",
+  "dat": false,
+  "tu_do": false,
+  "don_vi_lap": "p-dtpc",
+  "gui_den": [
+   "p-dtpc"
+  ],
+  "ky": "tuan-undefined-undefined",
+  "viec": [],
+  "loi": [
+   "chan|dung_mau|Chưa nhận ra đơn vị nộp báo cáo: dòng dưới tiêu đề \"BÁO CÁO …\" đang ghi \"BQLDA ......\" — ghi đúng tên đơn vị (vd \"NM Hướng Linh 7\"). Báo cáo BQLDA Quảng Trị (Form 7) dùng chung cho nhiều đơn vị nên máy cần tên này để biết báo cáo của ai",
+   "chan|ky_bao_cao|Chưa ghi số tuần/năm của kỳ báo cáo (vd 29/2026)",
+   "chan|bang_viec_trong|Bảng \"VI. KẾT QUẢ VÀ KẾ HOẠCH VIỆC TUẦN TỚI\" chưa có việc nào — báo cáo phải ghi việc đã làm trong kỳ (kèm tình hình) và kế hoạch kỳ tới. Ghi ít nhất một việc có tên rồi tải lại",
+   "goi_y|noi_dung_ai|Mục \"III. CHI TIẾT TIẾN ĐỘ TỪNG HẠNG MỤC\": còn chỗ \"......\" chưa điền số liệu"
+  ]
+ },
+ "trang/form-8.docx": {
+  "mau_ma": "form-8",
+  "dat": false,
+  "tu_do": false,
+  "don_vi_lap": "p-dtpc",
+  "gui_den": [
+   "p-ktvh"
+  ],
+  "ky": "tuan-undefined-undefined",
+  "viec": [],
+  "loi": [
+   "chan|dung_mau|Chưa nhận ra đơn vị nộp báo cáo: dòng dưới tiêu đề \"BÁO CÁO …\" đang ghi \"NHÀ MÁY ......\" — ghi đúng tên đơn vị (vd \"NM Hướng Linh 7\"). Báo cáo Nhà máy thủy điện Nậm Xe (Form 8) dùng chung cho nhiều đơn vị nên máy cần tên này để biết báo cáo của ai",
+   "chan|ky_bao_cao|Chưa ghi số tuần/năm của kỳ báo cáo (vd 29/2026)",
+   "chan|bang_viec_trong|Bảng \"IV. KẾT QUẢ VÀ KẾ HOẠCH VIỆC TUẦN TỚI\" chưa có việc nào — báo cáo phải ghi việc đã làm trong kỳ (kèm tình hình) và kế hoạch kỳ tới. Ghi ít nhất một việc có tên rồi tải lại",
+   "goi_y|noi_dung_ai|Mục \"I. SẢN LƯỢNG & VẬN HÀNH\": còn chỗ \"......\" chưa điền số liệu"
+  ]
+ },
+ "trang/form-9.docx": {
+  "mau_ma": "form-9",
+  "dat": false,
+  "tu_do": false,
+  "don_vi_lap": "p-cd",
+  "gui_den": [
+   "ban-tgd"
+  ],
+  "ky": "tuan-undefined-undefined",
+  "viec": [],
+  "loi": [
+   "chan|ky_bao_cao|Chưa ghi số tuần/năm của kỳ báo cáo (vd 29/2026)",
+   "chan|bang_viec_trong|Bảng \"IV. KẾT QUẢ VÀ KẾ HOẠCH VIỆC TUẦN TỚI\" chưa có việc nào — báo cáo phải ghi việc đã làm trong kỳ (kèm tình hình) và kế hoạch kỳ tới. Ghi ít nhất một việc có tên rồi tải lại"
+  ]
+ },
+ "vi-du/BaoCao_HopNhat_Tuan30.docx": {
+  "mau_ma": "form-0",
+  "dat": true,
+  "tu_do": false,
+  "don_vi_lap": "ban-tgd",
+  "gui_den": [
+   "ban-tgd"
+  ],
+  "ky": "tuan-30-2026",
+  "viec": [
+   {
+    "ten": "Phê duyệt Điều chỉnh Tổng mức đầu tư Dự án Nậm Khiên 1",
+    "bang": "bang_quyet_dinh",
+    "dong": 1,
+    "du_an": null,
+    "bat_dau": "2026-07-20",
+    "ket_thuc": null,
+    "da_xong": false,
+    "phu_trach": [
+     "don_vi:p-dtpc"
+    ],
+    "kq": null,
+    "cot_khac": {
+     "uu_tien": "1",
+     "tai_lieu": "✅ Tờ trình 12/2026/TTr-BQLNK1 (đính kèm)\n✅ Bảng so sánh TMĐT ban đầu vs điều chỉnh"
+    }
+   },
+   {
+    "ten": "Quyết định PDA cụm dự án Lào: gia hạn hoặc dừng chi phí",
+    "bang": "bang_quyet_dinh",
+    "dong": 2,
+    "du_an": null,
+    "bat_dau": "2026-07-20",
+    "ket_thuc": null,
+    "da_xong": false,
+    "phu_trach": [
+     "don_vi:p-dtpc"
+    ],
+    "kq": null,
+    "cot_khac": {
+     "uu_tien": "2",
+     "tai_lieu": "✅ Phân tích chi phí-lợi ích gia hạn vs thoái vốn"
+    }
+   },
+   {
+    "ten": "Ký Công văn gửi UBND huyện Hướng Hóa đôn đốc GPMB Hướng Việt",
+    "bang": "bang_quyet_dinh",
+    "dong": 3,
+    "du_an": null,
+    "bat_dau": "2026-07-20",
+    "ket_thuc": null,
+    "da_xong": false,
+    "phu_trach": [
+     "don_vi:bqlda-qt",
+     "don_vi:p-dtpc"
+    ],
+    "kq": null,
+    "cot_khac": {
+     "uu_tien": "3",
+     "tai_lieu": "✅ Dự thảo CV đã soạn — TGĐ ký và đóng dấu"
+    }
+   },
+   {
+    "ten": "Chủ trương xử lý thiếu vốn lưu động 12,3 tỷ đồng",
+    "bang": "bang_quyet_dinh",
+    "dong": 4,
+    "du_an": null,
+    "bat_dau": "2026-07-20",
+    "ket_thuc": null,
+    "da_xong": false,
+    "phu_trach": [
+     "don_vi:p-tckt"
+    ],
+    "kq": null,
+    "cot_khac": {
+     "uu_tien": "5",
+     "tai_lieu": "✅ Phương án vay nội bộ / điều chuyển 50 tỷ (P. TC&KT trình)"
+    }
+   },
+   {
+    "ten": "Phê duyệt danh sách khen thưởng Sơ kết 6 tháng đầu năm 2026",
+    "bang": "bang_quyet_dinh",
+    "dong": 5,
+    "du_an": null,
+    "bat_dau": "2026-07-20",
+    "ket_thuc": null,
+    "da_xong": false,
+    "phu_trach": [
+     "don_vi:p-hcth"
+    ],
+    "kq": null,
+    "cot_khac": {
+     "uu_tien": "6",
+     "tai_lieu": "→ P. HCTH trình danh sách trước 22/07 để TGĐ ký"
+    }
+   },
+   {
+    "ten": "Chi trả GPMB Trụ T11",
+    "bang": "bang_quyet_dinh",
+    "dong": 6,
+    "du_an": null,
+    "bat_dau": "2026-07-20",
+    "ket_thuc": null,
+    "da_xong": false,
+    "phu_trach": [
+     "don_vi:bqlda-qt",
+     "don_vi:p-dtpc"
+    ],
+    "kq": null,
+    "cot_khac": {
+     "uu_tien": "4",
+     "tai_lieu": "✅ Tờ trình của BQLDA QT, biên bản làm việc với 3 hộ"
+    }
+   },
+   {
+    "ten": "Theo dõi thu vốn đợt 4 Nậm Khiên 1",
+    "bang": "bang_cong_viec",
+    "dong": 1,
+    "du_an": "Nậm Khiên 1",
+    "bat_dau": "2026-07-22",
+    "ket_thuc": "2026-08-25",
+    "da_xong": false,
+    "phu_trach": [
+     "don_vi:p-tckt"
+    ],
+    "kq": "Thu đủ 12,5 tỷ đồng",
+    "cot_khac": null
+   }
+  ],
+  "loi": [
+   "canh_bao|ten_viec|\"Phê duyệt Điều chỉnh Tổng mức đầu tư Dự án Nậm Khiên 1\": không nhận ra người/đơn vị phụ trách \"BQLDA Nậm Khiên 1\""
+  ]
+ },
+ "vi-du/BaoCao_SaiMau.docx": {
+  "mau_ma": null,
+  "dat": false,
+  "tu_do": false,
+  "don_vi_lap": "p-dtpc",
+  "gui_den": [],
+  "ky": null,
+  "viec": [],
+  "loi": [
+   "chan|dung_mau|Không nhận ra mẫu: file \"BaoCao_SaiMau.docx\" không có ô nhập nào — đây là bản Word thường, không phải mẫu của hệ thống. Vào màn «Mẫu báo cáo» tải mẫu Excel, chép nội dung sang rồi tải lên lại."
+  ]
+ },
+ "vi-du/BaoCao_Thang7_SCI_ENC.docx": {
+  "mau_ma": "form-6",
+  "dat": true,
+  "tu_do": false,
+  "don_vi_lap": "sci-enc",
+  "gui_den": [
+   "p-dtpc"
+  ],
+  "ky": "thang-7-2026",
+  "viec": [
+   {
+    "ten": "Đập chính Nậm Mô 1 đạt 85%",
+    "bang": "bang_cong_viec",
+    "dong": 1,
+    "du_an": null,
+    "bat_dau": "2026-07-01",
+    "ket_thuc": "2026-08-31",
+    "da_xong": false,
+    "phu_trach": [
+     "don_vi:sci-enc"
+    ],
+    "kq": "Đập chính đạt 85%",
+    "cot_khac": null
+   },
+   {
+    "ten": "Rotor turbine Nậm Mô 1 về chậm",
+    "bang": "bang_cong_viec",
+    "dong": 2,
+    "du_an": null,
+    "bat_dau": "2026-07-01",
+    "ket_thuc": null,
+    "da_xong": false,
+    "phu_trach": [
+     "don_vi:sci-enc"
+    ],
+    "kq": "Rotor về công trường",
+    "cot_khac": null
+   },
+   {
+    "ten": "Gia hạn GPXD Nậm Khiên 1",
+    "bang": "bang_cong_viec",
+    "dong": 3,
+    "du_an": null,
+    "bat_dau": "2026-07-01",
+    "ket_thuc": "2026-08-20",
+    "da_xong": false,
+    "phu_trach": [
+     "don_vi:sci-enc"
+    ],
+    "kq": "Có giấy phép gia hạn",
+    "cot_khac": null
+   },
+   {
+    "ten": "Thu vốn đợt 4 Nậm Khiên 1 (12,5 tỷ)",
+    "bang": "bang_cong_viec",
+    "dong": 4,
+    "du_an": null,
+    "bat_dau": "2026-07-01",
+    "ket_thuc": "2026-08-25",
+    "da_xong": false,
+    "phu_trach": [
+     "don_vi:sci-enc"
+    ],
+    "kq": "Thu đủ 12,5 tỷ đồng",
+    "cot_khac": null
+   },
+   {
+    "ten": "Đập chính Nậm Khiên 1 đạt 75%",
+    "bang": "bang_cong_viec",
+    "dong": 5,
+    "du_an": null,
+    "bat_dau": "2026-07-01",
+    "ket_thuc": "2026-08-31",
+    "da_xong": false,
+    "phu_trach": [
+     "don_vi:sci-enc"
+    ],
+    "kq": "Đập chính đạt 75%",
+    "cot_khac": null
+   }
+  ],
+  "loi": [
+   "canh_bao|ngay_trong|\"Rotor turbine Nậm Mô 1 về chậm\": không có ngày kết thúc — vào sổ cái là việc TREO (luôn mở, cảnh báo cho đến khi có hạn). Ghi ngày cụ thể hoặc \"N ngày sau khi xong <việc>\"",
+   "goi_y|noi_dung_ai|Mục \"IV. TIẾN ĐỘ THU VỐN & HỢP ĐỒNG\": còn chỗ \"......\" chưa điền số liệu"
+  ]
+ },
+ "vi-du/BaoCao_Thang7_SCI_ENC_ban2.docx": {
+  "mau_ma": "form-6",
+  "dat": true,
+  "tu_do": false,
+  "don_vi_lap": "sci-enc",
+  "gui_den": [
+   "p-dtpc"
+  ],
+  "ky": "thang-7-2026",
+  "viec": [
+   {
+    "ten": "Đập chính Nậm Mô 1 đạt 85%",
+    "bang": "bang_cong_viec",
+    "dong": 1,
+    "du_an": null,
+    "bat_dau": "2026-07-01",
+    "ket_thuc": "2026-08-31",
+    "da_xong": false,
+    "phu_trach": [
+     "don_vi:sci-enc"
+    ],
+    "kq": "Đập chính đạt 85%",
+    "cot_khac": null
+   },
+   {
+    "ten": "Rotor turbine Nậm Mô 1 về chậm",
+    "bang": "bang_cong_viec",
+    "dong": 2,
+    "du_an": null,
+    "bat_dau": "2026-07-01",
+    "ket_thuc": null,
+    "da_xong": false,
+    "phu_trach": [
+     "don_vi:sci-enc"
+    ],
+    "kq": "Rotor về công trường",
+    "cot_khac": null
+   },
+   {
+    "ten": "Gia hạn GPXD Nậm Khiên 1",
+    "bang": "bang_cong_viec",
+    "dong": 3,
+    "du_an": null,
+    "bat_dau": "2026-07-01",
+    "ket_thuc": "2026-08-20",
+    "da_xong": false,
+    "phu_trach": [
+     "don_vi:sci-enc"
+    ],
+    "kq": "Có giấy phép gia hạn",
+    "cot_khac": null
+   },
+   {
+    "ten": "Thu vốn đợt 4 Nậm Khiên 1 (12,5 tỷ)",
+    "bang": "bang_cong_viec",
+    "dong": 4,
+    "du_an": null,
+    "bat_dau": "2026-07-01",
+    "ket_thuc": "2026-08-25",
+    "da_xong": false,
+    "phu_trach": [
+     "don_vi:sci-enc"
+    ],
+    "kq": "Thu đủ 12,5 tỷ đồng",
+    "cot_khac": null
+   },
+   {
+    "ten": "Đập chính Nậm Khiên 1 đạt 75%",
+    "bang": "bang_cong_viec",
+    "dong": 5,
+    "du_an": null,
+    "bat_dau": "2026-07-01",
+    "ket_thuc": "2026-08-31",
+    "da_xong": false,
+    "phu_trach": [
+     "don_vi:sci-enc"
+    ],
+    "kq": "Đập chính đạt 75%",
+    "cot_khac": null
+   }
+  ],
+  "loi": [
+   "canh_bao|ngay_trong|\"Rotor turbine Nậm Mô 1 về chậm\": không có ngày kết thúc — vào sổ cái là việc TREO (luôn mở, cảnh báo cho đến khi có hạn). Ghi ngày cụ thể hoặc \"N ngày sau khi xong <việc>\""
+  ]
+ },
+ "vi-du/BaoCao_Tuan28_BQLDA_QuangTri.docx": {
+  "mau_ma": "form-7",
+  "dat": true,
+  "tu_do": false,
+  "don_vi_lap": "bqlda-qt",
+  "gui_den": [
+   "p-dtpc"
+  ],
+  "ky": "tuan-28-2026",
+  "viec": [
+   {
+    "ten": "GPMB Trụ T11",
+    "bang": "bang_cong_viec",
+    "dong": 1,
+    "du_an": "ĐG Hướng Việt",
+    "bat_dau": "2026-07-07",
+    "ket_thuc": "2026-07-30",
+    "da_xong": false,
+    "phu_trach": [
+     "don_vi:bqlda-qt"
+    ],
+    "kq": "Thỏa thuận xong với 3 hộ",
+    "cot_khac": null
+   },
+   {
+    "ten": "Chuyển mục đích đất rừng T14–T16",
+    "bang": "bang_cong_viec",
+    "dong": 2,
+    "du_an": "ĐG Hướng Việt",
+    "bat_dau": "2026-07-06",
+    "ket_thuc": null,
+    "da_xong": false,
+    "phu_trach": [
+     "don_vi:bqlda-qt"
+    ],
+    "kq": "Có văn bản Sở NN&PTNT chuyển mục đích",
+    "cot_khac": null
+   },
+   {
+    "ten": "Thi công móng trụ T5–T8",
+    "bang": "bang_cong_viec",
+    "dong": 3,
+    "du_an": "ĐG Hướng Việt",
+    "bat_dau": "2026-07-01",
+    "ket_thuc": "2026-08-15",
+    "da_xong": false,
+    "phu_trach": [
+     "don_vi:bqlda-qt"
+    ],
+    "kq": "Hoàn thành móng 4 trụ",
+    "cot_khac": null
+   }
+  ],
+  "loi": [
+   "canh_bao|ngay_trong|\"Chuyển mục đích đất rừng T14–T16\": không có ngày kết thúc — vào sổ cái là việc TREO (luôn mở, cảnh báo cho đến khi có hạn). Ghi ngày cụ thể hoặc \"N ngày sau khi xong <việc>\""
+  ]
+ },
+ "vi-du/BaoCao_Tuan29_BQLDA_MatO.docx": {
+  "mau_ma": "form-7",
+  "dat": false,
+  "tu_do": false,
+  "don_vi_lap": "bqlda-qt",
+  "gui_den": [
+   "p-dtpc"
+  ],
+  "ky": "tuan-29-2026",
+  "viec": [
+   {
+    "ten": "GPMB Trụ T11",
+    "bang": "bang_cong_viec",
+    "dong": 1,
+    "du_an": "ĐG Hướng Việt",
+    "bat_dau": "2026-07-14",
+    "ket_thuc": "2026-08-05",
+    "da_xong": false,
+    "phu_trach": [
+     "don_vi:bqlda-qt"
+    ],
+    "kq": "Thỏa thuận xong với 3 hộ",
+    "cot_khac": null
+   },
+   {
+    "ten": "Chuyển mục đích đất rừng T14–T16",
+    "bang": "bang_cong_viec",
+    "dong": 2,
+    "du_an": "ĐG Hướng Việt",
+    "bat_dau": "2026-07-13",
+    "ket_thuc": null,
+    "da_xong": false,
+    "phu_trach": [
+     "don_vi:bqlda-qt"
+    ],
+    "kq": "Có văn bản Sở NN&PTNT chuyển mục đích",
+    "cot_khac": null
+   },
+   {
+    "ten": "Thi công móng trụ T5–T8",
+    "bang": "bang_cong_viec",
+    "dong": 3,
+    "du_an": "ĐG Hướng Việt",
+    "bat_dau": "2026-07-01",
+    "ket_thuc": "2026-08-15",
+    "da_xong": false,
+    "phu_trach": [
+     "don_vi:bqlda-qt"
+    ],
+    "kq": "Hoàn thành móng 4 trụ",
+    "cot_khac": null
+   }
+  ],
+  "loi": [
+   "chan|dung_mau|Thiếu mục \"RỦI RO & KIẾN NGHỊ PHÒNG ĐT&PC\" của mẫu Báo cáo BQLDA Quảng Trị (Form 7)",
+   "canh_bao|ngay_trong|\"Chuyển mục đích đất rừng T14–T16\": không có ngày kết thúc — vào sổ cái là việc TREO (luôn mở, cảnh báo cho đến khi có hạn). Ghi ngày cụ thể hoặc \"N ngày sau khi xong <việc>\""
+  ]
+ },
+ "vi-du/BaoCao_Tuan29_BQLDA_QuangTri_ban1.docx": {
+  "mau_ma": "form-7",
+  "dat": true,
+  "tu_do": false,
+  "don_vi_lap": "bqlda-qt",
+  "gui_den": [
+   "p-dtpc"
+  ],
+  "ky": "tuan-29-2026",
+  "viec": [
+   {
+    "ten": "GPMB Trụ T11",
+    "bang": "bang_cong_viec",
+    "dong": 1,
+    "du_an": "ĐG Hướng Việt",
+    "bat_dau": "2026-07-14",
+    "ket_thuc": "2026-08-05",
+    "da_xong": false,
+    "phu_trach": [
+     "don_vi:bqlda-qt"
+    ],
+    "kq": "Thỏa thuận xong với 3 hộ",
+    "cot_khac": null
+   },
+   {
+    "ten": "Chuyển mục đích đất rừng T14–T16",
+    "bang": "bang_cong_viec",
+    "dong": 2,
+    "du_an": "ĐG Hướng Việt",
+    "bat_dau": "2026-07-13",
+    "ket_thuc": null,
+    "da_xong": false,
+    "phu_trach": [
+     "don_vi:bqlda-qt"
+    ],
+    "kq": "Có văn bản Sở NN&PTNT chuyển mục đích",
+    "cot_khac": null
+   },
+   {
+    "ten": "Thi công móng trụ T5–T8",
+    "bang": "bang_cong_viec",
+    "dong": 3,
+    "du_an": "ĐG Hướng Việt",
+    "bat_dau": "2026-07-01",
+    "ket_thuc": "2026-08-15",
+    "da_xong": false,
+    "phu_trach": [
+     "don_vi:bqlda-qt"
+    ],
+    "kq": "Hoàn thành móng 4 trụ",
+    "cot_khac": null
+   }
+  ],
+  "loi": [
+   "canh_bao|ngay_trong|\"Chuyển mục đích đất rừng T14–T16\": không có ngày kết thúc — vào sổ cái là việc TREO (luôn mở, cảnh báo cho đến khi có hạn). Ghi ngày cụ thể hoặc \"N ngày sau khi xong <việc>\""
+  ]
+ },
+ "vi-du/BaoCao_Tuan29_BQLDA_QuangTri_ban2.docx": {
+  "mau_ma": "form-7",
+  "dat": true,
+  "tu_do": false,
+  "don_vi_lap": "bqlda-qt",
+  "gui_den": [
+   "p-dtpc"
+  ],
+  "ky": "tuan-29-2026",
+  "viec": [
+   {
+    "ten": "GPMB Trụ T11",
+    "bang": "bang_cong_viec",
+    "dong": 1,
+    "du_an": "ĐG Hướng Việt",
+    "bat_dau": "2026-07-14",
+    "ket_thuc": "2026-08-05",
+    "da_xong": false,
+    "phu_trach": [
+     "don_vi:bqlda-qt"
+    ],
+    "kq": "Thỏa thuận xong với 3 hộ",
+    "cot_khac": null
+   },
+   {
+    "ten": "Chuyển mục đích đất rừng T14–T16",
+    "bang": "bang_cong_viec",
+    "dong": 2,
+    "du_an": "ĐG Hướng Việt",
+    "bat_dau": "2026-07-13",
+    "ket_thuc": null,
+    "da_xong": false,
+    "phu_trach": [
+     "don_vi:bqlda-qt"
+    ],
+    "kq": "Có văn bản Sở NN&PTNT chuyển mục đích",
+    "cot_khac": null
+   },
+   {
+    "ten": "Thi công móng trụ T5–T8",
+    "bang": "bang_cong_viec",
+    "dong": 3,
+    "du_an": "ĐG Hướng Việt",
+    "bat_dau": "2026-07-01",
+    "ket_thuc": "2026-08-15",
+    "da_xong": false,
+    "phu_trach": [
+     "don_vi:bqlda-qt"
+    ],
+    "kq": "Hoàn thành móng 4 trụ",
+    "cot_khac": null
+   }
+  ],
+  "loi": [
+   "canh_bao|ngay_trong|\"Chuyển mục đích đất rừng T14–T16\": không có ngày kết thúc — vào sổ cái là việc TREO (luôn mở, cảnh báo cho đến khi có hạn). Ghi ngày cụ thể hoặc \"N ngày sau khi xong <việc>\""
+  ]
+ },
+ "vi-du/BaoCao_Tuan29_NM_NamXe.docx": {
+  "mau_ma": "form-8",
+  "dat": true,
+  "tu_do": false,
+  "don_vi_lap": "nm-namxe",
+  "gui_den": [
+   "p-ktvh"
+  ],
+  "ky": "tuan-29-2026",
+  "viec": [
+   {
+    "ten": "Thay relay bảo vệ R21 máy phát TM2",
+    "bang": "bang_cong_viec",
+    "dong": 1,
+    "du_an": "NM Nậm Xe",
+    "bat_dau": "2026-07-21",
+    "ket_thuc": "2026-07-31",
+    "da_xong": false,
+    "phu_trach": [
+     "don_vi:nm-namxe"
+    ],
+    "kq": "Relay mới vận hành, thí nghiệm đạt",
+    "cot_khac": null
+   }
+  ],
+  "loi": []
+ },
+ "vi-du/BaoCao_Tuan29_PDTPC.docx": {
+  "mau_ma": "form-1",
+  "dat": true,
+  "tu_do": false,
+  "don_vi_lap": "p-dtpc",
+  "gui_den": [
+   "ban-tgd"
+  ],
+  "ky": "tuan-29-2026",
+  "viec": [
+   {
+    "ten": "GPMB Trụ T11",
+    "bang": "bang_cong_viec",
+    "dong": 1,
+    "du_an": "ĐG Hướng Việt",
+    "bat_dau": "2026-07-14",
+    "ket_thuc": "2026-08-10",
+    "da_xong": false,
+    "phu_trach": [
+     "don_vi:p-dtpc"
+    ],
+    "kq": "Chi trả xong cho 3 hộ",
+    "cot_khac": null
+   },
+   {
+    "ten": "Gia hạn GPXD Nậm Khiên 1",
+    "bang": "bang_cong_viec",
+    "dong": 2,
+    "du_an": "Nậm Khiên 1",
+    "bat_dau": "2026-07-21",
+    "ket_thuc": "2026-08-20",
+    "da_xong": false,
+    "phu_trach": [
+     "don_vi:p-dtpc"
+    ],
+    "kq": "Có giấy phép gia hạn",
+    "cot_khac": null
+   }
+  ],
+  "loi": []
+ },
+ "vi-du/YKien_PhapLy_ThuVon.docx": {
+  "mau_ma": null,
+  "dat": false,
+  "tu_do": false,
+  "don_vi_lap": "p-dtpc",
+  "gui_den": [],
+  "ky": null,
+  "viec": [],
+  "loi": [
+   "chan|dung_mau|Không nhận ra mẫu: file \"YKien_PhapLy_ThuVon.docx\" không có ô nhập nào — đây là bản Word thường, không phải mẫu của hệ thống. Vào màn «Mẫu báo cáo» tải mẫu Excel, chép nội dung sang rồi tải lên lại."
+  ]
+ }
+}

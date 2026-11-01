@@ -1,0 +1,424 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Trang nền tối → báo trình duyệt vẽ phần tử NATIVE (danh sách xổ của
+     <select>, thanh cuộn, lịch chọn ngày) theo tông tối — không còn hộp
+     trắng lạc lõng (Mr. Đại báo 04/09 ở form tạo việc màn Việc của tôi). */
+  color-scheme: dark;
+  --bg: #0a0a0a;
+  --bg2: #111111;
+  --surface: #1a1a1a;
+  --panel: #1a1a1a;
+  --text: #f2f2f2;
+  --text-secondary: #a8a8a8;
+  --text-muted: #777777;
+  --accent: #3b82f6;
+  --accent-hover: #5b9bff;
+  --accent-bg: rgba(59, 130, 246, 0.13);
+  --border: #3a3a3a;
+  --border-light: #2a2a2a;
+  --green: #4ade80;
+  --green-bg: rgba(74, 222, 128, 0.08);
+  --red: #f87171;
+  --red-bg: rgba(248, 113, 113, 0.08);
+  --yellow: #fbbf24;
+  --yellow-bg: rgba(251, 191, 36, 0.08);
+  --blue: #60a5fa;
+  --blue-bg: rgba(96, 165, 250, 0.08);
+  --baseline-color: #4ade80;
+  --critical-color: #f87171;
+  --noncritical-color: #60a5fa;
+  --forecast-color: #666666;
+
+  /* Bề rộng khung chat trợ lý AI khi NEO (ChatWidget ghi đè lên <html>).
+     AppShell dùng làm padding-left / padding-right để đẩy nội dung sang bên
+     còn lại, không bị che. Bên không neo (và khi nổi/đóng) = 0px. */
+  --chat-dock-l: 0px;
+  --chat-dock-r: 0px;
+  /* 0ms khi đang kéo thanh đổi độ rộng (app bám tay), 150ms khi đóng/mở */
+  --chat-dock-anim: 150ms;
+}
+
+html,
+body {
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+}
+
+/* BÔI CHỮ ĐỂ CHÉP (Mr. Đại chốt 11/10/2026 — mọi agent, E45): bôi là NỀN XANH chữ trắng (như ảnh anh gửi), không còn
+   kiểu chỉ đổi màu chữ; chữ nằm trong nút / link / nhãn cũng bôi được. :where() cho độ ưu tiên = 0 nên lớp select-none
+   của tay kéo, thanh công cụ vẫn thắng. Kéo để bôi thì không tính là bấm: BoiKhongBam.tsx (gắn ở layout). */
+::selection {
+  background: #3367D6;
+  color: #fff;
+}
+:where(button, [role="button"], a, summary, label) {
+  -webkit-user-select: text;
+  user-select: text;
+}
+:where(a, a *) {
+  -webkit-user-drag: none;
+}
+
+/* Thin scrollbar cho bảng/khung cuộn */
+.scroll-thin::-webkit-scrollbar {
+  height: 8px;
+  width: 8px;
+}
+.scroll-thin::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 4px;
+}
+.scroll-thin::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* Bảng chuẩn dark premium dùng chung mọi tab */
+.tbl {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 12.5px;
+}
+.tbl th {
+  text-align: left;
+  padding: 8px 10px;
+  color: var(--text-muted);
+  font-size: 10.5px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  border-bottom: 1px solid var(--border);
+  white-space: nowrap;
+  background: var(--bg2);
+}
+.tbl td {
+  padding: 8px 10px;
+  border-bottom: 1px solid var(--border-light);
+  color: var(--text-secondary);
+  vertical-align: top;
+}
+.tbl tr:hover td {
+  background: rgba(255, 255, 255, 0.02);
+}
+.tbl td.num,
+.tbl th.num {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+.tbl tr.row-total td {
+  background: var(--accent-bg);
+  color: var(--text);
+  font-weight: 700;
+}
+
+/* Bảng WBS soạn tiến độ: 17 cột phải lọt một màn hình → đệm hẹp hơn bảng
+   thường và ô ngày cỡ nhỏ (lệnh Mr. Đại 01/09: "cột WBS bề rộng lớn vô lý"). */
+.tbl.bang-wbs th,
+.tbl.bang-wbs td {
+  padding: 6px 5px;
+}
+.tbl.bang-wbs th {
+  letter-spacing: 0.2px;
+  /* Cho tiêu đề xuống 2 dòng: "KHỐI LƯỢNG", "BĐ BASELINE"… nếu không cho ngắt
+     thì chính tiêu đề là thứ ép cột rộng ra, không phải dữ liệu. */
+  white-space: normal;
+  line-height: 1.15;
+}
+.tbl.bang-wbs input[type="date"] {
+  font-size: 11px;
+  padding-left: 2px;
+  padding-right: 0;
+}
+.tbl.bang-wbs input[type="date"]::-webkit-calendar-picker-indicator {
+  margin: 0;
+  padding: 0;
+  opacity: 0.45;
+}
+
+/* ============================================================
+   THANH GHIM — nguyên tắc chung, đồng bộ tuyệt đối (GD-3, Mr. Đại chốt 05/09)
+
+   Trước đây mỗi màn tự đặt top/z/nền riêng: 52px · 104px · 47px · 0, z-20 và
+   z-30, nền bg-surface / bg-bg / #0d0d0d. Cuộn trang là thấy so le và hở khe.
+   Nay ĐỊNH NGHĨA MỘT CHỖ (luật 7) — mọi thanh ghim:
+     · dính ngay dưới topmenu, tính theo --cao-topmenu (không hard-code px)
+     · cùng nền + cùng độ mờ + cùng viền dưới với topmenu
+     · tràn ngang ra bằng topmenu (lớp .ghim-tran-the dùng trong thẻ p-4)
+   Đổi chiều cao topmenu thì sửa ĐÚNG một biến bên dưới.
+   ============================================================ */
+:root {
+  /* Chiều cao thật của topmenu — Header ép cứng đúng con số này */
+  --cao-topmenu: 44px;
+  /* Hàng nút ghim tầng 2 (màn Lập tiến độ) — băng đồ hoạ ghim dưới nó */
+  --cao-thanh-nut: 50px;
+}
+
+/* Nền của MỌI thứ dính đỉnh — topmenu lẫn thanh ghim dùng CHUNG lớp này
+   (luật 7: một định nghĩa). Mr. Đại 06/09: "toàn bộ thanh ghim đều đặc, chưa
+   có hiệu ứng mờ nên không thấy nội dung bên dưới trượt qua" — hạ độ đục
+   95% → 86% và tăng blur, đủ để thấy dòng trượt qua mà chữ vẫn đọc rõ. */
+.nen-ghim {
+  background: color-mix(in srgb, var(--bg) 68%, transparent);
+  backdrop-filter: blur(12px);
+}
+
+.thanh-ghim {
+  position: sticky;
+  top: var(--cao-topmenu);
+  z-index: 30;
+  /* 68% + blur 12: nền TỐI trên nền TỐI mà để 86% thì mắt không phân biệt được
+     (Mr. Đại 06/09: "chưa có hiệu ứng mờ"). 68% vẫn đọc rõ chữ. */
+  background: color-mix(in srgb, var(--bg) 68%, transparent);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border-light);
+}
+
+/* Tầng 2: ghim ngay dưới một thanh ghim khác (băng đồ hoạ của Lập tiến độ) */
+.thanh-ghim-2 {
+  /* /planning là trang CÓ ghim nên topmenu đã cuộn trôi — chỉ trừ chiều cao
+     thanh nút, cộng thêm topmenu là header bảng tụt xuống 44px so với ghim. */
+  top: var(--cao-thanh-nut);
+}
+
+/* Kéo thanh ghim tràn ngang cho BẰNG ĐÚNG topmenu (Mr. Đại 06/09 — "một số
+   cái bề ngang không bằng topmenu").
+   Topmenu có px-5 (1.25rem) và chạy hết bề ngang vùng nội dung. Thanh ghim
+   nằm sâu hơn hai lớp đệm nên phải bù đủ cả hai, không thì luôn hẹp hơn:
+     · thân thẻ SectionCard  p-4  = 1rem
+     · đệm trang             p-5  = 1.25rem
+   Bù 2,25rem rồi trả lại 1,25rem padding để nội dung thẳng hàng với topmenu. */
+.ghim-tran-the {
+  /* padding = ĐÚNG BẰNG margin: nền tràn hết bề ngang, nhưng nội dung bên
+     trong đứng NGUYÊN vị trí cũ — thẳng hàng với thân biểu đồ bên dưới.
+     Đặt padding nhỏ hơn margin là vạch "Hôm nay" ở trục lệch khỏi vạch trong
+     lưới đúng bằng phần chênh (Mr. Đại bắt tại màn 06/09). */
+  margin-left: -2.25rem;
+  margin-right: -2.25rem;
+  padding-left: 2.25rem;
+  padding-right: 2.25rem;
+}
+
+/* Biến thể: thanh ghim nằm THẲNG trong trang p-5, không qua thẻ */
+.ghim-tran-trang {
+  margin-left: -1.25rem;
+  margin-right: -1.25rem;
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
+}
+
+/* GD-2 (Mr. Đại 05/09) cho thanh ghim "thế chỗ" topmenu (top: 0) — Mr. Đại BỎ 03/10/2026: ở agent này topmenu
+   LUÔN ghim (Header.tsx), nên thanh ghim làm việc dính ngay DƯỚI topmenu như .thanh-ghim thường. Lớp .ghim-the-cho
+   còn trên vài màn (ViecView…) nhưng không đổi vị trí nữa — để top: 0 thì thanh nút chui dưới topmenu 38px
+   (kiểm tra chéo 03/10, lỗi #1–#2). Riêng agent Tiến độ giữ luật cũ: 4 trang ở đó topmenu cố ý trôi (E17). */
+
+/* Hàng tiêu đề cột của bảng WBS dính lại khi cuộn (Mr. Đại 06/09) — cuộn tới
+   dòng 300 vẫn biết cột nào là Đơn vị, cột nào là BĐ baseline. Dính ngay dưới
+   thanh nút ghim của trang Lập tiến độ. */
+.tbl.bang-wbs thead th {
+  position: sticky;
+  /* /planning là trang CÓ ghim nên topmenu đã cuộn trôi — chỉ trừ chiều cao
+     thanh nút, cộng thêm topmenu là header bảng tụt xuống 44px so với ghim. */
+  top: var(--cao-thanh-nut);
+  z-index: 25;
+  /* nền đặc ở đây là CỐ Ý: chữ tiêu đề phải đọc được khi 330 dòng trượt qua */
+  background: var(--bg2);
+}
+
+/* Chiều cao dải nhãn nguồn dữ liệu (DataSourceBanner) — băng đồ hoạ của màn
+   Gantt Chart ghim ngay DƯỚI nó. Trước 06/09 cả hai cùng top:0 nên đè nhau. */
+:root {
+  --cao-dai-nguon: 44px;
+  /* Dải nhãn nguồn CÓ thêm hàng bộ lọc (màn Tiến độ chi tiết) thì cao hơn */
+  --cao-dai-nguon-loc: 84px;
+}
+
+.ghim-duoi-dai-nguon {
+  top: var(--cao-dai-nguon);
+}
+
+/* Băng ghim áp SÁT đáy dải nhãn nguồn khi trang chưa cuộn (Mr. Đại 06/09).
+   Khoảng hở là do ba lớp đệm cộng lại: đệm trang p-5 (1,25rem) + viền thẻ
+   (1px) + thân thẻ p-4 (1rem) = 2,25rem + 1px. Kéo lên đúng ngần ấy.
+   Không ảnh hưởng lúc ĐÃ ghim — khi đó vị trí do `top` quyết định. */
+.ghim-sat-tren {
+  margin-top: calc(-2.25rem - 1px);
+}
+
+/* Hàng tiêu đề cột bảng «Bảng tiến độ theo WBS» dính khi cuộn (Mr. Đại 06/09),
+   ngay dưới dải nhãn nguồn + hàng bộ lọc của trang Tiến độ chi tiết. */
+.tbl.bang-chi-tiet thead th {
+  position: sticky;
+  top: var(--cao-dai-nguon-loc);
+  z-index: 25;
+  background: var(--bg2);
+}
+
+/* ── Chế độ GIẢI THÍCH (bật từ nút topmenu) — chữ nào có giải thích thì
+      viền chấm để người dùng biết chỗ rê/chạm; tắt là sạch như thường ── */
+.o-giai-thich {
+  background: color-mix(in srgb, var(--surface) 72%, transparent);
+  backdrop-filter: blur(12px);
+}
+
+body[data-giai-thich="1"] [data-gt] {
+  outline: 1px dashed var(--accent);
+  outline-offset: 3px;
+  cursor: help;
+  border-radius: 2px;
+}
+
+/* ── Topmenu gọn dần khi hẹp (27/09 — neo chat bên phải từng làm topmenu xuống
+   dòng, đè nội dung). Bậc do lib/use-gon-topmenu.ts đo; ở đây chỉ ẩn. ── */
+header[data-gon="1"] .nhan-gon-1,
+header[data-gon="2"] .nhan-gon-1,
+header[data-gon="2"] .nhan-gon-2,
+header[data-gon="3"] .nhan-gon-1,
+header[data-gon="3"] .nhan-gon-2,
+header[data-gon="3"] .nhan-gon-3,
+header[data-gon="4"] .nhan-gon-1,
+header[data-gon="4"] .nhan-gon-2,
+header[data-gon="4"] .nhan-gon-3,
+header[data-gon="5"] .nhan-gon-1,
+header[data-gon="5"] .nhan-gon-2,
+header[data-gon="5"] .nhan-gon-3,
+header[data-gon="5"] .nhan-gon-5 {
+  display: none;
+}
+header[data-gon="4"] .ten-du-an-gon,
+header[data-gon="5"] .ten-du-an-gon {
+  max-width: 90px;
+}
+
+/* ══ GIAO DIỆN 3D MỚI (Mr. Đại chốt 03/10/2026) ══
+   2D = luật gốc ở trên, ĐÓNG BĂNG. 3D = bộ mới, điểm xuất phát GIỐNG HỆT 2D.
+   Từ nay mọi chỉnh sửa giao diện chỉ viết trong khối html[data-giao-dien="3d"] dưới đây (token màu trước, rồi từng màn)
+   — theo lệnh Mr. Đại cho từng agent, từng menu, từng màn. Cấm sửa luật gốc để làm đẹp 3D (sẽ đổi luôn 2D).
+   Thước chung: 0 Tài liệu thiết kế/CHOT/GIAO-DIEN-CHUNG-v1.0.md */
+html[data-giao-dien="3d"] {
+  /* Thanh trên theo thước 3004 (Mr. Đại chốt 03/10): cao 38px (thanh ghim bám theo biến này) · nền #1A1A1A (Mr. Đại 04/10, trước #1c1917) · nút bo 6px ·
+     viền cam khi chọn · Segoe UI 13px · chỉ giữ bóng đèn (Giải thích). Chuông: chưa agent nào có thông báo — chưa thêm. */
+  --cao-topmenu: 38px;
+  /* Khung tối theo thước chung (Mr. Đại 03/10): nền trang #000 · menu trái #1A1A1A cùng màu thanh trên (Mr. Đại 04/10, trước #1c1917) */
+  --bg: #000000;
+}
+html[data-giao-dien="3d"] header.nen-ghim { background: #1A1A1A; backdrop-filter: none; border-bottom: 0; color: #E7E5E4; padding: 0 12px; gap: 6px; font: 13px/20px "Segoe UI", Arial, sans-serif; }
+html[data-giao-dien="3d"] header.nen-ghim > .shrink-0 { gap: 6px; }
+html[data-giao-dien="3d"] header.nen-ghim h1 { font-size: 13px; font-weight: 600; color: #fff; }
+html[data-giao-dien="3d"] header.nen-ghim :is(.shrink-0, .shrink-0 > .relative) > .rounded-full { gap: 5px; padding: 2px 10px; border: 1px solid #44403C; border-radius: 6px; background: transparent; color: #D6D3D1; font-size: 13px; line-height: 20px; box-shadow: none; }
+html[data-giao-dien="3d"] header.nen-ghim :is(.shrink-0, .shrink-0 > .relative) > .rounded-full:hover { border-color: #78716C; color: #fff; }
+html[data-giao-dien="3d"] header.nen-ghim :is(.shrink-0, .shrink-0 > .relative) > .rounded-full:is([aria-current="page"], [aria-pressed="true"]) { border-color: #EA580C; color: #FDBA74; box-shadow: 0 0 0 1px #EA580C inset; font-weight: 400; }
+html[data-giao-dien="3d"] header.nen-ghim :is(.shrink-0, .shrink-0 > .relative) > .rounded-full b { color: #fff; font-weight: 600; }
+html[data-giao-dien="3d"] header.nen-ghim :is(.shrink-0, .shrink-0 > .relative) > .rounded-full .text-text-muted { color: #A8A29E; }
+html[data-giao-dien="3d"] header.nen-ghim :is(.shrink-0, .shrink-0 > .relative) > .rounded-full svg { display: none; }
+html[data-giao-dien="3d"] header.nen-ghim :is(.shrink-0, .shrink-0 > .relative) > .rounded-full[data-lenh="topmenu.giai-thich"] svg { display: block; color: #FDBA74; }
+html[data-giao-dien="3d"] header.nen-ghim :is(.shrink-0, .shrink-0 > .relative) > .rounded-full[data-lenh="chung.doi-du-an.mo"] svg:last-child { display: block; color: #A8A29E; }
+html[data-giao-dien="3d"] header.nen-ghim [data-ava] { display: none; }
+html[data-giao-dien="3d"] aside.h-screen.border-r { background-color: #1A1A1A; border-color: #44403C; }
+/* Menu tên người: bảng trắng bo 10px như agent Công việc 3004 (Mr. Đại 03/10) — 3D/2D hai nút, mục đang chọn viền cam */
+html[data-giao-dien="3d"] [data-um-hop] { background: #fff; color: #1a1a1a; border: 0; border-radius: 10px; box-shadow: 0 10px 30px rgba(0,0,0,.4); padding: 4px; min-width: 220px; }
+html[data-giao-dien="3d"] [data-um-hop] > div { border-color: #E8E5E0; }
+html[data-giao-dien="3d"] [data-um-hop] .text-text { color: #1a1a1a; }
+html[data-giao-dien="3d"] [data-um-hop] .text-text-muted { color: #6b7280; }
+html[data-giao-dien="3d"] [data-um-hop] button[aria-pressed] { border: 1px solid #D5D2CD; border-radius: 6px; padding: 6px 4px; font-size: 12.5px; font-weight: 500; color: #3d3a35; background: transparent; }
+html[data-giao-dien="3d"] [data-um-hop] button[aria-pressed]:hover { border-color: #A8A29E; color: #1a1a1a; }
+html[data-giao-dien="3d"] [data-um-hop] button[aria-pressed="true"] { border-color: #EA580C; background: #FFF1E6; color: #EA580C; font-weight: 600; }
+html[data-giao-dien="3d"] [data-um-hop] [role="menuitem"] { color: #1a1a1a; padding: 7px 10px; border-radius: 7px; font-size: 13px; font-weight: 400; }
+html[data-giao-dien="3d"] [data-um-hop] [role="menuitem"]:hover { background: #F5F3F0; color: #1a1a1a; }
+html[data-giao-dien="3d"] [data-um-hop] [role="menuitem"][aria-disabled="true"] { opacity: .45; }
+/* Dãy link các agent (Mr. Đại 04/10): dòng chữ thuần "đang ở đây" / "chưa đưa lên hoạt động" cùng cỡ với mục menu */
+html[data-giao-dien="3d"] [data-um-hop] [data-um-chu] { padding: 7px 10px; font-size: 13px; color: #6b7280; }
+html[data-giao-dien="3d"] [data-um-hop] [data-um-chu] b { color: #1a1a1a; font-weight: 600; }
+
+/* ══ GIAO DIỆN SÁNG (◐ — Mr. Đại 03/10/2026: "giống agent pháp lý") ══
+   Nền / chữ / viền lấy đúng bộ sáng của agent Pháp lý (#FAF9F7 · #fff · #1a1a1a · #E8E5E0); màu nhận diện của agent
+   giữ nguyên tông, đậm hơn bản tối cho đủ tương phản trên nền trắng. Mặc định vẫn TỐI. */
+:root[data-theme="light"] {
+  /* ô chọn xổ xuống, thanh cuộn, lịch chọn ngày vẽ theo tông sáng (kiểm tra chéo 03/10, lỗi #6) */
+  color-scheme: light;
+  --bg: #faf9f7;
+  --bg2: #f5f3f0;
+  --surface: #ffffff;
+  --panel: #ffffff;
+  --text: #1a1a1a;
+  --text-secondary: #1a1a1a;  /* 03/10 Mr. Đại: chữ "xám ít" → đen */
+  --text-muted: #57534e;  /* 03/10: chữ "xám nhiều" → xám đậm hơn */
+  --accent: #2563eb;
+  --accent-hover: #1d4ed8;
+  --accent-bg: rgba(37, 99, 235, 0.10);
+  --border: #d5d2cd;  /* 03/10: viền khối + nút đậm thêm */
+  --border-light: #e2ded8;
+  --green: #059669;
+  --green-bg: rgba(5, 150, 105, 0.08);
+  --red: #dc2626;
+  --red-bg: rgba(220, 38, 38, 0.07);
+  --yellow: #d97706;
+  --yellow-bg: rgba(217, 119, 6, 0.08);
+  --blue: #2563eb;
+  --blue-bg: rgba(37, 99, 235, 0.07);
+  --baseline-color: #16a34a;
+  --critical-color: #dc2626;
+  --noncritical-color: #2563eb;
+  --forecast-color: #9ca3af;
+}
+
+/* 3D SÁNG — Mr. Đại 19/10/2026 (thay chốt 03/10 «khung tối, nội dung sáng»): bấm ◐ Sáng thì thanh trên + menu trái cũng sáng
+   như 2D; giữ dáng 3D (cao 38px, nút bo 6px, Segoe UI 13px, nút đang chọn viền cam). Bấm Tối giữ nguyên như cũ. */
+html[data-giao-dien="3d"][data-theme="light"] header.nen-ghim { background: color-mix(in srgb, var(--bg) 68%, transparent); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); color: var(--text); }
+html[data-giao-dien="3d"][data-theme="light"] header.nen-ghim h1 { color: var(--text); }
+html[data-giao-dien="3d"][data-theme="light"] header.nen-ghim :is(.shrink-0, .shrink-0 > .relative) > .rounded-full { border-color: var(--border); color: var(--text); }
+html[data-giao-dien="3d"][data-theme="light"] header.nen-ghim :is(.shrink-0, .shrink-0 > .relative) > .rounded-full:hover { border-color: #A8A29E; color: #000; }
+html[data-giao-dien="3d"][data-theme="light"] header.nen-ghim :is(.shrink-0, .shrink-0 > .relative) > .rounded-full:is([aria-current="page"], [aria-pressed="true"]) { border-color: #EA580C; color: #C2410C; }
+html[data-giao-dien="3d"][data-theme="light"] header.nen-ghim :is(.shrink-0, .shrink-0 > .relative) > .rounded-full b { color: var(--text); }
+html[data-giao-dien="3d"][data-theme="light"] header.nen-ghim :is(.shrink-0, .shrink-0 > .relative) > .rounded-full .text-text-muted { color: var(--text-muted); }
+html[data-giao-dien="3d"][data-theme="light"] header.nen-ghim :is(.shrink-0, .shrink-0 > .relative) > .rounded-full[data-lenh="topmenu.giai-thich"] svg { color: #EA580C; }
+html[data-giao-dien="3d"][data-theme="light"] header.nen-ghim :is(.shrink-0, .shrink-0 > .relative) > .rounded-full[data-lenh="chung.doi-du-an.mo"] svg:last-child { color: var(--text-muted); }
+html[data-giao-dien="3d"][data-theme="light"] aside.h-screen.border-r { background-color: var(--bg2); border-color: var(--border); }
+
+
+/* ══ GIAO DIỆN SÁNG PHẲNG NHƯ PHÁP LÝ (Mr. Đại 03/10/2026: "giao diện trắng bỏ hiệu ứng 3D nổi, làm đơn giản như agent pháp lý") ══
+   shadow-card (0 8px 30px rgba(0,0,0,.6)) làm cho nền TỐI — sang nền trắng thành khối nổi. Chế độ sáng:
+   · thẻ nội dung: bóng gần như không có, như .card của Pháp lý — chỉ còn viền #E8E5E0
+   · hộp nổi (menu xổ, bảng trượt, gợi ý — lớp absolute/fixed): bóng nhẹ đủ tách khỏi nền
+   · khung chat trợ lý (luôn tối, luật C2): giữ bóng cũ. Chế độ tối không đổi. */
+:root[data-theme="light"] .shadow-card {
+  --tw-shadow: 0 1px 3px rgba(0, 0, 0, 0.04), 0 1px 2px rgba(0, 0, 0, 0.03);
+}
+:root[data-theme="light"] :is(.absolute, .fixed).shadow-card {
+  --tw-shadow: 0 10px 28px rgba(0, 0, 0, 0.12), 0 2px 6px rgba(0, 0, 0, 0.06);
+}
+:root[data-theme="light"] [data-khung-chat] .shadow-card,
+:root[data-theme="light"] [data-khung-chat].shadow-card {
+  --tw-shadow: 0 8px 30px rgba(0, 0, 0, 0.6);
+}
+
+/* Viền mặc định của Tailwind (#e5e7eb — lớp `border` không ghi màu) cũng đậm theo. :where() → độ ưu tiên 0,
+   không đè viền có màu riêng (border-accent, border-red…) */
+:where(:root[data-theme="light"]) :where(*, ::before, ::after) { border-color: #d5d2cd; }
+/* ══ NGUYÊN TẮC: BẤM NÚT → VÒNG CAM BÊN NGOÀI (Mr. Đại chốt 03/10/2026, GIAO-DIEN-CHUNG E21) ══
+   Bấm (hoặc Tab tới) một nút / link / ô chọn → viền cam #EA580C dày 2px, cách mép 2px — thay vòng mặc định của trình
+   duyệt. Áp CẢ giao diện sáng lẫn tối, cả thanh trên + menu trái. Ô gõ chữ giữ kiểu viền nhấn riêng. */
+:is(button, a, select, summary, [role="button"], [role="tab"], [role="menuitem"]):focus {
+  outline: 2px solid #ea580c;
+  outline-offset: 2px;
+}
+
+/* ══ KHUNG CHAT NEO PHẢI BẮT ĐẦU DƯỚI THANH TRÊN (Mr. Đại 03/10/2026 — như agent Pháp lý, E14) ══
+   ChatWidget đặt khung neo phải ở top: var(--chat-top). Thanh trên kéo dài sang phải đè lên phần lề dành cho khung chat
+   (AppShell padding-right = --chat-dock-r), nên không còn bị bóp hẹp. Trang có thanh trên CỐ Ý trôi (data-troi — 4 trang
+   agent Tiến độ, E17) thì khung chat giữ cao hết màn, kẻo cuộn xuống hở một dải trống phía trên khung. */
+:root { --chat-top: var(--cao-topmenu); }
+html:has(header.nen-ghim[data-troi]) { --chat-top: 0px; }
+header.nen-ghim:not([data-troi]) {
+  margin-right: calc(-1 * var(--chat-dock-r, 0px));
+  transition: margin-right var(--chat-dock-anim, 150ms) ease;
+}
+
+/* Màn Góp ý (Mr. Đại 04/10/2026): "nếu giao diện là nền trắng thì tất cả chữ đều màu đen trừ chữ Góp ý, phản ánh để nguyên".
+   Chữ gợi ý mờ trong ô nhập, chữ trên nút màu và chữ báo lỗi đỏ giữ màu riêng; viền cam vẫn đánh dấu nút lọc đang chọn. */
+:root[data-theme="light"] [data-gop-y] :is(.text-text-secondary, .text-text-muted, button[aria-pressed]) { color: #1a1a1a; }
+
+/* ⭐ 28/10 (Mr. Đại, nhân bản từ Pháp lý): giao diện SÁNG — khung chat trợ lý sáng cùng tông trang (bỏ luật C2 «luôn tối»);
+   ô gõ chat nền #F5F3F0 như ảnh mẫu. Chế độ tối không đổi. */
+:root[data-theme="light"] :is(textarea[data-lenh="chat.goi-skill"], :has(> textarea[data-lenh="chat.goi-skill"])) { background-color: #F5F3F0; }
