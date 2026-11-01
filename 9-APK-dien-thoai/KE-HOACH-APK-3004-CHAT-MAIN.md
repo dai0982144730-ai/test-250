@@ -1,6 +1,6 @@
 # Kế hoạch: app «SCI Công việc 3004» (bản thứ hai) + mục chat trợ lý Main
 
-*01/11/2026 · gốc: `9-APK-dien-thoai/CodeApp` (v0.1.32, versionCode 33) · **chưa code**, chờ anh duyệt · thay cho bản đề xuất trước (đã xoá, vì trỏ vào `apk-CodeApp` đã bỏ).*
+*01/11/2026 · gốc: `9-APK-dien-thoai/CodeApp` (v0.1.32, versionCode 33) · **Anh đã duyệt 1A · 2A (khung chat web của Main) · 3A · 4A — đã code ở `CodeApp-3004/`, xem `CodeApp-3004/README-3004.md`.***
 
 ## 1. Hai app khác nhau ở đâu (đo bằng lệnh)
 

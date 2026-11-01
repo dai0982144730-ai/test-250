@@ -35,6 +35,8 @@
   const S = { dangNhap: false, server: "", email: "", ten: "", so: 0, soMoi: 0, hop: [] };
   const tt = { tab: "toi", vai: "nhan", dv: null, da: null, loc: "tat-ca", sua: null, d: 0, mo: null, thao: "", qh: false };
   const CACHE = {};
+  // bản 3004 — trạng thái mục «Trợ lý» (chat với trợ lý AI của Main); hàm ở phần «TRỢ LÝ MAIN» cuối tệp
+  const CHAT = { mo: false, dn: null, ds: null, xemDs: false, phien: null, ten: "", tin: [], cho: [], gui: false, batDau: 0, loi: "", tai: false, tok: 0, dem: 0 };
   let ST = null; // trạng thái dòng họp hiện tại
 
   function docTrangThai() {
@@ -47,6 +49,7 @@
     TEP.bl = {}; TEP.xong = []; TEP.giao = []; MO_XONG.clear();
     tt.mo = null; tt.dv = null; tt.da = null; tt.thao = ""; GV = null; F = null; XEM.tok++;
     CHON = null; TIM.q = ""; TIM.loai = ""; TIM.mo = false; $("tim-q").value = ""; $("tim-loai").value = "";
+    CHAT.tok++; CHAT.phien = null; CHAT.ten = ""; CHAT.tin = []; CHAT.cho = []; CHAT.ds = null; CHAT.gui = false; CHAT.loi = ""; CHAT.xemDs = false; // bản 3004
   }
   function hetPhien() {
     S.dangNhap = false;
@@ -56,14 +59,27 @@
   // ---------- đăng nhập ----------
   function hienDangNhap(loi) {
     $("man-dn").classList.add("mo");
-    $("dn-s").value = S.server || "https://congviec.scigroup.vn";
+    $("dn-s").value = S.server || ""; // bản 3004: không có địa chỉ mặc định — mỗi máy chủ một IP LAN (gợi ý ở ô: http://192.168.1.10:3004)
     $("dn-e").value = S.email || "";
     $("dn-loi").textContent = loi || "";
+    $("dn-loi").classList.remove("goi-y-dc");
     if (!loi) canhBaoHttp();
   }
+  // Bản 3004 (duyệt 01/11/2026, câu 1A): máy chủ ở mạng LAN → http:// tới IP riêng là BÌNH THƯỜNG, không cảnh báo.
+  // Bản gốc viết /^http:///i — dấu // biến nửa sau thành chú thích nên ô lỗi hiện chữ «/^http:/» mỗi lần gõ; sửa ở đây.
+  function nhanXetDiaChi(v) {
+    const m = /^(https?):\/\/\[?([^/:\]]+)\]?(?::\d+)?\/?$/i.exec(String(v || "").trim());
+    if (!m) return "";
+    const host = m[2].toLowerCase();
+    if (host === "localhost" || /^127\./.test(host)) return "ⓘ Trên điện thoại «localhost» là chính điện thoại. Nhập IP máy tính chạy 3004 trong Wi-Fi (vd http://192.168.1.10:3004), trừ khi đang cắm cáp USB và đã chạy «adb reverse tcp:3004 tcp:3004».";
+    const rieng = /^10\./.test(host) || /^192\.168\./.test(host) || /^172\.(1[6-9]|2\d|3[01])\./.test(host) || /\.local$/.test(host);
+    if (m[1].toLowerCase() === "http" && !rieng) return "⚠ Địa chỉ http:// ra Internet gửi mật khẩu không mã hoá — dùng https://";
+    return "";
+  }
   const canhBaoHttp = () => {
-    const v = $("dn-s").value.trim();
-    $("dn-loi").textContent = /^http:///i.test(v) && !/^http://(localhost|127.0.0.1)(:|/|$)/i.test(v) ? "⚠ Địa chỉ http:// gửi mật khẩu không mã hoá. Công ty dùng https://congviec.scigroup.vn" : "";
+    const s = nhanXetDiaChi($("dn-s").value);
+    $("dn-loi").textContent = s;
+    $("dn-loi").classList.toggle("goi-y-dc", s.startsWith("ⓘ"));
   };
   $("dn-s").addEventListener("input", canhBaoHttp);
   $("dn-f").addEventListener("submit", (ev) => {
@@ -76,9 +92,9 @@
       let j = {};
       try { j = JSON.parse(txt); } catch (e) { /* bỏ */ }
       if (ma === 200) { $("man-dn").classList.remove("mo"); $("dn-m").value = ""; xoaBoNho(); docTrangThai(); ve(); veChuong(); veHop(); napTab(); }
-      else $("dn-loi").textContent = j.loi || "Đăng nhập không được";
+      else { $("dn-loi").classList.remove("goi-y-dc"); $("dn-loi").textContent = (j.loi || "Đăng nhập không được") + (nhanXetDiaChi($("dn-s").value).startsWith("ⓘ") ? " — " + nhanXetDiaChi($("dn-s").value) : ""); }
     };
-    if (/^http:\/\//i.test($("dn-s").value.trim()) && !/^http:\/\/(localhost|127\.0\.0\.1)(:|\/|$)/i.test($("dn-s").value.trim())) $("dn-loi").textContent = "⚠ Địa chỉ http:// gửi mật khẩu không mã hoá. Công ty dùng https://congviec.scigroup.vn";
+    canhBaoHttp();
     NA.dangNhap(id, $("dn-s").value, $("dn-e").value, $("dn-m").value);
   });
 
@@ -1119,7 +1135,8 @@
     if (!t) return;
     if (vuaGiu) { vuaGiu = 0; return; } // đúng MỘT cú click lúc nhả tay sau khi giữ lâu thì bỏ
     if (t.matches(".ic") && (tt.sua || (!t.dataset.dv && !t.dataset.da))) return;
-    if (t.matches("#duoi button")) { tt.sua = null; tt.tab = t.dataset.t; tt.mo = null; ve(); napTab(); $("than").scrollTop = 0; }
+    if (t.matches("#duoi button") && t.dataset.t === "chat") moChat(); // bản 3004: «Trợ lý» là lớp phủ riêng, không đổi tab đang xem
+    else if (t.matches("#duoi button")) { tt.sua = null; tt.tab = t.dataset.t; tt.mo = null; ve(); napTab(); $("than").scrollTop = 0; }
     else if (t.dataset.taiLai) napTab();
     else if (t.dataset.an) { const [k, id] = t.dataset.an.split("|"); KHO[k].an.push(id); luu("sci_kho_v1", KHO); ve(); }
     else if (t.dataset.ico) { const [k, id, ma] = t.dataset.ico.split("|"); const m = icoMap(); if (ma) m[k + ":" + id] = ma; else delete m[k + ":" + id]; luu(khoaIcon(), m); dong(); ve(); }
@@ -1647,7 +1664,8 @@
     lk = String(lk || "");
     try { NA.lienKetCho(); } catch (e) { /* bản vỏ cũ chưa có cầu nối này */ }
     if (!S.dangNhap || !lk) return;
-    ["man-chon", "man-ch", "man-cd", "man-tb", "man", "man-td"].forEach((i) => $(i).classList.remove("mo"));
+    ["man-chon", "man-ch", "man-cd", "man-tb", "man", "man-td", "man-chat"].forEach((i) => $(i).classList.remove("mo"));
+    CHAT.mo = false;
     if ($("man-xem").classList.contains("mo")) dongXem();
     const mv = /^\/cong-viec\/([^/?#]+)/.exec(lk) || /^\/so-do\?(?:[^#]*&)?viec=([^&#]+)/.exec(lk);
     if (mv) {
@@ -1696,6 +1714,225 @@
   }
   window.moLienKet = moLienKet;
 
+  // ---------- TRỢ LÝ MAIN (bản 3004 — Mr. Đại duyệt 01/11/2026: câu 2A gọi thẳng Main 3010, câu 4A phạm vi bản đầu) ----------
+  // Cùng bộ não với khung chat web và bot Telegram của Main (runChatAgent + chat-store). Hợp đồng: main-3010/src/lib/ai/chat-types.ts.
+  // Bản đầu: hỏi–đáp · danh sách phiên · ✅ Làm / ❌ Bỏ. CHƯA có: xuất file, kẹp tệp 📎, tìm web 🌐, chọn model, duyệt kế hoạch tạo file.
+  function mainApi(method, path, body) {
+    return new Promise((ok) => {
+      const id = ++seq;
+      cbs[id] = (ma, txt) => {
+        let j = null;
+        try { j = JSON.parse(txt); } catch (e) { /* không phải JSON */ }
+        ok({ ma, j, txt, path });
+      };
+      NA.mainApi(id, method, path, body ? JSON.stringify(body) : "");
+    });
+  }
+  const loiMain = (r) => (r.j && (r.j.message || r.j.loi)) || (r.ma === 0 ? "Không kết nối được Main" : r.ma === 403 ? "Tài khoản Main này không được dùng trợ lý" : "Main trả lỗi " + r.ma + " [" + (r.path || "") + "]");
+  const mainTT = () => { try { return JSON.parse(NA.mainTrangThai()); } catch (e) { return { dangNhap: false, server: "", email: "", coMk3004: false }; } };
+  const khoaPhien = () => "sci_chat_phien:" + ((CHAT.dn && CHAT.dn.email) || S.email || "");
+  const gioVN = (iso) => { try { return new Date(iso).toLocaleString("vi-VN", { timeZone: "Asia/Ho_Chi_Minh", hour: "2-digit", minute: "2-digit", day: "2-digit", month: "2-digit" }); } catch (e) { return ""; } };
+
+  // Markdown gọn của trợ lý: **đậm**, `mã`, [chữ](đường), tiêu đề #, gạch đầu dòng, bảng |…|. Thoát HTML TRƯỚC rồi mới gắn thẻ.
+  function mdNoi(s) {
+    return s.replace(/`([^`]+)`/g, "<code>$1</code>")
+      .replace(/\*\*([^*]+)\*\*/g, "<b>$1</b>")
+      .replace(/\[([^\]]+)\]\(([^)\s]+)\)/g, (_, chu, lk) => '<a data-lk-main="' + lk + '">' + chu + "</a>");
+  }
+  function md(s) {
+    let out = "", bang = null;
+    const xongBang = () => {
+      if (!bang) return;
+      out += '<div class="bang"><table>' + bang.map((h, i) => "<tr>" + h.map((c) => (i === 0 ? "<th>" : "<td>") + mdNoi(esc(c)) + (i === 0 ? "</th>" : "</td>")).join("") + "</tr>").join("") + "</table></div>";
+      bang = null;
+    };
+    for (const d of String(s || "").replace(/\r/g, "").split("\n")) {
+      const t = d.trim();
+      if (/^\|.*\|$/.test(t)) {
+        if (!/^\|[\s:|-]+\|$/.test(t)) (bang = bang || []).push(t.slice(1, -1).split("|").map((c) => c.trim())); // dòng |---| là vạch kẻ, bỏ
+        continue;
+      }
+      xongBang();
+      if (!t) continue;
+      const h = /^#{1,6}\s+(.*)$/.exec(t);
+      if (h) { out += "<h4>" + mdNoi(esc(h[1])) + "</h4>"; continue; }
+      if (/^(-{3,}|\*{3,}|_{3,})$/.test(t)) { out += '<hr style="border:0;border-top:1px solid var(--vien)">'; continue; }
+      const li = /^[-*•]\s+(.*)$/.exec(t);
+      out += "<p>" + (li ? "• " + mdNoi(esc(li[1])) : mdNoi(esc(t))) + "</p>";
+    }
+    xongBang();
+    return out;
+  }
+
+  function tinHtml(m) {
+    if (m.role === "user") return '<div class="ct-tin nguoi"><div class="ct-nd">' + esc(m.content) + '</div><div class="ct-gio">' + esc(gioVN(m.at)) + "</div></div>";
+    const chip = (m.actions || []).filter((a) => a && a.summary).map((a) => '<span class="ct-chip ' + (a.ok ? "" : "hong") + '">' + (a.ok ? "✓ " : "✗ ") + esc(a.summary) + "</span>").join("");
+    return '<div class="ct-tin"><div class="dau-ai"><span class="ai">AI</span><b>Trợ lý</b> · ' + esc(gioVN(m.at)) + '</div><div class="ct-nd">' + md(m.content) + "</div>" + chip + "</div>";
+  }
+  const choHtml = (v) => '<div class="ct-cho"><b>Trợ lý xin làm:</b> ' + esc(v.moTa || v.name || "") + '<div class="hai-nut"><button class="chinh" data-cho="lam|' + esc(v.id) + '">✅ Làm</button><button data-cho="bo|' + esc(v.id) + '">❌ Bỏ</button></div></div>';
+  const chuDoi = () => "Đang trả lời… " + Math.round((Date.now() - CHAT.batDau) / 1000) + " giây (câu cần hỏi nhiều agent có thể mất vài phút)";
+
+  function dnHtml() {
+    const d = CHAT.dn || {};
+    return '<div class="ct-dn"><p>Trợ lý AI của agent Main chạy ở máy chủ riêng (cổng 3010) và dùng tài khoản Main. Chỉ phải đăng nhập một lần trên máy này.</p>'
+      + '<label for="cdn-s">Địa chỉ Main</label><input id="cdn-s" type="url" spellcheck="false" autocapitalize="off" placeholder="http://192.168.1.10:3010" value="' + esc(d.server || "") + '">'
+      + '<label for="cdn-e">Email</label><input id="cdn-e" type="email" autocomplete="username" value="' + esc(d.email || S.email || "") + '">'
+      + '<label for="cdn-m">Mật khẩu Main</label><input id="cdn-m" type="password" autocomplete="current-password" placeholder="' + (d.coMk3004 ? "Để trống = dùng mật khẩu SCI Công việc" : "") + '">'
+      + '<button class="nut-dn" id="cdn-b">Đăng nhập trợ lý</button>'
+      + (CHAT.loi ? '<div class="ct-loi">' + esc(CHAT.loi) + "</div>" : "") + "</div>";
+  }
+  function dsHtml() {
+    const ds = CHAT.ds;
+    const than = !ds ? '<div class="ct-trong">Đang tải danh sách phiên…</div>'
+      : ds.loi ? '<div class="ct-loi">' + esc(ds.loi) + "</div>"
+      : !ds.length ? '<div class="ct-trong">Chưa có phiên nào. Gửi câu hỏi đầu tiên để tạo phiên.</div>'
+      : ds.map((p) => '<button class="ct-phien ' + (p.id === CHAT.phien ? "dang" : "") + '" data-phien="' + esc(p.id) + '">' + esc(p.title || "Phiên mới") + "<small>" + esc(gioVN(p.updatedAt)) + " · " + (p.messageCount || 0) + " tin</small></button>").join("");
+    return than + '<div class="ct-trong"><small>Đang dùng trợ lý Main ở ' + esc((CHAT.dn && CHAT.dn.server) || "") + " · " + esc((CHAT.dn && CHAT.dn.email) || "") + '</small><br><br><button class="nut" data-chat-thoat="1">Thoát tài khoản trợ lý Main</button></div>';
+  }
+
+  function veChat() {
+    const el = $("chat-than");
+    const coDn = !!(CHAT.dn && CHAT.dn.dangNhap);
+    $("chat-ten").textContent = !coDn ? "Trợ lý Main" : CHAT.xemDs ? "Phiên cũ" : CHAT.ten || "Trợ lý Main";
+    $("chat-viet").style.display = coDn && !CHAT.xemDs ? "" : "none";
+    $("chat-ds-nut").style.display = coDn && !CHAT.xemDs ? "" : "none";
+    $("chat-moi").style.display = coDn ? "" : "none";
+    $("chat-gui").disabled = CHAT.gui;
+    if (!coDn) { el.innerHTML = dnHtml(); return; }
+    if (CHAT.xemDs) { el.innerHTML = dsHtml(); el.scrollTop = 0; return; }
+    let h = "";
+    if (CHAT.tai) h += '<div class="ct-trong">Đang tải phiên…</div>';
+    else if (!CHAT.tin.length && !CHAT.gui) h += '<div class="ct-trong">Hỏi trợ lý Main về dự án, tiến độ, công việc, issue…<br><small>Việc nào trợ lý cần GHI dữ liệu sẽ hiện nút ✅ Làm / ❌ Bỏ để anh/chị duyệt.</small></div>';
+    h += CHAT.tin.map(tinHtml).join("");
+    if (CHAT.gui) h += '<div class="ct-tin"><div class="dau-ai"><span class="ai">AI</span><b>Trợ lý</b></div><div class="ct-doi" id="chat-dem">' + esc(chuDoi()) + "</div></div>";
+    h += CHAT.cho.map(choHtml).join("");
+    if (CHAT.loi) h += '<div class="ct-loi">' + esc(CHAT.loi) + "</div>";
+    el.innerHTML = h;
+    el.scrollTop = el.scrollHeight;
+  }
+
+  function moChat() {
+    CHAT.mo = true;
+    CHAT.dn = mainTT();
+    $("man-chat").classList.add("mo");
+    if (CHAT.dn.dangNhap && !CHAT.phien && !CHAT.tin.length && !CHAT.gui) {
+      const cu = doc(khoaPhien(), "");
+      if (cu) { moPhien(cu); return; }
+    }
+    veChat();
+  }
+  function dongChat() { CHAT.mo = false; CHAT.xemDs = false; $("man-chat").classList.remove("mo"); $("chat-o").blur(); }
+  function canDangNhapMain(loi) {
+    CHAT.gui = false; CHAT.tai = false; CHAT.xemDs = false;
+    CHAT.dn = mainTT();
+    CHAT.loi = loi || (CHAT.dn.dangNhap ? "" : "Cần đăng nhập trợ lý Main (phiên hết hạn hoặc mật khẩu Main đã đổi)");
+    veChat();
+  }
+  function phienMoi() {
+    CHAT.tok++; CHAT.phien = null; CHAT.ten = ""; CHAT.tin = []; CHAT.cho = []; CHAT.gui = false; CHAT.loi = ""; CHAT.xemDs = false; CHAT.tai = false;
+    luu(khoaPhien(), "");
+    veChat();
+    $("chat-o").focus();
+  }
+  async function moPhien(id) {
+    const tok = ++CHAT.tok;
+    CHAT.xemDs = false; CHAT.phien = id; CHAT.ten = ""; CHAT.tin = []; CHAT.cho = []; CHAT.loi = ""; CHAT.gui = false; CHAT.tai = true;
+    veChat();
+    const r = await mainApi("GET", "/api/ai/chat/messages?id=" + encodeURIComponent(id));
+    if (tok !== CHAT.tok) return;
+    CHAT.tai = false;
+    if (r.ma === 401) { canDangNhapMain(); return; }
+    if (r.ma === 404) { CHAT.phien = null; luu(khoaPhien(), ""); veChat(); return; } // phiên đã xoá ở web: về phiên mới
+    if (r.ma !== 200 || !r.j || !r.j.session) { CHAT.loi = loiMain(r); veChat(); return; }
+    CHAT.tin = r.j.session.messages || [];
+    CHAT.ten = r.j.session.title || "";
+    CHAT.cho = r.j.choDuyet || [];
+    luu(khoaPhien(), id);
+    veChat();
+  }
+  async function moDsPhien() {
+    CHAT.xemDs = true; CHAT.ds = null; veChat();
+    const r = await mainApi("GET", "/api/ai/chat/sessions");
+    if (r.ma === 401) { canDangNhapMain(); return; }
+    CHAT.ds = r.ma === 200 && r.j && Array.isArray(r.j.sessions) ? r.j.sessions : { loi: loiMain(r) };
+    if (CHAT.xemDs) veChat();
+  }
+  async function guiChat() {
+    const o = $("chat-o"), cau = o.value.trim();
+    if (!cau || CHAT.gui) return;
+    if (cau.length > 4000) { toast("Câu hỏi quá dài (tối đa 4.000 ký tự)"); return; }
+    o.value = ""; tuCao();
+    const tok = CHAT.tok;
+    CHAT.tin.push({ role: "user", content: cau, at: new Date().toISOString() });
+    CHAT.gui = true; CHAT.batDau = Date.now(); CHAT.loi = "";
+    veChat();
+    clearInterval(CHAT.dem);
+    CHAT.dem = setInterval(() => { const e = $("chat-dem"); if (e && CHAT.gui) e.textContent = chuDoi(); else clearInterval(CHAT.dem); }, 1000);
+    const r = await mainApi("POST", "/api/ai/chat", { sessionId: CHAT.phien || "", message: cau });
+    if (tok !== CHAT.tok) return; // đã đổi phiên trong lúc chờ: Main vẫn lưu câu trả lời vào phiên cũ
+    CHAT.gui = false; clearInterval(CHAT.dem);
+    if (r.ma === 401) { canDangNhapMain(); return; }
+    if (r.ma !== 200 || !r.j || !r.j.ok) {
+      CHAT.loi = "Chưa nhận được trả lời: " + loiMain(r) + (r.ma === 0 ? ". Nếu Main vẫn đang xử lý, câu trả lời sẽ có trong phiên — bấm «Phiên cũ» để mở lại sau ít phút." : "");
+      if (!o.value) { o.value = cau; tuCao(); } // trả lại câu hỏi vào ô để gửi lại
+      veChat();
+      return;
+    }
+    const s = r.j.session || {};
+    if (s.id) { CHAT.phien = s.id; luu(khoaPhien(), s.id); }
+    if (s.title) CHAT.ten = s.title;
+    CHAT.tin.push({ role: "assistant", content: r.j.reply || "", at: new Date().toISOString(), actions: r.j.actions || [] });
+    if (r.j.keHoachChoDuyet) CHAT.tin.push({ role: "assistant", content: "ⓘ App chưa có nút «Duyệt & tạo file» — mở khung chat web của Main để duyệt kế hoạch tạo file này.", at: new Date().toISOString() });
+    CHAT.cho = Array.isArray(r.j.choDuyet) ? r.j.choDuyet : CHAT.cho;
+    CHAT.ds = null;
+    veChat();
+  }
+  async function xacNhan(nut) {
+    const [hd, id] = nut.dataset.cho.split("|");
+    nut.closest(".ct-cho").querySelectorAll("button").forEach((b) => (b.disabled = true));
+    const r = await mainApi("POST", "/api/ai/chat/xac-nhan", { id: id, hanhDong: hd });
+    if (r.ma === 401) { canDangNhapMain(); return; }
+    const j = r.j || {};
+    if (j.cau) CHAT.tin.push({ role: "assistant", content: j.cau, at: new Date().toISOString(), actions: j.action ? [j.action] : [] });
+    else if (r.ma !== 200) CHAT.loi = loiMain(r);
+    CHAT.cho = r.ma === 200 && Array.isArray(j.choDuyet) ? j.choDuyet : CHAT.cho.filter((v) => v.id !== id);
+    veChat();
+  }
+  function tuCao() { const o = $("chat-o"); o.style.height = "auto"; o.style.height = Math.min(140, o.scrollHeight) + "px"; }
+
+  $("chat-lui").addEventListener("click", () => { if (CHAT.xemDs) { CHAT.xemDs = false; veChat(); } else dongChat(); });
+  $("chat-ds-nut").addEventListener("click", moDsPhien);
+  $("chat-moi").addEventListener("click", phienMoi);
+  $("chat-gui").addEventListener("click", guiChat);
+  $("chat-o").addEventListener("input", tuCao);
+  $("chat-o").addEventListener("keydown", (e) => { if (e.key === "Enter" && !e.shiftKey) { e.preventDefault(); guiChat(); } });
+  $("chat-than").addEventListener("click", (e) => {
+    const t = e.target.closest("button, a, .ct-chip");
+    if (!t) return;
+    if (t.id === "cdn-b") {
+      t.disabled = true;
+      CHAT.dn = Object.assign({}, CHAT.dn, { server: $("cdn-s").value.trim(), email: $("cdn-e").value.trim() });
+      const id = ++seq;
+      cbs[id] = (ma, txt) => {
+        let j = {};
+        try { j = JSON.parse(txt); } catch (er) { /* bỏ */ }
+        if (ma === 200) { CHAT.loi = ""; CHAT.dn = mainTT(); phienMoi(); }
+        else { CHAT.loi = j.loi || "Đăng nhập trợ lý Main không được"; veChat(); }
+      };
+      NA.mainDangNhap(id, CHAT.dn.server, CHAT.dn.email, $("cdn-m").value);
+    }
+    else if (t.dataset.phien) moPhien(t.dataset.phien);
+    else if (t.dataset.cho) xacNhan(t);
+    else if (t.dataset.chatThoat) { NA.mainThoat(); CHAT.tok++; CHAT.phien = null; CHAT.tin = []; CHAT.cho = []; CHAT.ds = null; CHAT.xemDs = false; CHAT.loi = ""; CHAT.dn = mainTT(); veChat(); }
+    else if (t.dataset.lkMain) {
+      // Đường trong câu trả lời là trang WEB của Main (vd /alerts) → mở bằng trình duyệt; app chưa có màn đó
+      const lk = t.dataset.lkMain;
+      if (/^https?:\/\//i.test(lk)) NA.moWeb(lk);
+      else if (lk.startsWith("/") && !lk.startsWith("//") && CHAT.dn && CHAT.dn.server) NA.moWeb(CHAT.dn.server.replace(/\/+$/, "") + lk);
+    }
+    else if (t.classList.contains("ct-chip")) t.style.whiteSpace = t.style.whiteSpace === "normal" ? "" : "normal"; // chạm chip: xem đủ chữ
+  });
+
   // nút Back của Android: đóng lớp trên cùng trước
   window.__quayLai = () => {
     if (TIM.mo && tt.tab !== "ph") { ketThucTim(); return true; } // Back khi đang tìm: đóng ô tìm, menu đáy hiện lại
@@ -1703,6 +1940,7 @@
     if ($("man-chon").classList.contains("mo")) { dongChon(); return true; }
     if ($("man").classList.contains("mo")) { dong(); return true; }
     if ($("man-xem").classList.contains("mo")) { dongXem(); return true; }
+    if ($("man-chat").classList.contains("mo")) { if (CHAT.xemDs) { CHAT.xemDs = false; veChat(); } else dongChat(); return true; }
     if ($("man-ch").classList.contains("mo")) { $("man-ch").classList.remove("mo"); return true; }
     if ($("man-cd").classList.contains("mo")) { $("man-cd").classList.remove("mo"); return true; }
     if ($("man-tb").classList.contains("mo")) { $("man-tb").classList.remove("mo"); return true; }

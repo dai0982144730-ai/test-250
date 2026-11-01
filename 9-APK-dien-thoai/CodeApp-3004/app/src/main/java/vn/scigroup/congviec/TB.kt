@@ -63,7 +63,7 @@ object TB {
         val so = Cfg.so(c)
         val now = System.currentTimeMillis()
         val hopChuaXem = HopX.doc(Cfg.hop(c)).count { !it.daXem && HopX.conHien(it, now) }
-        val tieuDe = "SCI Công việc · " + (if (so > 0) TB.chuSo(so, Cfg.soMoi(c)) else "không có thông báo mới") + (if (hopChuaXem > 0) " · $hopChuaXem họp chưa xem" else "")
+        val tieuDe = "SCI Công việc 3004 · " + (if (so > 0) TB.chuSo(so, Cfg.soMoi(c)) else "không có thông báo mới") + (if (hopChuaXem > 0) " · $hopChuaXem họp chưa xem" else "")
         val h = HopX.ganNhat(c, now)
         val dong = if (h != null) HopX.chu(h, now) else "Không có cuộc họp sắp tới"
         return Notification.Builder(c, K_TT).setSmallIcon(R.drawable.ic_chuong).setContentTitle(tieuDe).setContentText(dong)
@@ -88,7 +88,7 @@ object TB {
     /** Dựng thông báo mang số; dùng chung cho đăng thật và đăng thử */
     private fun dungHuyHieu(c: Context, so: Int, tieuDe: String): Notification {
         val n = Notification.Builder(c, K_HH).setSmallIcon(R.drawable.ic_chuong).setContentTitle(tieuDe)
-            .setContentText("Bấm để mở SCI Công việc").setContentIntent(moApp(c, null)).setNumber(so).setOnlyAlertOnce(true).setShowWhen(false)
+            .setContentText("Bấm để mở SCI Công việc 3004").setContentIntent(moApp(c, null)).setNumber(so).setOnlyAlertOnce(true).setShowWhen(false)
             .setBadgeIconType(Notification.BADGE_ICON_NONE).build()
         try { // lối cũ của MIUI: báo thẳng số cho launcher (HyperOS có thể đã bỏ — đo 01/11: không hại)
             val f = n.javaClass.getDeclaredField("extraNotification"); f.isAccessible = true

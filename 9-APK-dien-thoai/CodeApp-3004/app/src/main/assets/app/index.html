@@ -290,6 +290,32 @@
   .khoi-xong .viec { margin: 0 0 6px; }
   .viec .dau .r.xong { color: #15803D; font-weight: 600; }
   #dn-loi { margin-top: 12px; color: var(--do); font-size: 13.5px; min-height: 18px; }
+  #dn-loi.goi-y-dc { color: var(--phu); }
+  /* ---- bản 3004: mục «Trợ lý» — chat với trợ lý AI của Main (cổng 3010), duyệt 01/11/2026 ---- */
+  #man-chat { background: var(--nen); flex-direction: column; } #man-chat.mo { display: flex; }
+  #man-chat .tb-dau .doc-het { color: #fff; border: 0; background: none; padding: 0 8px; font-size: 14px; font-weight: 600; }
+  #chat-ten { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  #chat-than { flex: 1; overflow-y: auto; padding: 10px 12px 16px; -webkit-overflow-scrolling: touch; }
+  .ct-tin { margin: 0 0 14px; } .ct-tin .ai { display: inline-grid; place-items: center; width: 22px; height: 22px; border-radius: 50%; background: var(--cam); color: #fff; font: 700 10px Arial, sans-serif; margin-right: 6px; vertical-align: middle; }
+  .ct-tin .dau-ai { font-size: 12.5px; color: var(--phu); margin-bottom: 4px; } .ct-tin .dau-ai b { color: var(--muc); }
+  .ct-nd { font-size: 14.5px; line-height: 1.5; color: var(--muc); overflow-wrap: anywhere; } .ct-nd p { margin: 0 0 6px; } .ct-nd h4 { margin: 8px 0 4px; font-size: 15px; }
+  .ct-nd code { background: #F1EFEB; border-radius: 4px; padding: 0 4px; font-size: 13px; } .ct-nd a { color: var(--cam-chu); font-weight: 600; text-decoration: underline; }
+  .ct-nd .bang { overflow-x: auto; margin: 4px 0 8px; } .ct-nd table { border-collapse: collapse; font-size: 13px; } .ct-nd td, .ct-nd th { border: 1px solid var(--vien); padding: 4px 6px; text-align: left; vertical-align: top; } .ct-nd th { background: #F4F1EC; }
+  .ct-tin.nguoi { display: flex; flex-direction: column; align-items: flex-end; } .ct-tin.nguoi .ct-nd { max-width: 86%; padding: 9px 12px; border-radius: 14px 14px 4px 14px; background: #1E293B; color: #F8FAFC; white-space: pre-wrap; }
+  .ct-gio { font-size: 11.5px; color: #A8A29E; margin-top: 3px; }
+  .ct-chip { display: block; margin: 5px 0 0; padding: 6px 10px; border: 1px solid #86EFAC; border-radius: 14px; background: #F0FDF4; color: #15803D; font-size: 12.5px; font-weight: 600; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; } .ct-chip.hong { border-color: #FCA5A5; background: #FEF2F2; color: var(--do); }
+  .ct-cho { margin: 8px 0 0; padding: 9px 10px; border: 1px solid #FDBA74; border-radius: 12px; background: #FFF7ED; font-size: 13px; } .ct-cho .hai-nut { margin-top: 8px; }
+  .ct-doi { color: var(--phu); font-size: 13.5px; font-style: italic; }
+  .ct-loi { margin: 8px 0; padding: 8px 10px; border-radius: 10px; background: #FEF2F2; color: var(--do); font-size: 13.5px; }
+  .ct-trong { padding: 30px 10px; text-align: center; color: var(--phu); font-size: 14px; line-height: 1.5; }
+  .ct-viet { flex: none; display: grid; grid-template-columns: 1fr auto; gap: 8px; padding: 8px 10px calc(8px + env(safe-area-inset-bottom)); border-top: 1px solid var(--vien); background: var(--the); }
+  .ct-viet textarea { min-height: 44px; max-height: 140px; padding: 10px; border: 1px solid #D5D2CD; border-radius: 12px; resize: none; font: inherit; font-size: 15px; }
+  .ct-viet textarea:focus { outline: none; border-color: var(--cam); }
+  .ct-viet button { width: 48px; border: 0; border-radius: 50%; background: var(--cam); color: #fff; font-size: 20px; font-weight: 700; align-self: end; height: 48px; } .ct-viet button:disabled { opacity: .45; }
+  .ct-phien { display: block; width: 100%; text-align: left; padding: 12px 14px; border: 0; border-bottom: 1px solid var(--vien); background: var(--the); font-size: 14.5px; } .ct-phien small { display: block; color: var(--phu); font-size: 12px; margin-top: 2px; } .ct-phien.dang { background: var(--cam-nhat); }
+  .ct-dn { padding: 18px 16px; } .ct-dn p { color: var(--phu); font-size: 13.5px; margin: 0 0 12px; } .ct-dn label { display: block; margin: 10px 0 4px; font-size: 13.5px; font-weight: 600; }
+  .ct-dn input { width: 100%; box-sizing: border-box; padding: 11px 12px; border: 1px solid #D5D2CD; border-radius: 9px; font: inherit; font-size: 15px; background: #fff; }
+  .ct-dn .nut-dn { margin-top: 16px; width: 100%; padding: 12px; border: 0; border-radius: 10px; background: var(--cam); color: #fff; font-weight: 700; font-size: 15px; } .ct-dn .nut-dn:disabled { opacity: .6; }
 </style>
 </head>
 <body>
@@ -316,6 +342,7 @@
     <button data-t="pb"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="3" width="6" height="5" rx="1"/><rect x="3" y="16" width="6" height="5" rx="1"/><rect x="15" y="16" width="6" height="5" rx="1"/><path d="M12 8v4M6 16v-4h12v4"/></svg>Phòng ban</button>
     <button data-t="da"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 20h18M5 20V9l7-5 7 5v11M9 20v-6h6v6"/></svg>Dự án</button>
     <button data-t="ph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="17" rx="2"/><path d="M3 10h18M8 2v4M16 2v4"/></svg>Phòng họp</button>
+    <button data-t="chat"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 20l1-4.6A8 8 0 1 1 21 12z"/><path d="M8.5 11h.01M12 11h.01M15.5 11h.01"/></svg>Trợ lý</button>
   </nav>
 
   <div id="man-chon"><div class="chon-khung"><div class="chon-dau"><b id="chon-tieu"></b><button id="chon-dong" aria-label="Đóng">✕</button></div><input id="chon-q" type="search" placeholder="Gõ tên phòng hoặc tên người để tìm…" autocomplete="off"><div id="chon-ds"></div></div></div>
@@ -341,16 +368,21 @@
     <div class="tb-dau"><button class="lui" id="cd-lui" aria-label="Quay lại">‹</button><b>Giữ thông báo không bị lỡ</b></div>
     <div id="ds-cd" style="flex:1;overflow-y:auto"></div>
   </div>
+  <div class="tang" id="man-chat">
+    <div class="tb-dau"><button class="lui" id="chat-lui" aria-label="Quay lại">‹</button><b id="chat-ten">Trợ lý Main</b><button class="doc-het" id="chat-ds-nut">Phiên cũ</button><button class="doc-het" id="chat-moi">+ Mới</button></div>
+    <div id="chat-than"></div>
+    <div class="ct-viet" id="chat-viet"><textarea id="chat-o" rows="1" placeholder="Nhắn cho trợ lý Main…" enterkeyhint="send"></textarea><button id="chat-gui" aria-label="Gửi">↑</button></div>
+  </div>
   <div class="man" id="man"><div class="khung" id="khung"></div></div>
   <div id="toast"></div>
 
   <div class="dn" id="man-dn">
-    <h1>SCI Công việc</h1>
-    <p>Đăng nhập bằng tài khoản SCI Công việc. Chỉ phải đăng nhập một lần trên máy này.</p>
+    <h1>SCI Công việc 3004</h1>
+    <p>Đăng nhập bằng tài khoản SCI Công việc. Chỉ phải đăng nhập một lần trên máy này. Địa chỉ máy chủ là IP máy tính chạy 3004 trong mạng Wi-Fi, ví dụ http://192.168.1.10:3004 (điện thoại không vào được «localhost» của máy tính).</p>
     <form id="dn-f">
       <label for="dn-e">Email</label><input id="dn-e" type="email" autocomplete="username" required>
       <label for="dn-m">Mật khẩu</label><input id="dn-m" type="password" autocomplete="current-password" required>
-      <label for="dn-s">Địa chỉ máy chủ</label><input id="dn-s" type="url" spellcheck="false" autocapitalize="off">
+      <label for="dn-s">Địa chỉ máy chủ</label><input id="dn-s" type="url" spellcheck="false" autocapitalize="off" placeholder="http://192.168.1.10:3004">
       <button id="dn-b" type="submit">Đăng nhập</button>
       <div id="dn-loi"></div>
     </form>

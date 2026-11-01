@@ -36,22 +36,38 @@ object Cfg {
             .setBlockModes(KeyProperties.BLOCK_MODE_GCM).setEncryptionPaddings(KeyProperties.ENCRYPTION_PADDING_NONE).setKeySize(256).build())
         return g.generateKey()
     }
-    fun luuMk(c: Context, mk: String) {
+    private fun maHoa(c: Context, ten: String, mk: String) {
         try {
             val ci = Cipher.getInstance("AES/GCM/NoPadding").apply { init(Cipher.ENCRYPT_MODE, khoaMk()) }
-            p(c).edit().putString("mk", Base64.encodeToString(ci.iv + ci.doFinal(mk.toByteArray(Charsets.UTF_8)), Base64.NO_WRAP)).apply()
+            p(c).edit().putString(ten, Base64.encodeToString(ci.iv + ci.doFinal(mk.toByteArray(Charsets.UTF_8)), Base64.NO_WRAP)).apply()
         } catch (_: Exception) { /* máy không mã hoá được: không nhớ, vẫn đăng nhập bình thường */ }
     }
-    /** null = chưa nhớ, hoặc không giải mã được (vd máy khôi phục từ bản sao lưu — khoá Keystore không theo sang) */
-    fun mk(c: Context): String? {
-        val s = p(c).getString("mk", null) ?: return null
+    private fun giaiMa(c: Context, ten: String): String? {
+        val s = p(c).getString(ten, null) ?: return null
         return try {
             val b = Base64.decode(s, Base64.NO_WRAP)
             val ci = Cipher.getInstance("AES/GCM/NoPadding").apply { init(Cipher.DECRYPT_MODE, khoaMk(), GCMParameterSpec(128, b, 0, 12)) }
             String(ci.doFinal(b, 12, b.size - 12), Charsets.UTF_8)
         } catch (_: Exception) { null }
     }
+    fun luuMk(c: Context, mk: String) = maHoa(c, "mk", mk)
+    /** null = chưa nhớ, hoặc không giải mã được (vd máy khôi phục từ bản sao lưu — khoá Keystore không theo sang) */
+    fun mk(c: Context): String? = giaiMa(c, "mk")
     fun xoaMk(c: Context) { p(c).edit().remove("mk").apply() }
+
+    // ---- Phiên THỨ HAI: trợ lý AI của Main (cổng 3010) — sổ người dùng + cookie riêng của Main (bản 3004, duyệt 01/11/2026) ----
+    fun serverMain(c: Context): String = p(c).getString("main_server", "") ?: ""
+    fun cookieMain(c: Context): String = p(c).getString("main_cookie", "") ?: ""
+    fun emailMain(c: Context): String = p(c).getString("main_email", "") ?: ""
+    fun luuPhienMain(c: Context, server: String, email: String, cookie: String) {
+        p(c).edit().putString("main_server", server).putString("main_email", email).putString("main_cookie", cookie).apply()
+    }
+    fun luuMkMain(c: Context, mk: String) = maHoa(c, "main_mk", mk)
+    fun mkMain(c: Context): String? = giaiMa(c, "main_mk")
+    /** Hết phiên Main: bỏ cookie, nhớ địa chỉ + email để đăng nhập lại nhanh */
+    fun xoaPhienMain(c: Context) { p(c).edit().remove("main_cookie").apply() }
+    /** Bấm «Thoát trợ lý Main» hoặc Đăng xuất app: quên cả mật khẩu Main */
+    fun quenMain(c: Context) { p(c).edit().remove("main_cookie").remove("main_mk").apply() }
 
     /** Hết phiên / đăng xuất: bỏ cookie nhưng nhớ địa chỉ máy chủ + email để đăng nhập lại cho nhanh (mật khẩu nhớ thì giữ, trừ khi bấm Đăng xuất) */
     fun xoaPhien(c: Context) {

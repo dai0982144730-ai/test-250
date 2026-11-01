@@ -201,8 +201,47 @@ class Cau(private val a: Activity, private val web: WebView) {
     @JavascriptInterface
     fun dongBoNgay() { Thread { Nhip.chay(a) }.start() }
 
+    // ---- Trợ lý AI của Main (cổng 3010) — chỉ bản 3004. Kết quả về qua window.__cb(id, mã, chuỗi); mã 401 = cần đăng nhập Main ----
+    @JavascriptInterface
+    fun mainTrangThai(): String = JSONObject()
+        .put("dangNhap", Cfg.cookieMain(a).isNotEmpty() && Cfg.serverMain(a).isNotEmpty())
+        .put("server", Cfg.serverMain(a).ifEmpty { TroLyMain.diaChiGoiY(a) })
+        .put("email", Cfg.emailMain(a).ifEmpty { Cfg.email(a) })
+        .put("coMk3004", Cfg.mk(a) != null)
+        .toString()
+
+    @JavascriptInterface
+    fun mainDangNhap(id: Int, server: String, email: String, mk: String) {
+        Thread {
+            val loi = TroLyMain.dangNhap(a, server, email, mk)
+            tra(id, if (loi == null) 200 else 400, JSONObject().put("loi", loi ?: "").toString())
+        }.start()
+    }
+
+    @JavascriptInterface
+    fun mainApi(id: Int, method: String, path: String, body: String) {
+        // chỉ cho các cửa trợ lý — vỏ không thành đường gọi tuỳ ý vào Main
+        if (!path.startsWith("/api/ai/chat")) { tra(id, 400, JSONObject().put("loi", "Đường không được phép").toString()); return }
+        Thread {
+            try {
+                val kq = TroLyMain.goi(a, method, path, if (body.isEmpty()) null else body)
+                tra(id, kq.ma, kq.noiDung)
+            } catch (e: TroLyMain.HetPhien) {
+                tra(id, 401, "{}")
+            } catch (e: Api.LoiMang) {
+                tra(id, 0, JSONObject().put("loi", e.message ?: "Không kết nối được Main").toString())
+            } catch (e: Exception) {
+                tra(id, 0, JSONObject().put("loi", "Không kết nối được Main").toString())
+            }
+        }.start()
+    }
+
+    @JavascriptInterface
+    fun mainThoat() { Cfg.quenMain(a) }
+
     @JavascriptInterface
     fun dangXuat() {
+        Cfg.quenMain(a) // bản 3004: đăng xuất app = quên cả phiên + mật khẩu trợ lý Main
         Cfg.xoaMk(a) // bấm Đăng xuất = quên luôn mật khẩu nhớ
         Cfg.xoaPhien(a)
         Bao.huyTatCa(a)
@@ -269,7 +308,7 @@ class Cau(private val a: Activity, private val web: WebView) {
             )
             "pin-xiaomi" -> thu(
                 Intent().setComponent(ComponentName("com.miui.powerkeeper", "com.miui.powerkeeper.ui.HiddenAppsConfigActivity"))
-                    .putExtra("package_name", a.packageName).putExtra("package_label", "SCI Công việc"),
+                    .putExtra("package_name", a.packageName).putExtra("package_label", "SCI Công việc 3004"),
                 chiTiet,
             )
             "autostart" -> thu(Intent().setComponent(ComponentName("com.miui.securitycenter", "com.miui.permcenter.autostart.AutoStartManagementActivity")), chiTiet)
