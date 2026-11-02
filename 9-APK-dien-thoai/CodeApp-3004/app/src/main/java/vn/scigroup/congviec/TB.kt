@@ -9,9 +9,11 @@ import android.content.Intent
 
 /** Kênh + thông báo Android. Bốn kênh để người dùng chỉnh riêng từng loại và để Xiaomi không gộp lẫn vào «thông báo gấp nếp». */
 object TB {
-    const val K_HOP = "hop"
-    const val K_QUAHAN = "quahan"
-    const val K_CHUNG = "chung"
+    // 02/11/2026 (ảnh Mr. Đại: biểu tượng 9, chuông 4): Xiaomi CỘNG số của thông báo «Số trên biểu tượng» với MỖI thông báo tin/họp đang
+    // nằm trong khay (mỗi cái +1) → 4 + 5 = 9. Ba kênh tin/họp phải TẮT huy hiệu; kênh cũ không đổi được sau khi tạo → kênh mới «…2»
+    const val K_HOP = "hop2"
+    const val K_QUAHAN = "quahan2"
+    const val K_CHUNG = "chung2"
     const val K_TT = "trangthai3" // kênh cũ không cho đổi sau khi tạo → kênh mới, TẮT huy hiệu: thông báo cố định không được tính vào số trên biểu tượng (29/10/2026)
     @Volatile private var coDinhCuoi = ""
     @Volatile private var huyHieuCuoi = -1
@@ -36,9 +38,10 @@ object TB {
             ch.setShowBadge(huyHieu)
             nm.createNotificationChannel(ch)
         }
-        k(K_HOP, "Họp", NotificationManager.IMPORTANCE_HIGH, "Chuẩn bị đi họp, đến giờ họp, lịch họp mới", true)
-        k(K_QUAHAN, "Việc quá hạn", NotificationManager.IMPORTANCE_HIGH, "Việc quá hạn, Ban lãnh đạo nhắc việc, báo cáo bị trả lại", true)
-        k(K_CHUNG, "Chung", NotificationManager.IMPORTANCE_DEFAULT, "Bình luận và các tin khác", true)
+        for (cu in listOf("hop", "quahan", "chung")) try { nm.deleteNotificationChannel(cu) } catch (_: Exception) {}
+        k(K_HOP, "Họp", NotificationManager.IMPORTANCE_HIGH, "Chuẩn bị đi họp, đến giờ họp, lịch họp mới", true, huyHieu = false)
+        k(K_QUAHAN, "Việc quá hạn", NotificationManager.IMPORTANCE_HIGH, "Việc quá hạn, Ban lãnh đạo nhắc việc, báo cáo bị trả lại", true, huyHieu = false)
+        k(K_CHUNG, "Chung", NotificationManager.IMPORTANCE_DEFAULT, "Bình luận và các tin khác", true, huyHieu = false)
         try { nm.deleteNotificationChannel("huyhieu") } catch (_: Exception) {} // kênh cũ mức THẤP: HyperOS không tính vào số trên biểu tượng
         k(K_HH, "Số trên biểu tượng", NotificationManager.IMPORTANCE_DEFAULT, "Thông báo im lặng chỉ để hiện con số việc/họp chưa xem trên biểu tượng ứng dụng", false)
         try { nm.deleteNotificationChannel("trangthai2") } catch (_: Exception) {}
